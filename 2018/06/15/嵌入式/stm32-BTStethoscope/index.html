@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="项目简介 使用ADC1的2个通道 每个按照2KHz的采样频率进行采样 ADC1的采样精度为12bits，数据寄存器为16bits 串口设置为 115200bps, 1个停止位，没有校验位，8个数据位，禁用流控制 使用双缓冲，用于改善数据从ADC -&amp;gt; 内存 -&amp;gt; 串口的传输  流程总结 设置系统时钟 设置定时器TIM3 设置ADC1 设置串口USART1 设置DMA 设置中断控制器，允">
+<meta name="keywords" content="stm32">
+<meta property="og:type" content="article">
+<meta property="og:title" content="stm32+串口蓝牙">
+<meta property="og:url" content="http://yoursite.com/2018/06/15/嵌入式/stm32-BTStethoscope/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="项目简介 使用ADC1的2个通道 每个按照2KHz的采样频率进行采样 ADC1的采样精度为12bits，数据寄存器为16bits 串口设置为 115200bps, 1个停止位，没有校验位，8个数据位，禁用流控制 使用双缓冲，用于改善数据从ADC -&amp;gt; 内存 -&amp;gt; 串口的传输  流程总结 设置系统时钟 设置定时器TIM3 设置ADC1 设置串口USART1 设置DMA 设置中断控制器，允">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/59571956.jpg">
+<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/8571648.jpg">
+<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/18983329.jpg">
+<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/95828997.jpg">
+<meta property="og:updated_time" content="2018-06-15T07:27:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="stm32+串口蓝牙">
+<meta name="twitter:description" content="项目简介 使用ADC1的2个通道 每个按照2KHz的采样频率进行采样 ADC1的采样精度为12bits，数据寄存器为16bits 串口设置为 115200bps, 1个停止位，没有校验位，8个数据位，禁用流控制 使用双缓冲，用于改善数据从ADC -&amp;gt; 内存 -&amp;gt; 串口的传输  流程总结 设置系统时钟 设置定时器TIM3 设置ADC1 设置串口USART1 设置DMA 设置中断控制器，允">
+<meta name="twitter:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/59571956.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/15/嵌入式/stm32-BTStethoscope/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>stm32+串口蓝牙 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/15/嵌入式/stm32-BTStethoscope/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">stm32+串口蓝牙
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-06-15 15:03:01 / Modified: 15:27:12" itemprop="dateCreated datePublished" datetime="2018-06-15T15:03:01+08:00">2018-06-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/15/嵌入式/stm32-BTStethoscope/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/15/嵌入式/stm32-BTStethoscope/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h3><ul>
+<li>使用ADC1的2个通道</li>
+<li>每个按照2KHz的采样频率进行采样</li>
+<li>ADC1的采样精度为12bits，数据寄存器为16bits</li>
+<li>串口设置为 115200bps, 1个停止位，没有校验位，8个数据位，禁用流控制</li>
+<li>使用双缓冲，用于改善数据从ADC -&gt; 内存 -&gt; 串口的传输</li>
+</ul>
+<h3 id="流程总结"><a href="#流程总结" class="headerlink" title="流程总结"></a>流程总结</h3><ol>
+<li>设置系统时钟</li>
+<li>设置定时器TIM3</li>
+<li>设置ADC1</li>
+<li>设置串口USART1</li>
+<li>设置DMA</li>
+<li>设置中断控制器，允许定时器中断，串口中断</li>
+<li>开启定时器</li>
+<li>定时时间到，产生定时器中断</li>
+<li>定时器中断中启动ADC采样一次</li>
+<li>采样完成，通过DMA将采样数据传送到串口发送缓冲区中</li>
+<li>串口发送缓冲区满，启动串口发送</li>
+<li>发送成功，产生串口发送中断，表示串口数据发送成功</li>
+</ol>
+<h3 id="第一，设置系统时钟"><a href="#第一，设置系统时钟" class="headerlink" title="第一，设置系统时钟"></a>第一，设置系统时钟</h3><p>stm32的系统时钟(SYSCLK)有三个时钟源选择：</p>
+<ul>
+<li>外部高速时钟(HSE)</li>
+<li>内部高速时钟(HSI)</li>
+<li>锁相环时钟(PLL)——其实是由外部高速时钟演变而来</li>
+</ul>
+<p>通常，使用8MHz的晶振作为stm32的时钟源，然后一生二，二生三，三生万物，最终形成一个完整的时钟系统。</p>
+<p>8MHz晶振 -&gt; SYSCLK -&gt; AHB和APB -&gt; 各种外设的时钟</p>
+<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-15/59571956.jpg" alt=""></p>
+<p>我的项目里的时钟设置，简化如下：</p>
+<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-15/8571648.jpg" alt=""></p>
+<p>TIM3的时钟挂载在APB1下，此外它还有自己的分频器</p>
+<p>ADC1的时钟挂载在APB2下，它也有自己的分频器</p>
+<p>USART1的时钟挂载在APB2下</p>
+<p>GPIO的时钟也挂载在APB2下</p>
+<h3 id="第二，设置定时器"><a href="#第二，设置定时器" class="headerlink" title="第二，设置定时器"></a>第二，设置定时器</h3><p><strong>理论知识点</strong></p>
+<p>通用定时器有三个核心的寄存器</p>
+<ul>
+<li>计数寄存器(TIMx_CNT)——计数</li>
+<li>自动重装载寄存器(TIMx_ARR)——每次计数到0都会从这个寄存器读入新的计数值</li>
+<li>预分频寄存器(TIMx_PSC)——用于设置定时器的预分频器</li>
+</ul>
+<p>此外，就是一些设置定时器工作方式的寄存器了</p>
+<ul>
+<li>定时器控制寄存器(TIMx_CR1、TIMx_CR2)——设置定时器时钟源的分频器、向上/下计数、使能计数器，选择定时器的通道等定时器状态寄存器(TIMx_SR)</li>
+<li>定时器中断/DMA使能寄存器——决定是否开启中断或DMA功能</li>
+<li>定时器事件产生寄存器(TIMx_EGR)——设置什么时候会产生事件，比如，计数寄存器更新的时候</li>
+<li>定时器捕获和比较寄存器 (TIMx_CCMR1)</li>
+</ul>
+<p><strong>项目设置</strong></p>
+<p>我的项目里设置定时器的三个核心寄存器如下：</p>
+<ul>
+<li>设置定时器时钟源的分频器为/1</li>
+<li>预分频器为/72</li>
+<li>计数寄存器和自动重装载寄存器的计数值为500</li>
+</ul>
+<p>而在第一步中可以知道，定时器挂载在APB1中，时钟频率为72MHz，因此可以得到定时器计时频率为2KHz</p>
+<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-15/18983329.jpg" alt=""></p>
+<p>至于工作模式</p>
+<ul>
+<li>设置定时器向上计数，即从0开始计数 ，计数值到达自动重装载寄存器的500-1之后，又回到0重新计数</li>
+<li>设置当发生计数更新时，产生一个TRGO信号，后面会用该TRGO信号来触发ADC采样。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">TIM3_Config</span><span class="params">(u16 psc, u16 arr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;</span><br><span class="line">	</span><br><span class="line">  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);</span><br><span class="line">	</span><br><span class="line">  TIM_TimeBaseStructure.TIM_ClockDivision = <span class="number">1</span>;</span><br><span class="line">	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;</span><br><span class="line">	TIM_TimeBaseStructure.TIM_Period = arr;</span><br><span class="line">  TIM_TimeBaseStructure.TIM_Prescaler = psc;</span><br><span class="line">	</span><br><span class="line">	TIM_TimeBaseInit(TIM3, &amp;TIM_TimeBaseStructure);</span><br><span class="line">	</span><br><span class="line">	TIM_SelectOutputTrigger(TIM3, TIM_TRGOSource_Update); 					<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤1(4)</span></span><br><span class="line">	</span><br><span class="line">	TIM_Cmd(TIM3,ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第三，设置ADC1"><a href="#第三，设置ADC1" class="headerlink" title="第三，设置ADC1"></a>第三，设置ADC1</h3><p><strong>理论知识点</strong></p>
+<p>​    一个ADC往往会有几个通道可以使用，且每个通道都有一条采样的输入线，每条输入线与GPIO口共用stm32的某个引脚。比如ADC1的通道1和通道2的输入线分别与GPIOA0和GPIOA1共用引脚，那么引脚就是用来做ADC的采样输入线还是做GPIO呢？这就需要我们还设置引脚的复用功能。</p>
+<p>​    ADC有两种好用的功能</p>
+<ul>
+<li>可以有多个通道依次采样，即多通道扫描功能</li>
+<li>可以设置循环采样；</li>
+</ul>
+<p>结合多通道扫描功能和循环采样功能，可以实现多通道循环扫描，也就是多个通道不停地轮流采样。</p>
+<p>​    不过要使用ADC的多通道扫描功能，就必须启用DMA功能，这样才能快速地将采样的数据从ADC中保存到内存中，避免被下一通道的数据覆盖。开启DMA功能后，会在每一次转换结束后产生DMA请求，DMA就立马行动起来。（当然我们还需要设置DMA。后面再说）</p>
+<p>​    ADC的启动也是有多种方式的，一种是通过写某个寄存器的某个位，手动启动ADC，也可以设置用外部信号来触发ADC采样。比如可以用定时器产生的TRGO信号来触发。</p>
+<p>​    stm32的ADC1采样精度为12bits，而ADC1的数据寄存器有16bits，那么采样的12bits数据怎么放到16bits中呢？这就产生了两种存放的方法，你可以将12bits放在16位寄存器的高12位（左对齐），也可以放在16位寄存器的低12位（右对齐）。</p>
+<p>​    ADC采样的时候并不是一瞬间就完成的，而是在一个较短的时间内采样，然后ADC内部将模拟量转成数字量。stm32内部可以设置采样的时间，但模拟量转成数字量的时间是固定的12.5个周期。从采样到最后变成数字量的这段时长就称为ADC的转换时间。</p>
+<p>$转换时间 = 采样时间 + 12.5周期$</p>
+<p>​    注意上面的采样时间和采样频率是不一样的概念。采样频率表示的是多久采一次，而采样时间是采一次要花多长时间。</p>
+<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-15/95828997.jpg" alt=""></p>
+<p><strong>项目设置</strong></p>
+<p>开通了ADC1的两个通道用来采样，当定时器产生TRGO信号时，触发ADC进行采样，设置ADC1用多通道循环采样的方式来采，每个通道采完都会产生一个DMA请求。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures the ADC1:</span></span><br><span class="line"><span class="comment">	* 				ADC_Mode_Independent,non-ContinuousConvMode,ScanConvMode,</span></span><br><span class="line"><span class="comment">	*					ExternalTrigConv_T3_TRGO,DataAlign_Right,2 channels(PA0,PA1)</span></span><br><span class="line"><span class="comment">  * @param  None</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC1_Config</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">/* ADC,GPIO 初始化结构体 */</span></span><br><span class="line">  ADC_InitTypeDef ADC_InitStructure;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC的时钟要单独设置，通常设为72/6 = 12MHz */</span></span><br><span class="line">	RCC_ADCCLKConfig(RCC_PCLK2_Div6);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 所有外设都要开启时钟，才能使用 */</span></span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_ADC1,ENABLE);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC1的两个通道PA0和PA1配置为模拟输入(共18个通道))*/</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC1工作方式配置：*/</span></span><br><span class="line">	ADC_DeInit(ADC1);	</span><br><span class="line">	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;</span><br><span class="line">	ADC_InitStructure.ADC_ContinuousConvMode= DISABLE;															<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤2(4)</span></span><br><span class="line">	ADC_InitStructure.ADC_ScanConvMode = ENABLE;</span><br><span class="line">	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T3_TRGO;					<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤3(4)</span></span><br><span class="line">	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;</span><br><span class="line">	ADC_InitStructure.ADC_NbrOfChannel = <span class="number">2</span>;</span><br><span class="line">	ADC_Init(ADC1, &amp;ADC_InitStructure);	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 两个通道配置 */</span></span><br><span class="line">	ADC_RegularChannelConfig(ADC1, ADC_Channel_0, <span class="number">1</span>, ADC_SampleTime_13Cycles5);</span><br><span class="line">	ADC_RegularChannelConfig(ADC1, ADC_Channel_1, <span class="number">2</span>, ADC_SampleTime_13Cycles5);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 使能ADC的外部触发转换（外部触发源将在tim.c文件中设置成TIM1更新事件）*/</span></span><br><span class="line">	ADC_ExternalTrigConvCmd(ADC1,ENABLE);																						<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤4(4)</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/* ADC必须开启DMA功能才能使用扫描模式 */</span></span><br><span class="line">	ADC_DMACmd(ADC1, ENABLE);</span><br><span class="line">	</span><br><span class="line">	ADC_Cmd(ADC1, ENABLE);	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC内置校准电路，上电后都要进行校准 */</span></span><br><span class="line">	ADC_ResetCalibration(ADC1);		 </span><br><span class="line">	<span class="keyword">while</span>(ADC_GetResetCalibrationStatus(ADC1));	</span><br><span class="line">	ADC_StartCalibration(ADC1);	 </span><br><span class="line">	<span class="keyword">while</span>(ADC_GetCalibrationStatus(ADC1));	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第四，设置ADC1对应的DMA通道"><a href="#第四，设置ADC1对应的DMA通道" class="headerlink" title="第四，设置ADC1对应的DMA通道"></a>第四，设置ADC1对应的DMA通道</h3><p>​    DMA包含有多个通道，可以设置每个通道用来处理不同的事务。比如前面我们设置ADC会产生DMA请求，那么DMA怎么处理呢？</p>
+<p>​    我们知道，DMA的功能是可以将数据从外设传送到内存中，或者从一片内存传送到另一片内存中。</p>
+<p>​    而ADC开启DMA功能的原因就是：希望ADC产生DMA请求之后，DMA可以帮忙将ADC的数据寄存器里的数据保存到内存中。知道这个目标，我们就可以分析出这个DMA通道需要知道哪些信息才能完成工作了。</p>
+<ul>
+<li>数据的来源在哪里？——ADC的数据寄存器</li>
+<li>数据送到哪里去？——内存的buffer数组</li>
+<li>一个数据有多大？——ADC的数据寄存器为16位，说明一个数据占2个字节</li>
+<li>送多少个数据过去？——ADC希望每采一个通道就立马把数据保存到内存中，说明一次只要传一个数据</li>
+<li>怎么知道数据到底传出去没有？——DMA通道也可以启动中断功能，一旦传送完成，就产生一个中断</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures DMA of ADC1:</span></span><br><span class="line"><span class="comment">	* 				from peripheral(ADC1) to memory,</span></span><br><span class="line"><span class="comment">	*					datasize of peripheral and memory are both halfword,</span></span><br><span class="line"><span class="comment">	* 				MemoryInc_Enable, PeripheralInc_Disable</span></span><br><span class="line"><span class="comment">	* 				DMA_Mode_Circular!</span></span><br><span class="line"><span class="comment">	*					enable DMA_IT_TC</span></span><br><span class="line"><span class="comment">  * @param  memBaseAddr: Where you want to store values of ADC convertion.</span></span><br><span class="line"><span class="comment">	* 				periphBaseAddr: DR of ADC1</span></span><br><span class="line"><span class="comment">	*					bufferSize: Its unit depends on direction of transmission</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC1_DMA_Config</span><span class="params">(u32 memBaseAddr, u32 periphBaseAddr, u32 bufferSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DMA_InitTypeDef DMA_InitStructure;</span><br><span class="line">	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);</span><br><span class="line"></span><br><span class="line">	DMA_DeInit(DMA1_Channel1);</span><br><span class="line">	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;															<span class="comment">//循环模式，每次传输完成，都会重新指向缓冲区的开头</span></span><br><span class="line">	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC ;													<span class="comment">//ADC1-&gt;DR &gt;&gt; 缓冲区 </span></span><br><span class="line">	DMA_InitStructure.DMA_BufferSize = bufferSize;															<span class="comment">//设定缓冲区大小，单位与MemoryDataSize或者PeripheralDataSize相同</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryBaseAddr = memBaseAddr;													<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord ;				<span class="comment">//缓冲区数据宽度为半字(16bits)</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;											<span class="comment">//缓冲区地址递增</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralBaseAddr = periphBaseAddr;									<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;	<span class="comment">//ADC1-&gt;DR的数据宽度也是半字(16bits),实际上，ADC分辨率只有12bits</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;						<span class="comment">//外设地址不增</span></span><br><span class="line">	DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;												<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;																<span class="comment">//</span></span><br><span class="line">	</span><br><span class="line">	DMA_Init(DMA1_Channel1, &amp;DMA_InitStructure);</span><br><span class="line">	</span><br><span class="line">	DMA_ITConfig(DMA1_Channel1, DMA_IT_TC, ENABLE);															<span class="comment">//开启DMA传输完成中断</span></span><br><span class="line">	DMA_Cmd(DMA1_Channel1, ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第五，设置串口USART1"><a href="#第五，设置串口USART1" class="headerlink" title="第五，设置串口USART1"></a>第五，设置串口USART1</h3><p>（1）设置串口的时钟源</p>
+<p>串口也需要设置时钟，它的时钟源挂载在APB2下（36MHz）。</p>
+<p>（2）设置stm32的引脚复用作为USART1的Tx和Rx</p>
+<p>串口的Tx和Rx分别与GPIOA9和GPIO10共用引脚，因此需要设置引脚的复用功能。</p>
+<p>（3）设置串口的参数</p>
+<p>一般串口需要设置以下的参数：</p>
+<ul>
+<li>串口的波特率是多少？</li>
+<li>串口是用来接收的，发送的，还是既能接收又能发送的？</li>
+<li>串口接收或者发送的数据是否有奇偶校验位？有的话，是奇校验还是偶校验？</li>
+<li>数据有几个停止位？</li>
+<li>真实数据的长度有多长？8bits？9bits？</li>
+<li>串口要不要使用流量控制的功能？</li>
+</ul>
+<p>串口设置如下：115200bps, 没有校验位，1个停止位，8位数据长度，禁用流控制</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures the USART1:</span></span><br><span class="line"><span class="comment">	* 				1.Configure PA9 and PA10; </span></span><br><span class="line"><span class="comment">	*					2.Configure USART1 </span></span><br><span class="line"><span class="comment">  * @param  None</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_Config</span><span class="params">(u32 bound)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	USART_InitTypeDef USART_InitStructure;</span><br><span class="line">	</span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* GPIO configuration*/</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* USART1 configuration*/</span></span><br><span class="line">	USART_InitStructure.USART_BaudRate = bound;</span><br><span class="line">	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx ;								<span class="comment">//收发模式</span></span><br><span class="line">	USART_InitStructure.USART_Parity = USART_Parity_No;</span><br><span class="line">	USART_InitStructure.USART_StopBits = USART_StopBits_1;													<span class="comment">//1位停止位</span></span><br><span class="line">	USART_InitStructure.USART_WordLength = USART_WordLength_8b;											<span class="comment">//8bits数据宽度						</span></span><br><span class="line">	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;</span><br><span class="line">	</span><br><span class="line">	USART_Init(USART1, &amp;USART_InitStructure);	</span><br><span class="line">	USART_DMACmd(USART1, USART_DMAReq_Tx, ENABLE);</span><br><span class="line">	USART_Cmd(USART1, ENABLE);                    <span class="comment">//使能串口 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第六，设置USART1对应的DMA通道"><a href="#第六，设置USART1对应的DMA通道" class="headerlink" title="第六，设置USART1对应的DMA通道"></a>第六，设置USART1对应的DMA通道</h3><p>串口是用来发送数据的，那数据是什么呢？</p>
+<p>我的项目里串口是用来发送ADC的采样数据的。为了方便快捷，我为USART1也开了一个DMA通道，可以将前面保存到buffer中的ADC采样数据通过DMA送到串口的发送缓冲寄存器中。同样面临一样的DMA该怎么设置的问题：</p>
+<ul>
+<li>数据的来源是什么？——保存在内存buffer中的ADC采样数据</li>
+<li>数据送到哪里去？——送到USART1的发送缓冲寄存器中</li>
+<li>一个数据有多大？——因为串口的发送缓冲寄存器只有8位，因此一次只能传8bits</li>
+<li>传多少数据？——buffer的作用就是缓存。所以我等ADC的两个通道每个通道采56次数据，然后再加上帧头跟帧尾6个字节，组成一个数据帧，一共有$2通道 <em> 56次/通道 </em> 16bits/次 + 6bytes = 230 bytes$，也就是说每次传230个字节的数据</li>
+<li>什么时候串口对应的DMA通道开始工作？——缓冲区满了以后。我们知道缓冲区有多大，知道每个数据有多大，自然就知道什么时候缓冲区会满</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures DMA of USART1:</span></span><br><span class="line"><span class="comment">	* 				from memory to peripheral(USART1),</span></span><br><span class="line"><span class="comment">	*					datasize of peripheral and memory are both Byte(8bits),</span></span><br><span class="line"><span class="comment">	* 				MemoryInc_Enable, PeripheralInc_Disable</span></span><br><span class="line"><span class="comment">	* 				DMA_Mode_Circular!</span></span><br><span class="line"><span class="comment">	*					enable DMA_IT_TC</span></span><br><span class="line"><span class="comment">  * @param  memBaseAddr: Where you contents your data.</span></span><br><span class="line"><span class="comment">	* 				periphBaseAddr: DR of USART1</span></span><br><span class="line"><span class="comment">	*					bufferSize: Its unit depends on direction of transmission</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_TX_DMA_Config</span><span class="params">(u32 memBaseAddr, u32 periphBaseAddr, u32 bufferSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DMA_InitTypeDef DMA_InitStructure;</span><br><span class="line">	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);</span><br><span class="line"></span><br><span class="line">	DMA_DeInit(DMA1_Channel4);</span><br><span class="line">	DMA_InitStructure.DMA_BufferSize = bufferSize;</span><br><span class="line">	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST ;</span><br><span class="line">	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryBaseAddr = memBaseAddr;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte ;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;</span><br><span class="line">	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralBaseAddr = periphBaseAddr;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralDataSize = DMA_MemoryDataSize_Byte;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable ;</span><br><span class="line">	DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;</span><br><span class="line">	</span><br><span class="line">	DMA_Init(DMA1_Channel4, &amp;DMA_InitStructure);</span><br><span class="line">	</span><br><span class="line">	DMA_ITConfig(DMA1_Channel4, DMA_IT_TC, ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第七，启动定时器，一切按部就班开始运行"><a href="#第七，启动定时器，一切按部就班开始运行" class="headerlink" title="第七，启动定时器，一切按部就班开始运行"></a>第七，启动定时器，一切按部就班开始运行</h3><ul>
+<li>定时时间到，触发ADC开始采样</li>
+<li>ADC每次采样后触发DMA，DMA将采样数据保存到内存缓冲区buffer中</li>
+<li>buffer满了以后，就触发DMA，将buffer中的数据一个一个送到串口的发送寄存器中</li>
+<li>串口发送寄存器有了数据，就会触发发送功能。于是数据源源不断发送出去。</li>
+</ul>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>​    为了采样和数据发送可以同时进行，我在内存中开辟了两个buffer，上面为了解释方便，我并没有说明这一点。我们已经知道内存中的buffer有两个作用</p>
+<ul>
+<li>保存ADC的采样数据到buffer中</li>
+<li>从buffer中将数据送到串口中</li>
+</ul>
+<p>​    假设只使用一个buffer，那么buffer满了之后，就需要暂停采样，才能用DMA将buffer的数据送到串口中。而暂停采样将会导致采样断断续续，很不合理。</p>
+<p>​    如果使用两个buffer，事情就好办了。可以让采样的数据保存在buffer1中，而将buffer2中的数据送到串口。等buffer1满了，反过来，将采样的数据保存在buffer2中，而将buffer1中的数据送到串口。</p>
+<p>​    当然，这还涉及到采样数据产生的速度和数据发送出去的速度。很容易理解，数据发送的速度必须比数据产生的速度快才行，不然会有一部分数据丢失。</p>
+<p>分析两者：</p>
+<p>（1）数据产生的速度</p>
+<p>采样频率为2KHz，2个通道，每次采样数据长度为2个字节，则数据产生的速度为</p>
+<p>$2000Hz <em> 2通道 </em> 2字节/次 = 8000字节/s = 64000bps$</p>
+<p>ADC产生数据后我们还会加上帧头帧尾，而且串口在发送的时候会加入停止位，导致每秒要发送的实际数据产生量比ADC每秒产生数据量要多一些，但也大不了太多。</p>
+<p>（2）串口发送的速度</p>
+<p>串口发送的速度115200bps &gt; 64000bps很多，即使算上帧头帧尾和串口发送时加入的停止位导致的开销，也完全可以满足串口发送的速度大于数据产生的速度</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/stm32/" rel="tag"># stm32</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/15/嵌入式/stm32-interrupt/" rel="next" title="stm32中断">
+                <i class="fa fa-chevron-left"></i> stm32中断
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/19/日常/Clion使用技巧/" rel="prev" title="clion使用技巧">
+                clion使用技巧 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WeetCheng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目简介"><span class="nav-number">1.</span> <span class="nav-text">项目简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程总结"><span class="nav-number">2.</span> <span class="nav-text">流程总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一，设置系统时钟"><span class="nav-number">3.</span> <span class="nav-text">第一，设置系统时钟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二，设置定时器"><span class="nav-number">4.</span> <span class="nav-text">第二，设置定时器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三，设置ADC1"><span class="nav-number">5.</span> <span class="nav-text">第三，设置ADC1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四，设置ADC1对应的DMA通道"><span class="nav-number">6.</span> <span class="nav-text">第四，设置ADC1对应的DMA通道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五，设置串口USART1"><span class="nav-number">7.</span> <span class="nav-text">第五，设置串口USART1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六，设置USART1对应的DMA通道"><span class="nav-number">8.</span> <span class="nav-text">第六，设置USART1对应的DMA通道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七，启动定时器，一切按部就班开始运行"><span class="nav-number">9.</span> <span class="nav-text">第七，启动定时器，一切按部就班开始运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后记"><span class="nav-number">10.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WeetCheng</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/06/15/嵌入式/stm32-BTStethoscope/';
+        this.page.identifier = '2018/06/15/嵌入式/stm32-BTStethoscope/';
+        this.page.title = 'stm32+串口蓝牙';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

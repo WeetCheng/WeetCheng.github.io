@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="转载自：多动态图详细讲解二叉搜索树 作者：luffic 在计算机科学中，二叉搜索树（Binary Search Tree）（有时称为有序或排序的二叉树）是一种能存储特定数据类型的容器。二叉搜索树允许快速查找、添加或者删除某一个节点，并且它是动态的集合。二叉搜索树按照关键字顺序地保存节点，因此查找和其他操作可以使用二叉搜索原理：当在树（或者寻找插入新节点的地方）中查找节点时，它从根节点遍历到叶节点，">
+<meta name="keywords" content="编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树讲解">
+<meta property="og:url" content="http://yoursite.com/2018/07/12/数据结构与算法/binary-tree-2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="转载自：多动态图详细讲解二叉搜索树 作者：luffic 在计算机科学中，二叉搜索树（Binary Search Tree）（有时称为有序或排序的二叉树）是一种能存储特定数据类型的容器。二叉搜索树允许快速查找、添加或者删除某一个节点，并且它是动态的集合。二叉搜索树按照关键字顺序地保存节点，因此查找和其他操作可以使用二叉搜索原理：当在树（或者寻找插入新节点的地方）中查找节点时，它从根节点遍历到叶节点，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://static.lufficc.com/image/08dc83f3bff58335354b0e92c5f1e3a4.png">
+<meta property="og:image" content="https://static.lufficc.com/image/4b899ff7efabbc8eeb5a89c766d4c7f9.gif">
+<meta property="og:image" content="https://static.lufficc.com/image/1d2971466d707afea63848d8ff1819d6.gif">
+<meta property="og:image" content="https://static.lufficc.com/image/f7a94798ed0a119cc9bb51eb19620e91.gif">
+<meta property="og:image" content="https://static.lufficc.com/image/8bd06a98a87c2103de26010413454645.gif">
+<meta property="og:image" content="https://static.lufficc.com/image/e487db1de1bb0138d925a193d60cafa7.gif">
+<meta property="og:image" content="https://static.lufficc.com/image/2bc42a442c637772fc62e48ddda211d1.gif">
+<meta property="og:image" content="https://static.lufficc.com/image/428df4bcae641c08ff0e049d7cdf7711.gif">
+<meta property="og:image" content="https://static.lufficc.com/image/cf4a29bbf497763af823c3da5048ec32.png">
+<meta property="og:image" content="https://static.lufficc.com/image/21fe24091d17ba82f64aec0e973dbed2.gif">
+<meta property="og:image" content="https://static.lufficc.com/image/064534db4f36c6d5e5b7f425b0d1915b.png">
+<meta property="og:image" content="https://static.lufficc.com/image/94583c3a70a3a0e9c9d17c27482c2b68.gif">
+<meta property="og:image" content="https://static.lufficc.com/image/f1774f832f870b121909b0dc7d27b08a.gif">
+<meta property="og:image" content="https://static.lufficc.com/image/7c5bf7ed18e03a52118c4d7293cb7d95.png">
+<meta property="og:image" content="https://static.lufficc.com/image/5719e314f6dc71c8d2dab91c613c4234.gif">
+<meta property="og:image" content="https://static.lufficc.com/image/5c736a8e765db3cb6f76f8e81e7ea005.png">
+<meta property="og:image" content="https://static.lufficc.com/image/724901291a2138ab3fbc12e66b64c23c.png">
+<meta property="og:image" content="https://static.lufficc.com/image/48ecb1feea1b39d7b9512e6a4b9a1241.gif">
+<meta property="og:updated_time" content="2018-07-12T01:16:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="二叉树讲解">
+<meta name="twitter:description" content="转载自：多动态图详细讲解二叉搜索树 作者：luffic 在计算机科学中，二叉搜索树（Binary Search Tree）（有时称为有序或排序的二叉树）是一种能存储特定数据类型的容器。二叉搜索树允许快速查找、添加或者删除某一个节点，并且它是动态的集合。二叉搜索树按照关键字顺序地保存节点，因此查找和其他操作可以使用二叉搜索原理：当在树（或者寻找插入新节点的地方）中查找节点时，它从根节点遍历到叶节点，">
+<meta name="twitter:image" content="https://static.lufficc.com/image/08dc83f3bff58335354b0e92c5f1e3a4.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/12/数据结构与算法/binary-tree-2/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>二叉树讲解 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/数据结构与算法/binary-tree-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">二叉树讲解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-12 09:12:07 / Modified: 09:16:56" itemprop="dateCreated datePublished" datetime="2018-07-12T09:12:07+08:00">2018-07-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/12/数据结构与算法/binary-tree-2/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/12/数据结构与算法/binary-tree-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>转载自：<a href="https://lufficc.com/blog/binary-search-tree#main-content" target="_blank" rel="noopener">多动态图详细讲解二叉搜索树</a></p>
+<p>作者：<a href="https://lufficc.com/blog" target="_blank" rel="noopener">luffic</a></p>
+<p>在计算机科学中，二叉搜索树（Binary Search Tree）（有时称为有序或排序的二叉树）是一种能存储特定数据类型的容器。二叉搜索树允许快速查找、添加或者删除某一个节点，并且它是动态的集合。<br>二叉搜索树按照关键字顺序地保存节点，因此查找和其他操作可以使用二叉搜索原理：当在树（或者寻找插入新节点的地方）中查找节点时，它从根节点遍历到叶节点，与每个节点的关键字进行比较，然后基于比较结果，决定继续在左子树或者右子树中进行搜索。平均而言，每次比较将跳过树的大约一半的元素，这使得每次查找，插入或删除一个节点所花费的时间与树的节点个数的对数成（树的高度）正比，比线性表的性能要好很多。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>二叉搜索树是以一棵二叉树来组织，每个节点就是一个对象，包括<code>key</code>、卫星数据，除此之外还包括一些为了维持树结构所需要的信息：<code>left</code>、<code>right</code>、<code>parent</code>，分别指向左孩子、右孩子、父节点。其中如果孩子节点或者父节点不存在时，用<code>NIL</code>表示。根节点是树中唯一一个父节点为<code>NIL</code>的节点。</p>
+<p>二叉搜索树具有以下性质：</p>
+<ol>
+<li>如果节点的左子树不空，则左子树上所有结点的值均小于等于它的根结点的值；</li>
+<li>如果节点的右子树不空，则右子树上所有结点的值均大于等于它的根结点的值；</li>
+<li>任意节点的左、右子树也分别为二叉查找树；</li>
+</ol>
+<p><img src="https://static.lufficc.com/image/08dc83f3bff58335354b0e92c5f1e3a4.png" alt="二叉树">二叉树</p>
+<p>比如在上图中根节点的关键字为6，左子树有关键字2、4和5，均不大于6；右子树有关键字7和8，均不小于6。这个性质对树中的每个节点都成立，也就是说，二叉搜索树的定义是递归的。</p>
+<p>在讨论二叉搜索树的操作之前，先看看二叉搜索树的遍历。二叉搜索树可以使用先序遍历（preorder tree walk）、中序遍历（inorder tree walk）和后序遍历（postorder tree walk）。这样命名的依据是根据输出关键字相对于左右子树的位置。以中序遍历为例，伪代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CopyINORDER-TREE-WALK(x)</span><br><span class="line">    <span class="keyword">if</span> x != nil  <span class="comment">// 如果节点不为空</span></span><br><span class="line">        INORDER-TREE-WALK(x.left)  <span class="comment">// 首先递归地遍历左孩子，直到左孩子为空</span></span><br><span class="line">        print x.key     <span class="comment">// 输出当前节点（显然第一次运行到这里时，它是最小值，因为它是整棵树的最左节点）  </span></span><br><span class="line">        INORDER-TREE-WALK(x.right)  <span class="comment">// 递归地遍历右孩子</span></span><br></pre></td></tr></table></figure>
+<p>对于上图中的二叉搜索树，动态过程如下，这样输出结果为：2，4，5，6，7，8，即按照从小到大的顺序排列。因为输出时一直遍历左孩子，知道遇到第一个左孩子为空的节点，将它输出，然后出栈返回继续输出。</p>
+<p><img src="https://static.lufficc.com/image/4b899ff7efabbc8eeb5a89c766d4c7f9.gif" alt="file"></p>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>二叉搜索树还应该可以完成<code>MINIMUM</code>，<code>MAXIMUM</code>，<code>SUCCESSOR</code>和<code>PREDECESSOR</code>操作，即求最小值，最大值，后继和前驱，并且这些操作都可以在<code>o(lgn)</code>的时间内完成。</p>
+<h4 id="查找指定关键字"><a href="#查找指定关键字" class="headerlink" title="查找指定关键字"></a>查找指定关键字</h4><p><code>TREE-SEARCH</code>操作在二叉树中查找一个具有指定的关键字的节点，输入树的根节点指针和关键字<code>k</code>，如果存在，返回节点指针，否则，返回<code>nil</code>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-SEARCH(x, k)</span><br><span class="line">    <span class="keyword">if</span> x == nil <span class="keyword">or</span> k == x.key  <span class="comment">//如不存在或者找到，直接返回</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">if</span> k &lt; x.key                    <span class="comment">//如果小于当前节点，根据性质，在左子树中搜索</span></span><br><span class="line">        <span class="keyword">return</span> TREE-SEARCH(x.left, k)</span><br><span class="line">    <span class="keyword">else</span>                          <span class="comment">//如果大于等于当前节点，根据性质，在右子树中搜索</span></span><br><span class="line">        <span class="keyword">return</span> TREE-SEARCH(x.right, k)</span><br></pre></td></tr></table></figure>
+<p>比如查找关键字为5的节点，首先从根节点6开始，与5进行比较，因为5小于6，因此在节点6的左子树继续搜索。到达节点4时因为5大于4，所以在4节点的右子树搜索，这样就顺利找到了节点5，此时函数将返回指向节点5的指针。如果找不到目标节点，<code>TREE-SEARCH</code>函数将返回<code>nil</code>。整个搜索过程如下：</p>
+<p><img src="https://static.lufficc.com/image/1d2971466d707afea63848d8ff1819d6.gif" alt="搜索过程">搜索过程</p>
+<h4 id="最小-最大关键字"><a href="#最小-最大关键字" class="headerlink" title="最小/最大关键字"></a>最小/最大关键字</h4><p>通过从树根开始，沿着<code>left</code>孩子向下搜索，直到遇到<code>nil</code>，那么根据二叉搜索树的性质，如果节点<code>x</code>没有左子树，而<code>x</code>的右子树的关键字肯定都大于<code>x.key</code>，因此此时当前节点一定是整个树中的最小值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-MINIMUM(x)</span><br><span class="line">    <span class="keyword">while</span> x.left != nil  <span class="comment">// 沿着左子树一直深入搜索下去，直到遇到左子树为空的节点，此时当前节点为最小值</span></span><br><span class="line">        x = x.left</span><br><span class="line">    <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p>同理，最大关键字的伪代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-MAXIMUM(x)</span><br><span class="line">    <span class="keyword">while</span> x.right != nil  <span class="comment">// 沿着右子树一直深入搜索下去，直到遇到右子树为空的节点，此时当前节点为最大值</span></span><br><span class="line">        x = x.right</span><br><span class="line">    <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p>求取最大、最小关键字的时间复杂度仅为<code>o(lgn)</code>，即与树的高度成正比，因为查找过程自上而下形成一条线，线的最大长度为数的高度，如求取最小值的过程：</p>
+<p><img src="https://static.lufficc.com/image/f7a94798ed0a119cc9bb51eb19620e91.gif" alt="求取最小值">求取最小值</p>
+<h4 id="前驱-后继"><a href="#前驱-后继" class="headerlink" title="前驱/后继"></a>前驱/后继</h4><p>给定二叉搜索树的一个节点，有事需要按照中序遍历的次序查找它的后继，如果所有的关键字互不相同，则一个节点<code>x</code>的后继一定是大于<code>x.key</code>的最小关键字。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-SUCCESSOR(x)</span><br><span class="line">    <span class="keyword">if</span> x.right != nil   <span class="comment">//case 1:如果右子树不为空，则后继一定是右子树的最小值，即大于x的最小值（右子树的值都大于x节点）</span></span><br><span class="line">        <span class="keyword">return</span> TREE-MINIMUM(x.right)</span><br><span class="line">    y = x.p    <span class="comment">// case 2:右子树为空时</span></span><br><span class="line">    <span class="keyword">while</span> y != nil <span class="keyword">and</span> x == y.right</span><br><span class="line">        x = y   <span class="comment">// 变量x代表节点原始x的祖先，如果找到x，它是父节点的左孩子，则循环终止</span></span><br><span class="line">        y = y.p   <span class="comment">// y 代表节点x的父节点，如果x是y的左孩子，循环终止，并且返回y</span></span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure>
+<p>1.对于第一种情况比较简单，如果<code>x</code>右子树不为空，那它的后继就是右子树的<strong>最左节点</strong>，对应伪代码<code>case 1</code>，例如下图寻找68的后继，即寻找68的右子树的最小节点72，同时它也是右子树的最左节点。</p>
+<p><img src="https://static.lufficc.com/image/8bd06a98a87c2103de26010413454645.gif" alt="寻找68的后继">寻找68的后继</p>
+<p>2.第二种情况是<code>x</code>的右子树为空，注意<code>x</code>的后继始终是大于<code>x</code>的最小值（或者不存在），所以当<code>x</code>的右子树不存在时大于<code>x</code>的最小值在哪儿呢？我们只需要简单的从<code>x</code>开始沿树而上，找到第一个这样一个节点：它的父节点为空（即根节点）或者它的左孩子是<code>x</code>节点的祖先节点（不一定是直接祖先）。例如下图中为了寻找17的后继，沿着树上升，首先以此遇到了节点<code>13</code>，<code>11</code>，它们均不符合条件，因为它们不是父节点的左孩子。当遇到节点<code>10</code>时，此时<code>x</code>指向节点<code>10</code>，<code>y</code>指向节点<code>19</code>，并且节点<code>10</code>是节点<code>19</code>的左孩子，符合条件，所以返回节点<code>y</code>，它是节点<code>x</code>的后继。</p>
+<p><img src="https://static.lufficc.com/image/e487db1de1bb0138d925a193d60cafa7.gif" alt="寻找17的后继">寻找17的后继</p>
+<p>再举一个例子，下图为了找15的后继，仍然沿着树上升，直到遇到节点10（此时伪代码中的变量<code>x</code>指向节点10）：它是15的祖先，而且是左孩子。所以此时返回节点10的父节点19，即节点15的后继。</p>
+<p><img src="https://static.lufficc.com/image/2bc42a442c637772fc62e48ddda211d1.gif" alt="寻找15的后继">寻找15的后继</p>
+<p>一个二叉搜索树中除了最大节点外，都有后继。对于前驱节点，和后继节点原理一样，这里不再赘述。</p>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><p>插入操作会引起二叉搜索树集合的动态变化，因此需要一定的修改来维持二叉搜索树。由于二叉搜索树的性质，即左孩子小于等于父节点，右孩子大于等于父节点，因此插入操作相对简单。</p>
+<p>将一个节点插入到二叉搜索树中，需要调用<code>TREE-INSERT</code>，该过程以节点<code>z</code>作为输入，其中<code>z.left = nil, z.right = nil, z.key = 将要插入数据的关键字</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-INSERT(T, z)</span><br><span class="line">    y = nil</span><br><span class="line">    x = T.root</span><br><span class="line">    <span class="keyword">while</span> x != nil <span class="comment">//循环结束后，x一定为空，此时x即为节点z要插入的地方</span></span><br><span class="line">        y = x    <span class="comment">//在这里给y赋值，保证循环结束后y始终是x的父节点</span></span><br><span class="line">        <span class="keyword">if</span> z.key &lt; x.key</span><br><span class="line">            x = x.left</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            x = x.right</span><br><span class="line">        z.p = y  <span class="comment">//  y始终是x的父节点，为了插入z，需要让z的父节点指向x的父节点，即指向y</span></span><br><span class="line">        <span class="keyword">if</span> y == nil  <span class="comment">//  如果y为空，说明插入时是一棵空的树，需要将树根指向z</span></span><br><span class="line">            T.root = z</span><br><span class="line">        elseif z.key &lt; y.key   <span class="comment">//  判断节点z是y的左孩子还是右孩子</span></span><br><span class="line">            y.left = z</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            y.right = z</span><br></pre></td></tr></table></figure>
+<p>上述伪代码从树根开始，指针<code>x</code>记录了一条向下的简单路径，通过<code>while</code>循环比较<code>z.key</code>和<code>x.key</code>的大小，使指针<code>x</code>和指针<code>y</code>向下移动，循环结束时则找到一个空的<code>x</code>并作为一个槽，将节点<code>z</code>放到这里（插入），同时保持节点<code>y</code>为节点<code>x</code>的父节点，这样可以很方便的决定插入之后将<code>z</code>作为它的左孩子还是右孩子。举一个例子：</p>
+<p><img src="https://static.lufficc.com/image/428df4bcae641c08ff0e049d7cdf7711.gif" alt="file"></p>
+<p>上图为了在树中插入节点<code>46</code>，首先<code>x</code>指向根节点，节点<code>46</code>与根节点<code>68</code>（<code>x</code>节点）比较，小于<code>68</code>，因此指针<code>x</code>指向根节点（<code>x</code>节点）的左孩子<code>62</code>，然后一直下移。注意当<code>x</code>指向<code>45</code>的时候，节点<code>46</code>大于45，因此将<code>x</code>指向节点<code>45</code>的右孩子，此时<code>x</code>为<code>nil</code>了，循环结束，也就找到了节点<code>46</code>的位置：节点<code>45</code>的右孩子。然后进行一些操作将节点<code>46</code>插入到树中即可。</p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>从二叉搜索树中删除一个节点<code>z</code>稍微有点棘手，但总的来说可以分为三种情况：</p>
+<ol>
+<li>如果<code>z</code>没有孩子节点，那么简单的将它删除，并修改它的父节点，用<code>nil</code>作为孩子节点代替<code>z</code>即可。</li>
+<li>如果<code>z</code>只有一个孩子，那么将这个孩子提升到<code>z</code>的位置，并修改它的父节点，用<code>z</code>的孩子代替<code>z</code>即可。</li>
+<li>如果<code>z</code>有两个孩子，那么用<code>z</code>的后继<code>y</code>（此时<code>z</code>的后继<code>y</code>一定在<code>z</code>的右子树中，因为<code>z</code>的右孩子不为空）来占据<code>z</code>的位置，此时<code>z</code>的原来的右子树部分称为<code>y</code>的新的右子树，并且<code>z</code>的左子树称为<code>y</code>的新的左子树。这种情况稍微麻烦，因为还与<code>y</code>是否为<code>z</code>的右孩子相关。</li>
+</ol>
+<h4 id="第一种情况：节点z没有孩子"><a href="#第一种情况：节点z没有孩子" class="headerlink" title="第一种情况：节点z没有孩子"></a>第一种情况：节点<code>z</code>没有孩子</h4><p>这种情况比较简单，我们直接删除节点<code>z</code>即可，并不会影响到二叉搜索树的性质：</p>
+<p><img src="https://static.lufficc.com/image/cf4a29bbf497763af823c3da5048ec32.png" alt="file"></p>
+<p>用动图来表示就是：</p>
+<p><img src="https://static.lufficc.com/image/21fe24091d17ba82f64aec0e973dbed2.gif" alt="file"></p>
+<h4 id="第二种情况：节点z只有一个孩子"><a href="#第二种情况：节点z只有一个孩子" class="headerlink" title="第二种情况：节点z只有一个孩子"></a>第二种情况：节点<code>z</code>只有一个孩子</h4><p>这种情况也比较简单，直接用节点<code>z</code>的孩子代替节点<code>z</code>即可。其实第一种情况和第二种情况可以归为一个：节点<code>z</code>的孩子个数小于2个，直接用节点<code>z</code>的孩子代替节点<code>z</code>即可，只是节点<code>z</code>没有孩子时是用的<code>nil</code>代替节点<code>z</code>，这里为了更加清楚地说明分了三种情况。</p>
+<p><img src="https://static.lufficc.com/image/064534db4f36c6d5e5b7f425b0d1915b.png" alt="file"></p>
+<p>例如如下图，当节点<code>42</code>只有左孩子时，直接将<code>42</code>的父节点<code>6</code>的右孩子指向节点<code>29</code>，将节点<code>29</code>的父节点设置为节点<code>6</code>即可：</p>
+<p><img src="https://static.lufficc.com/image/94583c3a70a3a0e9c9d17c27482c2b68.gif" alt="file"></p>
+<p>或者只有右孩子时也是如此，直接将<code>94</code>的左孩子指向<code>78</code>，<code>78</code>的父节点指向<code>94</code>即可：<br><img src="https://static.lufficc.com/image/f1774f832f870b121909b0dc7d27b08a.gif" alt="file"></p>
+<h4 id="第三种情况：节点z有两个孩子"><a href="#第三种情况：节点z有两个孩子" class="headerlink" title="第三种情况：节点z有两个孩子"></a>第三种情况：节点<code>z</code>有两个孩子</h4><p>这种情况稍微复杂一点，因为此时我们需要找到节点<code>z</code>的后继<code>y</code>，而后继节点<code>y</code>又分为<code>y</code>是节点<code>z</code>的直接右孩子或者不是。</p>
+<ol>
+<li><code>z</code>的后继<code>y</code>是 <code>z</code>的右孩子<br>此时可以直接用后继<code>y</code>代替<code>z</code>，而且<code>y</code>的左孩子此时一定为空（因为后继的左孩子一定为空），再用<code>z</code>的左孩子代替<code>y</code>的原来为空的左孩子即可。<br><img src="https://static.lufficc.com/image/7c5bf7ed18e03a52118c4d7293cb7d95.png" alt="file"><br>用动图表示删除节点67就是：<br><img src="https://static.lufficc.com/image/5719e314f6dc71c8d2dab91c613c4234.gif" alt="file"></li>
+<li><code>z</code>的后继<code>y</code>不是 <code>z</code>的右孩子<br>在这种情况下我们先用<code>y</code>的右孩子<code>x</code>代替<code>y</code>，然后再用<code>y</code>代替<code>z</code>:</li>
+</ol>
+<p><img src="https://static.lufficc.com/image/5c736a8e765db3cb6f76f8e81e7ea005.png" alt="file"></p>
+<p><img src="https://static.lufficc.com/image/724901291a2138ab3fbc12e66b64c23c.png" alt="file"></p>
+<p>用动图表示删除节点<code>50</code>就是用<code>74</code>代替<code>73</code>，即将<code>73</code>的父节点<code>82</code>的右孩子指向<code>74</code>,<code>74</code>的父节点设置为<code>82</code>，然后再用<code>73</code>代替<code>50</code>，即将<code>50</code>左孩子<code>31</code>设置为<code>73</code>的左孩子，<code>50</code>的右孩子<code>82</code>设置为<code>73</code>的右孩子：<br><img src="https://static.lufficc.com/image/48ecb1feea1b39d7b9512e6a4b9a1241.gif" alt="file"></p>
+<p>为了实现删除过程的伪代码，我们需要定义一个子过程<code>TRANSPLANT</code>，它是用为了用以<code>v</code>为根的子树替换以<code>u</code>为根的子树，让<code>u</code>的双亲节点变为<code>v</code>的双亲节点，即让<code>v</code>称为<code>u</code>的双亲节点的孩子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CopyTRANSPLANT(T, u, v)</span><br><span class="line">    <span class="keyword">if</span> u.p == nil   <span class="comment">// 当u位树的根节点时，直接将树的根节点指向v</span></span><br><span class="line">        T.root = v</span><br><span class="line">    elseif u == u.p.left   <span class="comment">// 如果u是左孩子，则u的父节点的左孩子指向v</span></span><br><span class="line">        u.p.left = v</span><br><span class="line">    <span class="keyword">else</span>    <span class="comment">// 如果u是右孩子，则u的父节点的右孩子指向v</span></span><br><span class="line">        u.p.right = v</span><br><span class="line">    <span class="keyword">if</span> v != nil   </span><br><span class="line">        v.p = u.p    <span class="comment">// 将v的父节点设为u的父节点</span></span><br></pre></td></tr></table></figure>
+<p>然后实现具体的删除过程：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-DELETE(T, z)</span><br><span class="line">    <span class="keyword">if</span> z.left == nil  <span class="comment">// 如果左孩子为空，则直接用右孩子代替z即可，而不管右孩子是否为空（右孩子为空时对应情况一否则对应情况二）</span></span><br><span class="line">        TRANSPLANT(T, z, z.right)</span><br><span class="line">    elseif z.right == nil  <span class="comment">// 右孩子为空，直接用做孩子代替z</span></span><br><span class="line">        TRANSPLANT(T, z, z.left)</span><br><span class="line">    <span class="keyword">else</span> y = TREE-MINIMUM(z.right)  <span class="comment">// 左右孩子均不为空，找到z的后继y，即z的右子树的最小值，对应第三种情况</span></span><br><span class="line">        <span class="keyword">if</span> y.p != z   <span class="comment">// 如果z的后继y不是z的右孩子，对应第三种情况的2</span></span><br><span class="line">            TRANSPLANT(T, y, y.right)  <span class="comment">// 用y的右孩子代替y</span></span><br><span class="line">            y.right = z.right    <span class="comment">// 将y的右孩子指向z的右孩子</span></span><br><span class="line">            y.right.p = y     <span class="comment">// 将y的右孩子(原来的z的右孩子)的父节点设为y</span></span><br><span class="line">        TRANSPLANT(T, z, y)  <span class="comment">// 用y代替z</span></span><br><span class="line">        y.left = z.left</span><br><span class="line">        y.left.p = p</span><br></pre></td></tr></table></figure>
+<p>因此总的来说，删除操作可以分为两大类：</p>
+<ol>
+<li><code>z</code>的孩子总数小于2时，直接用<code>z</code>的孩子代替<code>z</code>即完成了对<code>z</code>的删除。</li>
+<li><code>z</code>有两个孩子时：<br>2.1. <code>z</code>的后继<code>y</code>是<code>z</code>的右孩子：直接用<code>y</code>代替<code>z</code>即可（别忘了将<code>z</code>的左孩子的父节点设置为<code>y</code>）。<br>2.2. <code>z</code>的后继<code>y</code>不是<code>z</code>的右孩子：先用<code>y</code>的右孩子<code>x</code>代替<code>y</code>，再用<code>y</code>代替<code>z</code>。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>因为二叉搜索树的性质，即可以在每个比较之后将数据规模变为原来的一半，因此平均情况下每一个操作都可以在<code>o(lgn)</code>的时间内完成，即花费时间与树的高度成正比。但在最坏的情况下，二叉搜索树就退化为一个链表，此时的时间复杂度退化到了<code>o(n)</code>。但很多改进版的二叉查找树可以使树高为<code>o(lgn)</code>，如SBT，AVL树，红黑树等。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>算法导论</li>
+<li>维基百科</li>
+<li>visualgo</li>
+</ol>
+<p><a href="https://lufficc.com/blog/binary-search-tree#main-content" target="_blank" rel="noopener">⬆️</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程/" rel="tag"># 编程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/11/数据结构与算法/avl-tree-simplify/" rel="next" title="AVL树精简版">
+                <i class="fa fa-chevron-left"></i> AVL树精简版
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/12/数据结构与算法/b-tree-1/" rel="prev" title="B树">
+                B树 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WeetCheng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询"><span class="nav-number">2.</span> <span class="nav-text">查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找指定关键字"><span class="nav-number">2.0.1.</span> <span class="nav-text">查找指定关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小-最大关键字"><span class="nav-number">2.0.2.</span> <span class="nav-text">最小/最大关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前驱-后继"><span class="nav-number">2.0.3.</span> <span class="nav-text">前驱/后继</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入"><span class="nav-number">3.</span> <span class="nav-text">插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除"><span class="nav-number">4.</span> <span class="nav-text">删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种情况：节点z没有孩子"><span class="nav-number">4.0.1.</span> <span class="nav-text">第一种情况：节点z没有孩子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种情况：节点z只有一个孩子"><span class="nav-number">4.0.2.</span> <span class="nav-text">第二种情况：节点z只有一个孩子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三种情况：节点z有两个孩子"><span class="nav-number">4.0.3.</span> <span class="nav-text">第三种情况：节点z有两个孩子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WeetCheng</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/07/12/数据结构与算法/binary-tree-2/';
+        this.page.identifier = '2018/07/12/数据结构与算法/binary-tree-2/';
+        this.page.title = '二叉树讲解';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

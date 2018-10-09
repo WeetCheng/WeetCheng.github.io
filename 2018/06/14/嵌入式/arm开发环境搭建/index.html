@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="在Linux下搭建2440的开发环境 一，构建arm-linux交叉编译工具链有三种方法构建工具链  直接下载别人编译好的交叉工具链arm-linux-gcc-4.4.3 apt-get下载gcc-arm-linux-gnueabi 自己下载arm-linux-gcc的源码，编译安装  法1，下载编译好的arm-linux-gcc（1） 下载 下载地址：http://www.arm9.net/do">
+<meta name="keywords" content="arm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arm开发环境搭建">
+<meta property="og:url" content="http://yoursite.com/2018/06/14/嵌入式/arm开发环境搭建/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在Linux下搭建2440的开发环境 一，构建arm-linux交叉编译工具链有三种方法构建工具链  直接下载别人编译好的交叉工具链arm-linux-gcc-4.4.3 apt-get下载gcc-arm-linux-gnueabi 自己下载arm-linux-gcc的源码，编译安装  法1，下载编译好的arm-linux-gcc（1） 下载 下载地址：http://www.arm9.net/do">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-24T11:46:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Arm开发环境搭建">
+<meta name="twitter:description" content="在Linux下搭建2440的开发环境 一，构建arm-linux交叉编译工具链有三种方法构建工具链  直接下载别人编译好的交叉工具链arm-linux-gcc-4.4.3 apt-get下载gcc-arm-linux-gnueabi 自己下载arm-linux-gcc的源码，编译安装  法1，下载编译好的arm-linux-gcc（1） 下载 下载地址：http://www.arm9.net/do">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/14/嵌入式/arm开发环境搭建/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Arm开发环境搭建 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/14/嵌入式/arm开发环境搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Arm开发环境搭建
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-06-14 08:55:24" itemprop="dateCreated datePublished" datetime="2018-06-14T08:55:24+08:00">2018-06-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-06-24 19:46:45" itemprop="dateModified" datetime="2018-06-24T19:46:45+08:00">2018-06-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/14/嵌入式/arm开发环境搭建/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/14/嵌入式/arm开发环境搭建/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在Linux下搭建2440的开发环境</p>
+<h3 id="一，构建arm-linux交叉编译工具链"><a href="#一，构建arm-linux交叉编译工具链" class="headerlink" title="一，构建arm-linux交叉编译工具链"></a>一，构建arm-linux交叉编译工具链</h3><p>有三种方法构建工具链</p>
+<ul>
+<li>直接下载别人编译好的交叉工具链arm-linux-gcc-4.4.3</li>
+<li>apt-get下载gcc-arm-linux-gnueabi</li>
+<li>自己下载arm-linux-gcc的源码，编译安装</li>
+</ul>
+<h4 id="法1，下载编译好的arm-linux-gcc"><a href="#法1，下载编译好的arm-linux-gcc" class="headerlink" title="法1，下载编译好的arm-linux-gcc"></a>法1，下载编译好的arm-linux-gcc</h4><p>（1） 下载</p>
+<p>下载地址：<a href="http://www.arm9.net/download.asp" target="_blank" rel="noopener">http://www.arm9.net/download.asp</a></p>
+<p>假设下载后解压放在目录/home/cheng/arm-linux/中</p>
+<p>（2）配置PATH路径</p>
+<p>编辑/etc/profile文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/profile</span><br><span class="line"><span class="comment"># 在文件中添加一下内容</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/cheng/arm-linux/bin/</span><br></pre></td></tr></table></figure>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile	<span class="comment"># 使/etc/profile生效</span></span><br></pre></td></tr></table></figure>
+<h4 id="法2，apt-get下载交叉编译工具链"><a href="#法2，apt-get下载交叉编译工具链" class="headerlink" title="法2，apt-get下载交叉编译工具链"></a>法2，apt-get下载交叉编译工具链</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-arm-linux-gnueabi</span><br></pre></td></tr></table></figure>
+<h4 id="法3，源码编译安装arm-linux-gcc"><a href="#法3，源码编译安装arm-linux-gcc" class="headerlink" title="法3，源码编译安装arm-linux-gcc"></a>法3，源码编译安装arm-linux-gcc</h4><ol>
+<li>sudo apt-get install build-essential    #基本开发环境<ol>
+<li>sudo apt-get install bison flex#分别是语法、词法分析器</li>
+<li>sudo apt-get install manpages-dev#安装C函数库man 手册</li>
+</ol>
+</li>
+<li>sudo apt-get install libncurses5-dev</li>
+<li>安装交叉编译工具链(自己利用crosstool工具制作)<br>下载crosstool<br>wget <a href="http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.21.0.tar.xz" target="_blank" rel="noopener">http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.21.0.tar.xz</a><br>解压并进入源码目录<br>tar vxf crosstool-ng-1.21.0.tar.xz<br>cd crosstool-ng-1.21.0<br>打补丁<br>在源码目录中执行<br>lzcat contrib/openrisc-or32.patch.lzma | patch -p1<br>先安装crosstool-NG的依赖项：</li>
+</ol>
+<ul>
+<li>gperf</li>
+<li>bison</li>
+<li>flex</li>
+<li>texinfo</li>
+<li>gawk</li>
+<li>libtool</li>
+<li>automake</li>
+<li>libncurses5-dev</li>
+<li>g++</li>
+</ul>
+<p>执行编译三部曲<br>./configure –prefix=/home/cheng/Programs/Crosstool<br>make<br>make install<br>确认/opt/cross/bin已经安装，当然你可以用你习惯的路径替代/opt/cross</p>
+<p>在三部曲第一步中提示缺少什么依赖项就安装什么。</p>
+<p>如缺少makeinfo,在网上查阅知道<br>sudo apt-get install texinfo （注意这里不是makeinfo，可能是包含在texinfo里了）<br>configure: error: missing required tool: gperf<br>则<br>sudo apt-get install gperf<br>configure: error: missing required tool: makeinfo<br>则<br>sudo apt-get install texinfo<br>configure: error: could not find GNU awk<br>则<br>sudo apt-get install gawk</p>
+<p>configure: error: could not find GNU automake &gt;= 1.10<br>则<br>sudo apt-get install automake</p>
+<p>configure: error: could not find curses header, required for the kconfig frontends<br>则<br>sudo apt-get install libncurse5-dev</p>
+<p>设置环境变量<br>export PATH=$PATH:/home/cheng/Programs/Crosstool/bin</p>
+<p>检查是否安装成功<br>ct-ng -v</p>
+<p>配置crosstool<br><a href="https://www.cnblogs.com/zzb-Dream-90Time/p/7198873.html" target="_blank" rel="noopener">crosstool-NG配置</a></p>
+<h3 id="二，串口调试"><a href="#二，串口调试" class="headerlink" title="二，串口调试"></a>二，串口调试</h3><p><strong>安装串口驱动</strong></p>
+<p>Linux会自动安装PL2303的驱动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$&gt; ls /dev/ttyUSB*</span><br><span class="line">/dev/ttyUSB0 	//这就是我们的串口</span><br></pre></td></tr></table></figure>
+<p><strong>串口调试工具</strong></p>
+<ul>
+<li>minicom：命令行界面</li>
+<li>cutecom：图形界面</li>
+<li>picocom：命令行界面（我比较喜欢这个）</li>
+</ul>
+<p>picocom的使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&gt; sudo picocom -b 115200 /dev/ttyUSB0	//具体是ttyUSB* 可以去/dev目录下查看</span><br></pre></td></tr></table></figure>
+<p><strong>退出picocom</strong></p>
+<p>先按ctrl+a(表示转义)再按ctrl+q</p>
+<h3 id="三，烧录程序"><a href="#三，烧录程序" class="headerlink" title="三，烧录程序"></a>三，烧录程序</h3><p>JZ2440有两种烧录程序的方法，</p>
+<ul>
+<li>使用调试下载器EOP+OpenOCD</li>
+<li>使用调试下载器EOP+oflash</li>
+<li>使用uboot+dnw，则可通过usb线烧录程序，不过前提是必须先用EOP烧录uboot到芯片中</li>
+</ul>
+<p><a href="https://github.com/ntfreak/openocd" target="_blank" rel="noopener">官方介绍</a></p>
+<p><a href="http://blog.csdn.net/heyuqian_csdn/article/details/52507111" target="_blank" rel="noopener">参考博客</a></p>
+<h4 id="法1，EOP-OpenOCD烧录"><a href="#法1，EOP-OpenOCD烧录" class="headerlink" title="法1，EOP+OpenOCD烧录"></a>法1，EOP+OpenOCD烧录</h4><p><strong>（1）下载安装OpenOCD</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openocd</span><br></pre></td></tr></table></figure>
+<p>安装成功后，会识别出eop</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$&gt; lsusb 	//查看usb设备</span><br><span class="line">Bus 001 Device 009: ID 067b:2303 Prolific Technology, Inc. PL2303 Serial Port</span><br><span class="line">Bus 001 Device 010: ID 1457:5118 First International Computer, Inc. OpenMoko Neo1973 Debug board (V2+)</span><br></pre></td></tr></table></figure>
+<p>OpenMoko Neo1973 Debug board，是eop。加下ID号为 14567:5118，后面要使用</p>
+<p><strong>（2）配置OpenOCD</strong></p>
+<p>openocd的默认配置文件是openocd.cfg，当启动openocd时，会在安装目录openocd/scripts下搜索openocd.cfg。如何没有创建openocd.cfg，则需要使用-f 参数指定配置文件。为了方便，直接在/usr/share/openocd/scripts/中创建openocd.cfg文件，配置如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/share/openocd/scripts/</span><br><span class="line">$ sudo vim openocd.cfg	//复制以下内容</span><br><span class="line">interface ftdi  </span><br><span class="line"><span class="comment">#通过描述来指定设备，应当和dmesg中的Product一致  </span></span><br><span class="line"><span class="comment">#ftdi_device_desc "USB&lt;=&gt;JTAG&amp;RS232"  </span></span><br><span class="line"><span class="comment">#通过PID VID指定调试器，比描述更准确些  </span></span><br><span class="line">ftdi_vid_pid 0x1457 0x5118  </span><br><span class="line"><span class="comment">#如果有多个同样的调试器，还可以指定要使用的调试器序列号  </span></span><br><span class="line"><span class="comment">#ftdi_serial  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#引脚定义，相当于旧版中的 ft2232_layout jtagkey  </span></span><br><span class="line">ftdi_layout_init 0x0c08 0x0f1b  </span><br><span class="line">ftdi_layout_signal nTRST -data 0x0100 -noe 0x0400  </span><br><span class="line">ftdi_layout_signal nSRST -data 0x0200 -noe 0x0800  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># Target configuration for the Samsung 2440 system on chip  </span></span><br><span class="line"><span class="comment"># Tested on a S3C2440 Evaluation board by keesj  </span></span><br><span class="line"><span class="comment"># Processor       : ARM920Tid(wb) rev 0 (v4l)  </span></span><br><span class="line"><span class="comment"># Info:   JTAG tap: s3c2440.cpu tap/device found: 0x0032409d (Manufacturer: 0x04e, Part: 0x0324, Version: 0x0)  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">if</span> &#123; [info exists CHIPNAME] &#125; &#123;  </span><br><span class="line">   <span class="built_in">set</span>  _CHIPNAME <span class="variable">$CHIPNAME</span>  </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">   <span class="built_in">set</span>  _CHIPNAME s3c2440  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">if</span> &#123; [info exists ENDIAN] &#125; &#123;  </span><br><span class="line">   <span class="built_in">set</span>  _ENDIAN <span class="variable">$ENDIAN</span>  </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">  <span class="comment"># this defaults to a bigendian  </span></span><br><span class="line">   <span class="built_in">set</span>  _ENDIAN little  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">if</span> &#123; [info exists CPUTAPID ] &#125; &#123;  </span><br><span class="line">   <span class="built_in">set</span> _CPUTAPID <span class="variable">$CPUTAPID</span>  </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">  <span class="comment"># force an error till we get a good number  </span></span><br><span class="line">   <span class="built_in">set</span> _CPUTAPID 0x0032409d  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#jtag scan chain  </span></span><br><span class="line">jtag newtap <span class="variable">$_CHIPNAME</span> cpu -irlen 4 -ircapture 0x1 -irmask 0x0f -expected-id <span class="variable">$_CPUTAPID</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#  </span></span><br><span class="line"><span class="comment">#jtag_rclk 3000  </span></span><br><span class="line">adapter_khz 1234  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#set _TARGETNAME $_CHIPNAME.cpu  </span></span><br><span class="line"><span class="comment">#target create $_TARGETNAME arm920t -endian $_ENDIAN -chain-position $_TARGETNAME -variant arm920t  </span></span><br><span class="line"><span class="comment">#$_TARGETNAME configure -work-area-phys 0x200000 -work-area-size 0x4000 -work-area-backup 0  </span></span><br><span class="line"><span class="comment">#arm7_9 fast_memory_access enable  </span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">set</span> _TARGETNAME <span class="variable">$_CHIPNAME</span>.cpu  </span><br><span class="line">target create <span class="variable">$_TARGETNAME</span> arm920t -chain-position <span class="variable">$_TARGETNAME</span>  </span><br><span class="line"><span class="variable">$_TARGETNAME</span> configure -work-area-phys 0x00200000 \  </span><br><span class="line">-work-area-size 0x4000 -work-area-backup 0  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#reset configuration  </span></span><br><span class="line">reset_config trst_and_srst  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#Flash CFG&lt;openocd.pdf P[74~]  </span></span><br><span class="line"><span class="comment">#flash bank name driver base size chip_width bus_width target [driver_options]  </span></span><br><span class="line"><span class="comment">#usage: flash bank &lt;name&gt; &lt;driver&gt; &lt;base&gt; &lt;size&gt; &lt;chip_width&gt; &lt;bus_width&gt; &lt;target&gt;  </span></span><br><span class="line"><span class="comment">#flash bank bank_id driver_name base_address size_bytes chip_width_bytes bus_width_bytes target [driver_options ...]  </span></span><br><span class="line">flash bank 0 cfi 0x0 0x200000 2 2 <span class="variable">$_TARGETNAME</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#NAND CFG &lt;openocd.pdf P[88~92]&gt;  </span></span><br><span class="line"><span class="comment">#nand device name driver target [ configparams... ]  </span></span><br><span class="line">nand device 0 s3c2440 <span class="variable">$_TARGETNAME</span></span><br></pre></td></tr></table></figure>
+<p>其实openocd/script/interface目录下包含多种调试器的配置文件，其下，board目录中的配置文件是比较有名的开发板(如mini2440)的配置文件，如果可以在里面找到自己的开发板，就直接用。而JZ2440需要自己配置。</p>
+<p><strong>（3）启动OpenOCD</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openocd</span><br></pre></td></tr></table></figure>
+<p>出现libusb_open()错误，其实是没有权限写设备</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$&gt; sudo openocd -f  cheng-openjtag.cfg</span><br><span class="line">...</span><br><span class="line">Info : Listening on port 6666 <span class="keyword">for</span> tcl connections</span><br><span class="line">Info : Listening on port 4444 <span class="keyword">for</span> telnet connections</span><br><span class="line">Info : clock speed 1234 kHz</span><br><span class="line">Info : JTAG tap: s3c2440.cpu tap/device found: 0x0032409d (mfg: 0x04e (Samsung), part: 0x0324, ver: 0x0)</span><br><span class="line">Info : Embedded ICE version 2</span><br><span class="line">Info : s3c2440.cpu: hardware has 2 breakpoint/watchpoint units</span><br><span class="line">Info : Listening on port 3333 <span class="keyword">for</span> gdb connections</span><br></pre></td></tr></table></figure>
+<p>表明已经成功了</p>
+<p><strong>（4）烧录</strong></p>
+<p>烧录方法参考：<a href="http://d1.amobbs.com/bbs_upload782111/files_38/ourdev_631472V6X051.pdf" target="_blank" rel="noopener">http://d1.amobbs.com/bbs_upload782111/files_38/ourdev_631472V6X051.pdf</a></p>
+<h4 id="法2，EOP-oflash烧录u-boot"><a href="#法2，EOP-oflash烧录u-boot" class="headerlink" title="法2，EOP+oflash烧录u-boot"></a>法2，EOP+oflash烧录u-boot</h4><p><strong>（1）安装oflash</strong></p>
+<p>下载oflash工具：<a href="https://pan.baidu.com/s/1KGTB0jC_11W7WjzfXFvNzQ" target="_blank" rel="noopener">百度网盘</a></p>
+<p>假设下载后放在/home/cheng/ProgramFiles/Portable/oflash/bin/oflash</p>
+<p>设置PATH路径</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/profile</span><br><span class="line"><span class="comment"># 添加PATH路径</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/cheng/ProgramFiles/Portable/oflash/bin/</span><br></pre></td></tr></table></figure>
+<p><strong>（2）烧录程序</strong></p>
+<p>进入想要烧录的程序所在的目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">$ oflash u-boot.bin</span><br><span class="line"><span class="comment"># 根据提示，输入</span></span><br><span class="line"><span class="comment"># 1.选择JTAG类型为：OpenJTAG</span></span><br><span class="line"><span class="comment"># 2.选择CPU为：S3C2440</span></span><br><span class="line"><span class="comment"># 3.选择烧录到：Nor flash</span></span><br><span class="line"><span class="comment"># 4.选择偏移量为：0</span></span><br><span class="line"></span><br><span class="line">+---------------------------------------------------------+</span><br><span class="line">|   Flash Programmer v1.3 <span class="keyword">for</span> OpenJTAG of www.100ask.net  |</span><br><span class="line">|   OpenJTAG is a USB to JTAG &amp; RS232 tool based FT2232   |</span><br><span class="line">|   This programmer supports both of S3C24X0 &amp; S3C6410    |</span><br><span class="line">|   Author: Email/MSN(thisway.diy@163.com), QQ(17653039)  |</span><br><span class="line">+---------------------------------------------------------+</span><br><span class="line">Usage: </span><br><span class="line">1. oflash, run with cfg.txt or prompt</span><br><span class="line">2. oflash [file], write [file] to flash with prompt</span><br><span class="line">3. oflash [-f config_file]</span><br><span class="line">4. oflash [jtag_type] [cpu_type] [flash_type] [read_or_write] [offset] [file]</span><br><span class="line">Select the JTAG <span class="built_in">type</span>: </span><br><span class="line">0. OpenJTAG</span><br><span class="line">1. Dongle JTAG(parallel port)</span><br><span class="line">2. Wiggler JTAG(parallel port)</span><br><span class="line">Enter the number: 0</span><br><span class="line">Select the CPU:</span><br><span class="line">0. S3C2410</span><br><span class="line">1. S3C2440</span><br><span class="line">2. S3C6410</span><br><span class="line">Enter the number: 1</span><br><span class="line"></span><br><span class="line"><span class="string">'ft2232'</span> interface using libftdi with <span class="string">'jtagkey'</span> layout (1457:5118)</span><br><span class="line">current latency timer: 2</span><br><span class="line">FTDI chip <span class="built_in">type</span>: 2 <span class="string">"2232C"</span>S3C2440 detected, cpuID = 0x0032409d</span><br><span class="line"></span><br><span class="line">[Main Menu]</span><br><span class="line"> 0:Nand Flash prog     1:Nor Flash prog   2:Memory Rd/Wr     3:Exit            </span><br><span class="line">Select the <span class="keyword">function</span> to <span class="built_in">test</span>:1</span><br><span class="line">Detect Nor Flash ...</span><br><span class="line">MXIC MX29LV160B </span><br><span class="line">Size: 2 MB</span><br><span class="line"></span><br><span class="line">Image Size: 0x304bc</span><br><span class="line"></span><br><span class="line">Available Target Offset:</span><br><span class="line"></span><br><span class="line">Bank <span class="comment"># 1: MXIC MX29LV160B FLASH (16 x 16)  Size: 2 MB in 35 Sectors</span></span><br><span class="line">  AMD Standard <span class="built_in">command</span> <span class="built_in">set</span>, Manufacturer ID: 0xC2, Device ID: 0x2249</span><br><span class="line">  Erase timeout: 30000 ms, write timeout: 100 ms</span><br><span class="line"></span><br><span class="line">Sector Start Addresses:</span><br><span class="line">00000000  00004000  00006000  00008000  00010000  </span><br><span class="line">00020000  00030000  00040000  00050000  00060000  </span><br><span class="line">00070000  00080000  00090000  000A0000  000B0000  </span><br><span class="line">000C0000  000D0000  000E0000  000F0000  00100000  </span><br><span class="line">00110000  00120000  00130000  00140000  00150000  </span><br><span class="line">00160000  00170000  00180000  00190000  001A0000  </span><br><span class="line">001B0000  001C0000  001D0000  001E0000  001F0000  </span><br><span class="line">Input target offset:0</span><br><span class="line">Erasing ....... <span class="keyword">done</span></span><br><span class="line">write ...</span><br><span class="line">100%<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h4 id="法3，使用uboot-dnw烧录程序"><a href="#法3，使用uboot-dnw烧录程序" class="headerlink" title="法3，使用uboot+dnw烧录程序"></a>法3，使用uboot+dnw烧录程序</h4><p>​    dnw实现USB传输文件的功能，可以结合dnw和u-boot的USB功能，快速的将文件下载，烧录到开发板中。</p>
+<p><strong>直接使用现成dnw</strong></p>
+<p><strong>（1）下载安装</strong></p>
+<p>下载地址：<a href="https://pan.baidu.com/s/1KnIZF27eiKmYUXNknvJZSw" target="_blank" rel="noopener">百度网盘</a></p>
+<p>可以去github上下载，自己编译安装：<a href="https://github.com/changbindu/dnw-linux" target="_blank" rel="noopener">dnw-linux</a>，按照其中的步骤，make，makeinstall，安装完毕。</p>
+<p><strong>（2）配置PATH路径</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加以下内容</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/cheng/ProgramFiles/Portable/dnw/bin/</span><br></pre></td></tr></table></figure>
+<p><strong>（3）烧录程序</strong></p>
+<p>烧录程序之前，确保：</p>
+<ul>
+<li>已经安装picocom、oflash、dnw</li>
+<li>已经将uboot烧录到JZ2440上</li>
+<li>已经将启动的拨码开关拨到Nor启动（即用于启动uboot）</li>
+<li>已经将板子的USB口和COM口连上电脑</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.打开串口调试工具</span></span><br><span class="line">sudo picocom -b 115200 /dev/ttyUSB0</span><br><span class="line"><span class="comment"># 2.按下复位按键，进入uboot</span></span><br><span class="line">+---------------------------------------------+</span><br><span class="line">| S3C2440A USB Downloader ver R0.03 2004 Jan  |</span><br><span class="line">+---------------------------------------------+</span><br><span class="line">USB: IN_ENDPOINT:1 OUT_ENDPOINT:3</span><br><span class="line">FORMAT: &lt;ADDR(DATA):4&gt;+&lt;SIZE(n+10):4&gt;+&lt;DATA:n&gt;+&lt;CS:2&gt;</span><br><span class="line">NOTE: Power off/on or press the reset button <span class="keyword">for</span> 1 sec</span><br><span class="line">      <span class="keyword">in</span> order to get a valid USB device address.</span><br><span class="line"></span><br><span class="line">Hit any key to stop autoboot:  2</span><br><span class="line"><span class="comment"># 3.在上面2s的倒计时计数之前，按下空格，进入uboot菜单，如下：</span></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">[n] Download u-boot to Nand Flash</span><br><span class="line">[o] Download u-boot to Nor Flash</span><br><span class="line">[c] Re-scan Nor Flash</span><br><span class="line">[u] Copy bootloader from nand to nor</span><br><span class="line">[v] Copy bootloader from nor to nand</span><br><span class="line">[k] Download Linux kernel uImage</span><br><span class="line">[j] Download root_jffs2 image</span><br><span class="line">[y] Download root_yaffs image</span><br><span class="line">[d] Download to SDRAM &amp; Run</span><br><span class="line">[z] Download zImage into RAM</span><br><span class="line">[g] Boot linux from RAM</span><br><span class="line">[f] Format the Nand Flash</span><br><span class="line">[s] Set the boot parameters</span><br><span class="line">[b] Boot the system</span><br><span class="line">[r] Reboot u-boot</span><br><span class="line">[q] Quit from menu</span><br><span class="line">Enter your selection: </span><br><span class="line"><span class="comment"># 4.选择n，表示通过uboot下载程序到Nand flash中，正处于等待从USB下载程序的状态</span></span><br><span class="line">Enter your selection: n</span><br><span class="line">USB host is connected. Waiting a download.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5.打开另一个终端窗口，使用dnw下载程序</span></span><br><span class="line">$ dnw /home/cheng/led/led.bin	<span class="comment"># 可以使用相对路径也可以使用绝对路径</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 6.一瞬间下载成功，此时可以看到第一个终端窗口又显示uboot菜单</span></span><br><span class="line">Now, Downloading [ADDRESS:30000000h,TOTAL:46]</span><br><span class="line">RECEIVED FILE SIZE:      46 (0KB/S, 1S)</span><br><span class="line"></span><br><span class="line">NAND erase: device 0 offset 0x0, size 0x40000</span><br><span class="line">Erasing at 0x20000 -- 100% complete.</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">NAND write: device 0 offset 0x0, size 0x24</span><br><span class="line"></span><br><span class="line">Writing data at 0x0 -- 100% complete.</span><br><span class="line"> 36 bytes written: OK</span><br><span class="line"></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">[n] Download u-boot to Nand Flash</span><br><span class="line">[o] Download u-boot to Nor Flash</span><br><span class="line">[c] Re-scan Nor Flash</span><br><span class="line">[u] Copy bootloader from nand to nor</span><br><span class="line">[v] Copy bootloader from nor to nand</span><br><span class="line">[k] Download Linux kernel uImage</span><br><span class="line">[j] Download root_jffs2 image</span><br><span class="line">[y] Download root_yaffs image</span><br><span class="line">[d] Download to SDRAM &amp; Run</span><br><span class="line">[z] Download zImage into RAM</span><br><span class="line">[g] Boot linux from RAM</span><br><span class="line">[f] Format the Nand Flash</span><br><span class="line">[s] Set the boot parameters</span><br><span class="line">[b] Boot the system</span><br><span class="line">[r] Reboot u-boot</span><br><span class="line">[q] Quit from menu</span><br><span class="line">Enter your selection: </span><br><span class="line"></span><br><span class="line"><span class="comment"># 7.将启动拨码开关，拨到Nand启动，复位，则可以看到led亮了，说明下载成功  O(∩_∩)O~~</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/arm/" rel="tag"># arm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/13/日常/github-page-theme/" rel="next" title="Hexo更换NexT主题">
+                <i class="fa fa-chevron-left"></i> Hexo更换NexT主题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/15/嵌入式/stm32-interrupt/" rel="prev" title="stm32中断">
+                stm32中断 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WeetCheng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一，构建arm-linux交叉编译工具链"><span class="nav-number">1.</span> <span class="nav-text">一，构建arm-linux交叉编译工具链</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#法1，下载编译好的arm-linux-gcc"><span class="nav-number">1.1.</span> <span class="nav-text">法1，下载编译好的arm-linux-gcc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#法2，apt-get下载交叉编译工具链"><span class="nav-number">1.2.</span> <span class="nav-text">法2，apt-get下载交叉编译工具链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#法3，源码编译安装arm-linux-gcc"><span class="nav-number">1.3.</span> <span class="nav-text">法3，源码编译安装arm-linux-gcc</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二，串口调试"><span class="nav-number">2.</span> <span class="nav-text">二，串口调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三，烧录程序"><span class="nav-number">3.</span> <span class="nav-text">三，烧录程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#法1，EOP-OpenOCD烧录"><span class="nav-number">3.1.</span> <span class="nav-text">法1，EOP+OpenOCD烧录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#法2，EOP-oflash烧录u-boot"><span class="nav-number">3.2.</span> <span class="nav-text">法2，EOP+oflash烧录u-boot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#法3，使用uboot-dnw烧录程序"><span class="nav-number">3.3.</span> <span class="nav-text">法3，使用uboot+dnw烧录程序</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WeetCheng</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/06/14/嵌入式/arm开发环境搭建/';
+        this.page.identifier = '2018/06/14/嵌入式/arm开发环境搭建/';
+        this.page.title = 'Arm开发环境搭建';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

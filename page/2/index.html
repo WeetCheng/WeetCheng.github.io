@@ -1,0 +1,2947 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/17/日常/linux-蓝牙键盘/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/17/日常/linux-蓝牙键盘/" itemprop="url">
+                  linux-蓝牙键盘
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-17 13:20:47 / Modified: 13:27:49" itemprop="dateCreated datePublished" datetime="2018-09-17T13:20:47+08:00">2018-09-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/17/日常/linux-蓝牙键盘/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/17/日常/linux-蓝牙键盘/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Linux下蓝牙键盘的配对使用</p>
+<h4 id="查看本机是否有蓝牙适配器"><a href="#查看本机是否有蓝牙适配器" class="headerlink" title="查看本机是否有蓝牙适配器"></a>查看本机是否有蓝牙适配器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsusb</span><br></pre></td></tr></table></figure>
+<h4 id="设置蓝牙"><a href="#设置蓝牙" class="headerlink" title="设置蓝牙"></a>设置蓝牙</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入蓝牙控制器</span></span><br><span class="line">$ bluetoothctl</span><br><span class="line"><span class="comment"># 打开蓝牙</span></span><br><span class="line">[bluetooth]<span class="comment"># power on</span></span><br><span class="line">[bluetooth]<span class="comment"># default-agent</span></span><br><span class="line"><span class="comment"># 配对蓝牙键盘</span></span><br><span class="line">[bluetooth]<span class="comment"># pairable on</span></span><br><span class="line">[bluetooth]<span class="comment"># scan on</span></span><br><span class="line">[bluetooth]<span class="comment"># pair 34:88:5D:7E:42:04</span></span><br><span class="line">[bluetooth]<span class="comment"># trust 34:88:5D:7E:42:04</span></span><br><span class="line"><span class="comment"># 连接</span></span><br><span class="line">[bluetooth]<span class="comment"># connect 34:88:5D:7E:42:04</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/12/操作系统/unix环境高级编程-阅读/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/12/操作系统/unix环境高级编程-阅读/" itemprop="url">
+                  unix环境高级编程_阅读
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-12 12:37:27 / Modified: 12:42:50" itemprop="dateCreated datePublished" datetime="2018-09-12T12:37:27+08:00">2018-09-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/12/操作系统/unix环境高级编程-阅读/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/12/操作系统/unix环境高级编程-阅读/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>进程控制的三个主要函数：fork，exec和waitpid</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/22/计算机网络/tinyhttp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/22/计算机网络/tinyhttp/" itemprop="url">
+                  tinyhttpd解读
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-22 19:27:17" itemprop="dateCreated datePublished" datetime="2018-08-22T19:27:17+08:00">2018-08-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-09-12 08:03:02" itemprop="dateModified" datetime="2018-09-12T08:03:02+08:00">2018-09-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络/" itemprop="url" rel="index"><span itemprop="name">网络</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/22/计算机网络/tinyhttp/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/22/计算机网络/tinyhttp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="tinyhttp的作用"><a href="#tinyhttp的作用" class="headerlink" title="tinyhttp的作用"></a>tinyhttp的作用</h4>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/28/日常/vim-skills/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/28/日常/vim-skills/" itemprop="url">
+                  vim技巧
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-28 09:17:17 / Modified: 09:49:33" itemprop="dateCreated datePublished" datetime="2018-07-28T09:17:17+08:00">2018-07-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/28/日常/vim-skills/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/28/日常/vim-skills/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>vim图</p>
+<p><img src="http://p65ksscu3.bkt.clouddn.com/18-7-28/7269963.jpg" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vim上下两行交换</td>
+<td>ddp</td>
+</tr>
+<tr>
+<td>vim左右两个字符交换</td>
+<td>xp</td>
+</tr>
+<tr>
+<td>替换一个字符</td>
+<td>r</td>
+</tr>
+<tr>
+<td>删除一个字符，并进入编辑状态</td>
+<td>s</td>
+</tr>
+<tr>
+<td>删除一个字符，仍处于命令状态</td>
+<td>x</td>
+</tr>
+<tr>
+<td>正向修改一个单词，并进入编辑状态</td>
+<td>cw</td>
+</tr>
+<tr>
+<td>正向修改一个单词，仍处于命令状态</td>
+<td>dw</td>
+</tr>
+<tr>
+<td>正向修改n个单词，比如3个单词</td>
+<td>c3w或者d3w</td>
+</tr>
+<tr>
+<td>逆向修改n个单词，比如3个单词</td>
+<td>c3b或者c3b</td>
+</tr>
+<tr>
+<td>修改光标所在位置至行尾</td>
+<td>c$或者C</td>
+</tr>
+<tr>
+<td>修改光标所在位置至行首</td>
+<td>c0</td>
+</tr>
+<tr>
+<td>删除一行，并进入编辑状态</td>
+<td>cc</td>
+</tr>
+<tr>
+<td>删除一行，仍处于命令状态</td>
+<td>dd</td>
+</tr>
+<tr>
+<td>一个字母大小写转换</td>
+<td>~</td>
+</tr>
+<tr>
+<td>替换一个字符，并进入编辑状态</td>
+<td>R</td>
+</tr>
+<tr>
+<td>替换一个字符，仍处于命令状态</td>
+<td>r</td>
+</tr>
+<tr>
+<td>向下移动n行，比如3行</td>
+<td>3j</td>
+</tr>
+<tr>
+<td>向上移动n行，比如3行</td>
+<td>3k</td>
+</tr>
+<tr>
+<td>向左移动n个字符，比如3个字符</td>
+<td>3h</td>
+</tr>
+<tr>
+<td>向右移动n个字符</td>
+<td>3l</td>
+</tr>
+<tr>
+<td>向左移动n个单词</td>
+<td>3b</td>
+</tr>
+<tr>
+<td>向右移动n个单词</td>
+<td>3w</td>
+</tr>
+<tr>
+<td>移动到行首</td>
+<td>^</td>
+</tr>
+<tr>
+<td>移动到行尾</td>
+<td>$</td>
+</tr>
+<tr>
+<td>移动到文件头</td>
+<td>gg</td>
+</tr>
+<tr>
+<td>移动到文件尾</td>
+<td>G</td>
+</tr>
+<tr>
+<td>移动到第n行，比如第3行</td>
+<td>3gg</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/27/数据结构与算法/链表问题集锦/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/27/数据结构与算法/链表问题集锦/" itemprop="url">
+                  链表问题集锦
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-27 15:01:53 / Modified: 15:20:58" itemprop="dateCreated datePublished" datetime="2018-07-27T15:01:53+08:00">2018-07-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/27/数据结构与算法/链表问题集锦/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/27/数据结构与算法/链表问题集锦/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>转载自：<a href="http://wuchong.me/blog/2014/03/25/interview-link-questions/" target="_blank" rel="noopener">http://wuchong.me/blog/2014/03/25/interview-link-questions/</a></p>
+<p>作者：<a href="http://wuchong.me/" target="_blank" rel="noopener">Jark’s Blog</a></p>
+<p>链表问题在面试过程中也是很重要也很基础的一部分，链表本身很灵活，很考查编程功底，所以是很值得考的地方。我将复习过程中觉得比较好的链表问题整理了下。</p>
+<p>下面是本文所要用到链表节点的定义：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    Node* next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-在O-1-时间删除链表节点"><a href="#1-在O-1-时间删除链表节点" class="headerlink" title="1. 在O(1)时间删除链表节点"></a>1. 在O(1)时间删除链表节点</h4><p>题目描述：给定链表的头指针和一个节点指针，在O(1)时间删除该节点。[Google面试题]</p>
+<p>分析：本题与《编程之美》上的「从无头单链表中删除节点」类似。主要思想都是「狸猫换太子」，即用下一个节点数据覆盖要删除的节点，然后删除下一个节点。但是如果节点是尾节点时，该方法就行不通了。</p>
+<p>代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//O(1)时间删除链表节点，从无头单链表中删除节点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deleteRandomNode</span><span class="params">(Node *cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    assert(cur != <span class="literal">NULL</span>);</span><br><span class="line">    assert(cur-&gt;next != <span class="literal">NULL</span>);    <span class="comment">//不能是尾节点</span></span><br><span class="line">    Node* pNext = cur-&gt;next;</span><br><span class="line">    cur-&gt;data = pNext-&gt;data;</span><br><span class="line">    cur-&gt;next = pNext-&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> pNext;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-单链表的转置"><a href="#2-单链表的转置" class="headerlink" title="2. 单链表的转置"></a>2. 单链表的转置</h4><p>题目描述：输入一个单向链表，输出逆序反转后的链表</p>
+<p>分析：链表的转置是一个很常见、很基础的数据结构题了，非递归的算法很简单，用三个临时指针 pre、head、next 在链表上循环一遍即可。递归算法也是比较简单的，但是如果思路不清晰估计一时半会儿也写不出来吧。</p>
+<p>下面是循环版本和递归版本的链表转置代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单链表的转置,循环方法</span></span><br><span class="line"><span class="function">Node* <span class="title">reverseByLoop</span><span class="params">(Node *head)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    Node *pre = <span class="literal">NULL</span>;</span><br><span class="line">    Node *next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(head != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        next = head-&gt;next;</span><br><span class="line">        head-&gt;next = pre;</span><br><span class="line">        pre = head;</span><br><span class="line">        head = next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pre;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//单链表的转置,递归方法</span></span><br><span class="line"><span class="function">Node* <span class="title">reverseByRecursion</span><span class="params">(Node *head)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//第一个条件是判断异常，第二个条件是结束判断</span></span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>) </span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    Node *newHead = reverseByRecursion(head-&gt;next);</span><br><span class="line">    head-&gt;next-&gt;next = head;</span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> newHead;    <span class="comment">//返回新链表的头指针</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-求链表倒数第k个节点"><a href="#3-求链表倒数第k个节点" class="headerlink" title="3. 求链表倒数第k个节点"></a>3. 求链表倒数第k个节点</h4><p>题目描述：输入一个单向链表，输出该链表中倒数第k个节点，链表的倒数第0个节点为链表的尾指针。</p>
+<p>分析：设置两个指针 p1、p2，首先 p1 和 p2 都指向 head，然后 p2 向前走 k 步，这样 p1 和 p2 之间就间隔 k 个节点，最后 p1 和 p2 同时向前移动，直至 p2 走到链表末尾。</p>
+<p>代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//倒数第k个节点</span></span><br><span class="line"><span class="function">Node* <span class="title">theKthNode</span><span class="params">(Node *head,<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(k &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;    <span class="comment">//异常判断</span></span><br><span class="line">    Node *slow,*fast;</span><br><span class="line">    slow = fast = head;</span><br><span class="line">    <span class="keyword">int</span> i = k;</span><br><span class="line">    <span class="keyword">for</span>(;i&gt;<span class="number">0</span> &amp;&amp; fast!=<span class="literal">NULL</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i &gt; <span class="number">0</span>)    <span class="keyword">return</span> <span class="literal">NULL</span>;    <span class="comment">//考虑k大于链表长度的case</span></span><br><span class="line">    <span class="keyword">while</span>(fast != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        slow = slow-&gt;next;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-求链表的中间节点"><a href="#4-求链表的中间节点" class="headerlink" title="4. 求链表的中间节点"></a>4. 求链表的中间节点</h4><p>题目描述：求链表的中间节点，如果链表的长度为偶数，返回中间两个节点的任意一个，若为奇数，则返回中间节点。</p>
+<p>分析：此题的解决思路和第3题「求链表的倒数第 k 个节点」很相似。可以先求链表的长度，然后计算出中间节点所在链表顺序的位置。但是如果要求只能扫描一遍链表，如何解决呢？最高效的解法和第3题一样，通过两个指针来完成。用两个指针从链表头节点开始，一个指针每次向后移动两步，一个每次移动一步，直到快指针移到到尾节点，那么慢指针即是所求。</p>
+<p>代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求链表的中间节点</span></span><br><span class="line"><span class="function">Node* <span class="title">theMiddleNode</span><span class="params">(Node *head)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    Node *slow,*fast;</span><br><span class="line">    slow = fast = head;</span><br><span class="line">    <span class="comment">//如果要求在链表长度为偶数的情况下，返回中间两个节点的第一个，可以用下面的循环条件</span></span><br><span class="line">    <span class="comment">//while(fast &amp;&amp; fast-&gt;next != NULL &amp;&amp; fast-&gt;next-&gt;next != NULL)  </span></span><br><span class="line">    <span class="keyword">while</span>(fast != <span class="literal">NULL</span> &amp;&amp; fast-&gt;next != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        fast = fast-&gt;next-&gt;next;</span><br><span class="line">        slow = slow-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="5-判断单链表是否存在环"><a href="#5-判断单链表是否存在环" class="headerlink" title="5. 判断单链表是否存在环"></a>5. 判断单链表是否存在环</h4><p>题目描述：输入一个单向链表，判断链表是否有环？</p>
+<p>分析：通过两个指针，分别从链表的头节点出发，一个每次向后移动一步，另一个移动两步，两个指针移动速度不一样，如果存在环，那么两个指针一定会在环里相遇。</p>
+<p>代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断单链表是否存在环,参数circleNode是环内节点，后面的题目会用到</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">hasCircle</span><span class="params">(Node *head,Node *&amp;circleNode)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *slow,*fast;</span><br><span class="line">    slow = fast = head;</span><br><span class="line">    <span class="keyword">while</span>(fast != <span class="literal">NULL</span> &amp;&amp; fast-&gt;next != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        fast = fast-&gt;next-&gt;next;</span><br><span class="line">        slow = slow-&gt;next;</span><br><span class="line">        <span class="keyword">if</span>(fast == slow)</span><br><span class="line">        &#123;</span><br><span class="line">            circleNode = fast;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="6-找到环的入口点"><a href="#6-找到环的入口点" class="headerlink" title="6. 找到环的入口点"></a>6. 找到环的入口点</h4><p>题目描述：输入一个单向链表，判断链表是否有环。如果链表存在环，如何找到环的入口点？</p>
+<p>解题思路： 由上题可知，按照 p2 每次两步，p1 每次一步的方式走，发现 p2 和 p1 重合，确定了单向链表有环路了。接下来，让p2回到链表的头部，重新走，每次步长不是走2了，而是走1，那么当 p1 和 p2 再次相遇的时候，就是环路的入口了。</p>
+<p>为什么？：假定起点到环入口点的距离为 a，p1 和 p2 的相交点M与环入口点的距离为b，环路的周长为L，当 p1 和 p2 第一次相遇的时候，假定 p1 走了 n 步。那么有：</p>
+<p>p1走的路径： a+b ＝ n；<br>p2走的路径： a+b+k<em>L = 2</em>n； p2 比 p1 多走了k圈环路，总路程是p1的2倍</p>
+<p>根据上述公式可以得到 k*L=a+b=n显然，如果从相遇点M开始，p1 再走 n 步的话，还可以再回到相遇点，同时p2从头开始走的话，经过n步，也会达到相遇点M。</p>
+<p>显然在这个步骤当中 p1 和 p2 只有前 a 步走的路径不同，所以当 p1 和 p2 再次重合的时候，必然是在链表的环路入口点上。</p>
+<p>代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找到环的入口点</span></span><br><span class="line"><span class="function">Node* <span class="title">findLoopPort</span><span class="params">(Node *head)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//如果head为空，或者为单结点，则不存在环</span></span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    Node *slow,*fast;</span><br><span class="line">    slow = fast = head;</span><br><span class="line">    <span class="comment">//先判断是否存在环</span></span><br><span class="line">    <span class="keyword">while</span>(fast != <span class="literal">NULL</span> &amp;&amp; fast-&gt;next != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        fast = fast-&gt;next-&gt;next;</span><br><span class="line">        slow = slow-&gt;next;</span><br><span class="line">        <span class="keyword">if</span>(fast == slow)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(fast != slow) <span class="keyword">return</span> <span class="literal">NULL</span>;    <span class="comment">//不存在环</span></span><br><span class="line">    fast = head;                <span class="comment">//快指针从头开始走，步长变为1</span></span><br><span class="line">    <span class="keyword">while</span>(fast != slow)            <span class="comment">//两者相遇即为入口点</span></span><br><span class="line">    &#123;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">        slow = slow-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fast;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="7-编程判断两个链表是否相交"><a href="#7-编程判断两个链表是否相交" class="headerlink" title="7. 编程判断两个链表是否相交"></a>7. 编程判断两个链表是否相交</h4><p>题目描述：给出两个单向链表的头指针（如下图所示），</p>
+<p>比如h1、h2，判断这两个链表是否相交。这里为了简化问题，我们假设两个链表均不带环。</p>
+<p>解题思路：</p>
+<p>直接循环判断第一个链表的每个节点是否在第二个链表中。但，这种方法的时间复杂度为O(Length(h1) * Length(h2))。显然，我们得找到一种更为有效的方法，至少不能是O（N^2）的复杂度。</p>
+<p>针对第一个链表直接构造hash表，然后查询hash表，判断第二个链表的每个节点是否在hash表出现，如果所有的第二个链表的节点都能在hash表中找到，即说明第二个链表与第一个链表有相同的节点。时间复杂度为为线性：O(Length(h1) + Length(h2))，同时为了存储第一个链表的所有节点，空间复杂度为O(Length(h1))。是否还有更好的方法呢，既能够以线性时间复杂度解决问题，又能减少存储空间？</p>
+<p>转换为环的问题。把第二个链表接在第一个链表后面，如果得到的链表有环，则说明两个链表相交。如何判断有环的问题上面已经讨论过了，但这里有更简单的方法。因为如果有环，则第二个链表的表头一定也在环上，即第二个链表会构成一个循环链表，我们只需要遍历第二个链表，看是否会回到起始点就可以判断出来。这个方法的时间复杂度是线性的，空间是常熟。</p>
+<p>进一步考虑“如果两个没有环的链表相交于某一节点，那么在这个节点之后的所有节点都是两个链表共有的”这个特点，我们可以知道，如果它们相交，则最后一个节点一定是共有的。而我们很容易能得到链表的最后一个节点，所以这成了我们简化解法的一个主要突破口。那么，我们只要判断两个链表的尾指针是否相等。相等，则链表相交；否则，链表不相交。<br>所以，先遍历第一个链表，记住最后一个节点。然后遍历第二个链表，到最后一个节点时和第一个链表的最后一个节点做比较，如果相同，则相交，否则，不相交。这样我们就得到了一个时间复杂度，它为O((Length(h1) + Length(h2))，而且只用了一个额外的指针来存储最后一个节点。这个方法时间复杂度为线性O(N)，空间复杂度为O(1)，显然比解法三更胜一筹。</p>
+<p>解法四的代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断两个链表是否相交</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isIntersect</span><span class="params">(Node *h1,Node *h2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(h1 == <span class="literal">NULL</span> || h2 == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">false</span>;    <span class="comment">//异常判断</span></span><br><span class="line">    <span class="keyword">while</span>(h1-&gt;next != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        h1 = h1-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(h2-&gt;next != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        h2 = h2-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(h1 == h2) <span class="keyword">return</span> <span class="literal">true</span>;        <span class="comment">//尾节点是否相同</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="8-扩展：链表有环，如何判断相交"><a href="#8-扩展：链表有环，如何判断相交" class="headerlink" title="8. 扩展：链表有环，如何判断相交"></a>8. 扩展：链表有环，如何判断相交</h4><p>题目描述：上面的问题都是针对链表无环的，那么如果现在，链表是有环的呢?上面的方法还同样有效么?</p>
+<p>分析：如果有环且两个链表相交，则两个链表都有共同一个环，即环上的任意一个节点都存在于两个链表上。因此，就可以判断一链表上俩指针相遇的那个节点，在不在另一条链表上。</p>
+<p>代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断两个带环链表是否相交</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isIntersectWithLoop</span><span class="params">(Node *h1,Node *h2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *circleNode1,*circleNode2;</span><br><span class="line">    <span class="keyword">if</span>(!hasCircle(h1,circleNode1))    <span class="comment">//判断链表带不带环，并保存环内节点</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;                <span class="comment">//不带环，异常退出</span></span><br><span class="line">    <span class="keyword">if</span>(!hasCircle(h2,circleNode2))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    Node *temp = circleNode2-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(temp != circleNode2)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(temp == circleNode1)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        temp = temp-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="9-扩展：两链表相交的第一个公共节点"><a href="#9-扩展：两链表相交的第一个公共节点" class="headerlink" title="9. 扩展：两链表相交的第一个公共节点"></a>9. 扩展：两链表相交的第一个公共节点</h4><p>题目描述：如果两个无环单链表相交，怎么求出他们相交的第一个节点呢？</p>
+<p>分析：采用对齐的思想。计算两个链表的长度 L1 , L2，分别用两个指针 p1 , p2 指向两个链表的头，然后将较长链表的 p1（假设为 p1）向后移动L2 - L1个节点，然后再同时向后移动p1 , p2，直到 p1 = p2。相遇的点就是相交的第一个节点。</p>
+<p>代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求两链表相交的第一个公共节点</span></span><br><span class="line"><span class="function">Node* <span class="title">findIntersectNode</span><span class="params">(Node *h1,Node *h2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len1 = listLength(h1);          <span class="comment">//求链表长度</span></span><br><span class="line">    <span class="keyword">int</span> len2 = listLength(h2);</span><br><span class="line">    <span class="comment">//对齐两个链表</span></span><br><span class="line">    <span class="keyword">if</span>(len1 &gt; len2)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len1-len2;i++)</span><br><span class="line">            h1=h1-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len2-len1;i++)</span><br><span class="line">            h2=h2-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(h1 != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(h1 == h2)</span><br><span class="line">            <span class="keyword">return</span> h1;</span><br><span class="line">        h1 = h1-&gt;next;</span><br><span class="line">        h2 = h2-&gt;next;    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="10-总结"><a href="#10-总结" class="headerlink" title="10. 总结"></a>10. 总结</h4><p>可以发现，在链表的问题中，通过两个的指针来提高效率是很值得考虑的一个解决方案，所以一定要记住这种解题思路。记住几种典型的链表问题解决方案，很多类似的题目都可以转换到熟悉的问题再解决。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://blog.csdn.net/v_JULY_v/article/details/6447013" target="_blank" rel="noopener">程序员编程艺术：第九章、闲话链表追赶问题</a><br><a href="http://www.cppblog.com/humanchao/archive/2008/04/17/47357.html" target="_blank" rel="noopener">判断单链表是否存在环，判断两个链表是否相交问题详解</a><br><a href="http://blog.csdn.net/anonymalias/article/details/11020477" target="_blank" rel="noopener">面试算法之链表操作集锦</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/24/数据结构与算法/数据结构与算法问题集锦/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/24/数据结构与算法/数据结构与算法问题集锦/" itemprop="url">
+                  数据结构与算法问题集锦
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-24 16:15:11 / Modified: 21:52:11" itemprop="dateCreated datePublished" datetime="2018-07-24T16:15:11+08:00">2018-07-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/24/数据结构与算法/数据结构与算法问题集锦/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/24/数据结构与算法/数据结构与算法问题集锦/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-二叉树的性质"><a href="#1-二叉树的性质" class="headerlink" title="1. 二叉树的性质"></a>1. 二叉树的性质</h4><p><strong>性质1</strong> 在二叉树的第 i 层至多有 2^(i  - 1)个结点。(i&gt;=1)</p>
+<p><strong>性质2</strong> 深度为 k 的二叉树至多有 2^k - 1个结点(k &gt;=1)</p>
+<p><strong>性质3</strong>  对任何一棵二叉树T, 如果其叶结点数为n0, 度为2的结点数为 n2,则n0＝n2＋1。</p>
+<p><strong>性质4</strong>  具有 n (n&gt;=0) 个结点的完全二叉树的深度为[log2(n)]＋1  </p>
+<p><strong>性质5</strong> 如将一棵有n个结点的完全二叉树自顶向下，同层自左向右连续为结点编号0,1, …, n-1，则有：</p>
+<p>​ 1）若i = 0, 则 i 无双亲, 若i &gt; 0, 则 i 的双亲为」(i -1)/2」</p>
+<p>​ 2）若2i+1 &lt; n, 则i 的左子女为 2i+1，若2i+2 &lt; n, 则 i 的右子女为2i+2</p>
+<p>​ 3）若结点编号i为偶数，且i != 0,则左兄弟结点i-1.</p>
+<p>​ 4）若结点编号i为奇数，且i != n-1,则右兄弟结点为i+1.</p>
+<p>​ 5）结点i 所在层次为」log2(i+1) 」</p>
+<h4 id="2-广义表"><a href="#2-广义表" class="headerlink" title="2. 广义表"></a>2. 广义表</h4><p>广义表是线性表的推广。一般我们的线性表的元素都是基本数据类型或者结构体之类的不可分割的原子，但是广义表推而广之，其元素既可以是各不可分割的院子，也可以是子表(线性表，或者广义表等数据结构)。</p>
+<h4 id="3-以下容器"><a href="#3-以下容器" class="headerlink" title="3. 以下容器"></a>3. 以下容器</h4><p>vector 底层数据结构为数组，支持快速随机访问<br>list 底层数据结构为双向链表，支持快速增删<br>map、set都是STL关联容器，支持快速增删</p>
+<h4 id="4-后缀表达式计算方法——数字入栈（遇到运算符就出栈两个）"><a href="#4-后缀表达式计算方法——数字入栈（遇到运算符就出栈两个）" class="headerlink" title="4. 后缀表达式计算方法——数字入栈（遇到运算符就出栈两个）"></a>4. 后缀表达式计算方法——数字入栈（遇到运算符就出栈两个）</h4><p>后缀表达式：9 3 1 - 3 * + 10 2 / +<br>规则：从左到右遍历表达式的每个数字和符号，遇到数字就进栈，遇到符号时，则将栈顶两个数字出栈，进行运算，运算结果重新入栈，知道最后栈为空。</p>
+<h4 id="5-中缀表达式转后缀表达式——符号入栈（高优先级或者前辈先出栈）"><a href="#5-中缀表达式转后缀表达式——符号入栈（高优先级或者前辈先出栈）" class="headerlink" title="5. 中缀表达式转后缀表达式——符号入栈（高优先级或者前辈先出栈）"></a>5. 中缀表达式转后缀表达式——符号入栈（高优先级或者前辈先出栈）</h4><p>已知中缀表达式：9 + ( 3 - 1) * 3 + 10 / 2,将其转成后缀表达式<br>规则：从左到右遍历表达式的每个数字和符号，遇到数字就输出（成为后缀表达式的一部分）；遇到符号，则判断其与栈顶符号的优先级，如果是右括号或者优先级≤栈顶符号的话（级别高的先出栈，或者级别相同，那么前辈先出栈，晚辈过来填坑），则让栈顶元素一次出栈，并输出，并将当前符号入栈</p>
+<h4 id="6-循环队列"><a href="#6-循环队列" class="headerlink" title="6. 循环队列"></a>6. 循环队列</h4><p>如果是用数组来实现循环队列的话：</p>
+<p>1) 何时为空？</p>
+<p>当rear = = front时，队列为空</p>
+<p>2)何时为满？</p>
+<p>当(rear+1)%MAXSIZE = = front时，队列满</p>
+<p>3) 怎么增加？</p>
+<p>如果rear+1 == MAXSIZE，则让rear = 0；否则，直接rear++即可</p>
+<p>4) 怎么删除？</p>
+<p>如果如果front+1 == MAXSIZE，则让front = 0；否则，直接front++即可</p>
+<p>5) 队列长度</p>
+<p>(rear - front + MAXSIZE) % MAXSIZE</p>
+<p><img src="http://p65ksscu3.bkt.clouddn.com/18-7-24/90918722.jpg" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/24/操作系统/操作系统问题集锦/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/24/操作系统/操作系统问题集锦/" itemprop="url">
+                  操作系统问题集锦
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-24 15:09:40" itemprop="dateCreated datePublished" datetime="2018-07-24T15:09:40+08:00">2018-07-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-09-12 12:36:25" itemprop="dateModified" datetime="2018-09-12T12:36:25+08:00">2018-09-12</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/24/操作系统/操作系统问题集锦/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/24/操作系统/操作系统问题集锦/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>基本特征</p>
+<ul>
+<li>并发——同一时刻仿佛多个程序在跑</li>
+<li>共享——同一资源被多个并发进程共同使用</li>
+<li>虚拟——一个物理实体转换成多个逻辑实体；时分复用，空分复用技术</li>
+<li>异步——进程不是一次性走完，而是走走停停</li>
+</ul>
+<p>基本功能</p>
+<ul>
+<li>进程管理——进程控制，进程同步，进程通信，死锁处理，处理机调度</li>
+<li>内存管理——内存分配，地址映射，内存保护与共享，虚拟内存</li>
+<li>文件管理——文件存储空间的管理，目录管理，文件读写管理和保护</li>
+<li>设备管理——缓冲管理</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/C和C++/C++虚函数表指针/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/23/C和C++/C++虚函数表指针/" itemprop="url">
+                  C++ 虚函数表解析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-23 22:14:07 / Modified: 22:23:37" itemprop="dateCreated datePublished" datetime="2018-07-23T22:14:07+08:00">2018-07-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/23/C和C++/C++虚函数表指针/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/23/C和C++/C++虚函数表指针/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>转载自：<a href="https://coolshell.cn/articles/12165.html" target="_blank" rel="noopener">https://coolshell.cn/articles/12165.html</a></p>
+<p>作者：陈皓</p>
+<p>附录二的例程非常重要！！！</p>
+<p>C++中的虚函数的作用主要是实现了多态的机制。关于多态，简而言之就是用父类型别的指针指向其子类的实例，然后通过父类的指针调用实际子类的成员函数。这种技术可以让父类的指针有“多种形态”，这是一种泛型技术。所谓泛型技术，说白了就是试图使用不变的代码来实现可变的算法。比如：模板技术，RTTI技术，虚函数技术，要么是试图做到在编译时决议，要么试图做到运行时决议。</p>
+<p>关于虚函数的使用方法，我在这里不做过多的阐述。大家可以看看相关的C++的书籍。在这篇文章中，我只想从虚函数的实现机制上面为大家 一个清晰的剖析。</p>
+<p>当然，相同的文章在网上也出现过一些了，但我总感觉这些文章不是很容易阅读，大段大段的代码，没有图片，没有详细的说明，没有比较，没有举一反三。不利于学习和阅读，所以这是我想写下这篇文章的原因。也希望大家多给我提意见。</p>
+<p>言归正传，让我们一起进入虚函数的世界。</p>
+<h4 id="虚函数表"><a href="#虚函数表" class="headerlink" title="虚函数表"></a>虚函数表</h4><p>对C++ 了解的人都应该知道虚函数（Virtual Function）是通过一张虚函数表（Virtual Table）来实现的。简称为V-Table。在这个表中，主是要一个类的虚函数的地址表，这张表解决了继承、覆盖的问题，保证其容真实反应实际的函数。这样，在有虚函数的类的实例中这个表被分配在了这个实例的内存中，所以，当我们用父类的指针来操作一个子类的时候，这张虚函数表就显得由为重要了，它就像一个地图一样，指明了实际所应该调用的函数。</p>
+<p>这里我们着重看一下这张虚函数表。C++的编译器应该是保证虚函数表的指针存在于对象实例中最前面的位置（这是为了保证取到虚函数表的有最高的性能——如果有多层继承或是多重继承的情况下）。 这意味着我们通过对象实例的地址得到这张虚函数表，然后就可以遍历其中函数指针，并调用相应的函数。</p>
+<p>听我扯了那么多，我可以感觉出来你现在可能比以前更加晕头转向了。 没关系，下面就是实际的例子，相信聪明的你一看就明白了。</p>
+<p>假设我们有这样的一个类：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> &#123;</span></span><br><span class="line">     <span class="keyword">public</span>:</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">g</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::g"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">h</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::h"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"> </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>按照上面的说法，我们可以通过Base的实例来得到虚函数表。 下面是实际例程：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span><span class="params">(*Fun)</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"> </span><br><span class="line">Base b;</span><br><span class="line"> </span><br><span class="line">Fun pFun = <span class="literal">NULL</span>;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"虚函数表地址："</span> &lt;&lt; (<span class="keyword">int</span>*)(&amp;b) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"虚函数表 — 第一个函数地址："</span> &lt;&lt; (<span class="keyword">int</span>*)*(<span class="keyword">int</span>*)(&amp;b) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Invoke the first virtual function</span></span><br><span class="line">pFun = (Fun)*((<span class="keyword">int</span>*)*(<span class="keyword">int</span>*)(&amp;b));</span><br><span class="line">pFun();</span><br></pre></td></tr></table></figure>
+<p>实际运行经果如下：(Windows XP+VS2003, Linux 2.6.22 + GCC 4.1.3)</p>
+<p>虚函数表地址：0012FED4<br>虚函数表 — 第一个函数地址：0044F148<br>Base::f</p>
+<p>通过这个示例，我们可以看到，我们可以通过强行把&amp;b转成int <em>，取得虚函数表的地址，然后，再次取址就可以得到第一个虚函数的地址了，也就是Base::f()，这在上面的程序中得到了验证（把int</em> 强制转成了函数指针）。通过这个示例，我们就可以知道如果要调用Base::g()和Base::h()，其代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(Fun)*((<span class="keyword">int</span>*)*(<span class="keyword">int</span>*)(&amp;b)+<span class="number">0</span>);  <span class="comment">// Base::f()</span></span><br><span class="line">(Fun)*((<span class="keyword">int</span>*)*(<span class="keyword">int</span>*)(&amp;b)+<span class="number">1</span>);  <span class="comment">// Base::g()</span></span><br><span class="line">(Fun)*((<span class="keyword">int</span>*)*(<span class="keyword">int</span>*)(&amp;b)+<span class="number">2</span>);  <span class="comment">// Base::h()</span></span><br></pre></td></tr></table></figure>
+<p>这个时候你应该懂了吧。什么？还是有点晕。也是，这样的代码看着太乱了。没问题，让我画个图解释一下。如下所示：</p>
+<p><img src="https://coolshell.cn/wp-content/uploads/2014/12/01.jpg" alt="01"></p>
+<p>注意：在上面这个图中，我在虚函数表的最后多加了一个结点，这是虚函数表的结束结点，就像字符串的结束符“/0”一样，其标志了虚函数表的结束。这个结束标志的值在不同的编译器下是不同的。在WinXP+VS2003下，这个值是NULL。而在Ubuntu 7.10 + Linux 2.6.22 + GCC 4.1.3下，这个值是如果1，表示还有下一个虚函数表，如果值是0，表示是最后一个虚函数表。</p>
+<p>下面，我将分别说明“无覆盖”和“有覆盖”时的虚函数表的样子。没有覆盖父类的虚函数是毫无意义的。我之所以要讲述没有覆盖的情况，主要目的是为了给一个对比。在比较之下，我们可以更加清楚地知道其内部的具体实现。</p>
+<h4 id="一般继承（无虚函数覆盖）"><a href="#一般继承（无虚函数覆盖）" class="headerlink" title="一般继承（无虚函数覆盖）"></a>一般继承（无虚函数覆盖）</h4><p>下面，再让我们来看看继承时的虚函数表是什么样的。假设有如下所示的一个继承关系：</p>
+<p><img src="https://coolshell.cn/wp-content/uploads/2014/12/02.jpg" alt="02"></p>
+<p>请注意，在这个继承关系中，子类没有重载任何父类的函数。那么，在派生类的实例中，其虚函数表如下所示：</p>
+<p>对于实例：Derive d; 的虚函数表如下：</p>
+<p><img src="https://coolshell.cn/wp-content/uploads/2014/12/03.jpg" alt="03"></p>
+<p>我们可以看到下面几点：<br>1）虚函数按照其声明顺序放于表中。<br>2）父类的虚函数在子类的虚函数前面。</p>
+<p>我相信聪明的你一定可以参考前面的那个程序，来编写一段程序来验证。</p>
+<h4 id="一般继承（有虚函数覆盖）"><a href="#一般继承（有虚函数覆盖）" class="headerlink" title="一般继承（有虚函数覆盖）"></a>一般继承（有虚函数覆盖）</h4><p>覆盖父类的虚函数是很显然的事情，不然，虚函数就变得毫无意义。下面，我们来看一下，如果子类中有虚函数重载了父类的虚函数，会是一个什么样子？假设，我们有下面这样的一个继承关系。</p>
+<p><img src="https://coolshell.cn/wp-content/uploads/2014/12/04.jpg" alt="04"></p>
+<p>为了让大家看到被继承过后的效果，在这个类的设计中，我只覆盖了父类的一个函数：f()。那么，对于派生类的实例，其虚函数表会是下面的一个样子：</p>
+<p><img src="https://coolshell.cn/wp-content/uploads/2014/12/05.jpg" alt="05"></p>
+<p>我们从表中可以看到下面几点，<br>1）覆盖的f()函数被放到了虚表中原来父类虚函数的位置。<br>2）没有被覆盖的函数依旧。</p>
+<p>这样，我们就可以看到对于下面这样的程序，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Base *b = <span class="keyword">new</span> Derive();</span><br><span class="line"> </span><br><span class="line">b-&gt;f();</span><br></pre></td></tr></table></figure>
+<p>由b所指的内存中的虚函数表的f()的位置已经被Derive::f()函数地址所取代，于是在实际调用发生时，是Derive::f()被调用了。这就实现了多态。</p>
+<h4 id="多重继承（无虚函数覆盖）"><a href="#多重继承（无虚函数覆盖）" class="headerlink" title="多重继承（无虚函数覆盖）"></a>多重继承（无虚函数覆盖）</h4><p>下面，再让我们来看看多重继承中的情况，假设有下面这样一个类的继承关系。注意：子类并没有覆盖父类的函数。</p>
+<p><img src="https://coolshell.cn/wp-content/uploads/2014/12/06.jpg" alt="06"></p>
+<p>对于子类实例中的虚函数表，是下面这个样子：</p>
+<p><img src="https://coolshell.cn/wp-content/uploads/2014/12/07.jpg" alt="07"></p>
+<p>我们可以看到：<br>1） 每个父类都有自己的虚表。<br>2） 子类的成员函数被放到了第一个父类的表中。（所谓的第一个父类是按照声明顺序来判断的）</p>
+<p>这样做就是为了解决不同的父类类型的指针指向同一个子类实例，而能够调用到实际的函数。</p>
+<h4 id="多重继承（有虚函数覆盖）"><a href="#多重继承（有虚函数覆盖）" class="headerlink" title="多重继承（有虚函数覆盖）"></a>多重继承（有虚函数覆盖）</h4><p>下面我们再来看看，如果发生虚函数覆盖的情况。</p>
+<p><img src="https://coolshell.cn/wp-content/uploads/2014/12/08.jpg" alt="08"></p>
+<p>下图中，我们在子类中覆盖了父类的f()函数。</p>
+<p><img src="https://coolshell.cn/wp-content/uploads/2014/12/09.jpg" alt="09"></p>
+<p>下面是对于子类实例中的虚函数表的图：</p>
+<p>我们可以看见，三个父类虚函数表中的f()的位置被替换成了子类的函数指针。这样，我们就可以任一静态类型的父类来指向子类，并调用子类的f()了。如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Derive d;</span><br><span class="line">Base1 *b1 = &amp;d;</span><br><span class="line">Base2 *b2 = &amp;d;</span><br><span class="line">Base3 *b3 = &amp;d;</span><br><span class="line">b1-&gt;f(); <span class="comment">//Derive::f()</span></span><br><span class="line">b2-&gt;f(); <span class="comment">//Derive::f()</span></span><br><span class="line">b3-&gt;f(); <span class="comment">//Derive::f()</span></span><br><span class="line"> </span><br><span class="line">b1-&gt;g(); <span class="comment">//Base1::g()</span></span><br><span class="line">b2-&gt;g(); <span class="comment">//Base2::g()</span></span><br><span class="line">b3-&gt;g(); <span class="comment">//Base3::g()</span></span><br></pre></td></tr></table></figure>
+<h4 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h4><p>每次写C++的文章，总免不了要批判一下C++。这篇文章也不例外。通过上面的讲述，相信我们对虚函数表有一个比较细致的了解了。水可载舟，亦可覆舟。下面，让我们来看看我们可以用虚函数表来干点什么坏事吧。</p>
+<h5 id="一、通过父类型的指针访问子类自己的虚函数"><a href="#一、通过父类型的指针访问子类自己的虚函数" class="headerlink" title="一、通过父类型的指针访问子类自己的虚函数"></a>一、通过父类型的指针访问子类自己的虚函数</h5><p>我们知道，子类没有重载父类的虚函数是一件毫无意义的事情。因为多态也是要基于函数重载的。虽然在上面的图中我们可以看到Base1的虚表中有Derive的虚函数，但我们根本不可能使用下面的语句来调用子类的自有虚函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Base1 *b1 = <span class="keyword">new</span> Derive();</span><br><span class="line">b1-&gt;f1();  <span class="comment">//编译出错</span></span><br></pre></td></tr></table></figure>
+<p>任何妄图使用父类指针想调用子类中的<strong>未覆盖父类的成员函数</strong>的行为都会被编译器视为非法，所以，这样的程序根本无法编译通过。但在运行时，我们可以通过指针的方式访问虚函数表来达到违反C++语义的行为。（关于这方面的尝试，通过阅读后面附录的代码，相信你可以做到这一点）</p>
+<h5 id="二、访问non-public的虚函数"><a href="#二、访问non-public的虚函数" class="headerlink" title="二、访问non-public的虚函数"></a>二、访问non-public的虚函数</h5><p>另外，如果父类的虚函数是private或是protected的，但这些非public的虚函数同样会存在于虚函数表中，所以，我们同样可以使用访问虚函数表的方式来访问这些non-public的虚函数，这是很容易做到的。</p>
+<p>如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> &#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"> </span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derive</span> :</span> <span class="keyword">public</span> Base&#123;</span><br><span class="line"> </span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span><span class="params">(*Fun)</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Derive d;</span><br><span class="line">    Fun  pFun = (Fun)*((<span class="keyword">int</span>*)*(<span class="keyword">int</span>*)(&amp;d)+<span class="number">0</span>);</span><br><span class="line">    pFun();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h4><p>C++这门语言是一门Magic的语言，对于程序员来说，我们似乎永远摸不清楚这门语言背着我们在干了什么。需要熟悉这门语言，我们就必需要了解C++里面的那些东西，需要去了解C++中那些危险的东西。不然，这是一种搬起石头砸自己脚的编程语言。</p>
+<h5 id="附录一：VC中查看虚函数表"><a href="#附录一：VC中查看虚函数表" class="headerlink" title="附录一：VC中查看虚函数表"></a>附录一：VC中查看虚函数表</h5><p>我们可以在VC的IDE环境中的Debug状态下展开类的实例就可以看到虚函数表了（并不是很完整的）</p>
+<h5 id="附录-二：例程"><a href="#附录-二：例程" class="headerlink" title="附录 二：例程"></a>附录 二：例程</h5><p>下面是一个关于多重继承的虚函数表访问的例程：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base1::f"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">g</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base1::g"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">h</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base1::h"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"> </span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base2::f"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">g</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base2::g"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">h</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base2::h"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base3</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base3::f"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">g</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base3::g"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">h</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base3::h"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derive</span> :</span> <span class="keyword">public</span> Base1, <span class="keyword">public</span> Base2, <span class="keyword">public</span> Base3 &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Derive::f"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">            <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">g1</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Derive::g1"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span><span class="params">(*Fun)</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">            Fun pFun = <span class="literal">NULL</span>;</span><br><span class="line"> </span><br><span class="line">            Derive d;</span><br><span class="line"><span class="comment">// 如果是在64位下运行，那么将int换成long，因为int只有4字节(32位)，long才有64位。</span></span><br><span class="line">            <span class="keyword">int</span>** pVtab = (<span class="keyword">int</span>**)&amp;d; </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">            <span class="comment">//Base1's vtable</span></span><br><span class="line">            <span class="comment">//pFun = (Fun)*((int*)*(int*)((int*)&amp;d+0)+0);</span></span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">            pFun();</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//pFun = (Fun)*((int*)*(int*)((int*)&amp;d+0)+1);</span></span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">            pFun();</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//pFun = (Fun)*((int*)*(int*)((int*)&amp;d+0)+2);</span></span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">0</span>][<span class="number">2</span>];</span><br><span class="line">            pFun();</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//Derive's vtable</span></span><br><span class="line">            <span class="comment">//pFun = (Fun)*((int*)*(int*)((int*)&amp;d+0)+3);</span></span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">0</span>][<span class="number">3</span>];</span><br><span class="line">            pFun();</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//The tail of the vtable</span></span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">0</span>][<span class="number">4</span>];</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;pFun&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//Base2's vtable</span></span><br><span class="line">            <span class="comment">//pFun = (Fun)*((int*)*(int*)((int*)&amp;d+1)+0);</span></span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">            pFun();</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//pFun = (Fun)*((int*)*(int*)((int*)&amp;d+1)+1);</span></span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">            pFun();</span><br><span class="line"> </span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">            pFun();</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//The tail of the vtable</span></span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;pFun&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//Base3's vtable</span></span><br><span class="line">            <span class="comment">//pFun = (Fun)*((int*)*(int*)((int*)&amp;d+1)+0);</span></span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">2</span>][<span class="number">0</span>];</span><br><span class="line">            pFun();</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//pFun = (Fun)*((int*)*(int*)((int*)&amp;d+1)+1);</span></span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">2</span>][<span class="number">1</span>];</span><br><span class="line">            pFun();</span><br><span class="line"> </span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">2</span>][<span class="number">2</span>];</span><br><span class="line">            pFun();</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//The tail of the vtable</span></span><br><span class="line">            pFun = (Fun)pVtab[<span class="number">2</span>][<span class="number">3</span>];</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;pFun&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Derive::f</span><br><span class="line">Base1::g</span><br><span class="line">Base1::h</span><br><span class="line">Derive::g1</span><br><span class="line"><span class="number">1</span></span><br><span class="line">Derive::f</span><br><span class="line">Base2::g</span><br><span class="line">Base2::h</span><br><span class="line"><span class="number">1</span></span><br><span class="line">Derive::f</span><br><span class="line">Base3::g</span><br><span class="line">Base3::h</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>可以看到其结果与理论分析非常吻合！</p>
+<p><strong>注：本文年代久远，所有的示例都是在32位机上跑的。如果要在64位机器上跑，将上面函数表的地址的int改成long（见上面代码注释）</strong></p>
+<p>(全文完)</p>
+<p><img src="https://coolshell.cn//wp-content/uploads/2009/04/qrcode_for_gh_dd9d8c843f20_860-300x300.jpg" alt="img"><br>关注CoolShell微信公众账号可以在手机端搜索文章</p>
+<p><strong>（转载本站文章请注明作者和出处 酷 壳 – CoolShell ，请勿用于任何商业用途）</strong></p>
+<p>——=== <strong>访问 酷壳404页面 寻找遗失儿童。</strong> ===——</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/数据结构与算法/algorithms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/20/数据结构与算法/algorithms/" itemprop="url">
+                  算法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-20 15:39:13 / Modified: 18:40:02" itemprop="dateCreated datePublished" datetime="2018-07-20T15:39:13+08:00">2018-07-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/20/数据结构与算法/algorithms/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/20/数据结构与算法/algorithms/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>计数排序</strong>(Counting Sort)是一种O(n)的排序算法，其思路是开一个长度为<code>maxValue-minValue+1</code>的数组，然后</p>
+<ol>
+<li>分配。扫描一遍原始数组，以当前值-<code>minValue</code>作为下标，将该下标的计数器增1。</li>
+<li>收集。扫描一遍计数器数组，按顺序把值收集起来。</li>
+</ol>
+<p>举个例子，<code>nums=[2, 1, 3, 1, 5]</code>, 首先扫描一遍获取最小值和最大值，<code>maxValue=5</code>, <code>minValue=1</code>，于是开一个长度为5的计数器数组<code>counter</code>，</p>
+<ol>
+<li>分配。统计每个元素出现的频率，得到<code>counter=[2, 1, 1, 0, 1]</code>，例如<code>counter[0]</code>表示值<code>0+minValue=1</code>出现了2次。</li>
+<li>收集。<code>counter[0]=2</code>表示<code>1</code>出现了两次，那就向原始数组写入两个1，<code>counter[1]=1</code>表示<code>2</code>出现了1次，那就向原始数组写入一个2，依次类推，最终原始数组变为<code>[1,1,2,3,5]</code>，排序好了。</li>
+</ol>
+<p>计数排序本质上是一种特殊的桶排序，当桶的个数最大的时候，就是计数排序。</p>
+<p><strong>动态规划和分治法</strong></p>
+<p>动态规划和分治法都是将复杂问题分成子问题，最后再组合子问题，从而求出原问题。</p>
+<p>区别在于：</p>
+<p>分治法假设子问题之间是相互独立的，如果划分出来的子问题不是相互独立的，那么使用分治法将会有不少子问题重复计算了，效率也就提不上来。</p>
+<p>动态规划则可以解决子问题之间相互重叠的情况，可以保证每个子问题只会计算一遍，从而提高效率。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/数据结构与算法/sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/14/数据结构与算法/sort/" itemprop="url">
+                  插入排序和希尔排序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-14 09:20:12 / Modified: 23:21:18" itemprop="dateCreated datePublished" datetime="2018-07-14T09:20:12+08:00">2018-07-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/14/数据结构与算法/sort/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/14/数据结构与算法/sort/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>插入排序和希尔排序属于同一类，希尔排序是在插入排序的基础上改进的：是缩小增量的多次插入排序</p>
+<p><strong>插入排序</strong></p>
+<p>插入排序的思路是：</p>
+<p>1.读取元素A[i]，保存到Tmp</p>
+<p>2.让Tmp跟A[i]前面的元素比较，如果Tmp比较小，就让被比较的元素往前挪</p>
+<p>3.直到Tmp≥某个元素之后，停止挪动，把Tmp的值存到该元素前面</p>
+<p><img src="https://images2017.cnblogs.com/blog/849589/201710/849589-20171015225645277-1151100000.gif" alt="img"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">( ElementType A[ ], <span class="keyword">int</span> Length )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i, j;</span><br><span class="line">  ElementType Tmp;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt; Length; i++)	<span class="comment">// A[0]前面没有元素了，不用插入，因此从下标1开始</span></span><br><span class="line">  &#123;</span><br><span class="line">    Tmp = A[i];						</span><br><span class="line">    <span class="keyword">for</span>(j = i; j &gt; <span class="number">0</span> &amp;&amp; Tmp &lt; A[j - <span class="number">1</span>]; j--)</span><br><span class="line">      A[j] = A[j - <span class="number">1</span>];</span><br><span class="line">    A[j] = Tmp;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>希尔排序</strong></p>
+<p>动态图可以查看<a href="https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html</a></p>
+<p><img src="http://p65ksscu3.bkt.clouddn.com/18-7-14/1979998.jpg" alt=""></p>
+<p>增量从Length/2开始，不断缩小。</p>
+<p><strong>（1）4-排序</strong></p>
+<p>i从增量4开始，不断加1，直到最后一个元素的下标</p>
+<p>然后对i所指的元素所在的分组进行插入排序</p>
+<p><img src="http://p65ksscu3.bkt.clouddn.com/18-7-14/78023857.jpg" alt=""></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shellsort</span><span class="params">( ElementType A[ ], <span class="keyword">int</span> Length )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, Increment;</span><br><span class="line">    <span class="keyword">for</span>(Increment = Length/<span class="number">2</span>; Increment &gt; <span class="number">0</span>; Increment /= <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ElementType Tmp;</span><br><span class="line">        <span class="keyword">for</span>(i = Increment; i &lt; Length; i++)     <span class="comment">// 从Increment到最后一个元素，对每个元素</span></span><br><span class="line">        &#123;</span><br><span class="line">            Tmp = A[i];</span><br><span class="line">            <span class="keyword">for</span>(j = i; j &gt;= Increment &amp;&amp; Tmp &lt; A[j - Increment]; j -= Increment)</span><br><span class="line">                A[j] = A[j - Increment];</span><br><span class="line">            A[j] = Tmp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到希尔排序与插入排序是非常相似的。</p>
+<p>当Increment=1时，执行的就是插入排序。</p>
+<p>这里需要理解的是i的取值，i从Increment取到Length-1。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WeetCheng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WeetCheng</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+  
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

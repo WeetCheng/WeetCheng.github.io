@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="转载自：B树、B+树、B*树 作者：xx1994 B-树，就是B树，B树的原英文名是B-tree,所以很多翻译为B-树,就会很多人误以为B-树是一种树、B树是另外一种树。其实，B-tree就是B树。 B树是一种多叉平衡查找树，我们之前所介绍的红黑树是二叉查找树结构，B树由于是多叉结构，对于元素数量非常多的情况下，树的深度不会像二叉结构那么大，可以保证查询效率。 B树的性质（m阶的B树）  树中每个">
+<meta name="keywords" content="编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="B树，B+树，B*树">
+<meta property="og:url" content="http://yoursite.com/2018/07/12/数据结构与算法/b-tree-2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="转载自：B树、B+树、B*树 作者：xx1994 B-树，就是B树，B树的原英文名是B-tree,所以很多翻译为B-树,就会很多人误以为B-树是一种树、B树是另外一种树。其实，B-tree就是B树。 B树是一种多叉平衡查找树，我们之前所介绍的红黑树是二叉查找树结构，B树由于是多叉结构，对于元素数量非常多的情况下，树的深度不会像二叉结构那么大，可以保证查询效率。 B树的性质（m阶的B树）  树中每个">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-64a12dd8b69a6809.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/187">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-e0c3fc6a4a7b15ad.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/325">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-d179695c75ae4ea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/433">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-5349eae52b5bafa1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/433">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-76ddfb7b0e3b3b75.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/649">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-431287b91e3450a2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/649">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-d29687dbd4fa001b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/614">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-7aaafc6058789cb5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/627">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-d6582f0917f7e7a3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/627">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-be6a815c78d8345c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/591">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-42e6c6bf1ea7bbb8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/615">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-ef078cf73c0b80fe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/566">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-4e74509c89662360.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/554">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-f763877cf21aa94d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/569">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3739895-d51e5dc039ffb536.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/569">
+<meta property="og:updated_time" content="2018-07-12T12:35:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="B树，B+树，B*树">
+<meta name="twitter:description" content="转载自：B树、B+树、B*树 作者：xx1994 B-树，就是B树，B树的原英文名是B-tree,所以很多翻译为B-树,就会很多人误以为B-树是一种树、B树是另外一种树。其实，B-tree就是B树。 B树是一种多叉平衡查找树，我们之前所介绍的红黑树是二叉查找树结构，B树由于是多叉结构，对于元素数量非常多的情况下，树的深度不会像二叉结构那么大，可以保证查询效率。 B树的性质（m阶的B树）  树中每个">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3739895-64a12dd8b69a6809.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/187">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/12/数据结构与算法/b-tree-2/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>B树，B+树，B*树 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/数据结构与算法/b-tree-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">B树，B+树，B*树
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-12 19:51:34 / Modified: 20:35:59" itemprop="dateCreated datePublished" datetime="2018-07-12T19:51:34+08:00">2018-07-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/12/数据结构与算法/b-tree-2/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/12/数据结构与算法/b-tree-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>转载自：<a href="https://www.jianshu.com/p/db226e0196b4" target="_blank" rel="noopener">B树、B+树、B*树</a></p>
+<p>作者：<a href="https://www.jianshu.com/u/8d45fb002795" target="_blank" rel="noopener">xx1994</a></p>
+<p>B-树，就是B树，B树的原英文名是B-tree,所以很多翻译为B-树,就会很多人误以为B-树是一种树、B树是另外一种树。其实，<strong>B-tree就是B树。</strong></p>
+<p>B树是一种多叉平衡查找树，我们之前所介绍的红黑树是二叉查找树结构，B树由于是多叉结构，对于元素数量非常多的情况下，树的深度不会像二叉结构那么大，可以保证查询效率。</p>
+<p><strong>B树的性质</strong>（m阶的B树）</p>
+<ol>
+<li>树中每个结点最多含有m个孩子（m&gt;=2）；</li>
+<li>除根结点和叶子结点外，其它每个结点至少有[ceil(m / 2)]个孩子（其中ceil(x)是一个取上限的函数）；</li>
+<li>根结点至少有2个孩子（除非B树只包含一个结点：根结点）；</li>
+<li>所有叶子结点都出现在同一层，叶子结点不包含任何关键字信息(可以看做是外部结点或查询失败的结点，指向这些结点的指针都为null)；（注：叶子节点只是没有孩子和指向孩子的指针，这些节点也存在，也有元素。类似红黑树中，每一个NULL指针即当做叶子结点，只是没画出来而已）。</li>
+<li>每个非终端结点中包含有n个关键字信息： (n，P0，K1，P1，K2，P2，……，Kn，Pn)。其中：<br>a) Ki (i=1…n)为关键字，且关键字按顺序升序排序K(i-1)&lt; Ki。<br>b) Pi为指向子树根的结点，且指针P(i-1)指向子树种所有结点的关键字均小于Ki，但都大于K(i-1)。<br>c) 关键字的个数n必须满足： [ceil(m / 2)-1]&lt;= n &lt;= m-1。比如有j个孩子的非叶结点恰好有j-1个关键码。</li>
+</ol>
+<p><strong>B树的插入</strong><br>根据B树的性质，一个m阶的B树需要满足：</p>
+<ul>
+<li>树中每个结点含有最多含有m个孩子，即m满足：ceil(m/2)&lt;=m&lt;=m。</li>
+<li>除根结点和叶子结点外，其它每个结点至少有[ceil(m / 2)]个孩子（其中ceil(x)是一个取上限的函数）；</li>
+<li>除根结点之外的结点的关键字的个数n必须满足： [ceil(m / 2)-1]&lt;= n &lt;= m-1（叶子结点也必须满足此条关于关键字数的性质）。</li>
+</ul>
+<p>针对一棵高度为h的m阶B树，插入一个元素时，首先在B树中是否存在，如果不存在，一般在叶子结点中插入该新的元素，此时分3种情况：</p>
+<ul>
+<li>如果叶子结点空间足够，即该结点的关键字数小于m-1，则直接插入在叶子结点的左边或右边；</li>
+<li>如果空间满了以致没有足够的空间去添加新的元素，即该结点的关键字数已经有了m个，则需要将该结点进行“分裂”，将一半数量的关键字元素分裂到新的其相邻右结点中，中间关键字元素上移到父结点中，而且当结点中关键元素向右移动了，相关的指针也需要向右移。</li>
+<li>此外，如果在上述中间关键字上移到父结点的过程中，导致根结点空间满了，那么根结点也要进行分裂操作，这样原来的根结点中的中间关键字元素向上移动到新的根结点中，因此导致树的高度增加一层。</li>
+</ul>
+<blockquote>
+<p>插入以下字符字母到一棵空的5阶B 树中：C N G A H E K Q M F W L T Z D P R X Y S<br><strong>分析：</strong> 根据上面的性质总结，5阶的B树，非根节点关键字个数n满足2&lt;=n&lt;=4,每个节点最多含有5个孩子，除根节点叶子节点之外，其他节点至少3个孩子。</p>
+</blockquote>
+<ol>
+<li><p>关键字个数最大4，先取前4个插入到相同的节点中。</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-64a12dd8b69a6809.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/187" alt="img"></p>
+<p>​</p>
+</li>
+<li><p>插入H，因为步骤一后空间不够，就需要将中间关键字元素上移到父结点中，树增加一层</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-e0c3fc6a4a7b15ad.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/325" alt="img"></p>
+<p>​</p>
+</li>
+<li><p>在步骤二的图中，可以继续插入E,K,Q三个节点，继续插就得分裂</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-d179695c75ae4ea3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/433" alt="img"></p>
+<p>​</p>
+</li>
+<li><p>插入M将进行分裂，M刚好是中间元素，直接上移到父节点中，HK、NQ分开为两个节点</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-5349eae52b5bafa1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/433" alt="img"></p>
+<p>​</p>
+</li>
+<li><p>如步骤四的图中可以继续插入F,W,L,T</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-76ddfb7b0e3b3b75.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/649" alt="img"></p>
+<p>​</p>
+</li>
+<li><p>在步骤五之后，插入Z就得进行分裂，T上移到父节点</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-431287b91e3450a2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/649" alt="img"></p>
+<p>​</p>
+</li>
+<li><p>如步骤六的图中插入D,进行分裂，D上移到父节点中，然后插入后续的P,R,X,Y节点没有分裂</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-d29687dbd4fa001b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/614" alt="img"></p>
+<p>​</p>
+</li>
+<li><p>插入最后一个S，含有N,P,Q,R的节点需要分裂，Q上移，导致父节点D,G,M,T也满了，也需要进行分裂，继续将中间元素M上移，产生新的节点，树高度再加一层。</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-7aaafc6058789cb5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/627" alt="img"></p>
+<p>​</p>
+</li>
+</ol>
+<p><strong>B树的删除</strong><br>首先查找B树中要删除的元素，若元素存在，则进行删除。删除该元素后，需要判断该元素是否有左右孩子节点</p>
+<ul>
+<li>如果有，则上移孩子节点中的相近元素(左孩子中最右边的节点或者右孩子中最左边的节点)到父节点中去，移动之后的情况。</li>
+<li>如果没有，直接删除，移动之后的情况。</li>
+</ul>
+<p>删除元素，然后进行元素移动之后，如果节点关键字数目不满足条件(小于ceil(m/2)-1),则需要看其相邻的兄弟节点是否丰满(关键字个数大于ceil(m/2)-1)</p>
+<ul>
+<li>如果丰满，则向父节点借一个元素来满足</li>
+<li>如果其相邻兄弟都刚脱贫，即借了之后其结点数目小于ceil(m/2)-1，则该结点与其相邻的某一兄弟结点进行“合并”成一个结点，以此来满足条件。</li>
+</ul>
+<blockquote>
+<p>对刚刚插入的树进行删除操作，依次删除H,T,R,E</p>
+</blockquote>
+<ol>
+<li><p>删除H,在叶子节点H,K,L中，删除后还剩两个关键字，能够满足不小于ceil(m/2)-1=2，进行简单的删除元素后面的元素向前移动即可。</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-d6582f0917f7e7a3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/627" alt="img"></p>
+<p>​</p>
+</li>
+<li><p>删除T,QT节点不满足关键字要求，需要上移孩子节点中相近元素W</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-be6a815c78d8345c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/591" alt="img"></p>
+<p>​</p>
+</li>
+<li><p>删除R,删除后RS节点只剩一个关键字，根据上面的分析，兄弟节点丰满，就向父节点借一个W,同时X需要上移到父节点中去。</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-42e6c6bf1ea7bbb8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/615" alt="img"></p>
+<p>​</p>
+</li>
+<li><p>删除E,删除后EF节点只剩一个关键字，根据上面分析，兄弟节点刚脱贫，则需要跟相邻兄弟节点合并，D在两个需要合并的节点之间，所以需要下移到之前的AC节点中，将仅剩的F进行合并，形成ACDF节点</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-ef078cf73c0b80fe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/566" alt="img"></p>
+<p>​</p>
+<p>​</p>
+<p>但是我们发现中间有一个节点只包含一个关键字，并且该节点非根节点，这个就需要进行修改。接下来进行分析：如果相邻兄弟节点丰满，可以从父节点中进行借一个元素，但是我们右边的QX节点并不丰满，所以只能下移M节点，减少树的高度。最终图如下：</p>
+<p>​</p>
+<p>​</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-4e74509c89662360.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/554" alt="img"></p>
+<p>​</p>
+</li>
+</ol>
+<p><strong>B+树</strong><br>B树的一种变形树，m阶的B+树和m阶的B树区别：</p>
+<ol>
+<li>所有叶子节点包含全部关键字信息，及指向含有这些关键字记录的指针，且叶子节点中关键字进行有序链接</li>
+<li>非叶子结点相当于是叶子结点的索引（稀疏索引），叶子结点相当于是存储（关键字）数据的数据层；</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-f763877cf21aa94d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/569" alt="img"></p>
+<p>B+树比B树更适合操作系统的文件索引和数据库索引的原因：</p>
+<ul>
+<li>B+树的磁盘读写代价更低，B+树的内部节点没有指向关键字具体信息的指针，因此内部节点相对B树更小。如果把所有同一内部节点的关键字放在同一块磁盘中，盘块所能容纳的关键字数量也就越多，一次性读入内存中的需要查找的关键字也就越多，相对IO读写次数降低</li>
+</ul>
+<blockquote>
+<p>举个例子，假设磁盘中的一个盘块容纳16bytes，而一个关键字2bytes，一个关键字具体信息指针2bytes。一棵9阶B-tree(一个结点最多8个关键字)的内部结点需要2个盘块。而B+<br>树内部结点只需要1个盘快。当需要把内部结点读入内存中的时候，B 树就比B+ 树多一次盘块查找时间(在磁盘中就是盘片旋转的时间)。</p>
+</blockquote>
+<ul>
+<li>B+树的查询效率更加稳定<br>由于非终结点并不是最终指向文件内容的结点，而只是叶子结点中关键字的索引。所以任何关键字的查找必须走一条从根结点到叶子结点的路。所有关键字查询的路径长度相同，导致每一个数据的查询效率相当。</li>
+</ul>
+<p>总而言之，B树在提高了磁盘IO性能的同时并没有解决元素遍历的效率低下的问题。正是为了解决这个问题，B+树应运而生。B+树只要遍历叶子节点就可以实现整棵树的遍历，支持基于范围的查询，而B树不支持range-query这样的操作（或者说效率太低）。</p>
+<p><strong>B*树</strong><br>B*树是B+树的变体，在B+树的非根和非叶子结点再增加指向兄弟的指针；</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3739895-d51e5dc039ffb536.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/569" alt="img"></p>
+<p>B+树的分裂：当一个结点满时，分配一个新的结点，并将原结点中1/2的数据复制到新结点，最后在父结点中增加新结点的指针；B+树的分裂只影响原结点和父结点，而不会影响兄弟结点，所以它不需要指向兄弟的指针。</p>
+<p>B*树的分裂：当一个结点满时，如果它的下一个兄弟结点未满，那么将一部分数据移到兄弟结点中，再在原结点插入关键字，最后修改父结点中兄弟结点的关键字（因为兄弟结点的关键字范围改变了）；如果兄弟也满了，则在原结点与兄弟结点之间增加新结点，并各复制1/3的数据到新结点，最后在父结点增加新结点的指针。</p>
+<p><strong>总结</strong></p>
+<ul>
+<li>B-树：多路搜索树，每个结点存储M/2到M个关键字，非叶子结点存储指向关键字范围的子结点；所有关键字在整颗树中出现，且只出现一次，非叶子结点可以命中；</li>
+<li>B+树：在B-树基础上，为叶子结点增加链表指针，所有关键字都在叶子结点 中出现，非叶子结点作为叶子结点的索引；B+树总是到叶子结点才命中；</li>
+<li>B*树：在B+树基础上，为非叶子结点也增加链表指针，将结点的最低利用率从1/2提高到2/3；</li>
+</ul>
+<blockquote>
+<p>借鉴于<a href="https://link.jianshu.com?t=https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.02.md" target="_blank" rel="noopener">July大神的分析</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程/" rel="tag"># 编程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/12/数据结构与算法/b-tree-1/" rel="next" title="B树">
+                <i class="fa fa-chevron-left"></i> B树
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/12/数据结构与算法/red-black-tree/" rel="prev" title="红黑树">
+                红黑树 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WeetCheng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WeetCheng</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/07/12/数据结构与算法/b-tree-2/';
+        this.page.identifier = '2018/07/12/数据结构与算法/b-tree-2/';
+        this.page.title = 'B树，B+树，B*树';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
