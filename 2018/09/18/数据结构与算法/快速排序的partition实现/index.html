@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,8 +115,8 @@
 <meta property="og:url" content="http://yoursite.com/2018/09/18/数据结构与算法/快速排序的partition实现/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="实现一大话数据结构的实现（p418） 1234567891011121314/* 取最左边的值为pivot，在交换过程中实际的pivot值一直在改变，最终停下来的位置就是pivot的位置 */int partition(SqList *L, int low, int high)&amp;#123;	int pivotkey;    pivotkey = L-&amp;gt;r[low];    while(low">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-18T10:49:49.000Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-18T07:19:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速排序的partition实现">
 <meta name="twitter:description" content="实现一大话数据结构的实现（p418） 1234567891011121314/* 取最左边的值为pivot，在交换过程中实际的pivot值一直在改变，最终停下来的位置就是pivot的位置 */int partition(SqList *L, int low, int high)&amp;#123;	int pivotkey;    pivotkey = L-&amp;gt;r[low];    while(low">
@@ -176,7 +176,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -202,7 +202,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -222,7 +222,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -238,7 +238,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -246,7 +246,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -256,7 +256,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -277,7 +277,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -363,14 +363,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-18 10:56:36 / Updated at: 18:49:49" itemprop="dateCreated datePublished" datetime="2018-09-18T10:56:36+08:00">2018-09-18</time>
+              <time title="创建时间：2018-09-18 10:56:36 / 修改时间：15:19:15" itemprop="dateCreated datePublished" datetime="2018-09-18T10:56:36+08:00">2018-09-18</time>
             
 
             
@@ -406,7 +406,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             Views:  
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -428,11 +428,11 @@
       
 
       
-        <h3 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h3><p>大话数据结构的实现（p418）</p>
+        <h3><span id="实现一">实现一</span></h3><p>大话数据结构的实现（p418）</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 取最左边的值为pivot，在交换过程中实际的pivot值一直在改变，最终停下来的位置就是pivot的位置 */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(SqList *L, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> pivotkey;</span><br><span class="line">    pivotkey = L-&gt;r[low];</span><br><span class="line">    <span class="keyword">while</span>(low &lt; high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high &amp;&amp; L-&gt;r[high] &gt;= pivotkey)</span><br><span class="line">       		high--;</span><br><span class="line">        swap(L, low, high);</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high &amp;&amp; L-&gt;r[low] &lt;= pivotkey)</span><br><span class="line">            low++;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h3><p>数据结构与算法分析的实现（p182）</p>
+<h3><span id="实现二">实现二</span></h3><p>数据结构与算法分析的实现（p182）</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 取最左边，中间，最右边三者的中间值作为pivot，并且将pivot调到最右边去</span></span><br><span class="line"><span class="comment">每次移动两个索引，交换，最后将基准值交换到partition完成的地方 */</span></span><br><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line">ElementType pivot;</span><br><span class="line">pivot = median3(A, left, right);</span><br><span class="line">i = left;</span><br><span class="line">j = right - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(;;)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(A[++i] &lt; pivot);</span><br><span class="line">    <span class="keyword">while</span>(A[--j] &gt; pivot);</span><br><span class="line">    <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">        swap(&amp;A[i], &amp; A[j]);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    swap(&amp;A[i], &amp;A[right - <span class="number">1</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="实现三"><a href="#实现三" class="headerlink" title="实现三"></a>实现三</h3><p>leetcode某道题出现的解法：<a href="https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60312/AC-Clean-QuickSelect-Java-solution-avg.-O(n" target="_blank" rel="noopener">Kth Largest Element in an Array</a>-time)</p>
+<h3><span id="实现三">实现三</span></h3><p>leetcode某道题出现的解法：<a href="https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60312/AC-Clean-QuickSelect-Java-solution-avg.-O(n" target="_blank" rel="noopener">Kth Largest Element in an Array</a>-time)</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 取最右边的值为pivot，每次都将大于pivot的值交换到左边 </span></span><br><span class="line"><span class="comment">最终将基准值交换到partition完成的地方 */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> []a, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = low;</span><br><span class="line">    <span class="keyword">int</span> j = high;</span><br><span class="line">    <span class="keyword">int</span> pivot = a[high];    </span><br><span class="line">    <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i++] &gt; pivot)</span><br><span class="line">            swap(a, --i, --j);</span><br><span class="line">    &#125;</span><br><span class="line">    swap(a, i, high)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -536,10 +536,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -560,7 +560,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -577,7 +577,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -630,7 +630,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -665,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现一"><span class="nav-number">1.</span> <span class="nav-text">实现一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现二"><span class="nav-number">2.</span> <span class="nav-text">实现二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现三"><span class="nav-number">3.</span> <span class="nav-text">实现三</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">实现一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">实现二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">实现三</span></a></li></ol></div>
             
 
           </div>
@@ -699,7 +699,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -707,7 +707,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -717,14 +717,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>

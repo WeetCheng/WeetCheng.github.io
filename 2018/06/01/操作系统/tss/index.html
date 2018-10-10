@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,7 +115,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/06/01/操作系统/tss/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="TSS任务状态段中记录了处理器为了管理任务所需要的信息。  其中包含两类信息：  动态信息：即在切换任务的时候，处理器会更新的信息。包括： 通用寄存器 段寄存器 标志寄存器 指令寄存器 上一任务的TSS对应的段选择子   静态信息：即处理器只读，但不会修改的信息。包括 任务的LDT对应的段选择子 任务的页目录表的基地址   (PDBR) 栈指针   (从特权级0到2都有) T标志位（debug标志">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-1/32170859.jpg">
 <meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-1/37375677.jpg">
 <meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-1/73317647.jpg">
@@ -182,7 +182,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -208,7 +208,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -228,7 +228,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -236,7 +236,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -244,7 +244,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -252,7 +252,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -262,7 +262,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -283,7 +283,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -369,14 +369,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-01 07:27:47" itemprop="dateCreated datePublished" datetime="2018-06-01T07:27:47+08:00">2018-06-01</time>
+              <time title="创建时间：2018-06-01 07:27:47" itemprop="dateCreated datePublished" datetime="2018-06-01T07:27:47+08:00">2018-06-01</time>
             
 
             
@@ -391,9 +391,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -424,7 +424,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             Views:  
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -446,7 +446,7 @@
       
 
       
-        <h3 id="TSS"><a href="#TSS" class="headerlink" title="TSS"></a>TSS</h3><p>任务状态段中记录了处理器为了管理任务所需要的信息。</p>
+        <h3><span id="tss">TSS</span></h3><p>任务状态段中记录了处理器为了管理任务所需要的信息。</p>
 <p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/32170859.jpg" alt=""></p>
 <p>其中包含两类信息：</p>
 <ul>
@@ -467,12 +467,12 @@
 </ul>
 </li>
 </ul>
-<h3 id="TSS描述符"><a href="#TSS描述符" class="headerlink" title="TSS描述符"></a>TSS描述符</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/37375677.jpg" alt=""></p>
-<h3 id="TR寄存器-Task-register"><a href="#TR寄存器-Task-register" class="headerlink" title="TR寄存器(Task register)"></a>TR寄存器(Task register)</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/73317647.jpg" alt=""></p>
+<h3><span id="tss描述符">TSS描述符</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/37375677.jpg" alt=""></p>
+<h3><span id="tr寄存器task-register">TR寄存器(Task register)</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/73317647.jpg" alt=""></p>
 <p>TR寄存器里存放的是逻辑地址。因此跟普通的由逻辑地址-&gt;线性地址步骤一样</p>
-<h3 id="任务门描述符"><a href="#任务门描述符" class="headerlink" title="任务门描述符"></a>任务门描述符</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/60935710.jpg" alt=""></p>
+<h3><span id="任务门描述符">任务门描述符</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/60935710.jpg" alt=""></p>
 <p>任务可以通过人物们描述符或TSS描述符被访问，LDT中任务门，LDT中的任务门可指向相同的任务<img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/24630204.jpg" alt=""></p>
-<h3 id="何时才会执行任务切换？"><a href="#何时才会执行任务切换？" class="headerlink" title="何时才会执行任务切换？"></a>何时才会执行任务切换？</h3><p>四种情况：</p>
+<h3><span id="何时才会执行任务切换">何时才会执行任务切换？</span></h3><p>四种情况：</p>
 <ul>
 <li>当前task执行JMP或CALL指令——指向TSS描述符</li>
 <li>当前task执行JMP或CALL指令——指向任务门</li>
@@ -480,7 +480,7 @@
 <li>当前task执行iret指令，且NT标志位置位</li>
 </ul>
 <p>总之就是JMP/CALL指令，中断，异常，IRET指令四种情况</p>
-<h3 id="任务切换步骤"><a href="#任务切换步骤" class="headerlink" title="任务切换步骤"></a>任务切换步骤</h3><ol>
+<h3><span id="任务切换步骤">任务切换步骤</span></h3><ol>
 <li>检查是否有权限跳转到目标任务。JMP/CALL情况需要检查CPL和RPL权限是否高于DPL权限。而其他三种情况不用</li>
 <li>检查新任务的TSS描述符是否标记为present，且limit有效</li>
 <li>保存当前任务的状态。根据TR寄存器找到TSS所在的线性地址，将信息记录到TSS中</li>
@@ -589,10 +589,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -613,7 +613,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -630,7 +630,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -683,7 +683,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -718,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TSS"><span class="nav-number">1.</span> <span class="nav-text">TSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TSS描述符"><span class="nav-number">2.</span> <span class="nav-text">TSS描述符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TR寄存器-Task-register"><span class="nav-number">3.</span> <span class="nav-text">TR寄存器(Task register)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任务门描述符"><span class="nav-number">4.</span> <span class="nav-text">任务门描述符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#何时才会执行任务切换？"><span class="nav-number">5.</span> <span class="nav-text">何时才会执行任务切换？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任务切换步骤"><span class="nav-number">6.</span> <span class="nav-text">任务切换步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">TSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">TSS描述符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">TR寄存器(Task register)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">任务门描述符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">何时才会执行任务切换？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">任务切换步骤</span></a></li></ol></div>
             
 
           </div>
@@ -752,7 +752,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -760,7 +760,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -770,14 +770,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>

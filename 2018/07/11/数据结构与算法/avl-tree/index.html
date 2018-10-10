@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,7 +115,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/07/11/数据结构与算法/avl-tree/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="转载自：AVL树(一)之 图文解析 和 C语言的实现 作者：skywang12345 概要本章介绍AVL树。和前面介绍”二叉查找树“的流程一样，本章先对AVL树的理论知识进行简单介绍，然后给出C语言的实现。本篇实现的二叉查找树是C语言版的，后面章节再分别给出C++和Java版本的实现。建议：若您对”二叉查找树”不熟悉，建议先学完”二叉查找树“再来学习AVL树。 目录  AVL树的介绍 AVL树的C">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://images0.cnblogs.com/i/497634/201403/281623404229547.jpg">
 <meta property="og:image" content="https://images0.cnblogs.com/i/497634/201403/281624280475098.jpg">
 <meta property="og:image" content="https://images0.cnblogs.com/i/497634/201403/281625317193879.jpg">
@@ -203,7 +203,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -229,7 +229,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -249,7 +249,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -257,7 +257,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -265,7 +265,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -273,7 +273,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -283,7 +283,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -304,7 +304,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -390,14 +390,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-07-11 22:21:04 / Updated at: 22:31:58" itemprop="dateCreated datePublished" datetime="2018-07-11T22:21:04+08:00">2018-07-11</time>
+              <time title="创建时间：2018-07-11 22:21:04 / 修改时间：22:31:58" itemprop="dateCreated datePublished" datetime="2018-07-11T22:21:04+08:00">2018-07-11</time>
             
 
             
@@ -433,7 +433,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             Views:  
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -457,7 +457,7 @@
       
         <p>转载自：<a href="https://www.cnblogs.com/skywang12345/p/3576969.html" target="_blank" rel="noopener">AVL树(一)之 图文解析 和 C语言的实现</a></p>
 <p>作者：<a href="http://www.cnblogs.com/skywang12345/" target="_blank" rel="noopener">skywang12345</a></p>
-<h3 id="概要"><a href="#概要" class="headerlink" title="概要"></a><strong>概要</strong></h3><p>本章介绍AVL树。和前面介绍”<a href="http://www.cnblogs.com/skywang12345/p/3576328.html" target="_blank" rel="noopener">二叉查找树</a>“的流程一样，本章先对AVL树的理论知识进行简单介绍，然后给出C语言的实现。本篇实现的二叉查找树是C语言版的，后面章节再分别给出C++和Java版本的实现。<br>建议：若您对”二叉查找树”不熟悉，建议先学完”<a href="http://www.cnblogs.com/skywang12345/p/3576328.html" target="_blank" rel="noopener">二叉查找树</a>“再来学习AVL树。</p>
+<h3><span id="概要"><strong>概要</strong></span></h3><p>本章介绍AVL树。和前面介绍”<a href="http://www.cnblogs.com/skywang12345/p/3576328.html" target="_blank" rel="noopener">二叉查找树</a>“的流程一样，本章先对AVL树的理论知识进行简单介绍，然后给出C语言的实现。本篇实现的二叉查找树是C语言版的，后面章节再分别给出C++和Java版本的实现。<br>建议：若您对”二叉查找树”不熟悉，建议先学完”<a href="http://www.cnblogs.com/skywang12345/p/3576328.html" target="_blank" rel="noopener">二叉查找树</a>“再来学习AVL树。</p>
 <p><strong>目录</strong></p>
 <ol>
 <li><a href="https://www.cnblogs.com/skywang12345/p/3576969.html#a1" target="_blank" rel="noopener">AVL树的介绍</a></li>
@@ -468,11 +468,11 @@
 <hr>
 <p><strong>更多内容</strong>: <a href="http://www.cnblogs.com/skywang12345/p/3603935.html" target="_blank" rel="noopener">数据结构与算法系列 目录</a> </p>
 <p>(01) <a href="http://www.cnblogs.com/skywang12345/p/3576969.html" target="_blank" rel="noopener">AVL树(一)之 图文解析 和 C语言的实现</a><br>(02) <a href="http://www.cnblogs.com/skywang12345/p/3577360.html" target="_blank" rel="noopener">AVL树(二)之 C++的实现</a><br>(03) <a href="http://www.cnblogs.com/skywang12345/p/3577479.html" target="_blank" rel="noopener">AVL树(三)之 Java的实现</a></p>
-<h3 id="AVL树的介绍"><a href="#AVL树的介绍" class="headerlink" title="AVL树的介绍"></a><strong>AVL树的介绍</strong></h3><p>AVL树是根据它的发明者G.M. <strong>A</strong>delson-<strong>V</strong>elsky和E.M. <strong>L</strong>andis命名的。<br>它是最先发明的自平衡二叉查找树，也被称为高度平衡树。相比于”二叉查找树”，它的特点是：AVL树中任何节点的两个子树的高度最大差别为1。 (关于树的高度等基本概念，请参考”<a href="http://www.cnblogs.com/skywang12345/p/3576328.html" target="_blank" rel="noopener">二叉查找树(一)之 图文解析 和 C语言的实现</a> “)</p>
+<h3><span id="avl树的介绍"><strong>AVL树的介绍</strong></span></h3><p>AVL树是根据它的发明者G.M. <strong>A</strong>delson-<strong>V</strong>elsky和E.M. <strong>L</strong>andis命名的。<br>它是最先发明的自平衡二叉查找树，也被称为高度平衡树。相比于”二叉查找树”，它的特点是：AVL树中任何节点的两个子树的高度最大差别为1。 (关于树的高度等基本概念，请参考”<a href="http://www.cnblogs.com/skywang12345/p/3576328.html" target="_blank" rel="noopener">二叉查找树(一)之 图文解析 和 C语言的实现</a> “)</p>
 <p><a href="https://images0.cnblogs.com/i/497634/201403/281623404229547.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281623404229547.jpg" alt="img"></a></p>
 <p><em>上面的两张图片，左边的是AVL树，它的任何节点的两个子树的高度差别都&lt;=1；而右边的不是AVL树，因为7的两颗子树的高度相差为2(以2为根节点的树的高度是3，而以8为根节点的树的高度是1)。</em></p>
 <p>AVL树的查找、插入和删除在平均和最坏情况下都是O(logn)。<br>如果在AVL树中插入或删除节点后，使得高度之差大于1。此时，AVL树的平衡状态就被破坏，它就不再是一棵二叉树；为了让它重新维持在一个平衡状态，就需要对其进行旋转处理。学AVL树，重点的地方也就是它的旋转算法；在后文的介绍中，再来对它进行详细介绍。</p>
-<h3 id="AVL树的C实现"><a href="#AVL树的C实现" class="headerlink" title="AVL树的C实现"></a><strong>AVL树的C实现</strong></h3><p><strong>1. 节点</strong></p>
+<h3><span id="avl树的c实现"><strong>AVL树的C实现</strong></span></h3><p><strong>1. 节点</strong></p>
 <p><strong>1.1 定义</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typedef int Type;</span><br><span class="line"></span><br><span class="line">typedef struct AVLTreeNode&#123;</span><br><span class="line">    Type key;                    // 关键字(键值)</span><br><span class="line">    int height;</span><br><span class="line">    struct AVLTreeNode *left;    // 左孩子</span><br><span class="line">    struct AVLTreeNode *right;    // 右孩子</span><br><span class="line">&#125;Node, *AVLTree;</span><br></pre></td></tr></table></figure>
 <p>AVL树的节点包括的几个组成对象:<br>(01) key – 是关键字，是用来对AVL树的节点进行排序的。<br>(02) left – 是左孩子。<br>(03) right – 是右孩子。<br>(04) height – 是高度。</p>
@@ -519,13 +519,13 @@
 <p><strong>4. 删除</strong><br>删除节点的代码</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * 删除结点(z)，返回根节点</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 参数说明：</span></span><br><span class="line"><span class="comment"> *     ptree AVL树的根结点</span></span><br><span class="line"><span class="comment"> *     z 待删除的结点</span></span><br><span class="line"><span class="comment"> * 返回值：</span></span><br><span class="line"><span class="comment"> *     根节点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> Node* <span class="title">delete_node</span><span class="params">(AVLTree tree, Node *z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 根为空 或者 没有要删除的节点，直接返回NULL。</span></span><br><span class="line">    <span class="keyword">if</span> (tree==<span class="literal">NULL</span> || z==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (z-&gt;key &lt; tree-&gt;key)        <span class="comment">// 待删除的节点在"tree的左子树"中</span></span><br><span class="line">    &#123;</span><br><span class="line">        tree-&gt;left = delete_node(tree-&gt;left, z);</span><br><span class="line">        <span class="comment">// 删除节点后，若AVL树失去平衡，则进行相应的调节。</span></span><br><span class="line">        <span class="keyword">if</span> (HEIGHT(tree-&gt;right) - HEIGHT(tree-&gt;left) == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            Node *r =  tree-&gt;right;</span><br><span class="line">            <span class="keyword">if</span> (HEIGHT(r-&gt;left) &gt; HEIGHT(r-&gt;right))</span><br><span class="line">                tree = right_left_rotation(tree);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                tree = right_right_rotation(tree);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (z-&gt;key &gt; tree-&gt;key)<span class="comment">// 待删除的节点在"tree的右子树"中</span></span><br><span class="line">    &#123;</span><br><span class="line">        tree-&gt;right = delete_node(tree-&gt;right, z);</span><br><span class="line">        <span class="comment">// 删除节点后，若AVL树失去平衡，则进行相应的调节。</span></span><br><span class="line">        <span class="keyword">if</span> (HEIGHT(tree-&gt;left) - HEIGHT(tree-&gt;right) == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            Node *l =  tree-&gt;left;</span><br><span class="line">            <span class="keyword">if</span> (HEIGHT(l-&gt;right) &gt; HEIGHT(l-&gt;left))</span><br><span class="line">                tree = left_right_rotation(tree);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                tree = left_left_rotation(tree);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>    <span class="comment">// tree是对应要删除的节点。</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// tree的左右孩子都非空</span></span><br><span class="line">        <span class="keyword">if</span> ((tree-&gt;left) &amp;&amp; (tree-&gt;right))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (HEIGHT(tree-&gt;left) &gt; HEIGHT(tree-&gt;right))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 如果tree的左子树比右子树高；</span></span><br><span class="line">                <span class="comment">// 则(01)找出tree的左子树中的最大节点</span></span><br><span class="line">                <span class="comment">//   (02)将该最大节点的值赋值给tree。</span></span><br><span class="line">                <span class="comment">//   (03)删除该最大节点。</span></span><br><span class="line">                <span class="comment">// 这类似于用"tree的左子树中最大节点"做"tree"的替身；</span></span><br><span class="line">                <span class="comment">// 采用这种方式的好处是：删除"tree的左子树中最大节点"之后，AVL树仍然是平衡的。</span></span><br><span class="line">                Node *max = avltree_maximum(tree-&gt;left);</span><br><span class="line">                tree-&gt;key = max-&gt;key;</span><br><span class="line">                tree-&gt;left = delete_node(tree-&gt;left, max);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 如果tree的左子树不比右子树高(即它们相等，或右子树比左子树高1)</span></span><br><span class="line">                <span class="comment">// 则(01)找出tree的右子树中的最小节点</span></span><br><span class="line">                <span class="comment">//   (02)将该最小节点的值赋值给tree。</span></span><br><span class="line">                <span class="comment">//   (03)删除该最小节点。</span></span><br><span class="line">                <span class="comment">// 这类似于用"tree的右子树中最小节点"做"tree"的替身；</span></span><br><span class="line">                <span class="comment">// 采用这种方式的好处是：删除"tree的右子树中最小节点"之后，AVL树仍然是平衡的。</span></span><br><span class="line">                Node *min = avltree_maximum(tree-&gt;right);</span><br><span class="line">                tree-&gt;key = min-&gt;key;</span><br><span class="line">                tree-&gt;right = delete_node(tree-&gt;right, min);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            Node *tmp = tree;</span><br><span class="line">            tree = tree-&gt;left ? tree-&gt;left : tree-&gt;right;</span><br><span class="line">            <span class="built_in">free</span>(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> tree;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * 删除结点(key是节点值)，返回根节点</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 参数说明：</span></span><br><span class="line"><span class="comment"> *     tree AVL树的根结点</span></span><br><span class="line"><span class="comment"> *     key 待删除的结点的键值</span></span><br><span class="line"><span class="comment"> * 返回值：</span></span><br><span class="line"><span class="comment"> *     根节点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Node* <span class="title">avltree_delete</span><span class="params">(AVLTree tree, Type key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *z; </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((z = avltree_search(tree, key)) != <span class="literal">NULL</span>)</span><br><span class="line">        tree = delete_node(tree, z);</span><br><span class="line">    <span class="keyword">return</span> tree;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong>：关于AVL树的”前序遍历”、”中序遍历”、”后序遍历”、”最大值”、”最小值”、”查找”、”打印”、”销毁”等接口与”<a href="http://www.cnblogs.com/skywang12345/p/3576328.html" target="_blank" rel="noopener">二叉查找树</a>“基本一样，这些操作在”二叉查找树”中已经介绍过了，这里就不再单独介绍了。当然，后文给出的AVL树的完整源码中，有给出这些API的实现代码。这些接口很简单，Please RTFSC(Read The Fucking Source Code)！</p>
-<h3 id="AVL树的C实现-完整源码"><a href="#AVL树的C实现-完整源码" class="headerlink" title="AVL树的C实现(完整源码)"></a><strong>AVL树的C实现(完整源码)</strong></h3><p>AVL树的头文件(avltree.h)</p>
+<h3><span id="avl树的c实现完整源码"><strong>AVL树的C实现(完整源码)</strong></span></h3><p>AVL树的头文件(avltree.h)</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="meta">#<span class="meta-keyword">ifndef</span> _AVL_TREE_H_</span></span><br><span class="line"> <span class="number">2</span> <span class="meta">#<span class="meta-keyword">define</span> _AVL_TREE_H_</span></span><br><span class="line"> <span class="number">3</span> </span><br><span class="line"> <span class="number">4</span> <span class="keyword">typedef</span> <span class="keyword">int</span> Type;</span><br><span class="line"> <span class="number">5</span> </span><br><span class="line"> <span class="number">6</span> <span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">AVLTreeNode</span>&#123;</span></span><br><span class="line"> <span class="number">7</span>     Type key;                    <span class="comment">// 关键字(键值)</span></span><br><span class="line"> <span class="number">8</span>     <span class="keyword">int</span> height;</span><br><span class="line"> <span class="number">9</span>     <span class="class"><span class="keyword">struct</span> <span class="title">AVLTreeNode</span> *<span class="title">left</span>;</span>    <span class="comment">// 左孩子</span></span><br><span class="line"><span class="number">10</span>     <span class="class"><span class="keyword">struct</span> <span class="title">AVLTreeNode</span> *<span class="title">right</span>;</span>    <span class="comment">// 右孩子</span></span><br><span class="line"><span class="number">11</span> &#125;Node, *AVLTree;</span><br><span class="line"><span class="number">12</span> </span><br><span class="line"><span class="number">13</span> <span class="comment">// 获取AVL树的高度</span></span><br><span class="line"><span class="number">14</span> <span class="function"><span class="keyword">int</span> <span class="title">avltree_height</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">15</span> </span><br><span class="line"><span class="number">16</span> <span class="comment">// 前序遍历"AVL树"</span></span><br><span class="line"><span class="number">17</span> <span class="function"><span class="keyword">void</span> <span class="title">preorder_avltree</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">18</span> <span class="comment">// 中序遍历"AVL树"</span></span><br><span class="line"><span class="number">19</span> <span class="function"><span class="keyword">void</span> <span class="title">inorder_avltree</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">20</span> <span class="comment">// 后序遍历"AVL树"</span></span><br><span class="line"><span class="number">21</span> <span class="function"><span class="keyword">void</span> <span class="title">postorder_avltree</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">22</span> </span><br><span class="line"><span class="number">23</span> <span class="function"><span class="keyword">void</span> <span class="title">print_avltree</span><span class="params">(AVLTree tree, Type key, <span class="keyword">int</span> direction)</span></span>;</span><br><span class="line"><span class="number">24</span> </span><br><span class="line"><span class="number">25</span> <span class="comment">// (递归实现)查找"AVL树x"中键值为key的节点</span></span><br><span class="line"><span class="number">26</span> <span class="function">Node* <span class="title">avltree_search</span><span class="params">(AVLTree x, Type key)</span></span>;</span><br><span class="line"><span class="number">27</span> <span class="comment">// (非递归实现)查找"AVL树x"中键值为key的节点</span></span><br><span class="line"><span class="number">28</span> <span class="function">Node* <span class="title">iterative_avltree_search</span><span class="params">(AVLTree x, Type key)</span></span>;</span><br><span class="line"><span class="number">29</span> </span><br><span class="line"><span class="number">30</span> <span class="comment">// 查找最小结点：返回tree为根结点的AVL树的最小结点。</span></span><br><span class="line"><span class="number">31</span> <span class="function">Node* <span class="title">avltree_minimum</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">32</span> <span class="comment">// 查找最大结点：返回tree为根结点的AVL树的最大结点。</span></span><br><span class="line"><span class="number">33</span> <span class="function">Node* <span class="title">avltree_maximum</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">34</span> </span><br><span class="line"><span class="number">35</span> <span class="comment">// 将结点插入到AVL树中，返回根节点</span></span><br><span class="line"><span class="number">36</span> <span class="function">Node* <span class="title">avltree_insert</span><span class="params">(AVLTree tree, Type key)</span></span>;</span><br><span class="line"><span class="number">37</span> </span><br><span class="line"><span class="number">38</span> <span class="comment">// 删除结点(key是节点值)，返回根节点</span></span><br><span class="line"><span class="number">39</span> <span class="function">Node* <span class="title">avltree_delete</span><span class="params">(AVLTree tree, Type key)</span></span>;</span><br><span class="line"><span class="number">40</span> </span><br><span class="line"><span class="number">41</span> <span class="comment">// 销毁AVL树</span></span><br><span class="line"><span class="number">42</span> <span class="function"><span class="keyword">void</span> <span class="title">destroy_avltree</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">43</span> </span><br><span class="line"><span class="number">44</span> </span><br><span class="line"><span class="number">45</span> <span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 <p>AVL树的实现文件(avltree.c)</p>
 <p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> View Code</p>
 <p>AVL树的测试程序(avltree_test.c) </p>
 <p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> View Code</p>
-<h3 id="AVL树的C测试程序"><a href="#AVL树的C测试程序" class="headerlink" title="AVL树的C测试程序"></a><strong>AVL树的C测试程序</strong></h3><p>AVL树的测试程序运行结果如下：</p>
+<h3><span id="avl树的c测试程序"><strong>AVL树的C测试程序</strong></span></h3><p>AVL树的测试程序运行结果如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">== 依次添加: <span class="number">3</span> <span class="number">2</span> <span class="number">1</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">16</span> <span class="number">15</span> <span class="number">14</span> <span class="number">13</span> <span class="number">12</span> <span class="number">11</span> <span class="number">10</span> <span class="number">8</span> <span class="number">9</span> </span><br><span class="line">== 前序遍历: <span class="number">7</span> <span class="number">4</span> <span class="number">2</span> <span class="number">1</span> <span class="number">3</span> <span class="number">6</span> <span class="number">5</span> <span class="number">13</span> <span class="number">11</span> <span class="number">9</span> <span class="number">8</span> <span class="number">10</span> <span class="number">12</span> <span class="number">15</span> <span class="number">14</span> <span class="number">16</span> </span><br><span class="line">== 中序遍历: <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> </span><br><span class="line">== 后序遍历: <span class="number">1</span> <span class="number">3</span> <span class="number">2</span> <span class="number">5</span> <span class="number">6</span> <span class="number">4</span> <span class="number">8</span> <span class="number">10</span> <span class="number">9</span> <span class="number">12</span> <span class="number">11</span> <span class="number">14</span> <span class="number">16</span> <span class="number">15</span> <span class="number">13</span> <span class="number">7</span> </span><br><span class="line">== 高度: <span class="number">5</span></span><br><span class="line">== 最小值: <span class="number">1</span></span><br><span class="line">== 最大值: <span class="number">16</span></span><br><span class="line">== 树的详细信息: </span><br><span class="line"> <span class="number">7</span> is root</span><br><span class="line"> <span class="number">4</span> is  <span class="number">7'</span>s   left child</span><br><span class="line"> <span class="number">2</span> is  <span class="number">4'</span>s   left child</span><br><span class="line"> <span class="number">1</span> is  <span class="number">2'</span>s   left child</span><br><span class="line"> <span class="number">3</span> is  <span class="number">2'</span>s  right child</span><br><span class="line"> <span class="number">6</span> is  <span class="number">4'</span>s  right child</span><br><span class="line"> <span class="number">5</span> is  <span class="number">6'</span>s   left child</span><br><span class="line"><span class="number">13</span> is  <span class="number">7'</span>s  right child</span><br><span class="line"><span class="number">11</span> is <span class="number">13'</span>s   left child</span><br><span class="line"> <span class="number">9</span> is <span class="number">11'</span>s   left child</span><br><span class="line"> <span class="number">8</span> is  <span class="number">9'</span>s   left child</span><br><span class="line"><span class="number">10</span> is  <span class="number">9'</span>s  right child</span><br><span class="line"><span class="number">12</span> is <span class="number">11'</span>s  right child</span><br><span class="line"><span class="number">15</span> is <span class="number">13'</span>s  right child</span><br><span class="line"><span class="number">14</span> is <span class="number">15'</span>s   left child</span><br><span class="line"><span class="number">16</span> is <span class="number">15'</span>s  right child</span><br><span class="line"></span><br><span class="line">== 删除根节点: <span class="number">8</span></span><br><span class="line">== 高度: <span class="number">5</span></span><br><span class="line">== 中序遍历: <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> </span><br><span class="line">== 树的详细信息: </span><br><span class="line"> <span class="number">7</span> is root</span><br><span class="line"> <span class="number">4</span> is  <span class="number">7'</span>s   left child</span><br><span class="line"> <span class="number">2</span> is  <span class="number">4'</span>s   left child</span><br><span class="line"> <span class="number">1</span> is  <span class="number">2'</span>s   left child</span><br><span class="line"> <span class="number">3</span> is  <span class="number">2'</span>s  right child</span><br><span class="line"> <span class="number">6</span> is  <span class="number">4'</span>s  right child</span><br><span class="line"> <span class="number">5</span> is  <span class="number">6'</span>s   left child</span><br><span class="line"><span class="number">13</span> is  <span class="number">7'</span>s  right child</span><br><span class="line"><span class="number">11</span> is <span class="number">13'</span>s   left child</span><br><span class="line"> <span class="number">9</span> is <span class="number">11'</span>s   left child</span><br><span class="line"><span class="number">10</span> is  <span class="number">9'</span>s  right child</span><br><span class="line"><span class="number">12</span> is <span class="number">11'</span>s  right child</span><br><span class="line"><span class="number">15</span> is <span class="number">13'</span>s  right child</span><br><span class="line"><span class="number">14</span> is <span class="number">15'</span>s   left child</span><br><span class="line"><span class="number">16</span> is <span class="number">15'</span>s  right child</span><br></pre></td></tr></table></figure>
 <p>下面，我们对测试程序的流程进行分析！</p>
 <p><strong>1. 新建AVL树</strong><br>   新建AVL树的根节点root。</p>
@@ -668,10 +668,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -692,7 +692,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -709,7 +709,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -762,7 +762,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -797,7 +797,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概要"><span class="nav-number">1.</span> <span class="nav-text">概要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL树的介绍"><span class="nav-number">2.</span> <span class="nav-text">AVL树的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL树的C实现"><span class="nav-number">3.</span> <span class="nav-text">AVL树的C实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL树的C实现-完整源码"><span class="nav-number">4.</span> <span class="nav-text">AVL树的C实现(完整源码)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL树的C测试程序"><span class="nav-number">5.</span> <span class="nav-text">AVL树的C测试程序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">概要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">AVL树的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">AVL树的C实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">AVL树的C实现(完整源码)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">AVL树的C测试程序</span></a></li></ol></div>
             
 
           </div>
@@ -831,7 +831,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -839,7 +839,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -849,14 +849,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>

@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,9 +115,9 @@
 <meta property="og:url" content="http://yoursite.com/2018/09/20/数据库/MySQL/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="安装MySQL 环境：deepin15.5 安装方式1：通过apt-get方式(需要先配置apt repository)  1. 下载MySQL apt repository的配置deb包 配置deb包下载地址 2. 安装配置deb包 12# 进入配置deb包所在目录$ sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb # 这是我下载的版本 3. 更新a">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/img/20180920153841.png">
-<meta property="og:updated_time" content="2018-09-20T10:54:15.000Z">
+<meta property="og:updated_time" content="2018-09-20T10:45:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL">
 <meta name="twitter:description" content="安装MySQL 环境：deepin15.5 安装方式1：通过apt-get方式(需要先配置apt repository)  1. 下载MySQL apt repository的配置deb包 配置deb包下载地址 2. 安装配置deb包 12# 进入配置deb包所在目录$ sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb # 这是我下载的版本 3. 更新a">
@@ -178,7 +178,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -204,7 +204,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -224,7 +224,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -232,7 +232,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -240,7 +240,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -248,7 +248,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -258,7 +258,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -279,7 +279,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -365,14 +365,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-20 10:20:34 / Updated at: 18:54:15" itemprop="dateCreated datePublished" datetime="2018-09-20T10:20:34+08:00">2018-09-20</time>
+              <time title="创建时间：2018-09-20 10:20:34 / 修改时间：18:45:58" itemprop="dateCreated datePublished" datetime="2018-09-20T10:20:34+08:00">2018-09-20</time>
             
 
             
@@ -408,7 +408,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             Views:  
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -430,7 +430,7 @@
       
 
       
-        <h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><blockquote>
+        <h3><span id="安装mysql">安装MySQL</span></h3><blockquote>
 <p>环境：deepin15.5</p>
 <p>安装方式1：通过apt-get方式(需要先配置apt repository)</p>
 </blockquote>
@@ -464,7 +464,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt install openssl</span><br><span class="line">$ bin/mysql_ssl_rsa_setup</span><br></pre></td></tr></table></figure>
 <p><strong>7. 复制服务文件</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp support-files/mysql.server /etc/init.d/mysql.server</span><br></pre></td></tr></table></figure>
-<h3 id="使用MySQL"><a href="#使用MySQL" class="headerlink" title="使用MySQL"></a>使用MySQL</h3><p><strong>1. 开启服务</strong></p>
+<h3><span id="使用mysql">使用MySQL</span></h3><p><strong>1. 开启服务</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/mysqld --user=mysql &amp;</span><br></pre></td></tr></table></figure>
 <p><strong>2. 使用用户root登陆</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用前面生成的临时密码登陆root</span></span><br><span class="line">$ bin/mysql -uroot -p</span><br><span class="line">Enter passwd:&amp;t+5f1iPriUu</span><br></pre></td></tr></table></figure>
@@ -477,11 +477,11 @@
 <p><strong>4. 创建mysql的快捷方式</strong></p>
 <p>创建快捷方式，从而可以在任何目录下都可以直接运行mysql</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建快捷方式</span></span><br><span class="line">$ ln -s /usr/<span class="built_in">local</span>/mysql/bin/mysql /usr/<span class="built_in">local</span>/bin/mysql</span><br><span class="line"><span class="comment"># 运行</span></span><br><span class="line">$ mysql -uroot -p</span><br></pre></td></tr></table></figure>
-<h3 id="MySQL图形界面"><a href="#MySQL图形界面" class="headerlink" title="MySQL图形界面"></a>MySQL图形界面</h3><p><code>MySQL workbench</code>: MySQL官方的图形界面软件，不过我在deepin下使用偶尔会出现乱码，而且弹出警告说未识别的操作系统</p>
+<h3><span id="mysql图形界面">MySQL图形界面</span></h3><p><code>MySQL workbench</code>: MySQL官方的图形界面软件，不过我在deepin下使用偶尔会出现乱码，而且弹出警告说未识别的操作系统</p>
 <p><code>Dbeaver</code>：第三方的图形界面软件，支持多种不同的DBMS。</p>
 <p><strong>安装Dbeaver</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装社区版本(community edtion)</span></span><br><span class="line">$ sudo apt-get install dbeaver-ce</span><br></pre></td></tr></table></figure>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] <a href="https://zhuanlan.zhihu.com/p/38708106" target="_blank" rel="noopener">如何在Linux上安装MySQL8.0.11</a></p>
+<h3><span id="参考文献">参考文献</span></h3><p>[1] <a href="https://zhuanlan.zhihu.com/p/38708106" target="_blank" rel="noopener">如何在Linux上安装MySQL8.0.11</a></p>
 <p>[2] <a href="https://www.jianshu.com/p/f4a98a905011" target="_blank" rel="noopener">Linux下安装MySQL</a></p>
 
       
@@ -587,10 +587,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -611,7 +611,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -628,7 +628,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -681,7 +681,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -716,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装MySQL"><span class="nav-number">1.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用MySQL"><span class="nav-number">2.</span> <span class="nav-text">使用MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL图形界面"><span class="nav-number">3.</span> <span class="nav-text">MySQL图形界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">使用MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">MySQL图形界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
@@ -750,7 +750,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -758,7 +758,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -768,14 +768,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>

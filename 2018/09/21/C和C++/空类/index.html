@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,7 +115,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/09/21/C和C++/空类/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="空类的概念空类，即没有静态成员变量的类或者结构体。 C++中有一个规则，为了保证每个对象分配的地址各不相同，任何对象或者子对象的大小至少占用一个字节的空间，因此空类至少会被分配一个字节。  为什么分配一个字节之后，可以保证每个对象的地址不同呢？ 答：这里要注意区分地址和空间的区别。 地址指的是一个对象的起始地址，空间指的是这个对象占用的地址块。假设给对象分配了地址A，但没有分配空间，那么操作系统的">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-9-24/83460854.jpg">
 <meta property="og:updated_time" content="2018-09-28T02:06:55.000Z">
 <meta name="twitter:card" content="summary">
@@ -178,7 +178,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -204,7 +204,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -224,7 +224,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -232,7 +232,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -240,7 +240,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -248,7 +248,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -258,7 +258,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -279,7 +279,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -365,14 +365,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-21 09:54:12" itemprop="dateCreated datePublished" datetime="2018-09-21T09:54:12+08:00">2018-09-21</time>
+              <time title="创建时间：2018-09-21 09:54:12" itemprop="dateCreated datePublished" datetime="2018-09-21T09:54:12+08:00">2018-09-21</time>
             
 
             
@@ -387,9 +387,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-09-28 10:06:55" itemprop="dateModified" datetime="2018-09-28T10:06:55+08:00">2018-09-28</time>
+                <time title="修改时间：2018-09-28 10:06:55" itemprop="dateModified" datetime="2018-09-28T10:06:55+08:00">2018-09-28</time>
               
             
           </span>
@@ -420,7 +420,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             Views:  
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -442,14 +442,14 @@
       
 
       
-        <h3 id="空类的概念"><a href="#空类的概念" class="headerlink" title="空类的概念"></a>空类的概念</h3><p><code>空类</code>，即没有静态成员变量的类或者结构体。</p>
+        <h3><span id="空类的概念">空类的概念</span></h3><p><code>空类</code>，即没有静态成员变量的类或者结构体。</p>
 <p>C++中有一个规则，为了保证每个对象分配的地址各不相同，任何对象或者子对象的大小至少占用一个字节的空间，因此空类至少会被分配一个字节。</p>
 <blockquote>
 <p><strong>为什么分配一个字节之后，可以保证每个对象的地址不同呢？</strong></p>
 <p>答：这里要注意区分<code>地址</code>和<code>空间</code>的区别。</p>
 <p><code>地址</code>指的是一个对象的起始地址，<code>空间</code>指的是这个对象占用的地址块。假设给对象分配了地址A，但没有分配空间，那么操作系统的<code>内存管理器</code>无法管理分配0空间的情况，下次有可能会给别的对象也分配到地址A上，导致两个不同的对象指向同一个地址。而，如果分配了地址，又分配了空间，那么内存管理器中有相关的记录，就不可能分配相同的地址和空间给其他对象了。</p>
 </blockquote>
-<h3 id="空基类优化"><a href="#空基类优化" class="headerlink" title="空基类优化"></a>空基类优化</h3><p><code>空基类优化</code>，即一个字节都不给空基类分配。</p>
+<h3><span id="空基类优化">空基类优化</span></h3><p><code>空基类优化</code>，即一个字节都不给空基类分配。</p>
 <p>在一些情况下，会执行<code>空基类优化</code>，有些情况又不会执行<code>空基类优化</code>，判断是否执行的标准在于：</p>
 <p><strong>准则：</strong>假设类Derived继承自空基类Empty，并且Derived类的第一个非静态成员变量的类型是空基类Empty，或者空基类Empty的派生类，那么不执行<code>空基类优化</code>，因为如果被优化，两个连续的空基类可能会出现相同的地址。</p>
 <blockquote>
@@ -464,7 +464,7 @@
 </blockquote>
 <p>我挑选几个比较重要的例子来解释，如何根据判断准则来计算：</p>
 <p>（注意，程序中我已经设为按1字节对齐了，而不是默认的内存对齐方式！）</p>
-<h4 id="Derived9"><a href="#Derived9" class="headerlink" title="Derived9"></a>Derived9</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived9</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line">	Derived2 a;</span><br><span class="line">	Derived2 b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4><span id="derived9">Derived9</span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived9</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line">	Derived2 a;</span><br><span class="line">	Derived2 b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>准则：</strong>假设类Derived继承自空基类Empty，并且Derived类的第一个非静态成员变量的类型是空基类Empty，或者空基类Empty的派生类，那么不执行<code>空基类优化</code>，因为如果被优化，两个连续的空基类可能会出现相同的地址。</p>
 <p><strong>分析过程：</strong></p>
 <p>1）Derived9继承自空基类Empty，并且Derived9类的第一个非静态成员变量是Derived2类，Derived2类是空基类Empty的派生类，因此不执行优化，故<code>class Derived9 : public Empty</code>这里的Empty被保留下来，分配1字节。</p>
@@ -472,25 +472,25 @@
 <p>3）同理，<code>Derived2 b</code>也只分配了int32_t大小的空间。</p>
 <p>4）故此，Derived9的内存空间占用为1 + 4 + 4 = 9。（再次强调，我在程序中已经设为1字节对齐了，如果默认对齐方式的话，占用的空间将会是12）</p>
 <p><img src="http://p65ksscu3.bkt.clouddn.com/18-9-24/83460854.jpg" alt=""></p>
-<h4 id="MultiDerived"><a href="#MultiDerived" class="headerlink" title="MultiDerived"></a>MultiDerived</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty1</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived</span>  :</span> <span class="keyword">public</span> Empty, <span class="keyword">public</span> Empty1 &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<h4><span id="multiderived">MultiDerived</span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty1</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived</span>  :</span> <span class="keyword">public</span> Empty, <span class="keyword">public</span> Empty1 &#123;&#125;;</span><br></pre></td></tr></table></figure>
 <p>编译器不会给两个不同的基类的子对象分配相同的地址，因此这里是可以优化了，但最后又必须保证至少有一个字节。因此内存占用空间为1;。</p>
-<h4 id="MultiDerived4、5、6"><a href="#MultiDerived4、5、6" class="headerlink" title="MultiDerived4、5、6"></a>MultiDerived4、5、6</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived1</span> :</span> <span class="keyword">public</span> Empty &#123;&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived2</span> :</span> <span class="keyword">public</span> Empty &#123;&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived3</span> :</span> <span class="keyword">public</span> MultiDerived1, <span class="keyword">public</span> MultiDerived2 &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NotEmpty</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived4</span> :</span> <span class="keyword">public</span> MultiDerived1, <span class="keyword">public</span> NotEmpty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Empty e;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived5</span> :</span> <span class="keyword">public</span> NotEmpty, <span class="keyword">public</span> MultiDerived1</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Empty e;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived6</span> :</span> <span class="keyword">public</span> NotEmpty, <span class="keyword">public</span> MultiDerived1 &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<h4><span id="multiderived4-5-6">MultiDerived4、5、6</span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived1</span> :</span> <span class="keyword">public</span> Empty &#123;&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived2</span> :</span> <span class="keyword">public</span> Empty &#123;&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived3</span> :</span> <span class="keyword">public</span> MultiDerived1, <span class="keyword">public</span> MultiDerived2 &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NotEmpty</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived4</span> :</span> <span class="keyword">public</span> MultiDerived1, <span class="keyword">public</span> NotEmpty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Empty e;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived5</span> :</span> <span class="keyword">public</span> NotEmpty, <span class="keyword">public</span> MultiDerived1</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Empty e;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived6</span> :</span> <span class="keyword">public</span> NotEmpty, <span class="keyword">public</span> MultiDerived1 &#123;&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>分析：</strong></p>
 <p>1）MultiDerived4继承自两个不同的基类MultiDerived1，NotEmpty，编译器不会给两个不同的基类分配相同的地址，因此可以进行空基类优化。MultiDerived1被优化后，不占用空间，而NotEmpty占用4个字节，成员变量Empty占用1个字节，因此整个MultiDerived4占用的空间为5个字节。</p>
 <p>2）MultiDerived5同上</p>
 <p>3）MultiDerived6也一样，只不过没有Empty成员变量，所以只占用4个字节。</p>
-<h4 id="Foo1、2"><a href="#Foo1、2" class="headerlink" title="Foo1、2"></a>Foo1、2</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Empty e[<span class="number">4</span>];</span><br><span class="line">  Derived2 d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo1Helper</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">std</span>::<span class="keyword">int8_t</span> i8[<span class="number">3</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo1</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Foo1Helper d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Foo f;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4><span id="foo1-2">Foo1、2</span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Empty e[<span class="number">4</span>];</span><br><span class="line">  Derived2 d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo1Helper</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">std</span>::<span class="keyword">int8_t</span> i8[<span class="number">3</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo1</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Foo1Helper d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Foo f;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>分析：</strong></p>
 <p>1）Foo中，Empty成员数组没办法优化，占4个字节。<code>Derived2 d</code>的空基类可以优化，<code>Derived2 d</code>占4个字节。故Foo占8个字节</p>
 <p>2）Foo1继承自空基类，并且其第一个非静态成员变量<code>Foo1Helper d</code>是空基类Empty的派生类，不能优化<code>class Foo1 : public Empty</code>这里的Empty。然后构造成员变量<code>Foo1Helper d</code>，其继承自空基类，但第一个非静态成员变量int8_t不是空基类，或者空基类的派生类，因此<code>class Foo1Helper : public Empty</code>的Empty可以优化掉。故Foo1占用的空间为Foo1的基类Empty + Derived2的int32_t成员变量 = 1 + 4 = 5个字节</p>
 <p>3）Foo2继承自空基类，并且其第一个非静态成员变量Foo的第一个非静态成员变量是Empty e[4]，是空基类，因此不能优化<code>class Foo2 : public Empty</code>这里的Empty。然后构造成员变量Foo，由1）中的分析已经知道，其占用8个字节。因此Foo2占用的空间为Foo2的基类Empty + Empty e[4] + Derived2 d = 1 + 4 + 4 = 9</p>
-<h3 id="空类的作用"><a href="#空类的作用" class="headerlink" title="空类的作用"></a>空类的作用</h3><p>如果不希望某个类被复制或拷贝，那么可以利用空类来达到这个目的。现实中也是存在的，很多东西是独一无二的，不可能有一模一样的，因此是不可复制的，如果进行复制，编译器应该报错。</p>
+<h3><span id="空类的作用">空类的作用</span></h3><p>如果不希望某个类被复制或拷贝，那么可以利用空类来达到这个目的。现实中也是存在的，很多东西是独一无二的，不可能有一模一样的，因此是不可复制的，如果进行复制，编译器应该报错。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Uncopyable</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>几个注意点：</p>
+<h3><span id="总结">总结</span></h3><p>几个注意点：</p>
 <p>1）<strong>准则：</strong>假设类Derived继承自空基类Empty，并且Derived类的第一个非静态成员变量的类型是空基类Empty，或者空基类Empty的派生类，那么不执行<code>空基类优化</code>，因为如果被优化，两个连续的空基类可能会出现相同的地址。</p>
 <p>2）编译器不会给两个不同的基类的子对象分配相同的地址</p>
 <p>3）在找第一个非静态成员变量时，是一直往底层走的，就像Foo2的分析中，第一个非静态成员变量可以说是Foo，但往底层说的话，其实是Empty e[4]。所以才会说<code>class Foo2 : public Empty</code>的Empty不能优化掉</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] <a href="https://www.jianshu.com/p/ff9eb9c381c1" target="_blank" rel="noopener">空类（empty class）</a></p>
+<h3><span id="参考文献">参考文献</span></h3><p>[1] <a href="https://www.jianshu.com/p/ff9eb9c381c1" target="_blank" rel="noopener">空类（empty class）</a></p>
 <p>[2] <a href="https://en.cppreference.com/w/cpp/language/ebo" target="_blank" rel="noopener">CppReference</a></p>
 <hr>
 <p>能力有限，不对之处，还请指教</p>
@@ -596,10 +596,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -620,7 +620,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -637,7 +637,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -690,7 +690,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -725,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#空类的概念"><span class="nav-number">1.</span> <span class="nav-text">空类的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空基类优化"><span class="nav-number">2.</span> <span class="nav-text">空基类优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Derived9"><span class="nav-number">2.1.</span> <span class="nav-text">Derived9</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MultiDerived"><span class="nav-number">2.2.</span> <span class="nav-text">MultiDerived</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MultiDerived4、5、6"><span class="nav-number">2.3.</span> <span class="nav-text">MultiDerived4、5、6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Foo1、2"><span class="nav-number">2.4.</span> <span class="nav-text">Foo1、2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空类的作用"><span class="nav-number">3.</span> <span class="nav-text">空类的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">空类的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">空基类优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">Derived9</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">MultiDerived</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">MultiDerived4、5、6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">Foo1、2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">空类的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
@@ -759,7 +759,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -767,7 +767,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -777,14 +777,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>

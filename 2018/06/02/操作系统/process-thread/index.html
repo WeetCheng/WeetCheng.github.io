@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,7 +115,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/06/02/操作系统/process-thread/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="进程与线程的比较 进程是资源分配的基本单位，线程是CPU调度的基本单位 进程拥有一个完整的资源平台，线程只是独享指令流执行的必要资源，如寄存器和栈 线程能减少并发执行的时间和空间开销，体现在： 线程的创建时间比较短 线程的终止时间比较短 线程的切换时间比进程短 由于同一进程的各个线程间共享内存和文件资源，可不通过内核进行直接通信    线程的三种来实现方式（1）用户线程：在用户空间实现 （2）内核">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-06-09T06:24:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程与线程">
@@ -176,7 +176,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -202,7 +202,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -222,7 +222,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -238,7 +238,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -246,7 +246,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -256,7 +256,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -277,7 +277,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -363,14 +363,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-02 09:59:49" itemprop="dateCreated datePublished" datetime="2018-06-02T09:59:49+08:00">2018-06-02</time>
+              <time title="创建时间：2018-06-02 09:59:49" itemprop="dateCreated datePublished" datetime="2018-06-02T09:59:49+08:00">2018-06-02</time>
             
 
             
@@ -385,9 +385,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -418,7 +418,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             Views:  
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -440,7 +440,7 @@
       
 
       
-        <h3 id="进程与线程的比较"><a href="#进程与线程的比较" class="headerlink" title="进程与线程的比较"></a>进程与线程的比较</h3><ol>
+        <h3><span id="进程与线程的比较">进程与线程的比较</span></h3><ol>
 <li>进程是资源分配的基本单位，线程是CPU调度的基本单位</li>
 <li>进程拥有一个完整的资源平台，线程只是独享<strong>指令流执行的必要资源</strong>，如寄存器和栈</li>
 <li>线程能减少并发执行的时间和空间开销，体现在：<ul>
@@ -451,13 +451,13 @@
 </ul>
 </li>
 </ol>
-<h3 id="线程的三种来实现方式"><a href="#线程的三种来实现方式" class="headerlink" title="线程的三种来实现方式"></a>线程的三种来实现方式</h3><p>（1）用户线程：在用户空间实现</p>
+<h3><span id="线程的三种来实现方式">线程的三种来实现方式</span></h3><p>（1）用户线程：在用户空间实现</p>
 <p>（2）内核线程：在内核中实现</p>
 <p>（3）轻量级线程：在内核中实现，支持用户线程</p>
 <p>最开始操作系统没有线程，但有人需要在进程中实现资源的共享和并发执行，于是开发了函数库来支持线程。这就是用户线程。</p>
 <p>用户有了需求，于是操作系统就加入了线程的功能，这就是内核线程。</p>
 <p>用户线程和内核线程各有优缺点，为了取长补短，于是把两者结合起来，产生了轻量级线程</p>
-<h4 id="第一，用户线程"><a href="#第一，用户线程" class="headerlink" title="第一，用户线程"></a>第一，用户线程</h4><p>有一组用户级的线程库函数来完成线程的管理，包括线程的创建，终止，同步和调度</p>
+<h4><span id="第一用户线程">第一，用户线程</span></h4><p>有一组用户级的线程库函数来完成线程的管理，包括线程的创建，终止，同步和调度</p>
 
       
     </div>
@@ -560,10 +560,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -584,7 +584,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -601,7 +601,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -654,7 +654,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -689,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程与线程的比较"><span class="nav-number">1.</span> <span class="nav-text">进程与线程的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的三种来实现方式"><span class="nav-number">2.</span> <span class="nav-text">线程的三种来实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一，用户线程"><span class="nav-number">2.1.</span> <span class="nav-text">第一，用户线程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">进程与线程的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">线程的三种来实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">第一，用户线程</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -723,7 +723,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -731,7 +731,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -741,14 +741,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>

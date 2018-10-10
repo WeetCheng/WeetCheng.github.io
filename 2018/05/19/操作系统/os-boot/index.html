@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,7 +115,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/05/19/操作系统/os-boot/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="知识点汇编（1）.word和.long bootasm.S中 123gdtdesc:    .word 0x17                                      # sizeof(gdt) - 1    .long gdt                                       # address gdt .word代表2个字节，.long代表4个字">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-19/31500391.jpg">
 <meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-20/29846382.jpg">
 <meta property="og:updated_time" content="2018-06-09T06:24:10.000Z">
@@ -179,7 +179,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -205,7 +205,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -225,7 +225,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -233,7 +233,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -241,7 +241,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -249,7 +249,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -259,7 +259,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -280,7 +280,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -366,14 +366,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-05-19 09:30:40" itemprop="dateCreated datePublished" datetime="2018-05-19T09:30:40+08:00">2018-05-19</time>
+              <time title="创建时间：2018-05-19 09:30:40" itemprop="dateCreated datePublished" datetime="2018-05-19T09:30:40+08:00">2018-05-19</time>
             
 
             
@@ -388,9 +388,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -421,7 +421,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             Views:  
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -444,14 +444,14 @@
 
       
         <!--toc-->
-<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><h3 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h3><p>（1）.word和.long</p>
+<h2><span id="知识点">知识点</span></h2><h3><span id="汇编">汇编</span></h3><p>（1）.word和.long</p>
 <p>bootasm.S中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gdtdesc:</span><br><span class="line">    .word 0x17                                      # sizeof(gdt) - 1</span><br><span class="line">    .long gdt                                       # address gdt</span><br></pre></td></tr></table></figure>
 <p>.word代表2个字节，.long代表4个字节。因此gdtdesc下占用了6个字节。</p>
 <p>（2）ljmp</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ljmp $PROT_MODE_CSEG, $protcseg</span><br></pre></td></tr></table></figure>
 <p>ljmp 段选择子，段偏移量</p>
-<h3 id="attribute"><a href="#attribute" class="headerlink" title="_attribute_"></a>_attribute_</h3><p>GNU C有一种_attribute_ 的机制，用于辅助编译器检查和编译，可以设置：</p>
+<h3><span id="_attribute_">_attribute_</span></h3><p>GNU C有一种_attribute_ 的机制，用于辅助编译器检查和编译，可以设置：</p>
 <ul>
 <li>函数属性</li>
 <li>变量属性</li>
@@ -463,11 +463,11 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">format(archetype, <span class="built_in">string</span>-index, first-to-check)</span><br><span class="line"><span class="comment">// archetype:指定风格</span></span><br><span class="line"><span class="comment">// string-index: 告诉编译器传入函数的第几个参数是格式化字符串</span></span><br><span class="line"><span class="comment">// firsttocheck指定从函数的第几个参数开始检查</span></span><br></pre></td></tr></table></figure>
 <p>（2）_attribute_ noreturn</p>
 <p>该属性通知编译器函数从不返回值</p>
-<h3 id="ELF文件头格式"><a href="#ELF文件头格式" class="headerlink" title="ELF文件头格式"></a>ELF文件头格式</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* file header */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">elfhdr</span> &#123;</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_magic;     <span class="comment">// must equal ELF_MAGIC</span></span><br><span class="line">    <span class="keyword">uint8_t</span> e_elf[<span class="number">12</span>];</span><br><span class="line">    <span class="keyword">uint16_t</span> e_type;      <span class="comment">// 1=relocatable, 2=executable, 3=shared object, 4=core image</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_machine;   <span class="comment">// 3=x86, 4=68K, etc.</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_version;   <span class="comment">// file version, always 1</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_entry;     <span class="comment">// entry point if executable</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_phoff;     <span class="comment">// file position of program header or 0</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_shoff;     <span class="comment">// file position of section header or 0</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_flags;     <span class="comment">// architecture-specific flags, usually 0</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_ehsize;    <span class="comment">// size of this elf header</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_phentsize; <span class="comment">// size of an entry in program header</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_phnum;     <span class="comment">// number of entries in program header or 0</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_shentsize; <span class="comment">// size of an entry in section header</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_shnum;     <span class="comment">// number of entries in section header or 0</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_shstrndx;  <span class="comment">// section number that contains section name strings</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3><span id="elf文件头格式">ELF文件头格式</span></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* file header */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">elfhdr</span> &#123;</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_magic;     <span class="comment">// must equal ELF_MAGIC</span></span><br><span class="line">    <span class="keyword">uint8_t</span> e_elf[<span class="number">12</span>];</span><br><span class="line">    <span class="keyword">uint16_t</span> e_type;      <span class="comment">// 1=relocatable, 2=executable, 3=shared object, 4=core image</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_machine;   <span class="comment">// 3=x86, 4=68K, etc.</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_version;   <span class="comment">// file version, always 1</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_entry;     <span class="comment">// entry point if executable</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_phoff;     <span class="comment">// file position of program header or 0</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_shoff;     <span class="comment">// file position of section header or 0</span></span><br><span class="line">    <span class="keyword">uint32_t</span> e_flags;     <span class="comment">// architecture-specific flags, usually 0</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_ehsize;    <span class="comment">// size of this elf header</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_phentsize; <span class="comment">// size of an entry in program header</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_phnum;     <span class="comment">// number of entries in program header or 0</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_shentsize; <span class="comment">// size of an entry in section header</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_shnum;     <span class="comment">// number of entries in section header or 0</span></span><br><span class="line">    <span class="keyword">uint16_t</span> e_shstrndx;  <span class="comment">// section number that contains section name strings</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>elf头部占52字节；</p>
 <p>program header中有3个entry，每个entry32字节；</p>
 <p>section header中有11个entry，每个entry40字节；</p>
-<h3 id="函数堆栈"><a href="#函数堆栈" class="headerlink" title="函数堆栈"></a>函数堆栈</h3><p>函数调用可以分解成以下三个动作：</p>
+<h3><span id="函数堆栈">函数堆栈</span></h3><p>函数调用可以分解成以下三个动作：</p>
 <ul>
 <li>压栈传参</li>
 <li>call指令，硬件压入返回地址</li>
@@ -477,7 +477,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pushl %ebp</span><br><span class="line">movl %esp %ebp</span><br></pre></td></tr></table></figure>
 <p>经过以上动作之后，函数栈如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+------------------+</span><br><span class="line">| 栈底方向 	 		| 高位地址</span><br><span class="line">| ... 			   |</span><br><span class="line">| ... 			   |</span><br><span class="line">| 参数<span class="number">3</span> 		 	  |</span><br><span class="line">| 参数<span class="number">2</span>		 	  |</span><br><span class="line">| 参数<span class="number">1</span> 		 	  |</span><br><span class="line">| 返回地址 	 		 |</span><br><span class="line">| 上一层[ebp] 		  | &lt;-------- [ebp]</span><br><span class="line">| 局部变量	 		 | 低位地址</span><br><span class="line">+-------------------+</span><br></pre></td></tr></table></figure>
-<h3 id="内联汇编"><a href="#内联汇编" class="headerlink" title="内联汇编"></a>内联汇编</h3><p>GCC的内联汇编结构如下：</p>
+<h3><span id="内联汇编">内联汇编</span></h3><p>GCC的内联汇编结构如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">asm</span> ( assembler <span class="keyword">template</span>    </span><br><span class="line">	 : output operands  (optional)</span><br><span class="line">     : input operands  (optional)     </span><br><span class="line">     : <span class="built_in">list</span> of clobbered registers   (optional)    </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>input operands相当于C函数的输入参数</p>
 <p>output operands相当于C函数的输出参数</p>
@@ -495,9 +495,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">movl %ecx, %eax</span><br><span class="line">movl %eax, %ebx</span><br></pre></td></tr></table></figure>
 <p>整段内联汇编代码可以这样等效;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>, b;</span><br><span class="line">foo(a);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> b = a;</span><br><span class="line">  <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="内存地址空间分配"><a href="#内存地址空间分配" class="headerlink" title="内存地址空间分配"></a>内存地址空间分配</h3><p>对于1G的物理内存来说，其物理空间分配如下：</p>
+<h3><span id="内存地址空间分配">内存地址空间分配</span></h3><p>对于1G的物理内存来说，其物理空间分配如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">+------------------+  &lt;- 0xFFFFFFFF (4GB)</span><br><span class="line">|     无效空间      |</span><br><span class="line">|                  |</span><br><span class="line">+------------------+  &lt;- addr:3G+256M</span><br><span class="line">|     256MB        |</span><br><span class="line">|   IO外设地址空间   |</span><br><span class="line">|                  |</span><br><span class="line">+------------------+  &lt;- 0xC0000000(3GB)</span><br><span class="line">|                  |</span><br><span class="line">/\/\/\/\/\/\/\/\/\/\</span><br><span class="line"></span><br><span class="line">/\/\/\/\/\/\/\/\/\/\</span><br><span class="line">|     无效空间      |</span><br><span class="line">+------------------+  &lt;- 0x40000000(1GB)</span><br><span class="line">|                  |</span><br><span class="line">|    实际有效内存    |</span><br><span class="line">|                  |</span><br><span class="line">+------------------+  &lt;- 0x00100000 (1MB)</span><br><span class="line">|     BIOS ROM     |</span><br><span class="line">+------------------+  &lt;- 0x000F0000 (960KB)</span><br><span class="line">|  16-bit devices, |</span><br><span class="line">|  expansion ROMs  |</span><br><span class="line">+------------------+  &lt;- 0x000C0000 (768KB)</span><br><span class="line">|   VGA Display    |</span><br><span class="line">+------------------+  &lt;- 0x000A0000 (640KB)</span><br><span class="line">|                  |</span><br><span class="line">|    Low Memory    |</span><br><span class="line">|                  |</span><br><span class="line">+------------------+  &lt;- 0x00000000</span><br></pre></td></tr></table></figure>
-<h2 id="bootasm-S"><a href="#bootasm-S" class="headerlink" title="bootasm.S"></a>bootasm.S</h2><p>bootasm.S文件内容：</p>
+<h2><span id="bootasms">bootasm.S</span></h2><p>bootasm.S文件内容：</p>
 <p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-19/31500391.jpg" alt=""></p>
 <p>总结来说，bootasm.S的主要工作为：</p>
 <p>实模式 —-&gt;  保护模式 —-&gt; 跳转到bootmain</p>
@@ -516,14 +516,14 @@
 </ol>
 <p>调用C函数，必须设置栈。源码中将栈设置为0–0x7c00</p>
 <p>0x7c00是bootasm.S的起始地址，因为bootasm.S已经跑完了，可以覆盖。</p>
-<h2 id="bootmain-c"><a href="#bootmain-c" class="headerlink" title="bootmain.c"></a>bootmain.c</h2><p>工作：</p>
+<h2><span id="bootmainc">bootmain.c</span></h2><p>工作：</p>
 <ol>
 <li>加载内核ucore前8个扇区（4KB，即1页）到虚拟地址0x10000处。注意ucore是从第2个扇区开始的。(第1扇区被bootloader用了)</li>
 <li>判断加载进来的东西是否是ELF文件头。</li>
 <li>加载ucore的程序段</li>
 <li>跳转到ucore程序入口点</li>
 </ol>
-<h3 id="kern-init-c"><a href="#kern-init-c" class="headerlink" title="kern/init.c"></a>kern/init.c</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-20/29846382.jpg" alt=""></p>
+<h3><span id="kerninitc">kern/init.c</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-20/29846382.jpg" alt=""></p>
 <ol>
 <li>控制台初始化：</li>
 </ol>
@@ -642,10 +642,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -666,7 +666,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -683,7 +683,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -736,7 +736,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -771,7 +771,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#知识点"><span class="nav-number">1.</span> <span class="nav-text">知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#汇编"><span class="nav-number">1.1.</span> <span class="nav-text">汇编</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#attribute"><span class="nav-number">1.2.</span> <span class="nav-text">_attribute_</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ELF文件头格式"><span class="nav-number">1.3.</span> <span class="nav-text">ELF文件头格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数堆栈"><span class="nav-number">1.4.</span> <span class="nav-text">函数堆栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内联汇编"><span class="nav-number">1.5.</span> <span class="nav-text">内联汇编</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存地址空间分配"><span class="nav-number">1.6.</span> <span class="nav-text">内存地址空间分配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bootasm-S"><span class="nav-number">2.</span> <span class="nav-text">bootasm.S</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bootmain-c"><span class="nav-number">3.</span> <span class="nav-text">bootmain.c</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kern-init-c"><span class="nav-number">3.1.</span> <span class="nav-text">kern/init.c</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">汇编</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">_attribute_</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">ELF文件头格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">函数堆栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">内联汇编</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">内存地址空间分配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">bootasm.S</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">bootmain.c</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">kern/init.c</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -805,7 +805,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -813,7 +813,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -823,14 +823,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>

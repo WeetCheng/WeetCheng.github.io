@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,7 +115,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/06/15/嵌入式/stm32-BTStethoscope/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="项目简介 使用ADC1的2个通道 每个按照2KHz的采样频率进行采样 ADC1的采样精度为12bits，数据寄存器为16bits 串口设置为 115200bps, 1个停止位，没有校验位，8个数据位，禁用流控制 使用双缓冲，用于改善数据从ADC -&amp;gt; 内存 -&amp;gt; 串口的传输  流程总结 设置系统时钟 设置定时器TIM3 设置ADC1 设置串口USART1 设置DMA 设置中断控制器，允">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/59571956.jpg">
 <meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/8571648.jpg">
 <meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/18983329.jpg">
@@ -181,7 +181,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -207,7 +207,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -227,7 +227,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -235,7 +235,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -243,7 +243,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -251,7 +251,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -261,7 +261,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -282,7 +282,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -368,14 +368,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-15 15:03:01 / Updated at: 15:27:12" itemprop="dateCreated datePublished" datetime="2018-06-15T15:03:01+08:00">2018-06-15</time>
+              <time title="创建时间：2018-06-15 15:03:01 / 修改时间：15:27:12" itemprop="dateCreated datePublished" datetime="2018-06-15T15:03:01+08:00">2018-06-15</time>
             
 
             
@@ -411,7 +411,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             Views:  
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -433,14 +433,14 @@
       
 
       
-        <h3 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h3><ul>
+        <h3><span id="项目简介">项目简介</span></h3><ul>
 <li>使用ADC1的2个通道</li>
 <li>每个按照2KHz的采样频率进行采样</li>
 <li>ADC1的采样精度为12bits，数据寄存器为16bits</li>
 <li>串口设置为 115200bps, 1个停止位，没有校验位，8个数据位，禁用流控制</li>
 <li>使用双缓冲，用于改善数据从ADC -&gt; 内存 -&gt; 串口的传输</li>
 </ul>
-<h3 id="流程总结"><a href="#流程总结" class="headerlink" title="流程总结"></a>流程总结</h3><ol>
+<h3><span id="流程总结">流程总结</span></h3><ol>
 <li>设置系统时钟</li>
 <li>设置定时器TIM3</li>
 <li>设置ADC1</li>
@@ -454,7 +454,7 @@
 <li>串口发送缓冲区满，启动串口发送</li>
 <li>发送成功，产生串口发送中断，表示串口数据发送成功</li>
 </ol>
-<h3 id="第一，设置系统时钟"><a href="#第一，设置系统时钟" class="headerlink" title="第一，设置系统时钟"></a>第一，设置系统时钟</h3><p>stm32的系统时钟(SYSCLK)有三个时钟源选择：</p>
+<h3><span id="第一设置系统时钟">第一，设置系统时钟</span></h3><p>stm32的系统时钟(SYSCLK)有三个时钟源选择：</p>
 <ul>
 <li>外部高速时钟(HSE)</li>
 <li>内部高速时钟(HSI)</li>
@@ -469,7 +469,7 @@
 <p>ADC1的时钟挂载在APB2下，它也有自己的分频器</p>
 <p>USART1的时钟挂载在APB2下</p>
 <p>GPIO的时钟也挂载在APB2下</p>
-<h3 id="第二，设置定时器"><a href="#第二，设置定时器" class="headerlink" title="第二，设置定时器"></a>第二，设置定时器</h3><p><strong>理论知识点</strong></p>
+<h3><span id="第二设置定时器">第二，设置定时器</span></h3><p><strong>理论知识点</strong></p>
 <p>通用定时器有三个核心的寄存器</p>
 <ul>
 <li>计数寄存器(TIMx_CNT)——计数</li>
@@ -498,7 +498,7 @@
 <li>设置当发生计数更新时，产生一个TRGO信号，后面会用该TRGO信号来触发ADC采样。</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">TIM3_Config</span><span class="params">(u16 psc, u16 arr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;</span><br><span class="line">	</span><br><span class="line">  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);</span><br><span class="line">	</span><br><span class="line">  TIM_TimeBaseStructure.TIM_ClockDivision = <span class="number">1</span>;</span><br><span class="line">	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;</span><br><span class="line">	TIM_TimeBaseStructure.TIM_Period = arr;</span><br><span class="line">  TIM_TimeBaseStructure.TIM_Prescaler = psc;</span><br><span class="line">	</span><br><span class="line">	TIM_TimeBaseInit(TIM3, &amp;TIM_TimeBaseStructure);</span><br><span class="line">	</span><br><span class="line">	TIM_SelectOutputTrigger(TIM3, TIM_TRGOSource_Update); 					<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤1(4)</span></span><br><span class="line">	</span><br><span class="line">	TIM_Cmd(TIM3,ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第三，设置ADC1"><a href="#第三，设置ADC1" class="headerlink" title="第三，设置ADC1"></a>第三，设置ADC1</h3><p><strong>理论知识点</strong></p>
+<h3><span id="第三设置adc1">第三，设置ADC1</span></h3><p><strong>理论知识点</strong></p>
 <p>​    一个ADC往往会有几个通道可以使用，且每个通道都有一条采样的输入线，每条输入线与GPIO口共用stm32的某个引脚。比如ADC1的通道1和通道2的输入线分别与GPIOA0和GPIOA1共用引脚，那么引脚就是用来做ADC的采样输入线还是做GPIO呢？这就需要我们还设置引脚的复用功能。</p>
 <p>​    ADC有两种好用的功能</p>
 <ul>
@@ -516,7 +516,7 @@
 <p><strong>项目设置</strong></p>
 <p>开通了ADC1的两个通道用来采样，当定时器产生TRGO信号时，触发ADC进行采样，设置ADC1用多通道循环采样的方式来采，每个通道采完都会产生一个DMA请求。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures the ADC1:</span></span><br><span class="line"><span class="comment">	* 				ADC_Mode_Independent,non-ContinuousConvMode,ScanConvMode,</span></span><br><span class="line"><span class="comment">	*					ExternalTrigConv_T3_TRGO,DataAlign_Right,2 channels(PA0,PA1)</span></span><br><span class="line"><span class="comment">  * @param  None</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC1_Config</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">/* ADC,GPIO 初始化结构体 */</span></span><br><span class="line">  ADC_InitTypeDef ADC_InitStructure;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC的时钟要单独设置，通常设为72/6 = 12MHz */</span></span><br><span class="line">	RCC_ADCCLKConfig(RCC_PCLK2_Div6);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 所有外设都要开启时钟，才能使用 */</span></span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_ADC1,ENABLE);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC1的两个通道PA0和PA1配置为模拟输入(共18个通道))*/</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC1工作方式配置：*/</span></span><br><span class="line">	ADC_DeInit(ADC1);	</span><br><span class="line">	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;</span><br><span class="line">	ADC_InitStructure.ADC_ContinuousConvMode= DISABLE;															<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤2(4)</span></span><br><span class="line">	ADC_InitStructure.ADC_ScanConvMode = ENABLE;</span><br><span class="line">	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T3_TRGO;					<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤3(4)</span></span><br><span class="line">	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;</span><br><span class="line">	ADC_InitStructure.ADC_NbrOfChannel = <span class="number">2</span>;</span><br><span class="line">	ADC_Init(ADC1, &amp;ADC_InitStructure);	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 两个通道配置 */</span></span><br><span class="line">	ADC_RegularChannelConfig(ADC1, ADC_Channel_0, <span class="number">1</span>, ADC_SampleTime_13Cycles5);</span><br><span class="line">	ADC_RegularChannelConfig(ADC1, ADC_Channel_1, <span class="number">2</span>, ADC_SampleTime_13Cycles5);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 使能ADC的外部触发转换（外部触发源将在tim.c文件中设置成TIM1更新事件）*/</span></span><br><span class="line">	ADC_ExternalTrigConvCmd(ADC1,ENABLE);																						<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤4(4)</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/* ADC必须开启DMA功能才能使用扫描模式 */</span></span><br><span class="line">	ADC_DMACmd(ADC1, ENABLE);</span><br><span class="line">	</span><br><span class="line">	ADC_Cmd(ADC1, ENABLE);	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC内置校准电路，上电后都要进行校准 */</span></span><br><span class="line">	ADC_ResetCalibration(ADC1);		 </span><br><span class="line">	<span class="keyword">while</span>(ADC_GetResetCalibrationStatus(ADC1));	</span><br><span class="line">	ADC_StartCalibration(ADC1);	 </span><br><span class="line">	<span class="keyword">while</span>(ADC_GetCalibrationStatus(ADC1));	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第四，设置ADC1对应的DMA通道"><a href="#第四，设置ADC1对应的DMA通道" class="headerlink" title="第四，设置ADC1对应的DMA通道"></a>第四，设置ADC1对应的DMA通道</h3><p>​    DMA包含有多个通道，可以设置每个通道用来处理不同的事务。比如前面我们设置ADC会产生DMA请求，那么DMA怎么处理呢？</p>
+<h3><span id="第四设置adc1对应的dma通道">第四，设置ADC1对应的DMA通道</span></h3><p>​    DMA包含有多个通道，可以设置每个通道用来处理不同的事务。比如前面我们设置ADC会产生DMA请求，那么DMA怎么处理呢？</p>
 <p>​    我们知道，DMA的功能是可以将数据从外设传送到内存中，或者从一片内存传送到另一片内存中。</p>
 <p>​    而ADC开启DMA功能的原因就是：希望ADC产生DMA请求之后，DMA可以帮忙将ADC的数据寄存器里的数据保存到内存中。知道这个目标，我们就可以分析出这个DMA通道需要知道哪些信息才能完成工作了。</p>
 <ul>
@@ -527,7 +527,7 @@
 <li>怎么知道数据到底传出去没有？——DMA通道也可以启动中断功能，一旦传送完成，就产生一个中断</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures DMA of ADC1:</span></span><br><span class="line"><span class="comment">	* 				from peripheral(ADC1) to memory,</span></span><br><span class="line"><span class="comment">	*					datasize of peripheral and memory are both halfword,</span></span><br><span class="line"><span class="comment">	* 				MemoryInc_Enable, PeripheralInc_Disable</span></span><br><span class="line"><span class="comment">	* 				DMA_Mode_Circular!</span></span><br><span class="line"><span class="comment">	*					enable DMA_IT_TC</span></span><br><span class="line"><span class="comment">  * @param  memBaseAddr: Where you want to store values of ADC convertion.</span></span><br><span class="line"><span class="comment">	* 				periphBaseAddr: DR of ADC1</span></span><br><span class="line"><span class="comment">	*					bufferSize: Its unit depends on direction of transmission</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC1_DMA_Config</span><span class="params">(u32 memBaseAddr, u32 periphBaseAddr, u32 bufferSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DMA_InitTypeDef DMA_InitStructure;</span><br><span class="line">	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);</span><br><span class="line"></span><br><span class="line">	DMA_DeInit(DMA1_Channel1);</span><br><span class="line">	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;															<span class="comment">//循环模式，每次传输完成，都会重新指向缓冲区的开头</span></span><br><span class="line">	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC ;													<span class="comment">//ADC1-&gt;DR &gt;&gt; 缓冲区 </span></span><br><span class="line">	DMA_InitStructure.DMA_BufferSize = bufferSize;															<span class="comment">//设定缓冲区大小，单位与MemoryDataSize或者PeripheralDataSize相同</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryBaseAddr = memBaseAddr;													<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord ;				<span class="comment">//缓冲区数据宽度为半字(16bits)</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;											<span class="comment">//缓冲区地址递增</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralBaseAddr = periphBaseAddr;									<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;	<span class="comment">//ADC1-&gt;DR的数据宽度也是半字(16bits),实际上，ADC分辨率只有12bits</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;						<span class="comment">//外设地址不增</span></span><br><span class="line">	DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;												<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;																<span class="comment">//</span></span><br><span class="line">	</span><br><span class="line">	DMA_Init(DMA1_Channel1, &amp;DMA_InitStructure);</span><br><span class="line">	</span><br><span class="line">	DMA_ITConfig(DMA1_Channel1, DMA_IT_TC, ENABLE);															<span class="comment">//开启DMA传输完成中断</span></span><br><span class="line">	DMA_Cmd(DMA1_Channel1, ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第五，设置串口USART1"><a href="#第五，设置串口USART1" class="headerlink" title="第五，设置串口USART1"></a>第五，设置串口USART1</h3><p>（1）设置串口的时钟源</p>
+<h3><span id="第五设置串口usart1">第五，设置串口USART1</span></h3><p>（1）设置串口的时钟源</p>
 <p>串口也需要设置时钟，它的时钟源挂载在APB2下（36MHz）。</p>
 <p>（2）设置stm32的引脚复用作为USART1的Tx和Rx</p>
 <p>串口的Tx和Rx分别与GPIOA9和GPIO10共用引脚，因此需要设置引脚的复用功能。</p>
@@ -543,7 +543,7 @@
 </ul>
 <p>串口设置如下：115200bps, 没有校验位，1个停止位，8位数据长度，禁用流控制</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures the USART1:</span></span><br><span class="line"><span class="comment">	* 				1.Configure PA9 and PA10; </span></span><br><span class="line"><span class="comment">	*					2.Configure USART1 </span></span><br><span class="line"><span class="comment">  * @param  None</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_Config</span><span class="params">(u32 bound)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	USART_InitTypeDef USART_InitStructure;</span><br><span class="line">	</span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* GPIO configuration*/</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* USART1 configuration*/</span></span><br><span class="line">	USART_InitStructure.USART_BaudRate = bound;</span><br><span class="line">	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx ;								<span class="comment">//收发模式</span></span><br><span class="line">	USART_InitStructure.USART_Parity = USART_Parity_No;</span><br><span class="line">	USART_InitStructure.USART_StopBits = USART_StopBits_1;													<span class="comment">//1位停止位</span></span><br><span class="line">	USART_InitStructure.USART_WordLength = USART_WordLength_8b;											<span class="comment">//8bits数据宽度						</span></span><br><span class="line">	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;</span><br><span class="line">	</span><br><span class="line">	USART_Init(USART1, &amp;USART_InitStructure);	</span><br><span class="line">	USART_DMACmd(USART1, USART_DMAReq_Tx, ENABLE);</span><br><span class="line">	USART_Cmd(USART1, ENABLE);                    <span class="comment">//使能串口 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第六，设置USART1对应的DMA通道"><a href="#第六，设置USART1对应的DMA通道" class="headerlink" title="第六，设置USART1对应的DMA通道"></a>第六，设置USART1对应的DMA通道</h3><p>串口是用来发送数据的，那数据是什么呢？</p>
+<h3><span id="第六设置usart1对应的dma通道">第六，设置USART1对应的DMA通道</span></h3><p>串口是用来发送数据的，那数据是什么呢？</p>
 <p>我的项目里串口是用来发送ADC的采样数据的。为了方便快捷，我为USART1也开了一个DMA通道，可以将前面保存到buffer中的ADC采样数据通过DMA送到串口的发送缓冲寄存器中。同样面临一样的DMA该怎么设置的问题：</p>
 <ul>
 <li>数据的来源是什么？——保存在内存buffer中的ADC采样数据</li>
@@ -553,13 +553,13 @@
 <li>什么时候串口对应的DMA通道开始工作？——缓冲区满了以后。我们知道缓冲区有多大，知道每个数据有多大，自然就知道什么时候缓冲区会满</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures DMA of USART1:</span></span><br><span class="line"><span class="comment">	* 				from memory to peripheral(USART1),</span></span><br><span class="line"><span class="comment">	*					datasize of peripheral and memory are both Byte(8bits),</span></span><br><span class="line"><span class="comment">	* 				MemoryInc_Enable, PeripheralInc_Disable</span></span><br><span class="line"><span class="comment">	* 				DMA_Mode_Circular!</span></span><br><span class="line"><span class="comment">	*					enable DMA_IT_TC</span></span><br><span class="line"><span class="comment">  * @param  memBaseAddr: Where you contents your data.</span></span><br><span class="line"><span class="comment">	* 				periphBaseAddr: DR of USART1</span></span><br><span class="line"><span class="comment">	*					bufferSize: Its unit depends on direction of transmission</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_TX_DMA_Config</span><span class="params">(u32 memBaseAddr, u32 periphBaseAddr, u32 bufferSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DMA_InitTypeDef DMA_InitStructure;</span><br><span class="line">	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);</span><br><span class="line"></span><br><span class="line">	DMA_DeInit(DMA1_Channel4);</span><br><span class="line">	DMA_InitStructure.DMA_BufferSize = bufferSize;</span><br><span class="line">	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST ;</span><br><span class="line">	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryBaseAddr = memBaseAddr;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte ;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;</span><br><span class="line">	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralBaseAddr = periphBaseAddr;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralDataSize = DMA_MemoryDataSize_Byte;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable ;</span><br><span class="line">	DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;</span><br><span class="line">	</span><br><span class="line">	DMA_Init(DMA1_Channel4, &amp;DMA_InitStructure);</span><br><span class="line">	</span><br><span class="line">	DMA_ITConfig(DMA1_Channel4, DMA_IT_TC, ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第七，启动定时器，一切按部就班开始运行"><a href="#第七，启动定时器，一切按部就班开始运行" class="headerlink" title="第七，启动定时器，一切按部就班开始运行"></a>第七，启动定时器，一切按部就班开始运行</h3><ul>
+<h3><span id="第七启动定时器一切按部就班开始运行">第七，启动定时器，一切按部就班开始运行</span></h3><ul>
 <li>定时时间到，触发ADC开始采样</li>
 <li>ADC每次采样后触发DMA，DMA将采样数据保存到内存缓冲区buffer中</li>
 <li>buffer满了以后，就触发DMA，将buffer中的数据一个一个送到串口的发送寄存器中</li>
 <li>串口发送寄存器有了数据，就会触发发送功能。于是数据源源不断发送出去。</li>
 </ul>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>​    为了采样和数据发送可以同时进行，我在内存中开辟了两个buffer，上面为了解释方便，我并没有说明这一点。我们已经知道内存中的buffer有两个作用</p>
+<h3><span id="后记">后记</span></h3><p>​    为了采样和数据发送可以同时进行，我在内存中开辟了两个buffer，上面为了解释方便，我并没有说明这一点。我们已经知道内存中的buffer有两个作用</p>
 <ul>
 <li>保存ADC的采样数据到buffer中</li>
 <li>从buffer中将数据送到串口中</li>
@@ -676,10 +676,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -700,7 +700,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -717,7 +717,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -770,7 +770,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -805,7 +805,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目简介"><span class="nav-number">1.</span> <span class="nav-text">项目简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程总结"><span class="nav-number">2.</span> <span class="nav-text">流程总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一，设置系统时钟"><span class="nav-number">3.</span> <span class="nav-text">第一，设置系统时钟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二，设置定时器"><span class="nav-number">4.</span> <span class="nav-text">第二，设置定时器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三，设置ADC1"><span class="nav-number">5.</span> <span class="nav-text">第三，设置ADC1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四，设置ADC1对应的DMA通道"><span class="nav-number">6.</span> <span class="nav-text">第四，设置ADC1对应的DMA通道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五，设置串口USART1"><span class="nav-number">7.</span> <span class="nav-text">第五，设置串口USART1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六，设置USART1对应的DMA通道"><span class="nav-number">8.</span> <span class="nav-text">第六，设置USART1对应的DMA通道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七，启动定时器，一切按部就班开始运行"><span class="nav-number">9.</span> <span class="nav-text">第七，启动定时器，一切按部就班开始运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后记"><span class="nav-number">10.</span> <span class="nav-text">后记</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">项目简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">流程总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">第一，设置系统时钟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">第二，设置定时器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">第三，设置ADC1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">第四，设置ADC1对应的DMA通道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">第五，设置串口USART1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">第六，设置USART1对应的DMA通道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">第七，启动定时器，一切按部就班开始运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">10.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>
@@ -839,7 +839,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -847,7 +847,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -857,14 +857,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>

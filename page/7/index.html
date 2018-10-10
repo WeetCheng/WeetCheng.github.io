@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -112,7 +112,7 @@
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/page/7/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 
@@ -171,7 +171,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -198,7 +198,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -234,7 +234,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -252,7 +252,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -273,7 +273,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -363,14 +363,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-02 09:59:49" itemprop="dateCreated datePublished" datetime="2018-06-02T09:59:49+08:00">2018-06-02</time>
+              <time title="创建时间：2018-06-02 09:59:49" itemprop="dateCreated datePublished" datetime="2018-06-02T09:59:49+08:00">2018-06-02</time>
             
 
             
@@ -385,9 +385,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -434,7 +434,7 @@
       
         
           
-            <h3 id="进程与线程的比较"><a href="#进程与线程的比较" class="headerlink" title="进程与线程的比较"></a>进程与线程的比较</h3><ol>
+            <h3><span id="进程与线程的比较">进程与线程的比较</span></h3><ol>
 <li>进程是资源分配的基本单位，线程是CPU调度的基本单位</li>
 <li>进程拥有一个完整的资源平台，线程只是独享<strong>指令流执行的必要资源</strong>，如寄存器和栈</li>
 <li>线程能减少并发执行的时间和空间开销，体现在：<ul>
@@ -445,13 +445,13 @@
 </ul>
 </li>
 </ol>
-<h3 id="线程的三种来实现方式"><a href="#线程的三种来实现方式" class="headerlink" title="线程的三种来实现方式"></a>线程的三种来实现方式</h3><p>（1）用户线程：在用户空间实现</p>
+<h3><span id="线程的三种来实现方式">线程的三种来实现方式</span></h3><p>（1）用户线程：在用户空间实现</p>
 <p>（2）内核线程：在内核中实现</p>
 <p>（3）轻量级线程：在内核中实现，支持用户线程</p>
 <p>最开始操作系统没有线程，但有人需要在进程中实现资源的共享和并发执行，于是开发了函数库来支持线程。这就是用户线程。</p>
 <p>用户有了需求，于是操作系统就加入了线程的功能，这就是内核线程。</p>
 <p>用户线程和内核线程各有优缺点，为了取长补短，于是把两者结合起来，产生了轻量级线程</p>
-<h4 id="第一，用户线程"><a href="#第一，用户线程" class="headerlink" title="第一，用户线程"></a>第一，用户线程</h4><p>有一组用户级的线程库函数来完成线程的管理，包括线程的创建，终止，同步和调度</p>
+<h4><span id="第一用户线程">第一，用户线程</span></h4><p>有一组用户级的线程库函数来完成线程的管理，包括线程的创建，终止，同步和调度</p>
 
           
         
@@ -544,14 +544,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-01 12:58:01" itemprop="dateCreated datePublished" datetime="2018-06-01T12:58:01+08:00">2018-06-01</time>
+              <time title="创建时间：2018-06-01 12:58:01" itemprop="dateCreated datePublished" datetime="2018-06-01T12:58:01+08:00">2018-06-01</time>
             
 
             
@@ -566,9 +566,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -710,14 +710,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-01 07:27:47" itemprop="dateCreated datePublished" datetime="2018-06-01T07:27:47+08:00">2018-06-01</time>
+              <time title="创建时间：2018-06-01 07:27:47" itemprop="dateCreated datePublished" datetime="2018-06-01T07:27:47+08:00">2018-06-01</time>
             
 
             
@@ -732,9 +732,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -781,7 +781,7 @@
       
         
           
-            <h3 id="TSS"><a href="#TSS" class="headerlink" title="TSS"></a>TSS</h3><p>任务状态段中记录了处理器为了管理任务所需要的信息。</p>
+            <h3><span id="tss">TSS</span></h3><p>任务状态段中记录了处理器为了管理任务所需要的信息。</p>
 <p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/32170859.jpg" alt=""></p>
 <p>其中包含两类信息：</p>
 <ul>
@@ -802,12 +802,12 @@
 </ul>
 </li>
 </ul>
-<h3 id="TSS描述符"><a href="#TSS描述符" class="headerlink" title="TSS描述符"></a>TSS描述符</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/37375677.jpg" alt=""></p>
-<h3 id="TR寄存器-Task-register"><a href="#TR寄存器-Task-register" class="headerlink" title="TR寄存器(Task register)"></a>TR寄存器(Task register)</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/73317647.jpg" alt=""></p>
+<h3><span id="tss描述符">TSS描述符</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/37375677.jpg" alt=""></p>
+<h3><span id="tr寄存器task-register">TR寄存器(Task register)</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/73317647.jpg" alt=""></p>
 <p>TR寄存器里存放的是逻辑地址。因此跟普通的由逻辑地址-&gt;线性地址步骤一样</p>
-<h3 id="任务门描述符"><a href="#任务门描述符" class="headerlink" title="任务门描述符"></a>任务门描述符</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/60935710.jpg" alt=""></p>
+<h3><span id="任务门描述符">任务门描述符</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/60935710.jpg" alt=""></p>
 <p>任务可以通过人物们描述符或TSS描述符被访问，LDT中任务门，LDT中的任务门可指向相同的任务<img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/24630204.jpg" alt=""></p>
-<h3 id="何时才会执行任务切换？"><a href="#何时才会执行任务切换？" class="headerlink" title="何时才会执行任务切换？"></a>何时才会执行任务切换？</h3><p>四种情况：</p>
+<h3><span id="何时才会执行任务切换">何时才会执行任务切换？</span></h3><p>四种情况：</p>
 <ul>
 <li>当前task执行JMP或CALL指令——指向TSS描述符</li>
 <li>当前task执行JMP或CALL指令——指向任务门</li>
@@ -815,7 +815,7 @@
 <li>当前task执行iret指令，且NT标志位置位</li>
 </ul>
 <p>总之就是JMP/CALL指令，中断，异常，IRET指令四种情况</p>
-<h3 id="任务切换步骤"><a href="#任务切换步骤" class="headerlink" title="任务切换步骤"></a>任务切换步骤</h3><ol>
+<h3><span id="任务切换步骤">任务切换步骤</span></h3><ol>
 <li>检查是否有权限跳转到目标任务。JMP/CALL情况需要检查CPL和RPL权限是否高于DPL权限。而其他三种情况不用</li>
 <li>检查新任务的TSS描述符是否标记为present，且limit有效</li>
 <li>保存当前任务的状态。根据TR寄存器找到TSS所在的线性地址，将信息记录到TSS中</li>
@@ -914,14 +914,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-05-31 22:10:47" itemprop="dateCreated datePublished" datetime="2018-05-31T22:10:47+08:00">2018-05-31</time>
+              <time title="创建时间：2018-05-31 22:10:47" itemprop="dateCreated datePublished" datetime="2018-05-31T22:10:47+08:00">2018-05-31</time>
             
 
             
@@ -936,9 +936,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-13 21:39:15" itemprop="dateModified" datetime="2018-06-13T21:39:15+08:00">2018-06-13</time>
+                <time title="修改时间：2018-06-13 21:39:15" itemprop="dateModified" datetime="2018-06-13T21:39:15+08:00">2018-06-13</time>
               
             
           </span>
@@ -985,15 +985,15 @@
       
         
           
-            <h3 id="中断门描述符"><a href="#中断门描述符" class="headerlink" title="中断门描述符"></a>中断门描述符</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-31/29294317.jpg" alt=""></p>
-<h3 id="查找中断服务例程入口点"><a href="#查找中断服务例程入口点" class="headerlink" title="查找中断服务例程入口点"></a>查找中断服务例程入口点</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-31/13175133.jpg" alt=""></p>
+            <h3><span id="中断门描述符">中断门描述符</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-31/29294317.jpg" alt=""></p>
+<h3><span id="查找中断服务例程入口点">查找中断服务例程入口点</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-31/13175133.jpg" alt=""></p>
 <ol>
 <li>产生中断，得到中断向量号</li>
 <li>查询中断描述符表，得到中断门或陷阱门描述符</li>
 <li>根据门描述符去查找LDT或GDT，得到段描述符(也就是TSS描述符)</li>
 <li>根据段描述符可以找到中断服务例程的入口点</li>
 </ol>
-<h3 id="中断入栈"><a href="#中断入栈" class="headerlink" title="中断入栈"></a>中断入栈</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-31/6404475.jpg" alt=""></p>
+<h3><span id="中断入栈">中断入栈</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-31/6404475.jpg" alt=""></p>
 <p>分成两种情况：</p>
 <p>• 没有特权级变换：不需要压入 SS和ESP</p>
 <p>• 产生特权级转换：需要压入 SS和ESP</p>
@@ -1089,14 +1089,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-05-31 21:55:14" itemprop="dateCreated datePublished" datetime="2018-05-31T21:55:14+08:00">2018-05-31</time>
+              <time title="创建时间：2018-05-31 21:55:14" itemprop="dateCreated datePublished" datetime="2018-05-31T21:55:14+08:00">2018-05-31</time>
             
 
             
@@ -1111,9 +1111,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-09-18 13:01:08" itemprop="dateModified" datetime="2018-09-18T13:01:08+08:00">2018-09-18</time>
+                <time title="修改时间：2018-09-18 13:01:08" itemprop="dateModified" datetime="2018-09-18T13:01:08+08:00">2018-09-18</time>
               
             
           </span>
@@ -1160,20 +1160,20 @@
       
         
           
-            <h3 id="defalut-pmm-c"><a href="#defalut-pmm-c" class="headerlink" title="defalut_pmm.c"></a>defalut_pmm.c</h3><ul>
+            <h3><span id="defalut_pmmc">defalut_pmm.c</span></h3><ul>
 <li>default_init —— 初始化free_list</li>
 <li>default_init_memmap —— 将空闲区域的Page结构体</li>
 <li>default_alloc_pages —— 分配页</li>
 <li>default_free_pages —— 释放页</li>
 <li>default_nr_free_pages —— 获取有多少空闲页</li>
 </ul>
-<h3 id="memlayout-h"><a href="#memlayout-h" class="headerlink" title="memlayout.h"></a>memlayout.h</h3><p>描述了内存布局相关的数据结构：</p>
+<h3><span id="memlayouth">memlayout.h</span></h3><p>描述了内存布局相关的数据结构：</p>
 <ul>
 <li>e820map —— e820中断探测内存返回的数据结构体</li>
 <li>Page —— 用于管理物理内存的数据结构</li>
 <li>free_area_t —— 记录空闲区域的数据结构</li>
 </ul>
-<h3 id="mmu-h"><a href="#mmu-h" class="headerlink" title="mmu.h"></a>mmu.h</h3><p>描述了用于内存管理的变量和数据结构体</p>
+<h3><span id="mmuh">mmu.h</span></h3><p>描述了用于内存管理的变量和数据结构体</p>
 <ul>
 <li>Eflags寄存器每一位的宏定义</li>
 <li>段类型的宏定义</li>
@@ -1191,7 +1191,7 @@
 <li>PDX(la), PTX(la), and PGOFF(la) ,PPN(la) —— 根据线性地址获得页目录索引，页表索引，页内偏移，页号</li>
 <li>PGADDR(d,t,o) —— 根据页目录索引，页表索引，页内偏移构造出线性地址</li>
 </ul>
-<h3 id="pmm-c"><a href="#pmm-c" class="headerlink" title="pmm.c"></a>pmm.c</h3><p>自映射机制</p>
+<h3><span id="pmmc">pmm.c</span></h3><p>自映射机制</p>
 <p>把页目录表和页表放在一个连续的4MB虚拟地址空间中， 并设置页目录表自身的虚地址<-->物理地址映射关系。 已知虚拟地址可以找到页目录索引，因为连续存储，可以直接计算出页表的位置，而不用去读取页目录的内容。加快速度</--></p>
 <p>数据结构</p>
 <ul>
@@ -1305,14 +1305,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-05-31 21:24:20" itemprop="dateCreated datePublished" datetime="2018-05-31T21:24:20+08:00">2018-05-31</time>
+              <time title="创建时间：2018-05-31 21:24:20" itemprop="dateCreated datePublished" datetime="2018-05-31T21:24:20+08:00">2018-05-31</time>
             
 
             
@@ -1327,9 +1327,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -1384,7 +1384,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/31/计算机基础/gcc-attribute/#more" rel="contents">
-              Weiterlesen &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1478,14 +1478,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-05-30 10:12:57" itemprop="dateCreated datePublished" datetime="2018-05-30T10:12:57+08:00">2018-05-30</time>
+              <time title="创建时间：2018-05-30 10:12:57" itemprop="dateCreated datePublished" datetime="2018-05-30T10:12:57+08:00">2018-05-30</time>
             
 
             
@@ -1500,9 +1500,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -1549,7 +1549,7 @@
       
         
           
-            <h2 id="页置换机制"><a href="#页置换机制" class="headerlink" title="页置换机制"></a>页置换机制</h2><p>综合考虑问题：</p>
+            <h2><span id="页置换机制">页置换机制</span></h2><p>综合考虑问题：</p>
 <ul>
 <li>何时执行页换入换出？</li>
 <li>换出哪些页？</li>
@@ -1557,18 +1557,18 @@
 <li>虚拟页怎么跟硬盘扇区对应起来？</li>
 <li>如何设计数据结构以支持页置换？</li>
 </ul>
-<h3 id="第一，哪些页可以换出？"><a href="#第一，哪些页可以换出？" class="headerlink" title="第一，哪些页可以换出？"></a>第一，哪些页可以换出？</h3><p>操作系统设计中，一般遵循如下原则：</p>
+<h3><span id="第一哪些页可以换出">第一，哪些页可以换出？</span></h3><p>操作系统设计中，一般遵循如下原则：</p>
 <ul>
 <li>映射到虚拟用户空间的物理页才能换出</li>
 <li>映射到虚拟内核空间的物理页不能换出</li>
 </ul>
-<h3 id="第二，虚拟页怎么跟硬盘扇区对应起来？"><a href="#第二，虚拟页怎么跟硬盘扇区对应起来？" class="headerlink" title="第二，虚拟页怎么跟硬盘扇区对应起来？"></a>第二，虚拟页怎么跟硬盘扇区对应起来？</h3><p>充分利用页表项PTE。PTE中有一个标志位：PTE_P，可以用来表示物理页是否被置换出去了。</p>
+<h3><span id="第二虚拟页怎么跟硬盘扇区对应起来">第二，虚拟页怎么跟硬盘扇区对应起来？</span></h3><p>充分利用页表项PTE。PTE中有一个标志位：PTE_P，可以用来表示物理页是否被置换出去了。</p>
 <p>如果一个页（4KB）被置换到了硬盘的某8个扇区（512B/扇区），则设置PTE_P = 0。然后取高24位来表示此页(虚拟页)在swap中的起始扇区号。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">swap_entry_t</span><br><span class="line">-------------------------</span><br><span class="line">| offset | reserved | 0 |</span><br><span class="line">-------------------------</span><br><span class="line">  24 bits   7 bits   1 bit</span><br><span class="line"></span><br><span class="line">虚拟页对应的PTE的索引值 = swap page的扇区起始位置 * 8</span><br></pre></td></tr></table></figure>
-<h3 id="第三，何时执行换入换出？"><a href="#第三，何时执行换入换出？" class="headerlink" title="第三，何时执行换入换出？"></a>第三，何时执行换入换出？</h3><p>换入时机：当产生page fault异常时</p>
+<h3><span id="第三何时执行换入换出">第三，何时执行换入换出？</span></h3><p>换入时机：当产生page fault异常时</p>
 <p>换出时机：两种策略不同。一种是积极换出策略，即操作系统周期性地主动换出。一种是消极换出策略，找不到空闲页的时候，执行换出。</p>
-<h3 id="第四，换出哪些页？"><a href="#第四，换出哪些页？" class="headerlink" title="第四，换出哪些页？"></a>第四，换出哪些页？</h3><p>按照第一次访问时间的先后进行排序，替换的时候选择距离第一次访问时间最久的页。</p>
-<h3 id="第五，如何设计数据结构"><a href="#第五，如何设计数据结构" class="headerlink" title="第五，如何设计数据结构"></a>第五，如何设计数据结构</h3><p>基于Page数据结构构造的全局数组pages，其中每一个元素记录了对应的物理页的使用情况。</p>
+<h3><span id="第四换出哪些页">第四，换出哪些页？</span></h3><p>按照第一次访问时间的先后进行排序，替换的时候选择距离第一次访问时间最久的页。</p>
+<h3><span id="第五如何设计数据结构">第五，如何设计数据结构</span></h3><p>基于Page数据结构构造的全局数组pages，其中每一个元素记录了对应的物理页的使用情况。</p>
 <p>Page数据结构如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Page</span> &#123;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">list_entry_t</span> pra_page_link;		<span class="comment">// 按照该物理页第一次被访问的时间先后排序的链表</span></span><br><span class="line">  <span class="keyword">uintprt_t</span> pra_vaddr;				<span class="comment">// 该物理页对应的虚拟地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>设计了页替换算法的框架</p>
@@ -1665,14 +1665,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-05-29 08:44:58" itemprop="dateCreated datePublished" datetime="2018-05-29T08:44:58+08:00">2018-05-29</time>
+              <time title="创建时间：2018-05-29 08:44:58" itemprop="dateCreated datePublished" datetime="2018-05-29T08:44:58+08:00">2018-05-29</time>
             
 
             
@@ -1687,9 +1687,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -1736,7 +1736,7 @@
       
         
           
-            <h3 id="栈帧"><a href="#栈帧" class="headerlink" title="栈帧"></a>栈帧</h3><p>函数调用时，依次压栈保存：</p>
+            <h3><span id="栈帧">栈帧</span></h3><p>函数调用时，依次压栈保存：</p>
 <ul>
 <li>参数</li>
 <li>返回地址</li>
@@ -1745,7 +1745,7 @@
 </ul>
 <p>这些动作都是有编译器帮用户程序生成压栈指令，然后由硬件执行压栈的。</p>
 <p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-29/28876610.jpg" alt=""></p>
-<h3 id="函数调用惯例"><a href="#函数调用惯例" class="headerlink" title="函数调用惯例"></a>函数调用惯例</h3><p>一个调用惯例一般会规定如下几个方面的内容：</p>
+<h3><span id="函数调用惯例">函数调用惯例</span></h3><p>一个调用惯例一般会规定如下几个方面的内容：</p>
 <ul>
 <li>函数参数的传递顺序和方式</li>
 <li>栈的维护方式</li>
@@ -1788,7 +1788,7 @@
 </tbody>
 </table>
 <p>cdecl是默认的调用惯例</p>
-<h3 id="函数返回值传递"><a href="#函数返回值传递" class="headerlink" title="函数返回值传递"></a>函数返回值传递</h3><ul>
+<h3><span id="函数返回值传递">函数返回值传递</span></h3><ul>
 <li>1~4字节：eax</li>
 <li>5~8字节：edx，eax</li>
 <li>>8字节：栈</li>
@@ -1885,14 +1885,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-05-28 14:30:34" itemprop="dateCreated datePublished" datetime="2018-05-28T14:30:34+08:00">2018-05-28</time>
+              <time title="创建时间：2018-05-28 14:30:34" itemprop="dateCreated datePublished" datetime="2018-05-28T14:30:34+08:00">2018-05-28</time>
             
 
             
@@ -1907,9 +1907,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -1962,7 +1962,7 @@
 <li>windows——0x2E号中断</li>
 </ul>
 <p>一个0x80中断，通过eax传递系统调用号，衍生出多个系统调用服务例程。</p>
-<h3 id="Linux系统调用"><a href="#Linux系统调用" class="headerlink" title="Linux系统调用"></a>Linux系统调用</h3><p>Linux内核版本2.6.19共有319个系统调用。</p>
+<h3><span id="linux系统调用">Linux系统调用</span></h3><p>Linux内核版本2.6.19共有319个系统调用。</p>
 <p>eax —— 传递系统调用号</p>
 <p>ebx、ecx、edx、esi、edi、ebp —— 传递参数</p>
 <p>Linux系统调用实现过程</p>
@@ -1989,11 +1989,11 @@
 </blockquote>
 <p><strong>（3）中断处理</strong></p>
 <p>​    Linux将中断处理分成上下半部，上半部会暂时禁用中断，主要处理必须短时间内完成的工作。下半部不会禁用中断，能够允许稍后完成的工作会被推迟到下半部才执行。上半部只有中断处理程序机制，下半部则实现系统软中断。这种设计可以使系统处于中断屏蔽状态的时间尽可能短，从而提高系统的响应能力。</p>
-<h3 id="函数调用和系统调用的不同处"><a href="#函数调用和系统调用的不同处" class="headerlink" title="函数调用和系统调用的不同处"></a>函数调用和系统调用的不同处</h3><ul>
+<h3><span id="函数调用和系统调用的不同处">函数调用和系统调用的不同处</span></h3><ul>
 <li>int和iret指令用于系统调用，系统调用时，需要切换堆栈，转换特权级</li>
 <li>call和ret指令用于函数调用，常规函数调用不需要切换堆栈</li>
 </ul>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] 程序员的自我修养</p>
+<h3><span id="参考文献">参考文献</span></h3><p>[1] 程序员的自我修养</p>
 
           
         
@@ -2086,14 +2086,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-05-28 09:49:30" itemprop="dateCreated datePublished" datetime="2018-05-28T09:49:30+08:00">2018-05-28</time>
+              <time title="创建时间：2018-05-28 09:49:30" itemprop="dateCreated datePublished" datetime="2018-05-28T09:49:30+08:00">2018-05-28</time>
             
 
             
@@ -2108,9 +2108,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-13 21:38:27" itemprop="dateModified" datetime="2018-06-13T21:38:27+08:00">2018-06-13</time>
+                <time title="修改时间：2018-06-13 21:38:27" itemprop="dateModified" datetime="2018-06-13T21:38:27+08:00">2018-06-13</time>
               
             
           </span>
@@ -2157,7 +2157,7 @@
       
         
           
-            <h2 id="结构体的声明及定义"><a href="#结构体的声明及定义" class="headerlink" title="结构体的声明及定义"></a>结构体的声明及定义</h2><p><strong>方法一：直接声明结构体类型</strong></p>
+            <h2><span id="结构体的声明及定义">结构体的声明及定义</span></h2><p><strong>方法一：直接声明结构体类型</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>这种方法下，定义结构体变量,需要使用struct book</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br></pre></td></tr></table></figure>
@@ -2175,15 +2175,15 @@
 <p><strong>方法五：typedef声明匿名结构体类型</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125; sci_book;</span><br></pre></td></tr></table></figure>
 <p>相当于给匿名结构体起了别名为：sci_book，定义结构体变量的方法同方法四。</p>
-<h2 id="初始化结构体"><a href="#初始化结构体" class="headerlink" title="初始化结构体"></a>初始化结构体</h2><p><strong>方法一：按顺序初始化</strong></p>
+<h2><span id="初始化结构体">初始化结构体</span></h2><p><strong>方法一：按顺序初始化</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span> = &#123;</span></span><br><span class="line">  <span class="string">"Operating Systems"</span>;</span><br><span class="line">  <span class="string">"William"</span>;</span><br><span class="line">  <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>方法二：使用初始化器</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span> = &#123;</span></span><br><span class="line">  .title  = <span class="string">"Operating Systems"</span>;</span><br><span class="line">  .author = <span class="string">"William"</span>;</span><br><span class="line">  .value  = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="访问结构体成员"><a href="#访问结构体成员" class="headerlink" title="访问结构体成员"></a>访问结构体成员</h2><p>通过”.”访问和”-&gt;”访问的区别</p>
+<h2><span id="访问结构体成员">访问结构体成员</span></h2><p>通过”.”访问和”-&gt;”访问的区别</p>
 <p>结构体变量使用”.”访问成员；</p>
 <p>结构体指针通过“-&gt;”访问成员</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> *<span class="title">pbook</span> = &amp;<span class="title">Operating_System</span>;</span> </span><br><span class="line"><span class="comment">// 使用.访问结构体变量的成员</span></span><br><span class="line">Operating_System.author = <span class="string">"William"</span>;</span><br><span class="line"><span class="comment">// 使用-&gt;访问结构体指针所指的成员</span></span><br><span class="line">pbook-&gt;value = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="C和C-结构体的细微差异"><a href="#C和C-结构体的细微差异" class="headerlink" title="C和C++结构体的细微差异"></a>C和C++结构体的细微差异</h2><p>C中定义结构体变量，必须使用struct book，C++则不需要加struct</p>
+<h2><span id="c和c结构体的细微差异">C和C++结构体的细微差异</span></h2><p>C中定义结构体变量，必须使用struct book，C++则不需要加struct</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// C中定义结构体变量</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line"><span class="comment">// C++中定义结构体变量,加不加struct都可以</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line">book Operating_System;</span><br></pre></td></tr></table></figure>
 
           
@@ -2227,7 +2227,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2271,7 +2271,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -2288,7 +2288,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -2341,7 +2341,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -2394,7 +2394,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -2402,7 +2402,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -2412,14 +2412,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>

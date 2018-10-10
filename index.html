@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -112,7 +112,7 @@
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 
@@ -171,7 +171,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -198,7 +198,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home menu-item-active">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -234,7 +234,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -252,7 +252,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -273,7 +273,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -363,14 +363,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-26 09:12:25 / Updated at: 18:55:06" itemprop="dateCreated datePublished" datetime="2018-09-26T09:12:25+08:00">2018-09-26</time>
+              <time title="创建时间：2018-09-26 09:12:25 / 修改时间：16:01:44" itemprop="dateCreated datePublished" datetime="2018-09-26T09:12:25+08:00">2018-09-26</time>
             
 
             
@@ -422,13 +422,13 @@
       
         
           
-            <h3 id="cin"><a href="#cin" class="headerlink" title="cin"></a>cin</h3><p>cin 不读取换行符，换行符仍保留在缓冲区中。</p>
-<h3 id="getline"><a href="#getline" class="headerlink" title="getline"></a>getline</h3><p>循环getline+cin会出问题，因为cin会留下换行符，导致getline直接读了该换行符，而不是重新读入数据</p>
-<h3 id="map的使用"><a href="#map的使用" class="headerlink" title="map的使用"></a>map的使用</h3><p>华为 合并表记录</p>
-<h3 id="int整数转成string"><a href="#int整数转成string" class="headerlink" title="int整数转成string"></a>int整数转成string</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> str = to_string(num);</span><br></pre></td></tr></table></figure>
-<h3 id="两种迭代方式"><a href="#两种迭代方式" class="headerlink" title="两种迭代方式"></a>两种迭代方式</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//迭代方式一：</span></span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;::iterator iter = mapValue.begin(); iter != mapValue.end(); iter++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; iter-&gt;first &lt;&lt; <span class="string">' '</span> &lt;&lt; iter-&gt;second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//迭代方式二：</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp;&amp;item : mapValue)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; item.first &lt;&lt; <span class="string">' '</span> &lt;&lt; item.second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="sort函数自定义compare函数"><a href="#sort函数自定义compare函数" class="headerlink" title="sort函数自定义compare函数"></a>sort函数自定义compare函数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* isFronter就是一个自定义的sort的compare函数，</span></span><br><span class="line"><span class="comment">return true的情况排序时排在前面 false的情况排在后面 */</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isFronter</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;s1,<span class="keyword">const</span> <span class="built_in">string</span> &amp;s2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s1.size() &lt; s2.size())</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s1.size() &gt; s2.size())</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *a = s1.data();</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *b = s2.data();</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strcmp</span>(a, b) &gt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="keyword">while</span>(getline(<span class="built_in">cin</span>, str))</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="built_in">stringstream</span> <span class="title">ss</span><span class="params">(str)</span></span>;</span><br><span class="line">        <span class="built_in">string</span> strTmp;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; input;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(ss &gt;&gt; strTmp)</span><br><span class="line">        &#123;</span><br><span class="line">            input.push_back(strTmp);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        sort(input.begin(), input.end(), isFronter);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; input.size() - <span class="number">1</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; input[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; input[input.size() - <span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="字符串按指定分隔符分割"><a href="#字符串按指定分隔符分割" class="headerlink" title="字符串按指定分隔符分割"></a>字符串按指定分隔符分割</h3><p><strong>1. 直接使用strtok函数分割char*类型的字符串</strong></p>
+            <h3><span id="cin">cin</span></h3><p>cin 不读取换行符，换行符仍保留在缓冲区中。</p>
+<h3><span id="getline">getline</span></h3><p>循环getline+cin会出问题，因为cin会留下换行符，导致getline直接读了该换行符，而不是重新读入数据</p>
+<h3><span id="map的使用">map的使用</span></h3><p>华为 合并表记录</p>
+<h3><span id="int整数转成string">int整数转成string</span></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> str = to_string(num);</span><br></pre></td></tr></table></figure>
+<h3><span id="两种迭代方式">两种迭代方式</span></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//迭代方式一：</span></span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;::iterator iter = mapValue.begin(); iter != mapValue.end(); iter++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; iter-&gt;first &lt;&lt; <span class="string">' '</span> &lt;&lt; iter-&gt;second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//迭代方式二：</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp;&amp;item : mapValue)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; item.first &lt;&lt; <span class="string">' '</span> &lt;&lt; item.second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="sort函数自定义compare函数">sort函数自定义compare函数</span></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* isFronter就是一个自定义的sort的compare函数，</span></span><br><span class="line"><span class="comment">return true的情况排序时排在前面 false的情况排在后面 */</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isFronter</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;s1,<span class="keyword">const</span> <span class="built_in">string</span> &amp;s2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s1.size() &lt; s2.size())</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s1.size() &gt; s2.size())</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *a = s1.data();</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *b = s2.data();</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strcmp</span>(a, b) &gt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="keyword">while</span>(getline(<span class="built_in">cin</span>, str))</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="built_in">stringstream</span> <span class="title">ss</span><span class="params">(str)</span></span>;</span><br><span class="line">        <span class="built_in">string</span> strTmp;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; input;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(ss &gt;&gt; strTmp)</span><br><span class="line">        &#123;</span><br><span class="line">            input.push_back(strTmp);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        sort(input.begin(), input.end(), isFronter);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; input.size() - <span class="number">1</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; input[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; input[input.size() - <span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="字符串按指定分隔符分割">字符串按指定分隔符分割</span></h3><p><strong>1. 直接使用strtok函数分割char*类型的字符串</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> s[] = <span class="string">"my name is lmm"</span>;</span><br><span class="line">	<span class="keyword">char</span> *p;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">char</span> *delim = <span class="string">" "</span>;</span><br><span class="line">	p = strtok(s, delim);	<span class="comment">// 两次strtok，第一次要输入s，</span></span><br><span class="line">	<span class="keyword">while</span>(p) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		p = strtok(<span class="literal">NULL</span>, delim);<span class="comment">// 后面循环的时候，输入NULL作为参数</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>2. 借助strtok分割string类型的字符串，将结果保存在vector<string>中</string></strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; split(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, <span class="keyword">const</span> <span class="built_in">string</span>&amp; delim) &#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line">	<span class="keyword">if</span>(<span class="string">""</span> == str) <span class="keyword">return</span> res;</span><br><span class="line">	<span class="comment">//先将要切割的字符串从string类型转换为char*类型</span></span><br><span class="line">	<span class="keyword">char</span> * strs = <span class="keyword">new</span> <span class="keyword">char</span>[str.length() + <span class="number">1</span>] ; <span class="comment">//不要忘了</span></span><br><span class="line">	<span class="built_in">strcpy</span>(strs, str.c_str()); </span><br><span class="line"></span><br><span class="line">	<span class="keyword">char</span> * d = <span class="keyword">new</span> <span class="keyword">char</span>[delim.length() + <span class="number">1</span>];</span><br><span class="line">	<span class="built_in">strcpy</span>(d, delim.c_str());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">char</span> *p = strtok(strs, d);</span><br><span class="line">	<span class="keyword">while</span>(p) &#123;</span><br><span class="line">		<span class="built_in">string</span> s = p; <span class="comment">//分割得到的字符串转换为string类型</span></span><br><span class="line">		res.push_back(s); <span class="comment">//存入结果数组</span></span><br><span class="line">		p = strtok(<span class="literal">NULL</span>, d);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -436,7 +436,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;  split(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str,<span class="keyword">const</span> <span class="built_in">string</span>&amp; delim) &#123; <span class="comment">//将分割后的子字符串存储在vector中</span></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line">	<span class="keyword">if</span>(<span class="string">""</span> == str) <span class="keyword">return</span>  res;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">string</span> strs = str + delim; <span class="comment">//*****扩展字符串以方便检索最后一个分隔出的字符串</span></span><br><span class="line">	<span class="keyword">size_t</span> pos;</span><br><span class="line">	<span class="keyword">size_t</span> size = strs.size();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i) &#123;</span><br><span class="line">		pos = strs.find(delim, i); <span class="comment">//pos为分隔符第一次出现的位置，从i到pos之前的字符串是分隔出来的字符串</span></span><br><span class="line">		<span class="keyword">if</span>( pos &lt; size) &#123; <span class="comment">//如果查找到，如果没有查找到分隔符，pos为string::npos</span></span><br><span class="line">			<span class="built_in">string</span> s = strs.substr(i, pos - i);<span class="comment">//*****从i开始长度为pos-i的子字符串</span></span><br><span class="line">			res.push_back(s);<span class="comment">//两个连续空格之间切割出的字符串为空字符串，这里没有判断s是否为空，所以最后的结果中有空字符的输出，</span></span><br><span class="line">			i = pos + delim.size() - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>4. stringstream加getline实现</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; spilt(<span class="built_in">string</span> str, <span class="keyword">char</span> del)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; target;</span><br><span class="line">    <span class="built_in">string</span> strTmp;</span><br><span class="line">    <span class="function"><span class="built_in">stringstream</span> <span class="title">ss</span><span class="params">(str)</span></span>;</span><br><span class="line">    <span class="keyword">while</span>(getline(ss, strTmp, del))</span><br><span class="line">    &#123;</span><br><span class="line">        target.push_back(strTmp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="vector的初始化"><a href="#vector的初始化" class="headerlink" title="vector的初始化"></a>vector的初始化</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一维vector初始化</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; height(Num, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// 二维vector初始化</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="built_in">map</span>(rows, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(cols, <span class="number">0</span>));</span><br></pre></td></tr></table></figure>
+<h3><span id="vector的初始化">vector的初始化</span></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一维vector初始化</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; height(Num, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// 二维vector初始化</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="built_in">map</span>(rows, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(cols, <span class="number">0</span>));</span><br></pre></td></tr></table></figure>
 
           
         
@@ -529,14 +529,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-23 10:26:24" itemprop="dateCreated datePublished" datetime="2018-09-23T10:26:24+08:00">2018-09-23</time>
+              <time title="创建时间：2018-09-23 10:26:24" itemprop="dateCreated datePublished" datetime="2018-09-23T10:26:24+08:00">2018-09-23</time>
             
 
             
@@ -676,14 +676,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-21 09:54:12" itemprop="dateCreated datePublished" datetime="2018-09-21T09:54:12+08:00">2018-09-21</time>
+              <time title="创建时间：2018-09-21 09:54:12" itemprop="dateCreated datePublished" datetime="2018-09-21T09:54:12+08:00">2018-09-21</time>
             
 
             
@@ -698,9 +698,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-09-28 10:06:55" itemprop="dateModified" datetime="2018-09-28T10:06:55+08:00">2018-09-28</time>
+                <time title="修改时间：2018-09-28 10:06:55" itemprop="dateModified" datetime="2018-09-28T10:06:55+08:00">2018-09-28</time>
               
             
           </span>
@@ -747,14 +747,14 @@
       
         
           
-            <h3 id="空类的概念"><a href="#空类的概念" class="headerlink" title="空类的概念"></a>空类的概念</h3><p><code>空类</code>，即没有静态成员变量的类或者结构体。</p>
+            <h3><span id="空类的概念">空类的概念</span></h3><p><code>空类</code>，即没有静态成员变量的类或者结构体。</p>
 <p>C++中有一个规则，为了保证每个对象分配的地址各不相同，任何对象或者子对象的大小至少占用一个字节的空间，因此空类至少会被分配一个字节。</p>
 <blockquote>
 <p><strong>为什么分配一个字节之后，可以保证每个对象的地址不同呢？</strong></p>
 <p>答：这里要注意区分<code>地址</code>和<code>空间</code>的区别。</p>
 <p><code>地址</code>指的是一个对象的起始地址，<code>空间</code>指的是这个对象占用的地址块。假设给对象分配了地址A，但没有分配空间，那么操作系统的<code>内存管理器</code>无法管理分配0空间的情况，下次有可能会给别的对象也分配到地址A上，导致两个不同的对象指向同一个地址。而，如果分配了地址，又分配了空间，那么内存管理器中有相关的记录，就不可能分配相同的地址和空间给其他对象了。</p>
 </blockquote>
-<h3 id="空基类优化"><a href="#空基类优化" class="headerlink" title="空基类优化"></a>空基类优化</h3><p><code>空基类优化</code>，即一个字节都不给空基类分配。</p>
+<h3><span id="空基类优化">空基类优化</span></h3><p><code>空基类优化</code>，即一个字节都不给空基类分配。</p>
 <p>在一些情况下，会执行<code>空基类优化</code>，有些情况又不会执行<code>空基类优化</code>，判断是否执行的标准在于：</p>
 <p><strong>准则：</strong>假设类Derived继承自空基类Empty，并且Derived类的第一个非静态成员变量的类型是空基类Empty，或者空基类Empty的派生类，那么不执行<code>空基类优化</code>，因为如果被优化，两个连续的空基类可能会出现相同的地址。</p>
 <blockquote>
@@ -769,7 +769,7 @@
 </blockquote>
 <p>我挑选几个比较重要的例子来解释，如何根据判断准则来计算：</p>
 <p>（注意，程序中我已经设为按1字节对齐了，而不是默认的内存对齐方式！）</p>
-<h4 id="Derived9"><a href="#Derived9" class="headerlink" title="Derived9"></a>Derived9</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived9</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line">	Derived2 a;</span><br><span class="line">	Derived2 b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4><span id="derived9">Derived9</span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived9</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line">	Derived2 a;</span><br><span class="line">	Derived2 b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>准则：</strong>假设类Derived继承自空基类Empty，并且Derived类的第一个非静态成员变量的类型是空基类Empty，或者空基类Empty的派生类，那么不执行<code>空基类优化</code>，因为如果被优化，两个连续的空基类可能会出现相同的地址。</p>
 <p><strong>分析过程：</strong></p>
 <p>1）Derived9继承自空基类Empty，并且Derived9类的第一个非静态成员变量是Derived2类，Derived2类是空基类Empty的派生类，因此不执行优化，故<code>class Derived9 : public Empty</code>这里的Empty被保留下来，分配1字节。</p>
@@ -777,25 +777,25 @@
 <p>3）同理，<code>Derived2 b</code>也只分配了int32_t大小的空间。</p>
 <p>4）故此，Derived9的内存空间占用为1 + 4 + 4 = 9。（再次强调，我在程序中已经设为1字节对齐了，如果默认对齐方式的话，占用的空间将会是12）</p>
 <p><img src="http://p65ksscu3.bkt.clouddn.com/18-9-24/83460854.jpg" alt=""></p>
-<h4 id="MultiDerived"><a href="#MultiDerived" class="headerlink" title="MultiDerived"></a>MultiDerived</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty1</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived</span>  :</span> <span class="keyword">public</span> Empty, <span class="keyword">public</span> Empty1 &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<h4><span id="multiderived">MultiDerived</span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty1</span> &#123;</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived</span>  :</span> <span class="keyword">public</span> Empty, <span class="keyword">public</span> Empty1 &#123;&#125;;</span><br></pre></td></tr></table></figure>
 <p>编译器不会给两个不同的基类的子对象分配相同的地址，因此这里是可以优化了，但最后又必须保证至少有一个字节。因此内存占用空间为1;。</p>
-<h4 id="MultiDerived4、5、6"><a href="#MultiDerived4、5、6" class="headerlink" title="MultiDerived4、5、6"></a>MultiDerived4、5、6</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived1</span> :</span> <span class="keyword">public</span> Empty &#123;&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived2</span> :</span> <span class="keyword">public</span> Empty &#123;&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived3</span> :</span> <span class="keyword">public</span> MultiDerived1, <span class="keyword">public</span> MultiDerived2 &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NotEmpty</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived4</span> :</span> <span class="keyword">public</span> MultiDerived1, <span class="keyword">public</span> NotEmpty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Empty e;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived5</span> :</span> <span class="keyword">public</span> NotEmpty, <span class="keyword">public</span> MultiDerived1</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Empty e;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived6</span> :</span> <span class="keyword">public</span> NotEmpty, <span class="keyword">public</span> MultiDerived1 &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<h4><span id="multiderived4-5-6">MultiDerived4、5、6</span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived1</span> :</span> <span class="keyword">public</span> Empty &#123;&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived2</span> :</span> <span class="keyword">public</span> Empty &#123;&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived3</span> :</span> <span class="keyword">public</span> MultiDerived1, <span class="keyword">public</span> MultiDerived2 &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NotEmpty</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived4</span> :</span> <span class="keyword">public</span> MultiDerived1, <span class="keyword">public</span> NotEmpty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Empty e;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived5</span> :</span> <span class="keyword">public</span> NotEmpty, <span class="keyword">public</span> MultiDerived1</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Empty e;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDerived6</span> :</span> <span class="keyword">public</span> NotEmpty, <span class="keyword">public</span> MultiDerived1 &#123;&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>分析：</strong></p>
 <p>1）MultiDerived4继承自两个不同的基类MultiDerived1，NotEmpty，编译器不会给两个不同的基类分配相同的地址，因此可以进行空基类优化。MultiDerived1被优化后，不占用空间，而NotEmpty占用4个字节，成员变量Empty占用1个字节，因此整个MultiDerived4占用的空间为5个字节。</p>
 <p>2）MultiDerived5同上</p>
 <p>3）MultiDerived6也一样，只不过没有Empty成员变量，所以只占用4个字节。</p>
-<h4 id="Foo1、2"><a href="#Foo1、2" class="headerlink" title="Foo1、2"></a>Foo1、2</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Empty e[<span class="number">4</span>];</span><br><span class="line">  Derived2 d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo1Helper</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">std</span>::<span class="keyword">int8_t</span> i8[<span class="number">3</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo1</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Foo1Helper d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Foo f;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4><span id="foo1-2">Foo1、2</span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(1)	<span class="comment">// 设为按1字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int32_t</span> i32;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Empty e[<span class="number">4</span>];</span><br><span class="line">  Derived2 d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo1Helper</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">std</span>::<span class="keyword">int8_t</span> i8[<span class="number">3</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo1</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Foo1Helper d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo2</span> :</span> <span class="keyword">public</span> Empty</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Foo f;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>分析：</strong></p>
 <p>1）Foo中，Empty成员数组没办法优化，占4个字节。<code>Derived2 d</code>的空基类可以优化，<code>Derived2 d</code>占4个字节。故Foo占8个字节</p>
 <p>2）Foo1继承自空基类，并且其第一个非静态成员变量<code>Foo1Helper d</code>是空基类Empty的派生类，不能优化<code>class Foo1 : public Empty</code>这里的Empty。然后构造成员变量<code>Foo1Helper d</code>，其继承自空基类，但第一个非静态成员变量int8_t不是空基类，或者空基类的派生类，因此<code>class Foo1Helper : public Empty</code>的Empty可以优化掉。故Foo1占用的空间为Foo1的基类Empty + Derived2的int32_t成员变量 = 1 + 4 = 5个字节</p>
 <p>3）Foo2继承自空基类，并且其第一个非静态成员变量Foo的第一个非静态成员变量是Empty e[4]，是空基类，因此不能优化<code>class Foo2 : public Empty</code>这里的Empty。然后构造成员变量Foo，由1）中的分析已经知道，其占用8个字节。因此Foo2占用的空间为Foo2的基类Empty + Empty e[4] + Derived2 d = 1 + 4 + 4 = 9</p>
-<h3 id="空类的作用"><a href="#空类的作用" class="headerlink" title="空类的作用"></a>空类的作用</h3><p>如果不希望某个类被复制或拷贝，那么可以利用空类来达到这个目的。现实中也是存在的，很多东西是独一无二的，不可能有一模一样的，因此是不可复制的，如果进行复制，编译器应该报错。</p>
+<h3><span id="空类的作用">空类的作用</span></h3><p>如果不希望某个类被复制或拷贝，那么可以利用空类来达到这个目的。现实中也是存在的，很多东西是独一无二的，不可能有一模一样的，因此是不可复制的，如果进行复制，编译器应该报错。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Uncopyable</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>几个注意点：</p>
+<h3><span id="总结">总结</span></h3><p>几个注意点：</p>
 <p>1）<strong>准则：</strong>假设类Derived继承自空基类Empty，并且Derived类的第一个非静态成员变量的类型是空基类Empty，或者空基类Empty的派生类，那么不执行<code>空基类优化</code>，因为如果被优化，两个连续的空基类可能会出现相同的地址。</p>
 <p>2）编译器不会给两个不同的基类的子对象分配相同的地址</p>
 <p>3）在找第一个非静态成员变量时，是一直往底层走的，就像Foo2的分析中，第一个非静态成员变量可以说是Foo，但往底层说的话，其实是Empty e[4]。所以才会说<code>class Foo2 : public Empty</code>的Empty不能优化掉</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] <a href="https://www.jianshu.com/p/ff9eb9c381c1" target="_blank" rel="noopener">空类（empty class）</a></p>
+<h3><span id="参考文献">参考文献</span></h3><p>[1] <a href="https://www.jianshu.com/p/ff9eb9c381c1" target="_blank" rel="noopener">空类（empty class）</a></p>
 <p>[2] <a href="https://en.cppreference.com/w/cpp/language/ebo" target="_blank" rel="noopener">CppReference</a></p>
 <hr>
 <p>能力有限，不对之处，还请指教</p>
@@ -891,14 +891,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-21 09:03:17 / Updated at: 09:34:55" itemprop="dateCreated datePublished" datetime="2018-09-21T09:03:17+08:00">2018-09-21</time>
+              <time title="创建时间：2018-09-21 09:03:17 / 修改时间：09:34:55" itemprop="dateCreated datePublished" datetime="2018-09-21T09:03:17+08:00">2018-09-21</time>
             
 
             
@@ -950,29 +950,29 @@
       
         
           
-            <h3 id="overload"><a href="#overload" class="headerlink" title="overload"></a>overload</h3><p>函数重载。多个函数函数名相同，但参数列表不同。特点：</p>
+            <h3><span id="overload">overload</span></h3><p>函数重载。多个函数函数名相同，但参数列表不同。特点：</p>
 <p>(1) 同一类中</p>
 <p>(2) 函数名相同</p>
 <p>(3) 参数列表不同</p>
-<h3 id="override"><a href="#override" class="headerlink" title="override"></a>override</h3><p>函数覆盖。派生类函数覆盖基类虚函数。特点：</p>
+<h3><span id="override">override</span></h3><p>函数覆盖。派生类函数覆盖基类虚函数。特点：</p>
 <p>(1) 分别位于派生类和基类中</p>
 <p>(2) 函数名相同</p>
 <p>(3) 参数列表相同</p>
 <p>(4) 基类函数必须为虚函数</p>
-<h3 id="overwrite"><a href="#overwrite" class="headerlink" title="overwrite"></a>overwrite</h3><p>函数重写。派生类函数隐藏基类函数。特点：</p>
+<h3><span id="overwrite">overwrite</span></h3><p>函数重写。派生类函数隐藏基类函数。特点：</p>
 <p>(1) 分别位于派生类和基类中</p>
 <p>(2) 函数名相同</p>
 <p>(3) 参数列表相同且基类函数不是虚函数   或者  参数列表不同且基类函数是虚函数   或者  参数列表不同且基类函数不是虚函数。</p>
-<h3 id="三者如何执行"><a href="#三者如何执行" class="headerlink" title="三者如何执行"></a>三者如何执行</h3><p><code>重载：</code>看参数</p>
+<h3><span id="三者如何执行">三者如何执行</span></h3><p><code>重载：</code>看参数</p>
 <p><code>覆盖：</code>指针所指内容的实际类型是什么类的就调用什么类的函数</p>
 <p><code>隐藏：</code>指针是什么类就调用什么类的函数</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>overload和另外两个(override和overwrite)最大的区别在于它是针对同一类中的函数。而另外两个是针对派生类和基类之间的函数。</p>
+<h3><span id="总结">总结</span></h3><p>overload和另外两个(override和overwrite)最大的区别在于它是针对同一类中的函数。而另外两个是针对派生类和基类之间的函数。</p>
 <p>override和overwrite都要求函数名相同，但分别对参数列表是否相同，基类函数是否为虚函数 共计四种情况区分。</p>
 <ul>
 <li>override：参数列表相同，基类函数为虚函数（占据其中一种情况）</li>
 <li>overwrite：参数列表相同且基类函数不是虚函数   或者  参数列表不同且基类函数是虚函数   或者  参数列表不同且基类函数不是虚函数。（占据其中三种情况）</li>
 </ul>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] <a href="https://www.cnblogs.com/txwsh1/archive/2008/06/28/1231751.html" target="_blank" rel="noopener">CSDN 天下无霜</a></p>
+<h3><span id="参考文献">参考文献</span></h3><p>[1] <a href="https://www.cnblogs.com/txwsh1/archive/2008/06/28/1231751.html" target="_blank" rel="noopener">CSDN 天下无霜</a></p>
 
           
         
@@ -1065,14 +1065,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-20 10:20:34 / Updated at: 18:54:15" itemprop="dateCreated datePublished" datetime="2018-09-20T10:20:34+08:00">2018-09-20</time>
+              <time title="创建时间：2018-09-20 10:20:34 / 修改时间：18:45:58" itemprop="dateCreated datePublished" datetime="2018-09-20T10:20:34+08:00">2018-09-20</time>
             
 
             
@@ -1124,7 +1124,7 @@
       
         
           
-            <h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><blockquote>
+            <h3><span id="安装mysql">安装MySQL</span></h3><blockquote>
 <p>环境：deepin15.5</p>
 <p>安装方式1：通过apt-get方式(需要先配置apt repository)</p>
 </blockquote>
@@ -1158,7 +1158,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt install openssl</span><br><span class="line">$ bin/mysql_ssl_rsa_setup</span><br></pre></td></tr></table></figure>
 <p><strong>7. 复制服务文件</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp support-files/mysql.server /etc/init.d/mysql.server</span><br></pre></td></tr></table></figure>
-<h3 id="使用MySQL"><a href="#使用MySQL" class="headerlink" title="使用MySQL"></a>使用MySQL</h3><p><strong>1. 开启服务</strong></p>
+<h3><span id="使用mysql">使用MySQL</span></h3><p><strong>1. 开启服务</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/mysqld --user=mysql &amp;</span><br></pre></td></tr></table></figure>
 <p><strong>2. 使用用户root登陆</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用前面生成的临时密码登陆root</span></span><br><span class="line">$ bin/mysql -uroot -p</span><br><span class="line">Enter passwd:&amp;t+5f1iPriUu</span><br></pre></td></tr></table></figure>
@@ -1171,11 +1171,11 @@
 <p><strong>4. 创建mysql的快捷方式</strong></p>
 <p>创建快捷方式，从而可以在任何目录下都可以直接运行mysql</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建快捷方式</span></span><br><span class="line">$ ln -s /usr/<span class="built_in">local</span>/mysql/bin/mysql /usr/<span class="built_in">local</span>/bin/mysql</span><br><span class="line"><span class="comment"># 运行</span></span><br><span class="line">$ mysql -uroot -p</span><br></pre></td></tr></table></figure>
-<h3 id="MySQL图形界面"><a href="#MySQL图形界面" class="headerlink" title="MySQL图形界面"></a>MySQL图形界面</h3><p><code>MySQL workbench</code>: MySQL官方的图形界面软件，不过我在deepin下使用偶尔会出现乱码，而且弹出警告说未识别的操作系统</p>
+<h3><span id="mysql图形界面">MySQL图形界面</span></h3><p><code>MySQL workbench</code>: MySQL官方的图形界面软件，不过我在deepin下使用偶尔会出现乱码，而且弹出警告说未识别的操作系统</p>
 <p><code>Dbeaver</code>：第三方的图形界面软件，支持多种不同的DBMS。</p>
 <p><strong>安装Dbeaver</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装社区版本(community edtion)</span></span><br><span class="line">$ sudo apt-get install dbeaver-ce</span><br></pre></td></tr></table></figure>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] <a href="https://zhuanlan.zhihu.com/p/38708106" target="_blank" rel="noopener">如何在Linux上安装MySQL8.0.11</a></p>
+<h3><span id="参考文献">参考文献</span></h3><p>[1] <a href="https://zhuanlan.zhihu.com/p/38708106" target="_blank" rel="noopener">如何在Linux上安装MySQL8.0.11</a></p>
 <p>[2] <a href="https://www.jianshu.com/p/f4a98a905011" target="_blank" rel="noopener">Linux下安装MySQL</a></p>
 
           
@@ -1269,14 +1269,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-20 09:25:08 / Updated at: 09:33:59" itemprop="dateCreated datePublished" datetime="2018-09-20T09:25:08+08:00">2018-09-20</time>
+              <time title="创建时间：2018-09-20 09:25:08 / 修改时间：09:33:59" itemprop="dateCreated datePublished" datetime="2018-09-20T09:25:08+08:00">2018-09-20</time>
             
 
             
@@ -1420,14 +1420,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-19 16:42:08 / Updated at: 16:43:40" itemprop="dateCreated datePublished" datetime="2018-09-19T16:42:08+08:00">2018-09-19</time>
+              <time title="创建时间：2018-09-19 16:42:08 / 修改时间：16:43:40" itemprop="dateCreated datePublished" datetime="2018-09-19T16:42:08+08:00">2018-09-19</time>
             
 
             
@@ -1574,14 +1574,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-19 15:25:12 / Updated at: 15:52:44" itemprop="dateCreated datePublished" datetime="2018-09-19T15:25:12+08:00">2018-09-19</time>
+              <time title="创建时间：2018-09-19 15:25:12 / 修改时间：15:52:44" itemprop="dateCreated datePublished" datetime="2018-09-19T15:25:12+08:00">2018-09-19</time>
             
 
             
@@ -1633,15 +1633,15 @@
       
         
           
-            <h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p><code>逆波兰表达式</code>将所有的操作符置于操作数的后面，即<code>后缀表达式</code>。</p>
-<h4 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h4><p>原理：使用栈实现后缀表达式的计算</p>
+            <h4><span id="概念">概念</span></h4><p><code>逆波兰表达式</code>将所有的操作符置于操作数的后面，即<code>后缀表达式</code>。</p>
+<h4><span id="计算方法">计算方法</span></h4><p>原理：使用栈实现后缀表达式的计算</p>
 <p>1.碰到数字，就进栈</p>
 <p>2.碰到操作符，就从栈中弹出两个操作数，与操作符共同形成一个操作表达式，计算结果重新入栈</p>
 <p>3.最后表达式的结果留在栈中</p>
 <blockquote>
 <p>  [“2”, “1”, “+”, “3”, “<em>“] -&gt; ((2 + 1) </em> 3) -&gt; 9<br>  [“4”, “13”, “5”, “/“, “+”] -&gt; (4 + (13 / 5)) -&gt; 6</p>
 </blockquote>
-<h4 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">evalRPN</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;tokens)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; operands;</span><br><span class="line">        <span class="keyword">int</span> length = tokens.size();</span><br><span class="line">        <span class="keyword">if</span>(length &lt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> rhs, lhs, result;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(tokens[i] == <span class="string">"+"</span> || tokens[i] == <span class="string">"-"</span> ||</span><br><span class="line">               tokens[i] == <span class="string">"*"</span> || tokens[i] == <span class="string">"/"</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(operands.size() &lt; <span class="number">2</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                rhs = operands.top();</span><br><span class="line">                operands.pop();</span><br><span class="line">                lhs = operands.top();</span><br><span class="line">                operands.pop();</span><br><span class="line">                <span class="keyword">if</span>(tokens[i] == <span class="string">"+"</span>)</span><br><span class="line">                    result = lhs + rhs;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(tokens[i] == <span class="string">"-"</span>)</span><br><span class="line">                    result = lhs - rhs;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(tokens[i] == <span class="string">"*"</span>)</span><br><span class="line">                    result = lhs * rhs;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(tokens[i] == <span class="string">"/"</span>)</span><br><span class="line">                    result = lhs / rhs;</span><br><span class="line"></span><br><span class="line">                operands.push(result);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                operands.push(stoi(tokens[i]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> operands.top();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4><span id="编程实现">编程实现</span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">evalRPN</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;tokens)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; operands;</span><br><span class="line">        <span class="keyword">int</span> length = tokens.size();</span><br><span class="line">        <span class="keyword">if</span>(length &lt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> rhs, lhs, result;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(tokens[i] == <span class="string">"+"</span> || tokens[i] == <span class="string">"-"</span> ||</span><br><span class="line">               tokens[i] == <span class="string">"*"</span> || tokens[i] == <span class="string">"/"</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(operands.size() &lt; <span class="number">2</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                rhs = operands.top();</span><br><span class="line">                operands.pop();</span><br><span class="line">                lhs = operands.top();</span><br><span class="line">                operands.pop();</span><br><span class="line">                <span class="keyword">if</span>(tokens[i] == <span class="string">"+"</span>)</span><br><span class="line">                    result = lhs + rhs;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(tokens[i] == <span class="string">"-"</span>)</span><br><span class="line">                    result = lhs - rhs;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(tokens[i] == <span class="string">"*"</span>)</span><br><span class="line">                    result = lhs * rhs;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(tokens[i] == <span class="string">"/"</span>)</span><br><span class="line">                    result = lhs / rhs;</span><br><span class="line"></span><br><span class="line">                operands.push(result);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                operands.push(stoi(tokens[i]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> operands.top();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1734,14 +1734,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-18 10:56:36 / Updated at: 18:49:49" itemprop="dateCreated datePublished" datetime="2018-09-18T10:56:36+08:00">2018-09-18</time>
+              <time title="创建时间：2018-09-18 10:56:36 / 修改时间：15:19:15" itemprop="dateCreated datePublished" datetime="2018-09-18T10:56:36+08:00">2018-09-18</time>
             
 
             
@@ -1793,11 +1793,11 @@
       
         
           
-            <h3 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h3><p>大话数据结构的实现（p418）</p>
+            <h3><span id="实现一">实现一</span></h3><p>大话数据结构的实现（p418）</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 取最左边的值为pivot，在交换过程中实际的pivot值一直在改变，最终停下来的位置就是pivot的位置 */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(SqList *L, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> pivotkey;</span><br><span class="line">    pivotkey = L-&gt;r[low];</span><br><span class="line">    <span class="keyword">while</span>(low &lt; high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high &amp;&amp; L-&gt;r[high] &gt;= pivotkey)</span><br><span class="line">       		high--;</span><br><span class="line">        swap(L, low, high);</span><br><span class="line">        <span class="keyword">while</span>(low &lt; high &amp;&amp; L-&gt;r[low] &lt;= pivotkey)</span><br><span class="line">            low++;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h3><p>数据结构与算法分析的实现（p182）</p>
+<h3><span id="实现二">实现二</span></h3><p>数据结构与算法分析的实现（p182）</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 取最左边，中间，最右边三者的中间值作为pivot，并且将pivot调到最右边去</span></span><br><span class="line"><span class="comment">每次移动两个索引，交换，最后将基准值交换到partition完成的地方 */</span></span><br><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line">ElementType pivot;</span><br><span class="line">pivot = median3(A, left, right);</span><br><span class="line">i = left;</span><br><span class="line">j = right - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(;;)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(A[++i] &lt; pivot);</span><br><span class="line">    <span class="keyword">while</span>(A[--j] &gt; pivot);</span><br><span class="line">    <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">        swap(&amp;A[i], &amp; A[j]);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    swap(&amp;A[i], &amp;A[right - <span class="number">1</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="实现三"><a href="#实现三" class="headerlink" title="实现三"></a>实现三</h3><p>leetcode某道题出现的解法：<a href="https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60312/AC-Clean-QuickSelect-Java-solution-avg.-O(n" target="_blank" rel="noopener">Kth Largest Element in an Array</a>-time)</p>
+<h3><span id="实现三">实现三</span></h3><p>leetcode某道题出现的解法：<a href="https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60312/AC-Clean-QuickSelect-Java-solution-avg.-O(n" target="_blank" rel="noopener">Kth Largest Element in an Array</a>-time)</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 取最右边的值为pivot，每次都将大于pivot的值交换到左边 </span></span><br><span class="line"><span class="comment">最终将基准值交换到partition完成的地方 */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> []a, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = low;</span><br><span class="line">    <span class="keyword">int</span> j = high;</span><br><span class="line">    <span class="keyword">int</span> pivot = a[high];    </span><br><span class="line">    <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i++] &gt; pivot)</span><br><span class="line">            swap(a, --i, --j);</span><br><span class="line">    &#125;</span><br><span class="line">    swap(a, i, high)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
@@ -1891,14 +1891,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-17 13:20:47 / Updated at: 13:27:49" itemprop="dateCreated datePublished" datetime="2018-09-17T13:20:47+08:00">2018-09-17</time>
+              <time title="创建时间：2018-09-17 13:20:47 / 修改时间：13:27:49" itemprop="dateCreated datePublished" datetime="2018-09-17T13:20:47+08:00">2018-09-17</time>
             
 
             
@@ -1951,8 +1951,8 @@
         
           
             <p>Linux下蓝牙键盘的配对使用</p>
-<h4 id="查看本机是否有蓝牙适配器"><a href="#查看本机是否有蓝牙适配器" class="headerlink" title="查看本机是否有蓝牙适配器"></a>查看本机是否有蓝牙适配器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsusb</span><br></pre></td></tr></table></figure>
-<h4 id="设置蓝牙"><a href="#设置蓝牙" class="headerlink" title="设置蓝牙"></a>设置蓝牙</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入蓝牙控制器</span></span><br><span class="line">$ bluetoothctl</span><br><span class="line"><span class="comment"># 打开蓝牙</span></span><br><span class="line">[bluetooth]<span class="comment"># power on</span></span><br><span class="line">[bluetooth]<span class="comment"># default-agent</span></span><br><span class="line"><span class="comment"># 配对蓝牙键盘</span></span><br><span class="line">[bluetooth]<span class="comment"># pairable on</span></span><br><span class="line">[bluetooth]<span class="comment"># scan on</span></span><br><span class="line">[bluetooth]<span class="comment"># pair 34:88:5D:7E:42:04</span></span><br><span class="line">[bluetooth]<span class="comment"># trust 34:88:5D:7E:42:04</span></span><br><span class="line"><span class="comment"># 连接</span></span><br><span class="line">[bluetooth]<span class="comment"># connect 34:88:5D:7E:42:04</span></span><br></pre></td></tr></table></figure>
+<h4><span id="查看本机是否有蓝牙适配器">查看本机是否有蓝牙适配器</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsusb</span><br></pre></td></tr></table></figure>
+<h4><span id="设置蓝牙">设置蓝牙</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入蓝牙控制器</span></span><br><span class="line">$ bluetoothctl</span><br><span class="line"><span class="comment"># 打开蓝牙</span></span><br><span class="line">[bluetooth]<span class="comment"># power on</span></span><br><span class="line">[bluetooth]<span class="comment"># default-agent</span></span><br><span class="line"><span class="comment"># 配对蓝牙键盘</span></span><br><span class="line">[bluetooth]<span class="comment"># pairable on</span></span><br><span class="line">[bluetooth]<span class="comment"># scan on</span></span><br><span class="line">[bluetooth]<span class="comment"># pair 34:88:5D:7E:42:04</span></span><br><span class="line">[bluetooth]<span class="comment"># trust 34:88:5D:7E:42:04</span></span><br><span class="line"><span class="comment"># 连接</span></span><br><span class="line">[bluetooth]<span class="comment"># connect 34:88:5D:7E:42:04</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1995,7 +1995,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2039,7 +2039,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -2056,7 +2056,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -2109,7 +2109,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -2162,7 +2162,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -2170,7 +2170,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -2180,14 +2180,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>

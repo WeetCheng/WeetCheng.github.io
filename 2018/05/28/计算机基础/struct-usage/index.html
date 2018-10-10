@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,7 +115,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/05/28/计算机基础/struct-usage/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="结构体的声明及定义方法一：直接声明结构体类型 12345struct book &amp;#123;  char title[MAXTITL];  char author[MAXAUTH];  float value;&amp;#125;; 这种方法下，定义结构体变量,需要使用struct book 1struct book Operating_System; 方法二：声明结构体类型同时定义结构体变量 12345">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-06-13T13:38:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="结构体使用方法">
@@ -176,7 +176,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -202,7 +202,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -222,7 +222,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -238,7 +238,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -246,7 +246,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -256,7 +256,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -277,7 +277,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -363,14 +363,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-05-28 09:49:30" itemprop="dateCreated datePublished" datetime="2018-05-28T09:49:30+08:00">2018-05-28</time>
+              <time title="创建时间：2018-05-28 09:49:30" itemprop="dateCreated datePublished" datetime="2018-05-28T09:49:30+08:00">2018-05-28</time>
             
 
             
@@ -385,9 +385,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-13 21:38:27" itemprop="dateModified" datetime="2018-06-13T21:38:27+08:00">2018-06-13</time>
+                <time title="修改时间：2018-06-13 21:38:27" itemprop="dateModified" datetime="2018-06-13T21:38:27+08:00">2018-06-13</time>
               
             
           </span>
@@ -418,7 +418,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             Views:  
+             阅读次数： 
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -440,7 +440,7 @@
       
 
       
-        <h2 id="结构体的声明及定义"><a href="#结构体的声明及定义" class="headerlink" title="结构体的声明及定义"></a>结构体的声明及定义</h2><p><strong>方法一：直接声明结构体类型</strong></p>
+        <h2><span id="结构体的声明及定义">结构体的声明及定义</span></h2><p><strong>方法一：直接声明结构体类型</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>这种方法下，定义结构体变量,需要使用struct book</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br></pre></td></tr></table></figure>
@@ -458,15 +458,15 @@
 <p><strong>方法五：typedef声明匿名结构体类型</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125; sci_book;</span><br></pre></td></tr></table></figure>
 <p>相当于给匿名结构体起了别名为：sci_book，定义结构体变量的方法同方法四。</p>
-<h2 id="初始化结构体"><a href="#初始化结构体" class="headerlink" title="初始化结构体"></a>初始化结构体</h2><p><strong>方法一：按顺序初始化</strong></p>
+<h2><span id="初始化结构体">初始化结构体</span></h2><p><strong>方法一：按顺序初始化</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span> = &#123;</span></span><br><span class="line">  <span class="string">"Operating Systems"</span>;</span><br><span class="line">  <span class="string">"William"</span>;</span><br><span class="line">  <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>方法二：使用初始化器</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span> = &#123;</span></span><br><span class="line">  .title  = <span class="string">"Operating Systems"</span>;</span><br><span class="line">  .author = <span class="string">"William"</span>;</span><br><span class="line">  .value  = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="访问结构体成员"><a href="#访问结构体成员" class="headerlink" title="访问结构体成员"></a>访问结构体成员</h2><p>通过”.”访问和”-&gt;”访问的区别</p>
+<h2><span id="访问结构体成员">访问结构体成员</span></h2><p>通过”.”访问和”-&gt;”访问的区别</p>
 <p>结构体变量使用”.”访问成员；</p>
 <p>结构体指针通过“-&gt;”访问成员</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> *<span class="title">pbook</span> = &amp;<span class="title">Operating_System</span>;</span> </span><br><span class="line"><span class="comment">// 使用.访问结构体变量的成员</span></span><br><span class="line">Operating_System.author = <span class="string">"William"</span>;</span><br><span class="line"><span class="comment">// 使用-&gt;访问结构体指针所指的成员</span></span><br><span class="line">pbook-&gt;value = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="C和C-结构体的细微差异"><a href="#C和C-结构体的细微差异" class="headerlink" title="C和C++结构体的细微差异"></a>C和C++结构体的细微差异</h2><p>C中定义结构体变量，必须使用struct book，C++则不需要加struct</p>
+<h2><span id="c和c结构体的细微差异">C和C++结构体的细微差异</span></h2><p>C中定义结构体变量，必须使用struct book，C++则不需要加struct</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// C中定义结构体变量</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line"><span class="comment">// C++中定义结构体变量,加不加struct都可以</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line">book Operating_System;</span><br></pre></td></tr></table></figure>
 
       
@@ -570,10 +570,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -594,7 +594,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -611,7 +611,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -664,7 +664,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -699,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体的声明及定义"><span class="nav-number">1.</span> <span class="nav-text">结构体的声明及定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化结构体"><span class="nav-number">2.</span> <span class="nav-text">初始化结构体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问结构体成员"><span class="nav-number">3.</span> <span class="nav-text">访问结构体成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C和C-结构体的细微差异"><span class="nav-number">4.</span> <span class="nav-text">C和C++结构体的细微差异</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">结构体的声明及定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">初始化结构体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">访问结构体成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">C和C++结构体的细微差异</span></a></li></ol></div>
             
 
           </div>
@@ -733,7 +733,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -741,7 +741,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -751,14 +751,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>

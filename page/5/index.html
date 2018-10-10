@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -112,7 +112,7 @@
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/page/5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 
@@ -171,7 +171,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -198,7 +198,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
         
@@ -234,7 +234,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
 
       
@@ -252,7 +252,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
@@ -273,7 +273,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -363,14 +363,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-22 16:33:16 / Updated at: 22:28:05" itemprop="dateCreated datePublished" datetime="2018-06-22T16:33:16+08:00">2018-06-22</time>
+              <time title="创建时间：2018-06-22 16:33:16 / 修改时间：22:28:05" itemprop="dateCreated datePublished" datetime="2018-06-22T16:33:16+08:00">2018-06-22</time>
             
 
             
@@ -425,6 +425,19 @@
 <p>来源：<a href="https://coolshell.cn/articles/11564.html" target="_blank" rel="noopener">CoolShell</a></p>
 <p>作者：陈皓</p>
 <!-- toc -->
+<ul>
+<li><a href="#tcp头格式">TCP头格式</a></li>
+<li><a href="#tcp的状态机">TCP的状态机</a></li>
+<li><a href="#数据传输中的sequence-number">数据传输中的Sequence Number</a></li>
+<li><a href="#tcp重传机制">TCP重传机制</a><ul>
+<li><a href="#超时重传机制">超时重传机制</a></li>
+<li><a href="#快速重传机制">快速重传机制</a></li>
+<li><a href="#sack-方法">SACK 方法</a></li>
+<li><a href="#duplicate-sack-重复收到数据的问题">Duplicate SACK – 重复收到数据的问题</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
 <p>TCP是一个巨复杂的协议，因为他要解决很多问题，而这些问题又带出了很多子问题和阴暗面。所以学习TCP本身是个比较痛苦的过程，但对于学习的过程却能让人有很多收获。关于TCP这个协议的细节，我还是推荐你去看<a href="http://www.kohala.com/start/" target="_blank" rel="noopener">W.Richard Stevens</a>的《<a href="http://book.douban.com/subject/1088054/" target="_blank" rel="noopener">TCP/IP 详解 卷1：协议</a>》（当然，你也可以去读一下<a href="http://tools.ietf.org/html/rfc793" target="_blank" rel="noopener">RFC793</a>以及后面N多的RFC）。另外，本文我会使用英文术语，这样方便你通过这些英文关键词来查找相关的技术文档。</p>
 <p>之所以想写这篇文章，目的有三个，</p>
 <ul>
@@ -443,7 +456,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/22/计算机网络/tcp-meaning-1/#more" rel="contents">
-              Weiterlesen &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -537,14 +550,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-21 19:50:30" itemprop="dateCreated datePublished" datetime="2018-06-21T19:50:30+08:00">2018-06-21</time>
+              <time title="创建时间：2018-06-21 19:50:30" itemprop="dateCreated datePublished" datetime="2018-06-21T19:50:30+08:00">2018-06-21</time>
             
 
             
@@ -559,9 +572,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-23 16:42:26" itemprop="dateModified" datetime="2018-06-23T16:42:26+08:00">2018-06-23</time>
+                <time title="修改时间：2018-06-23 16:42:26" itemprop="dateModified" datetime="2018-06-23T16:42:26+08:00">2018-06-23</time>
               
             
           </span>
@@ -608,9 +621,9 @@
       
         
           
-            <h2 id="第1章-wireshark安装和启动"><a href="#第1章-wireshark安装和启动" class="headerlink" title="第1章 wireshark安装和启动"></a>第1章 wireshark安装和启动</h2><h3 id="1-权限问题："><a href="#1-权限问题：" class="headerlink" title="1. 权限问题："></a>1. 权限问题：</h3><p>wireshark安装之后，以普通用户身份打开，提示以下错误：</p>
+            <h2><span id="第1章-wireshark安装和启动">第1章 wireshark安装和启动</span></h2><h3><span id="1-权限问题">1. 权限问题：</span></h3><p>wireshark安装之后，以普通用户身份打开，提示以下错误：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The capture session could not be initiated on interface <span class="string">'enp3s0'</span></span><br><span class="line">(You don<span class="string">'t have permission to capture on that device).</span></span><br></pre></td></tr></table></figure>
-<h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p><strong>方案一：添加工作组</strong></p>
+<h3><span id="解决方案">解决方案：</span></h3><p><strong>方案一：添加工作组</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建wireshark用户组，并将当前用户加入到wireshark用户组中</span></span><br><span class="line">sudo groupadd wireshark</span><br><span class="line">sudo usermod -a -G wireshark <span class="variable">$USER</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置/usr/bin/dumpcap目录所属的用户组为wireshark，且设置权限为754</span></span><br><span class="line">sudo chgrp wireshark /usr/bin/dumpcap</span><br><span class="line">sudo chmod 754</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置</span></span><br><span class="line">sudo <span class="built_in">setcap</span> <span class="string">'CAP_NET_RAW+eip CAP_NET_ADMIN+eip'</span> /usr/bin/dumpcap</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在当前会话中，登录到wireshark用户组中</span></span><br><span class="line">newgrp wireshark</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试wireshark能否正常使用</span></span><br><span class="line">wireshark</span><br></pre></td></tr></table></figure>
 <p>你会发现在当前的终端运行wireshark不会报错了。而如果重新打开另一个终端，运行wireshark，会提示：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">couldn<span class="string">'t run /usr/bin/dumpcap in child process</span></span><br></pre></td></tr></table></figure>
@@ -623,10 +636,10 @@
 <p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-23/48531860.jpg" alt=""></p>
 <p>使用此方法，非root用户也可以执行所有操作。</p>
 <p>而方案一，添加工作组之后，有一部分功能仍然要求root权限</p>
-<h3 id="2-wireshark支持的网络类型"><a href="#2-wireshark支持的网络类型" class="headerlink" title="2. wireshark支持的网络类型"></a>2. wireshark支持的网络类型</h3><p>wireshark捕获网络信息使用的libpcap/WinPcap库。在各个平台下支持的网络类型如下：</p>
+<h3><span id="2-wireshark支持的网络类型">2. wireshark支持的网络类型</span></h3><p>wireshark捕获网络信息使用的libpcap/WinPcap库。在各个平台下支持的网络类型如下：</p>
 <p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-23/24381565.jpg" alt=""></p>
 <p><a href="https://wiki.wireshark.org/CaptureSetup/NetworkMedia" target="_blank" rel="noopener">图片来源</a></p>
-<h2 id="第2章-初试TCP捕获"><a href="#第2章-初试TCP捕获" class="headerlink" title="第2章 初试TCP捕获"></a>第2章 初试TCP捕获</h2><p><strong>(1) 设置并启动捕获 </strong></p>
+<h2><span id="第2章-初试tcp捕获">第2章 初试TCP捕获</span></h2><p><strong>(1) 设置并启动捕获 </strong></p>
 <p>在菜单栏中选择，捕获-&gt;选项</p>
 <p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-23/46919815.jpg" alt=""></p>
 <p>其中port 443是指https所使用的端口号。</p>
@@ -645,7 +658,7 @@
 <li>ACK</li>
 </ul>
 <p>按道理应该1个连接就可以了。</p>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p>[1] <a href="http://www.voidcn.com/article/p-rzfkrvvz-qk.html" target="_blank" rel="noopener">Ubuntu下Wireshark普通权限不足之解决方案</a></p>
+<h3><span id="参考链接">参考链接</span></h3><p>[1] <a href="http://www.voidcn.com/article/p-rzfkrvvz-qk.html" target="_blank" rel="noopener">Ubuntu下Wireshark普通权限不足之解决方案</a></p>
 
           
         
@@ -738,14 +751,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-21 18:50:39 / Updated at: 20:26:44" itemprop="dateCreated datePublished" datetime="2018-06-21T18:50:39+08:00">2018-06-21</time>
+              <time title="创建时间：2018-06-21 18:50:39 / 修改时间：20:26:44" itemprop="dateCreated datePublished" datetime="2018-06-21T18:50:39+08:00">2018-06-21</time>
             
 
             
@@ -894,14 +907,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-19 16:33:04 / Updated at: 17:34:01" itemprop="dateCreated datePublished" datetime="2018-06-19T16:33:04+08:00">2018-06-19</time>
+              <time title="创建时间：2018-06-19 16:33:04 / 修改时间：17:34:01" itemprop="dateCreated datePublished" datetime="2018-06-19T16:33:04+08:00">2018-06-19</time>
             
 
             
@@ -1047,14 +1060,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-19 14:27:09" itemprop="dateCreated datePublished" datetime="2018-06-19T14:27:09+08:00">2018-06-19</time>
+              <time title="创建时间：2018-06-19 14:27:09" itemprop="dateCreated datePublished" datetime="2018-06-19T14:27:09+08:00">2018-06-19</time>
             
 
             
@@ -1069,9 +1082,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-09-05 08:59:53" itemprop="dateModified" datetime="2018-09-05T08:59:53+08:00">2018-09-05</time>
+                <time title="修改时间：2018-09-05 08:59:53" itemprop="dateModified" datetime="2018-09-05T08:59:53+08:00">2018-09-05</time>
               
             
           </span>
@@ -1235,14 +1248,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-15 15:03:01 / Updated at: 15:27:12" itemprop="dateCreated datePublished" datetime="2018-06-15T15:03:01+08:00">2018-06-15</time>
+              <time title="创建时间：2018-06-15 15:03:01 / 修改时间：15:27:12" itemprop="dateCreated datePublished" datetime="2018-06-15T15:03:01+08:00">2018-06-15</time>
             
 
             
@@ -1294,14 +1307,14 @@
       
         
           
-            <h3 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h3><ul>
+            <h3><span id="项目简介">项目简介</span></h3><ul>
 <li>使用ADC1的2个通道</li>
 <li>每个按照2KHz的采样频率进行采样</li>
 <li>ADC1的采样精度为12bits，数据寄存器为16bits</li>
 <li>串口设置为 115200bps, 1个停止位，没有校验位，8个数据位，禁用流控制</li>
 <li>使用双缓冲，用于改善数据从ADC -&gt; 内存 -&gt; 串口的传输</li>
 </ul>
-<h3 id="流程总结"><a href="#流程总结" class="headerlink" title="流程总结"></a>流程总结</h3><ol>
+<h3><span id="流程总结">流程总结</span></h3><ol>
 <li>设置系统时钟</li>
 <li>设置定时器TIM3</li>
 <li>设置ADC1</li>
@@ -1315,7 +1328,7 @@
 <li>串口发送缓冲区满，启动串口发送</li>
 <li>发送成功，产生串口发送中断，表示串口数据发送成功</li>
 </ol>
-<h3 id="第一，设置系统时钟"><a href="#第一，设置系统时钟" class="headerlink" title="第一，设置系统时钟"></a>第一，设置系统时钟</h3><p>stm32的系统时钟(SYSCLK)有三个时钟源选择：</p>
+<h3><span id="第一设置系统时钟">第一，设置系统时钟</span></h3><p>stm32的系统时钟(SYSCLK)有三个时钟源选择：</p>
 <ul>
 <li>外部高速时钟(HSE)</li>
 <li>内部高速时钟(HSI)</li>
@@ -1330,7 +1343,7 @@
 <p>ADC1的时钟挂载在APB2下，它也有自己的分频器</p>
 <p>USART1的时钟挂载在APB2下</p>
 <p>GPIO的时钟也挂载在APB2下</p>
-<h3 id="第二，设置定时器"><a href="#第二，设置定时器" class="headerlink" title="第二，设置定时器"></a>第二，设置定时器</h3><p><strong>理论知识点</strong></p>
+<h3><span id="第二设置定时器">第二，设置定时器</span></h3><p><strong>理论知识点</strong></p>
 <p>通用定时器有三个核心的寄存器</p>
 <ul>
 <li>计数寄存器(TIMx_CNT)——计数</li>
@@ -1359,7 +1372,7 @@
 <li>设置当发生计数更新时，产生一个TRGO信号，后面会用该TRGO信号来触发ADC采样。</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">TIM3_Config</span><span class="params">(u16 psc, u16 arr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;</span><br><span class="line">	</span><br><span class="line">  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);</span><br><span class="line">	</span><br><span class="line">  TIM_TimeBaseStructure.TIM_ClockDivision = <span class="number">1</span>;</span><br><span class="line">	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;</span><br><span class="line">	TIM_TimeBaseStructure.TIM_Period = arr;</span><br><span class="line">  TIM_TimeBaseStructure.TIM_Prescaler = psc;</span><br><span class="line">	</span><br><span class="line">	TIM_TimeBaseInit(TIM3, &amp;TIM_TimeBaseStructure);</span><br><span class="line">	</span><br><span class="line">	TIM_SelectOutputTrigger(TIM3, TIM_TRGOSource_Update); 					<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤1(4)</span></span><br><span class="line">	</span><br><span class="line">	TIM_Cmd(TIM3,ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第三，设置ADC1"><a href="#第三，设置ADC1" class="headerlink" title="第三，设置ADC1"></a>第三，设置ADC1</h3><p><strong>理论知识点</strong></p>
+<h3><span id="第三设置adc1">第三，设置ADC1</span></h3><p><strong>理论知识点</strong></p>
 <p>​    一个ADC往往会有几个通道可以使用，且每个通道都有一条采样的输入线，每条输入线与GPIO口共用stm32的某个引脚。比如ADC1的通道1和通道2的输入线分别与GPIOA0和GPIOA1共用引脚，那么引脚就是用来做ADC的采样输入线还是做GPIO呢？这就需要我们还设置引脚的复用功能。</p>
 <p>​    ADC有两种好用的功能</p>
 <ul>
@@ -1377,7 +1390,7 @@
 <p><strong>项目设置</strong></p>
 <p>开通了ADC1的两个通道用来采样，当定时器产生TRGO信号时，触发ADC进行采样，设置ADC1用多通道循环采样的方式来采，每个通道采完都会产生一个DMA请求。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures the ADC1:</span></span><br><span class="line"><span class="comment">	* 				ADC_Mode_Independent,non-ContinuousConvMode,ScanConvMode,</span></span><br><span class="line"><span class="comment">	*					ExternalTrigConv_T3_TRGO,DataAlign_Right,2 channels(PA0,PA1)</span></span><br><span class="line"><span class="comment">  * @param  None</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC1_Config</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">/* ADC,GPIO 初始化结构体 */</span></span><br><span class="line">  ADC_InitTypeDef ADC_InitStructure;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC的时钟要单独设置，通常设为72/6 = 12MHz */</span></span><br><span class="line">	RCC_ADCCLKConfig(RCC_PCLK2_Div6);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 所有外设都要开启时钟，才能使用 */</span></span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_ADC1,ENABLE);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC1的两个通道PA0和PA1配置为模拟输入(共18个通道))*/</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC1工作方式配置：*/</span></span><br><span class="line">	ADC_DeInit(ADC1);	</span><br><span class="line">	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;</span><br><span class="line">	ADC_InitStructure.ADC_ContinuousConvMode= DISABLE;															<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤2(4)</span></span><br><span class="line">	ADC_InitStructure.ADC_ScanConvMode = ENABLE;</span><br><span class="line">	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T3_TRGO;					<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤3(4)</span></span><br><span class="line">	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;</span><br><span class="line">	ADC_InitStructure.ADC_NbrOfChannel = <span class="number">2</span>;</span><br><span class="line">	ADC_Init(ADC1, &amp;ADC_InitStructure);	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 两个通道配置 */</span></span><br><span class="line">	ADC_RegularChannelConfig(ADC1, ADC_Channel_0, <span class="number">1</span>, ADC_SampleTime_13Cycles5);</span><br><span class="line">	ADC_RegularChannelConfig(ADC1, ADC_Channel_1, <span class="number">2</span>, ADC_SampleTime_13Cycles5);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 使能ADC的外部触发转换（外部触发源将在tim.c文件中设置成TIM1更新事件）*/</span></span><br><span class="line">	ADC_ExternalTrigConvCmd(ADC1,ENABLE);																						<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤4(4)</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/* ADC必须开启DMA功能才能使用扫描模式 */</span></span><br><span class="line">	ADC_DMACmd(ADC1, ENABLE);</span><br><span class="line">	</span><br><span class="line">	ADC_Cmd(ADC1, ENABLE);	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC内置校准电路，上电后都要进行校准 */</span></span><br><span class="line">	ADC_ResetCalibration(ADC1);		 </span><br><span class="line">	<span class="keyword">while</span>(ADC_GetResetCalibrationStatus(ADC1));	</span><br><span class="line">	ADC_StartCalibration(ADC1);	 </span><br><span class="line">	<span class="keyword">while</span>(ADC_GetCalibrationStatus(ADC1));	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第四，设置ADC1对应的DMA通道"><a href="#第四，设置ADC1对应的DMA通道" class="headerlink" title="第四，设置ADC1对应的DMA通道"></a>第四，设置ADC1对应的DMA通道</h3><p>​    DMA包含有多个通道，可以设置每个通道用来处理不同的事务。比如前面我们设置ADC会产生DMA请求，那么DMA怎么处理呢？</p>
+<h3><span id="第四设置adc1对应的dma通道">第四，设置ADC1对应的DMA通道</span></h3><p>​    DMA包含有多个通道，可以设置每个通道用来处理不同的事务。比如前面我们设置ADC会产生DMA请求，那么DMA怎么处理呢？</p>
 <p>​    我们知道，DMA的功能是可以将数据从外设传送到内存中，或者从一片内存传送到另一片内存中。</p>
 <p>​    而ADC开启DMA功能的原因就是：希望ADC产生DMA请求之后，DMA可以帮忙将ADC的数据寄存器里的数据保存到内存中。知道这个目标，我们就可以分析出这个DMA通道需要知道哪些信息才能完成工作了。</p>
 <ul>
@@ -1388,7 +1401,7 @@
 <li>怎么知道数据到底传出去没有？——DMA通道也可以启动中断功能，一旦传送完成，就产生一个中断</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures DMA of ADC1:</span></span><br><span class="line"><span class="comment">	* 				from peripheral(ADC1) to memory,</span></span><br><span class="line"><span class="comment">	*					datasize of peripheral and memory are both halfword,</span></span><br><span class="line"><span class="comment">	* 				MemoryInc_Enable, PeripheralInc_Disable</span></span><br><span class="line"><span class="comment">	* 				DMA_Mode_Circular!</span></span><br><span class="line"><span class="comment">	*					enable DMA_IT_TC</span></span><br><span class="line"><span class="comment">  * @param  memBaseAddr: Where you want to store values of ADC convertion.</span></span><br><span class="line"><span class="comment">	* 				periphBaseAddr: DR of ADC1</span></span><br><span class="line"><span class="comment">	*					bufferSize: Its unit depends on direction of transmission</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC1_DMA_Config</span><span class="params">(u32 memBaseAddr, u32 periphBaseAddr, u32 bufferSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DMA_InitTypeDef DMA_InitStructure;</span><br><span class="line">	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);</span><br><span class="line"></span><br><span class="line">	DMA_DeInit(DMA1_Channel1);</span><br><span class="line">	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;															<span class="comment">//循环模式，每次传输完成，都会重新指向缓冲区的开头</span></span><br><span class="line">	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC ;													<span class="comment">//ADC1-&gt;DR &gt;&gt; 缓冲区 </span></span><br><span class="line">	DMA_InitStructure.DMA_BufferSize = bufferSize;															<span class="comment">//设定缓冲区大小，单位与MemoryDataSize或者PeripheralDataSize相同</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryBaseAddr = memBaseAddr;													<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord ;				<span class="comment">//缓冲区数据宽度为半字(16bits)</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;											<span class="comment">//缓冲区地址递增</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralBaseAddr = periphBaseAddr;									<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;	<span class="comment">//ADC1-&gt;DR的数据宽度也是半字(16bits),实际上，ADC分辨率只有12bits</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;						<span class="comment">//外设地址不增</span></span><br><span class="line">	DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;												<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;																<span class="comment">//</span></span><br><span class="line">	</span><br><span class="line">	DMA_Init(DMA1_Channel1, &amp;DMA_InitStructure);</span><br><span class="line">	</span><br><span class="line">	DMA_ITConfig(DMA1_Channel1, DMA_IT_TC, ENABLE);															<span class="comment">//开启DMA传输完成中断</span></span><br><span class="line">	DMA_Cmd(DMA1_Channel1, ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第五，设置串口USART1"><a href="#第五，设置串口USART1" class="headerlink" title="第五，设置串口USART1"></a>第五，设置串口USART1</h3><p>（1）设置串口的时钟源</p>
+<h3><span id="第五设置串口usart1">第五，设置串口USART1</span></h3><p>（1）设置串口的时钟源</p>
 <p>串口也需要设置时钟，它的时钟源挂载在APB2下（36MHz）。</p>
 <p>（2）设置stm32的引脚复用作为USART1的Tx和Rx</p>
 <p>串口的Tx和Rx分别与GPIOA9和GPIO10共用引脚，因此需要设置引脚的复用功能。</p>
@@ -1404,7 +1417,7 @@
 </ul>
 <p>串口设置如下：115200bps, 没有校验位，1个停止位，8位数据长度，禁用流控制</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures the USART1:</span></span><br><span class="line"><span class="comment">	* 				1.Configure PA9 and PA10; </span></span><br><span class="line"><span class="comment">	*					2.Configure USART1 </span></span><br><span class="line"><span class="comment">  * @param  None</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_Config</span><span class="params">(u32 bound)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	USART_InitTypeDef USART_InitStructure;</span><br><span class="line">	</span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* GPIO configuration*/</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* USART1 configuration*/</span></span><br><span class="line">	USART_InitStructure.USART_BaudRate = bound;</span><br><span class="line">	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx ;								<span class="comment">//收发模式</span></span><br><span class="line">	USART_InitStructure.USART_Parity = USART_Parity_No;</span><br><span class="line">	USART_InitStructure.USART_StopBits = USART_StopBits_1;													<span class="comment">//1位停止位</span></span><br><span class="line">	USART_InitStructure.USART_WordLength = USART_WordLength_8b;											<span class="comment">//8bits数据宽度						</span></span><br><span class="line">	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;</span><br><span class="line">	</span><br><span class="line">	USART_Init(USART1, &amp;USART_InitStructure);	</span><br><span class="line">	USART_DMACmd(USART1, USART_DMAReq_Tx, ENABLE);</span><br><span class="line">	USART_Cmd(USART1, ENABLE);                    <span class="comment">//使能串口 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第六，设置USART1对应的DMA通道"><a href="#第六，设置USART1对应的DMA通道" class="headerlink" title="第六，设置USART1对应的DMA通道"></a>第六，设置USART1对应的DMA通道</h3><p>串口是用来发送数据的，那数据是什么呢？</p>
+<h3><span id="第六设置usart1对应的dma通道">第六，设置USART1对应的DMA通道</span></h3><p>串口是用来发送数据的，那数据是什么呢？</p>
 <p>我的项目里串口是用来发送ADC的采样数据的。为了方便快捷，我为USART1也开了一个DMA通道，可以将前面保存到buffer中的ADC采样数据通过DMA送到串口的发送缓冲寄存器中。同样面临一样的DMA该怎么设置的问题：</p>
 <ul>
 <li>数据的来源是什么？——保存在内存buffer中的ADC采样数据</li>
@@ -1414,13 +1427,13 @@
 <li>什么时候串口对应的DMA通道开始工作？——缓冲区满了以后。我们知道缓冲区有多大，知道每个数据有多大，自然就知道什么时候缓冲区会满</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures DMA of USART1:</span></span><br><span class="line"><span class="comment">	* 				from memory to peripheral(USART1),</span></span><br><span class="line"><span class="comment">	*					datasize of peripheral and memory are both Byte(8bits),</span></span><br><span class="line"><span class="comment">	* 				MemoryInc_Enable, PeripheralInc_Disable</span></span><br><span class="line"><span class="comment">	* 				DMA_Mode_Circular!</span></span><br><span class="line"><span class="comment">	*					enable DMA_IT_TC</span></span><br><span class="line"><span class="comment">  * @param  memBaseAddr: Where you contents your data.</span></span><br><span class="line"><span class="comment">	* 				periphBaseAddr: DR of USART1</span></span><br><span class="line"><span class="comment">	*					bufferSize: Its unit depends on direction of transmission</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_TX_DMA_Config</span><span class="params">(u32 memBaseAddr, u32 periphBaseAddr, u32 bufferSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DMA_InitTypeDef DMA_InitStructure;</span><br><span class="line">	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);</span><br><span class="line"></span><br><span class="line">	DMA_DeInit(DMA1_Channel4);</span><br><span class="line">	DMA_InitStructure.DMA_BufferSize = bufferSize;</span><br><span class="line">	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST ;</span><br><span class="line">	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryBaseAddr = memBaseAddr;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte ;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;</span><br><span class="line">	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralBaseAddr = periphBaseAddr;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralDataSize = DMA_MemoryDataSize_Byte;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable ;</span><br><span class="line">	DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;</span><br><span class="line">	</span><br><span class="line">	DMA_Init(DMA1_Channel4, &amp;DMA_InitStructure);</span><br><span class="line">	</span><br><span class="line">	DMA_ITConfig(DMA1_Channel4, DMA_IT_TC, ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第七，启动定时器，一切按部就班开始运行"><a href="#第七，启动定时器，一切按部就班开始运行" class="headerlink" title="第七，启动定时器，一切按部就班开始运行"></a>第七，启动定时器，一切按部就班开始运行</h3><ul>
+<h3><span id="第七启动定时器一切按部就班开始运行">第七，启动定时器，一切按部就班开始运行</span></h3><ul>
 <li>定时时间到，触发ADC开始采样</li>
 <li>ADC每次采样后触发DMA，DMA将采样数据保存到内存缓冲区buffer中</li>
 <li>buffer满了以后，就触发DMA，将buffer中的数据一个一个送到串口的发送寄存器中</li>
 <li>串口发送寄存器有了数据，就会触发发送功能。于是数据源源不断发送出去。</li>
 </ul>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>​    为了采样和数据发送可以同时进行，我在内存中开辟了两个buffer，上面为了解释方便，我并没有说明这一点。我们已经知道内存中的buffer有两个作用</p>
+<h3><span id="后记">后记</span></h3><p>​    为了采样和数据发送可以同时进行，我在内存中开辟了两个buffer，上面为了解释方便，我并没有说明这一点。我们已经知道内存中的buffer有两个作用</p>
 <ul>
 <li>保存ADC的采样数据到buffer中</li>
 <li>从buffer中将数据送到串口中</li>
@@ -1527,14 +1540,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-15 09:53:07 / Updated at: 15:28:01" itemprop="dateCreated datePublished" datetime="2018-06-15T09:53:07+08:00">2018-06-15</time>
+              <time title="创建时间：2018-06-15 09:53:07 / 修改时间：15:28:01" itemprop="dateCreated datePublished" datetime="2018-06-15T09:53:07+08:00">2018-06-15</time>
             
 
             
@@ -1684,14 +1697,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-14 08:55:24" itemprop="dateCreated datePublished" datetime="2018-06-14T08:55:24+08:00">2018-06-14</time>
+              <time title="创建时间：2018-06-14 08:55:24" itemprop="dateCreated datePublished" datetime="2018-06-14T08:55:24+08:00">2018-06-14</time>
             
 
             
@@ -1706,9 +1719,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-24 19:46:45" itemprop="dateModified" datetime="2018-06-24T19:46:45+08:00">2018-06-24</time>
+                <time title="修改时间：2018-06-24 19:46:45" itemprop="dateModified" datetime="2018-06-24T19:46:45+08:00">2018-06-24</time>
               
             
           </span>
@@ -1756,13 +1769,13 @@
         
           
             <p>在Linux下搭建2440的开发环境</p>
-<h3 id="一，构建arm-linux交叉编译工具链"><a href="#一，构建arm-linux交叉编译工具链" class="headerlink" title="一，构建arm-linux交叉编译工具链"></a>一，构建arm-linux交叉编译工具链</h3><p>有三种方法构建工具链</p>
+<h3><span id="一构建arm-linux交叉编译工具链">一，构建arm-linux交叉编译工具链</span></h3><p>有三种方法构建工具链</p>
 <ul>
 <li>直接下载别人编译好的交叉工具链arm-linux-gcc-4.4.3</li>
 <li>apt-get下载gcc-arm-linux-gnueabi</li>
 <li>自己下载arm-linux-gcc的源码，编译安装</li>
 </ul>
-<h4 id="法1，下载编译好的arm-linux-gcc"><a href="#法1，下载编译好的arm-linux-gcc" class="headerlink" title="法1，下载编译好的arm-linux-gcc"></a>法1，下载编译好的arm-linux-gcc</h4><p>（1） 下载</p>
+<h4><span id="法1下载编译好的arm-linux-gcc">法1，下载编译好的arm-linux-gcc</span></h4><p>（1） 下载</p>
 <p>下载地址：<a href="http://www.arm9.net/download.asp" target="_blank" rel="noopener">http://www.arm9.net/download.asp</a></p>
 <p>假设下载后解压放在目录/home/cheng/arm-linux/中</p>
 <p>（2）配置PATH路径</p>
@@ -1770,8 +1783,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/profile</span><br><span class="line"><span class="comment"># 在文件中添加一下内容</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/cheng/arm-linux/bin/</span><br></pre></td></tr></table></figure>
 <p>执行命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile	<span class="comment"># 使/etc/profile生效</span></span><br></pre></td></tr></table></figure>
-<h4 id="法2，apt-get下载交叉编译工具链"><a href="#法2，apt-get下载交叉编译工具链" class="headerlink" title="法2，apt-get下载交叉编译工具链"></a>法2，apt-get下载交叉编译工具链</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-arm-linux-gnueabi</span><br></pre></td></tr></table></figure>
-<h4 id="法3，源码编译安装arm-linux-gcc"><a href="#法3，源码编译安装arm-linux-gcc" class="headerlink" title="法3，源码编译安装arm-linux-gcc"></a>法3，源码编译安装arm-linux-gcc</h4><ol>
+<h4><span id="法2apt-get下载交叉编译工具链">法2，apt-get下载交叉编译工具链</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-arm-linux-gnueabi</span><br></pre></td></tr></table></figure>
+<h4><span id="法3源码编译安装arm-linux-gcc">法3，源码编译安装arm-linux-gcc</span></h4><ol>
 <li>sudo apt-get install build-essential    #基本开发环境<ol>
 <li>sudo apt-get install bison flex#分别是语法、词法分析器</li>
 <li>sudo apt-get install manpages-dev#安装C函数库man 手册</li>
@@ -1799,7 +1812,7 @@
 <p>设置环境变量<br>export PATH=$PATH:/home/cheng/Programs/Crosstool/bin</p>
 <p>检查是否安装成功<br>ct-ng -v</p>
 <p>配置crosstool<br><a href="https://www.cnblogs.com/zzb-Dream-90Time/p/7198873.html" target="_blank" rel="noopener">crosstool-NG配置</a></p>
-<h3 id="二，串口调试"><a href="#二，串口调试" class="headerlink" title="二，串口调试"></a>二，串口调试</h3><p><strong>安装串口驱动</strong></p>
+<h3><span id="二串口调试">二，串口调试</span></h3><p><strong>安装串口驱动</strong></p>
 <p>Linux会自动安装PL2303的驱动</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$&gt; ls /dev/ttyUSB*</span><br><span class="line">/dev/ttyUSB0 	//这就是我们的串口</span><br></pre></td></tr></table></figure>
 <p><strong>串口调试工具</strong></p>
@@ -1812,7 +1825,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&gt; sudo picocom -b 115200 /dev/ttyUSB0	//具体是ttyUSB* 可以去/dev目录下查看</span><br></pre></td></tr></table></figure>
 <p><strong>退出picocom</strong></p>
 <p>先按ctrl+a(表示转义)再按ctrl+q</p>
-<h3 id="三，烧录程序"><a href="#三，烧录程序" class="headerlink" title="三，烧录程序"></a>三，烧录程序</h3><p>JZ2440有两种烧录程序的方法，</p>
+<h3><span id="三烧录程序">三，烧录程序</span></h3><p>JZ2440有两种烧录程序的方法，</p>
 <ul>
 <li>使用调试下载器EOP+OpenOCD</li>
 <li>使用调试下载器EOP+oflash</li>
@@ -1820,7 +1833,7 @@
 </ul>
 <p><a href="https://github.com/ntfreak/openocd" target="_blank" rel="noopener">官方介绍</a></p>
 <p><a href="http://blog.csdn.net/heyuqian_csdn/article/details/52507111" target="_blank" rel="noopener">参考博客</a></p>
-<h4 id="法1，EOP-OpenOCD烧录"><a href="#法1，EOP-OpenOCD烧录" class="headerlink" title="法1，EOP+OpenOCD烧录"></a>法1，EOP+OpenOCD烧录</h4><p><strong>（1）下载安装OpenOCD</strong></p>
+<h4><span id="法1eopopenocd烧录">法1，EOP+OpenOCD烧录</span></h4><p><strong>（1）下载安装OpenOCD</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openocd</span><br></pre></td></tr></table></figure>
 <p>安装成功后，会识别出eop</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$&gt; lsusb 	//查看usb设备</span><br><span class="line">Bus 001 Device 009: ID 067b:2303 Prolific Technology, Inc. PL2303 Serial Port</span><br><span class="line">Bus 001 Device 010: ID 1457:5118 First International Computer, Inc. OpenMoko Neo1973 Debug board (V2+)</span><br></pre></td></tr></table></figure>
@@ -1836,7 +1849,7 @@
 <p>表明已经成功了</p>
 <p><strong>（4）烧录</strong></p>
 <p>烧录方法参考：<a href="http://d1.amobbs.com/bbs_upload782111/files_38/ourdev_631472V6X051.pdf" target="_blank" rel="noopener">http://d1.amobbs.com/bbs_upload782111/files_38/ourdev_631472V6X051.pdf</a></p>
-<h4 id="法2，EOP-oflash烧录u-boot"><a href="#法2，EOP-oflash烧录u-boot" class="headerlink" title="法2，EOP+oflash烧录u-boot"></a>法2，EOP+oflash烧录u-boot</h4><p><strong>（1）安装oflash</strong></p>
+<h4><span id="法2eopoflash烧录u-boot">法2，EOP+oflash烧录u-boot</span></h4><p><strong>（1）安装oflash</strong></p>
 <p>下载oflash工具：<a href="https://pan.baidu.com/s/1KGTB0jC_11W7WjzfXFvNzQ" target="_blank" rel="noopener">百度网盘</a></p>
 <p>假设下载后放在/home/cheng/ProgramFiles/Portable/oflash/bin/oflash</p>
 <p>设置PATH路径</p>
@@ -1844,7 +1857,7 @@
 <p><strong>（2）烧录程序</strong></p>
 <p>进入想要烧录的程序所在的目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">$ oflash u-boot.bin</span><br><span class="line"><span class="comment"># 根据提示，输入</span></span><br><span class="line"><span class="comment"># 1.选择JTAG类型为：OpenJTAG</span></span><br><span class="line"><span class="comment"># 2.选择CPU为：S3C2440</span></span><br><span class="line"><span class="comment"># 3.选择烧录到：Nor flash</span></span><br><span class="line"><span class="comment"># 4.选择偏移量为：0</span></span><br><span class="line"></span><br><span class="line">+---------------------------------------------------------+</span><br><span class="line">|   Flash Programmer v1.3 <span class="keyword">for</span> OpenJTAG of www.100ask.net  |</span><br><span class="line">|   OpenJTAG is a USB to JTAG &amp; RS232 tool based FT2232   |</span><br><span class="line">|   This programmer supports both of S3C24X0 &amp; S3C6410    |</span><br><span class="line">|   Author: Email/MSN(thisway.diy@163.com), QQ(17653039)  |</span><br><span class="line">+---------------------------------------------------------+</span><br><span class="line">Usage: </span><br><span class="line">1. oflash, run with cfg.txt or prompt</span><br><span class="line">2. oflash [file], write [file] to flash with prompt</span><br><span class="line">3. oflash [-f config_file]</span><br><span class="line">4. oflash [jtag_type] [cpu_type] [flash_type] [read_or_write] [offset] [file]</span><br><span class="line">Select the JTAG <span class="built_in">type</span>: </span><br><span class="line">0. OpenJTAG</span><br><span class="line">1. Dongle JTAG(parallel port)</span><br><span class="line">2. Wiggler JTAG(parallel port)</span><br><span class="line">Enter the number: 0</span><br><span class="line">Select the CPU:</span><br><span class="line">0. S3C2410</span><br><span class="line">1. S3C2440</span><br><span class="line">2. S3C6410</span><br><span class="line">Enter the number: 1</span><br><span class="line"></span><br><span class="line"><span class="string">'ft2232'</span> interface using libftdi with <span class="string">'jtagkey'</span> layout (1457:5118)</span><br><span class="line">current latency timer: 2</span><br><span class="line">FTDI chip <span class="built_in">type</span>: 2 <span class="string">"2232C"</span>S3C2440 detected, cpuID = 0x0032409d</span><br><span class="line"></span><br><span class="line">[Main Menu]</span><br><span class="line"> 0:Nand Flash prog     1:Nor Flash prog   2:Memory Rd/Wr     3:Exit            </span><br><span class="line">Select the <span class="keyword">function</span> to <span class="built_in">test</span>:1</span><br><span class="line">Detect Nor Flash ...</span><br><span class="line">MXIC MX29LV160B </span><br><span class="line">Size: 2 MB</span><br><span class="line"></span><br><span class="line">Image Size: 0x304bc</span><br><span class="line"></span><br><span class="line">Available Target Offset:</span><br><span class="line"></span><br><span class="line">Bank <span class="comment"># 1: MXIC MX29LV160B FLASH (16 x 16)  Size: 2 MB in 35 Sectors</span></span><br><span class="line">  AMD Standard <span class="built_in">command</span> <span class="built_in">set</span>, Manufacturer ID: 0xC2, Device ID: 0x2249</span><br><span class="line">  Erase timeout: 30000 ms, write timeout: 100 ms</span><br><span class="line"></span><br><span class="line">Sector Start Addresses:</span><br><span class="line">00000000  00004000  00006000  00008000  00010000  </span><br><span class="line">00020000  00030000  00040000  00050000  00060000  </span><br><span class="line">00070000  00080000  00090000  000A0000  000B0000  </span><br><span class="line">000C0000  000D0000  000E0000  000F0000  00100000  </span><br><span class="line">00110000  00120000  00130000  00140000  00150000  </span><br><span class="line">00160000  00170000  00180000  00190000  001A0000  </span><br><span class="line">001B0000  001C0000  001D0000  001E0000  001F0000  </span><br><span class="line">Input target offset:0</span><br><span class="line">Erasing ....... <span class="keyword">done</span></span><br><span class="line">write ...</span><br><span class="line">100%<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<h4 id="法3，使用uboot-dnw烧录程序"><a href="#法3，使用uboot-dnw烧录程序" class="headerlink" title="法3，使用uboot+dnw烧录程序"></a>法3，使用uboot+dnw烧录程序</h4><p>​    dnw实现USB传输文件的功能，可以结合dnw和u-boot的USB功能，快速的将文件下载，烧录到开发板中。</p>
+<h4><span id="法3使用ubootdnw烧录程序">法3，使用uboot+dnw烧录程序</span></h4><p>​    dnw实现USB传输文件的功能，可以结合dnw和u-boot的USB功能，快速的将文件下载，烧录到开发板中。</p>
 <p><strong>直接使用现成dnw</strong></p>
 <p><strong>（1）下载安装</strong></p>
 <p>下载地址：<a href="https://pan.baidu.com/s/1KnIZF27eiKmYUXNknvJZSw" target="_blank" rel="noopener">百度网盘</a></p>
@@ -1952,14 +1965,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-13 21:46:41" itemprop="dateCreated datePublished" datetime="2018-06-13T21:46:41+08:00">2018-06-13</time>
+              <time title="创建时间：2018-06-13 21:46:41" itemprop="dateCreated datePublished" datetime="2018-06-13T21:46:41+08:00">2018-06-13</time>
             
 
             
@@ -1974,9 +1987,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-22 18:45:43" itemprop="dateModified" datetime="2018-06-22T18:45:43+08:00">2018-06-22</time>
+                <time title="修改时间：2018-06-22 18:45:43" itemprop="dateModified" datetime="2018-06-22T18:45:43+08:00">2018-06-22</time>
               
             
           </span>
@@ -2024,12 +2037,12 @@
         
           
             <p>使用next主题</p>
-<h3 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/Documents/Hexo</span><br><span class="line">$ mkdir themes/next</span><br><span class="line">$ curl -s https://api.github.com/repos/iissnan/hexo-theme-next/releases/latest | grep tarball_url | cut -d <span class="string">'"'</span> -f 4 | wget -i - -O- | tar -zx -C themes/next --strip-components=1</span><br></pre></td></tr></table></figure>
-<h3 id="开启next主题"><a href="#开启next主题" class="headerlink" title="开启next主题"></a>开启next主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vim _config.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件中theme字段，主题改为next</span></span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<h3><span id="下载主题">下载主题</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/Documents/Hexo</span><br><span class="line">$ mkdir themes/next</span><br><span class="line">$ curl -s https://api.github.com/repos/iissnan/hexo-theme-next/releases/latest | grep tarball_url | cut -d <span class="string">'"'</span> -f 4 | wget -i - -O- | tar -zx -C themes/next --strip-components=1</span><br></pre></td></tr></table></figure>
+<h3><span id="开启next主题">开启next主题</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vim _config.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件中theme字段，主题改为next</span></span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
 <p>清除一下，然后重新启动hexo本地站点，并开启调试</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean | hexo s --debug</span><br></pre></td></tr></table></figure>
 <p>浏览器登陆 <a href="https://localhost:4000" target="_blank" rel="noopener">https://localhost:4000</a></p>
-<h3 id="添加第三方插件"><a href="#添加第三方插件" class="headerlink" title="添加第三方插件"></a>添加第三方插件</h3><h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><p>(1) 安装hexo-generator-searchdb插件</p>
+<h3><span id="添加第三方插件">添加第三方插件</span></h3><h4><span id="搜索">搜索</span></h4><p>(1) 安装hexo-generator-searchdb插件</p>
 <p>进入站点的根目录，执行命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
 <p>(2) 编辑站点配置文件</p>
@@ -2038,10 +2051,10 @@
 <p>(3) 编辑主题配置文件</p>
 <p>NexT主题目录下的_config.yml，找到以下内容，设置enable: true</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line">local_search:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<h4 id="阅读统计"><a href="#阅读统计" class="headerlink" title="阅读统计"></a>阅读统计</h4><p>使用不蒜子统计</p>
+<h4><span id="阅读统计">阅读统计</span></h4><p>使用不蒜子统计</p>
 <p>编辑主题配置文件的<code>busuanzi_count</code>的配置项</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span>	<span class="comment"># 全局总开关</span></span><br><span class="line"></span><br><span class="line">  site_uv: <span class="literal">true</span>	<span class="comment"># 用户访问量开关</span></span><br><span class="line">  site_pv: <span class="literal">true</span>	<span class="comment"># 站点访问量开关</span></span><br><span class="line">  page_pv: <span class="literal">true</span>	<span class="comment"># 页访问量开关</span></span><br></pre></td></tr></table></figure>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] <a href="https://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT开始使用</a></p>
+<h3><span id="参考文献">参考文献</span></h3><p>[1] <a href="https://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT开始使用</a></p>
 <p>[2] <a href="http://theme-next.iissnan.com/third-party-services.html#comment-system" target="_blank" rel="noopener">第三方服务集成</a></p>
 <p>[3] <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">Next github详细介绍</a></p>
 
@@ -2136,14 +2149,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-06-11 14:23:38" itemprop="dateCreated datePublished" datetime="2018-06-11T14:23:38+08:00">2018-06-11</time>
+              <time title="创建时间：2018-06-11 14:23:38" itemprop="dateCreated datePublished" datetime="2018-06-11T14:23:38+08:00">2018-06-11</time>
             
 
             
@@ -2158,9 +2171,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">更新于</span>
                 
-                <time title="Updated at: 2018-06-13 21:31:38" itemprop="dateModified" datetime="2018-06-13T21:31:38+08:00">2018-06-13</time>
+                <time title="修改时间：2018-06-13 21:31:38" itemprop="dateModified" datetime="2018-06-13T21:31:38+08:00">2018-06-13</time>
               
             
           </span>
@@ -2243,7 +2256,7 @@
 <p><strong>内核线程如何访问页表</strong></p>
 <p>尽管内核中存在内核页表，但是不管是普通进程还是内核线程都不能访问它。普通进程有自己的页表，要访问页表自然是轻而易举。但是内核线程没有自己的页表，它该如何是好？</p>
 <p>既然普通进程有页表，内核页表却不能访问，那内核线程访问普通进程的页表不就可以了吗？普通进程对应于内核空间的页表内容是从内核页表中复制过来的，因此内核线程可以找到内核空间。</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] <a href="http://abcdxyzk.github.io/blog/2018/01/10/kernel-task-thread/" target="_blank" rel="noopener">Linux 内核线程及普通进程总结</a></p>
+<h3><span id="参考文献">参考文献</span></h3><p>[1] <a href="http://abcdxyzk.github.io/blog/2018/01/10/kernel-task-thread/" target="_blank" rel="noopener">Linux 内核线程及普通进程总结</a></p>
 <p>[2] <a href="https://blog.csdn.net/yangkuanqaz85988/article/details/52403726" target="_blank" rel="noopener">Linux 中的各种栈：进程栈 线程栈 内核栈 中断栈</a></p>
 <p>这两篇博客都写得非常好！</p>
 
@@ -2288,7 +2301,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2332,7 +2345,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">79</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
@@ -2349,7 +2362,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
               
@@ -2402,7 +2415,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
               
@@ -2455,7 +2468,7 @@
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -2463,7 +2476,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
 
 
 
@@ -2473,14 +2486,14 @@
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="Total Visitors">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="Total Views">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
