@@ -29,10 +29,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
-
 
 
 
@@ -222,7 +218,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -238,7 +234,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -246,7 +242,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -256,7 +252,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
         </li>
       
     </ul>
@@ -328,208 +324,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/操作系统/linux-task-thread/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/11/操作系统/linux-task-thread/" itemprop="url">
-                  linux的内核线程，普通进程和普通线程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-06-11 14:23:38" itemprop="dateCreated datePublished" datetime="2018-06-11T14:23:38+08:00">2018-06-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-06-13 21:31:38" itemprop="dateModified" datetime="2018-06-13T21:31:38+08:00">2018-06-13</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/11/操作系统/linux-task-thread/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/11/操作系统/linux-task-thread/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>进程/线程的描述</strong></p>
-<p>​    严格来说，Linux中并没有真正的线程，而是共享地址空间的一组进程来实现线程的功能，不过我们还是使用线程这个术语。在操作系统原理中我们知道，操作系统既有进程控制块PCB又有线程控制块TCB。然而在Linux中，进程和线程的控制块都用数据结构task_struct来表示，线程并没有自己独立的线程控制块。</p>
-<p>​    同一个进程中的线程共享地址空间，共享堆，但是并不共享栈。由于地址空间是由mm_struct和页表描述的，也就是说线程间也共享页表。</p>
-<blockquote>
-<p>mm_struct负责描述进程/线程的虚拟地址空间，页表则负责将虚拟地址空间描述成物理地址空间。</p>
-</blockquote>
-<p>每个进程/线程在内核中都有一个与之相对应的内核栈。当创建一个新的进程/线程时，内核为进程/线程创建了</p>
-<ul>
-<li>进程/线程描述符(task_struct)</li>
-<li>在内核地址空间中申请了两页的空间作为该进程/线程的内核栈。</li>
-</ul>
-<p>准确的说，这两页的空间低地址处放了一个thread_info数据结构，指向进程描述符，剩下的空间才是真的拿来做内核栈的。</p>
-<p>进程描述符其实也有一个指针指向thread_info数据结构</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-11/3152712.jpg" alt=""></p>
-<p><strong>内核栈，进程栈，线程栈和中断栈</strong></p>
-<p>（1）操作系统创建进程时，会在用户地址空间创建进程栈，同时在内核空间为该进程也创建一个内核栈。</p>
-<ul>
-<li>用户进程在用户态下运行，使用进程栈。</li>
-<li>当其陷入内核态时，使用内核栈。</li>
-</ul>
-<p>（2）操作系统创建线程时，除了复制主进程的地址空间外，还会为每个线程创建一个独立的线程栈，当然在内核空间也创建了一个内核栈。</p>
-<p>（3）操作系统初始化时，就已经在内核空间中创建了一个中断栈，中断服务例程调用函数时就会用到该中断栈。</p>
-<p><strong>系统启动时的内核线程</strong></p>
-<p>系统正式启动时，会执行 start_kernel 函数，其中创建了第一个进程，名为init_task，其PID=0，运行于内核态。</p>
-<p>然后init_task会创建内核线程init，其PID=1，运行于内核态，完成内核空间的初始化。完成内核空间初始化后，载入/sbin/init可执行程序，变成普通进程，仍有PID=1，运行于用户态。</p>
-<p>接着init_task进程演变成idle进程，仍有PID=0。</p>
-<p>idle进程又会创建kthreadd内核线程，其PID=2，用来创建并管理其他内核线程。</p>
-<p><strong>虚拟内存地址空间</strong></p>
-<p>系统内核常驻于物理内存中，并不会被换出。</p>
-<p><strong>页表</strong></p>
-<p>有两种页表，一种是内核页表，一种是进程页表</p>
-<p>内核页表，称为主内核页全局目录，它的作用应该是作为一个模板，不管是普通进程还是内核线程都不能访问。</p>
-<p>进程页表，最开始的部分映射0~3G的地址空间，后面部分映射内核地址空间3~4G，其内容就是从内核页表中复制过来的，完全一样。所以普通进程只要陷入内核态，就可以处理系统调用和中断/异常。即当系统调用，中断或异常发生时，只需要切换CPU上下文，而不需要切换进程上下文。</p>
-<p><strong>内核线程如何访问页表</strong></p>
-<p>尽管内核中存在内核页表，但是不管是普通进程还是内核线程都不能访问它。普通进程有自己的页表，要访问页表自然是轻而易举。但是内核线程没有自己的页表，它该如何是好？</p>
-<p>既然普通进程有页表，内核页表却不能访问，那内核线程访问普通进程的页表不就可以了吗？普通进程对应于内核空间的页表内容是从内核页表中复制过来的，因此内核线程可以找到内核空间。</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] <a href="http://abcdxyzk.github.io/blog/2018/01/10/kernel-task-thread/" target="_blank" rel="noopener">Linux 内核线程及普通进程总结</a></p>
-<p>[2] <a href="https://blog.csdn.net/yangkuanqaz85988/article/details/52403726" target="_blank" rel="noopener">Linux 中的各种栈：进程栈 线程栈 内核栈 中断栈</a></p>
-<p>这两篇博客都写得非常好！</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/操作系统/os-keywords/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -569,14 +363,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-06-09 17:59:12 / Modified: 18:01:44" itemprop="dateCreated datePublished" datetime="2018-06-09T17:59:12+08:00">2018-06-09</time>
+              <time title="Post created: 2018-06-09 17:59:12 / Updated at: 18:01:44" itemprop="dateCreated datePublished" datetime="2018-06-09T17:59:12+08:00">2018-06-09</time>
             
 
             
@@ -620,7 +414,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -633,7 +427,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/09/操作系统/os-keywords/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -727,14 +521,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-06-09 17:55:46" itemprop="dateCreated datePublished" datetime="2018-06-09T17:55:46+08:00">2018-06-09</time>
+              <time title="Post created: 2018-06-09 17:55:46" itemprop="dateCreated datePublished" datetime="2018-06-09T17:55:46+08:00">2018-06-09</time>
             
 
             
@@ -751,7 +545,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-13 21:29:53" itemprop="dateModified" datetime="2018-06-13T21:29:53+08:00">2018-06-13</time>
+                <time title="Updated at: 2018-06-13 21:29:53" itemprop="dateModified" datetime="2018-06-13T21:29:53+08:00">2018-06-13</time>
               
             
           </span>
@@ -790,7 +584,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -811,7 +605,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/09/操作系统/ucore实验环境搭建/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -905,14 +699,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-06-09 14:52:44" itemprop="dateCreated datePublished" datetime="2018-06-09T14:52:44+08:00">2018-06-09</time>
+              <time title="Post created: 2018-06-09 14:52:44" itemprop="dateCreated datePublished" datetime="2018-06-09T14:52:44+08:00">2018-06-09</time>
             
 
             
@@ -929,7 +723,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-13 21:38:03" itemprop="dateModified" datetime="2018-06-13T21:38:03+08:00">2018-06-13</time>
+                <time title="Updated at: 2018-06-13 21:38:03" itemprop="dateModified" datetime="2018-06-13T21:38:03+08:00">2018-06-13</time>
               
             
           </span>
@@ -968,7 +762,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1119,14 +913,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-06-07 21:53:34" itemprop="dateCreated datePublished" datetime="2018-06-07T21:53:34+08:00">2018-06-07</time>
+              <time title="Post created: 2018-06-07 21:53:34" itemprop="dateCreated datePublished" datetime="2018-06-07T21:53:34+08:00">2018-06-07</time>
             
 
             
@@ -1143,7 +937,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-12 08:21:34" itemprop="dateModified" datetime="2018-06-12T08:21:34+08:00">2018-06-12</time>
+                <time title="Updated at: 2018-06-12 08:21:34" itemprop="dateModified" datetime="2018-06-12T08:21:34+08:00">2018-06-12</time>
               
             
           </span>
@@ -1182,7 +976,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1394,14 +1188,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-06-05 15:22:02" itemprop="dateCreated datePublished" datetime="2018-06-05T15:22:02+08:00">2018-06-05</time>
+              <time title="Post created: 2018-06-05 15:22:02" itemprop="dateCreated datePublished" datetime="2018-06-05T15:22:02+08:00">2018-06-05</time>
             
 
             
@@ -1418,7 +1212,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -1457,7 +1251,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1576,14 +1370,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-06-05 07:51:55" itemprop="dateCreated datePublished" datetime="2018-06-05T07:51:55+08:00">2018-06-05</time>
+              <time title="Post created: 2018-06-05 07:51:55" itemprop="dateCreated datePublished" datetime="2018-06-05T07:51:55+08:00">2018-06-05</time>
             
 
             
@@ -1600,7 +1394,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -1639,7 +1433,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1673,7 +1467,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/05/操作系统/io-manager/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1767,14 +1561,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-06-04 22:23:35" itemprop="dateCreated datePublished" datetime="2018-06-04T22:23:35+08:00">2018-06-04</time>
+              <time title="Post created: 2018-06-04 22:23:35" itemprop="dateCreated datePublished" datetime="2018-06-04T22:23:35+08:00">2018-06-04</time>
             
 
             
@@ -1791,7 +1585,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-13 21:36:52" itemprop="dateModified" datetime="2018-06-13T21:36:52+08:00">2018-06-13</time>
+                <time title="Updated at: 2018-06-13 21:36:52" itemprop="dateModified" datetime="2018-06-13T21:36:52+08:00">2018-06-13</time>
               
             
           </span>
@@ -1830,7 +1624,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1852,7 +1646,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/04/日常/deepin安装打印机驱动/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1946,14 +1740,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-06-04 20:59:43" itemprop="dateCreated datePublished" datetime="2018-06-04T20:59:43+08:00">2018-06-04</time>
+              <time title="Post created: 2018-06-04 20:59:43" itemprop="dateCreated datePublished" datetime="2018-06-04T20:59:43+08:00">2018-06-04</time>
             
 
             
@@ -1970,7 +1764,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -2009,7 +1803,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -2052,7 +1846,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/04/操作系统/real-time-scheduling/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -2146,14 +1940,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-06-04 16:38:44" itemprop="dateCreated datePublished" datetime="2018-06-04T16:38:44+08:00">2018-06-04</time>
+              <time title="Post created: 2018-06-04 16:38:44" itemprop="dateCreated datePublished" datetime="2018-06-04T16:38:44+08:00">2018-06-04</time>
             
 
             
@@ -2170,7 +1964,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
               
             
           </span>
@@ -2209,7 +2003,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -2250,7 +2044,183 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/04/操作系统/mul-processor-scheduling/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/操作系统/sing-processor-scheduling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/04/操作系统/sing-processor-scheduling/" itemprop="url">
+                  单处理器调度
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-04 09:03:25" itemprop="dateCreated datePublished" datetime="2018-06-04T09:03:25+08:00">2018-06-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/04/操作系统/sing-processor-scheduling/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/04/操作系统/sing-processor-scheduling/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <!-- toc -->
+<h2 id="单处理器调度"><a href="#单处理器调度" class="headerlink" title="单处理器调度"></a>单处理器调度</h2><h3 id="一、调度类型"><a href="#一、调度类型" class="headerlink" title="一、调度类型"></a>一、调度类型</h3><p>三种类型：</p>
+<ul>
+<li>长程调度——将新建的进程加入到就绪队列</li>
+<li>中程调度——将挂起的进程从交换空间换入到内存中，并加入到就绪队列</li>
+<li>短程调度——选择某个确切的就绪进程运行</li>
+</ul>
+<p>名字反映了执行相应功能的时间长短。主要关注短程调度</p>
+<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-4/62001330.jpg" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/04/操作系统/sing-processor-scheduling/#more" rel="contents">
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -2337,8 +2307,8 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">80</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">79</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -2355,7 +2325,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -2408,7 +2378,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -2461,7 +2431,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 

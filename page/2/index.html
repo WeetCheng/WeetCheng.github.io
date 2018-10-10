@@ -29,10 +29,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
-
 
 
 
@@ -222,7 +218,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -238,7 +234,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -246,7 +242,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -256,7 +252,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
         </li>
       
     </ul>
@@ -328,160 +324,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/17/日常/linux-蓝牙键盘/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/17/日常/linux-蓝牙键盘/" itemprop="url">
-                  linux-蓝牙键盘
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-17 13:20:47 / Modified: 13:27:49" itemprop="dateCreated datePublished" datetime="2018-09-17T13:20:47+08:00">2018-09-17</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/09/17/日常/linux-蓝牙键盘/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/17/日常/linux-蓝牙键盘/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Linux下蓝牙键盘的配对使用</p>
-<h4 id="查看本机是否有蓝牙适配器"><a href="#查看本机是否有蓝牙适配器" class="headerlink" title="查看本机是否有蓝牙适配器"></a>查看本机是否有蓝牙适配器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsusb</span><br></pre></td></tr></table></figure>
-<h4 id="设置蓝牙"><a href="#设置蓝牙" class="headerlink" title="设置蓝牙"></a>设置蓝牙</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入蓝牙控制器</span></span><br><span class="line">$ bluetoothctl</span><br><span class="line"><span class="comment"># 打开蓝牙</span></span><br><span class="line">[bluetooth]<span class="comment"># power on</span></span><br><span class="line">[bluetooth]<span class="comment"># default-agent</span></span><br><span class="line"><span class="comment"># 配对蓝牙键盘</span></span><br><span class="line">[bluetooth]<span class="comment"># pairable on</span></span><br><span class="line">[bluetooth]<span class="comment"># scan on</span></span><br><span class="line">[bluetooth]<span class="comment"># pair 34:88:5D:7E:42:04</span></span><br><span class="line">[bluetooth]<span class="comment"># trust 34:88:5D:7E:42:04</span></span><br><span class="line"><span class="comment"># 连接</span></span><br><span class="line">[bluetooth]<span class="comment"># connect 34:88:5D:7E:42:04</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/12/操作系统/unix环境高级编程-阅读/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -521,14 +363,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-09-12 12:37:27 / Modified: 12:42:50" itemprop="dateCreated datePublished" datetime="2018-09-12T12:37:27+08:00">2018-09-12</time>
+              <time title="Post created: 2018-09-12 12:37:27 / Updated at: 12:42:50" itemprop="dateCreated datePublished" datetime="2018-09-12T12:37:27+08:00">2018-09-12</time>
             
 
             
@@ -572,7 +414,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -673,14 +515,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-08-22 19:27:17" itemprop="dateCreated datePublished" datetime="2018-08-22T19:27:17+08:00">2018-08-22</time>
+              <time title="Post created: 2018-08-22 19:27:17" itemprop="dateCreated datePublished" datetime="2018-08-22T19:27:17+08:00">2018-08-22</time>
             
 
             
@@ -697,7 +539,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-12 08:03:02" itemprop="dateModified" datetime="2018-09-12T08:03:02+08:00">2018-09-12</time>
+                <time title="Updated at: 2018-09-12 08:03:02" itemprop="dateModified" datetime="2018-09-12T08:03:02+08:00">2018-09-12</time>
               
             
           </span>
@@ -711,7 +553,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络/" itemprop="url" rel="index"><span itemprop="name">网络</span></a></span>
@@ -754,7 +596,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -854,14 +696,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-07-28 09:17:17 / Modified: 09:49:33" itemprop="dateCreated datePublished" datetime="2018-07-28T09:17:17+08:00">2018-07-28</time>
+              <time title="Post created: 2018-07-28 09:17:17 / Updated at: 09:49:33" itemprop="dateCreated datePublished" datetime="2018-07-28T09:17:17+08:00">2018-07-28</time>
             
 
             
@@ -905,7 +747,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1216,14 +1058,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-07-27 15:01:53 / Modified: 15:20:58" itemprop="dateCreated datePublished" datetime="2018-07-27T15:01:53+08:00">2018-07-27</time>
+              <time title="Post created: 2018-07-27 15:01:53 / Updated at: 15:20:58" itemprop="dateCreated datePublished" datetime="2018-07-27T15:01:53+08:00">2018-07-27</time>
             
 
             
@@ -1267,7 +1109,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1409,14 +1251,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-07-24 16:15:11 / Modified: 21:52:11" itemprop="dateCreated datePublished" datetime="2018-07-24T16:15:11+08:00">2018-07-24</time>
+              <time title="Post created: 2018-07-24 16:15:11 / Updated at: 21:52:11" itemprop="dateCreated datePublished" datetime="2018-07-24T16:15:11+08:00">2018-07-24</time>
             
 
             
@@ -1460,7 +1302,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1586,14 +1428,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-07-24 15:09:40" itemprop="dateCreated datePublished" datetime="2018-07-24T15:09:40+08:00">2018-07-24</time>
+              <time title="Post created: 2018-07-24 15:09:40" itemprop="dateCreated datePublished" datetime="2018-07-24T15:09:40+08:00">2018-07-24</time>
             
 
             
@@ -1610,7 +1452,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-12 12:36:25" itemprop="dateModified" datetime="2018-09-12T12:36:25+08:00">2018-09-12</time>
+                <time title="Updated at: 2018-09-12 12:36:25" itemprop="dateModified" datetime="2018-09-12T12:36:25+08:00">2018-09-12</time>
               
             
           </span>
@@ -1649,7 +1491,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1763,14 +1605,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-07-23 22:14:07 / Modified: 22:23:37" itemprop="dateCreated datePublished" datetime="2018-07-23T22:14:07+08:00">2018-07-23</time>
+              <time title="Post created: 2018-07-23 22:14:07 / Updated at: 22:23:37" itemprop="dateCreated datePublished" datetime="2018-07-23T22:14:07+08:00">2018-07-23</time>
             
 
             
@@ -1814,7 +1656,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1983,14 +1825,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-07-20 15:39:13 / Modified: 18:40:02" itemprop="dateCreated datePublished" datetime="2018-07-20T15:39:13+08:00">2018-07-20</time>
+              <time title="Post created: 2018-07-20 15:39:13 / Updated at: 18:40:02" itemprop="dateCreated datePublished" datetime="2018-07-20T15:39:13+08:00">2018-07-20</time>
             
 
             
@@ -2034,7 +1876,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -2150,14 +1992,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-07-14 09:20:12 / Modified: 23:21:18" itemprop="dateCreated datePublished" datetime="2018-07-14T09:20:12+08:00">2018-07-14</time>
+              <time title="Post created: 2018-07-14 09:20:12 / Updated at: 23:21:18" itemprop="dateCreated datePublished" datetime="2018-07-14T09:20:12+08:00">2018-07-14</time>
             
 
             
@@ -2201,7 +2043,7 @@
     
     
     
-    <div class="post-body han-init-context" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -2229,6 +2071,167 @@
 <p>可以看到希尔排序与插入排序是非常相似的。</p>
 <p>当Increment=1时，执行的就是插入排序。</p>
 <p>这里需要理解的是i的取值，i从Increment取到Length-1。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/数据结构与算法/quick-sort-carton/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/12/数据结构与算法/quick-sort-carton/" itemprop="url">
+                  漫画：快速排序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-07-12 20:51:03 / Updated at: 21:48:02" itemprop="dateCreated datePublished" datetime="2018-07-12T20:51:03+08:00">2018-07-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/12/数据结构与算法/quick-sort-carton/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/12/数据结构与算法/quick-sort-carton/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>快速排序是一种“分而治之”的排序算法，通过随机选择“分区点”来避免出现最坏的情况。</p>
+<p><img src="https://idea-instructions.com/quick-sort.svg" alt="图0：用漫画描述各种排序算法，你看懂了吗？"></p>
+<ol>
+<li>随机选择“分区点”。</li>
+<li>按照“分区点”的高度划条线。</li>
+<li>高出“分区点”的元素需要向右移动。</li>
+<li>低于“分区点”的元素需要向左移动。</li>
+<li>移动元素。</li>
+<li>重复上述的步骤分别对位于“分区点”两边的元素进行排序。</li>
+</ol>
 
           
         
@@ -2314,8 +2317,8 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">80</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">79</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -2332,7 +2335,7 @@
                       
                     
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -2385,7 +2388,7 @@
                       
                     
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -2438,7 +2441,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
