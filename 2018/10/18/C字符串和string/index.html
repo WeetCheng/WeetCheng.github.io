@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="C风格字符串是指形如”hello world”这样的，以’\0’作为字符串结束符的传统的字符串。 string字符串则是指C++中的string类对象。string类对象本质上是对C风格字符串的封装，从而方便程序员使用。 常用C风格字符串函数使用C风格字符串函数，需要包含以下其中一个 12#include &amp;lt;string.h&amp;gt;	#include &amp;lt;cstring&amp;gt; 常用的C">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-18T09:09:05.976Z">
+<meta property="og:updated_time" content="2018-10-18T09:12:15.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C字符串和string类">
 <meta name="twitter:description" content="C风格字符串是指形如”hello world”这样的，以’\0’作为字符串结束符的传统的字符串。 string字符串则是指C++中的string类对象。string类对象本质上是对C风格字符串的封装，从而方便程序员使用。 常用C风格字符串函数使用C风格字符串函数，需要包含以下其中一个 12#include &amp;lt;string.h&amp;gt;	#include &amp;lt;cstring&amp;gt; 常用的C">
@@ -370,7 +370,7 @@
                 
               
 
-              <time title="创建时间：2018-10-18 15:18:09 / 修改时间：17:09:05" itemprop="dateCreated datePublished" datetime="2018-10-18T15:18:09+08:00">2018-10-18</time>
+              <time title="创建时间：2018-10-18 15:18:09 / 修改时间：17:12:15" itemprop="dateCreated datePublished" datetime="2018-10-18T15:18:09+08:00">2018-10-18</time>
             
 
             
@@ -460,47 +460,47 @@
 </thead>
 <tbody>
 <tr>
-<td>char <em>strcpy(char </em>dest, const char *src);</td>
+<td>char  *strcpy(char  *dest, const char  *src);</td>
 <td>将字符串从src处复制到dest处</td>
 </tr>
 <tr>
-<td>char <em>strncpy(char </em>dest, const char *src, size_t n);</td>
+<td>char  *strncpy(char  *dest, const char  *src, size_t n);</td>
 <td>同上，不过最多复制n个字节</td>
 </tr>
 <tr>
-<td>void <em>memset(void </em>s, int c, size_t n);</td>
+<td>void  *memset(void  *s, int c, size_t n);</td>
 <td>将s处开始的n个字节设为c</td>
 </tr>
 <tr>
-<td>void <em>memcpy(void </em>dest, const void *src, size_t n);</td>
+<td>void  *memcpy(void  *dest, const void  *src, size_t n);</td>
 <td>从src处复制n个字节到dest处</td>
 </tr>
 <tr>
-<td>void <em>memmove(void </em>dest, const void *src, size_t n);</td>
+<td>void  *memmove(void  *dest, const void  *src, size_t n);</td>
 <td>从src处复制n个字节到dest处</td>
 </tr>
 <tr>
-<td>char <em>strcat(char </em>dest, const char *src);</td>
+<td>char  *strcat(char  *dest, const char  *src);</td>
 <td>将src的字符串接到dest后面</td>
 </tr>
 <tr>
-<td>char <em>strncat(char </em>dest, const char *src, size_t n);</td>
+<td>char  *strncat(char  *dest, const char  *src, size_t n);</td>
 <td>同上，不过最多接n个字节</td>
 </tr>
 <tr>
-<td>int strcmp(const char <em>s1, const char </em>s2);</td>
+<td>int strcmp(const char  *s1, const char  *s2);</td>
 <td>比较两个字符串，按ASCII比较</td>
 </tr>
 <tr>
-<td>int strncmp(const char <em>s1, const char </em>s2, size_t n);</td>
+<td>int strncmp(const char  *s1, const char  *s2, size_t n);</td>
 <td>同上，不过最多比较n个字符</td>
 </tr>
 <tr>
-<td>char <em>strstr(const char </em>haystack, const char *needle);</td>
+<td>char  *strstr(const char  *haystack, const char  *needle);</td>
 <td>找出子串needle在主串haystack的位置</td>
 </tr>
 <tr>
-<td>char <em>strcasestr(const char </em>haystack, const char *needle);</td>
+<td>char  *strcasestr(const char  *haystack, const char  *needle);</td>
 <td>同上，不过忽略子串和主串大小写的不同</td>
 </tr>
 </tbody>
