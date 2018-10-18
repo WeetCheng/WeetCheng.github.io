@@ -324,6 +324,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/操作系统/sing-processor-scheduling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/04/操作系统/sing-processor-scheduling/" itemprop="url">
+                  单处理器调度
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-04 09:03:25" itemprop="dateCreated datePublished" datetime="2018-06-04T09:03:25+08:00">2018-06-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/04/操作系统/sing-processor-scheduling/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/04/操作系统/sing-processor-scheduling/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <!-- toc -->
+<ul>
+<li><a href="#单处理器调度">单处理器调度</a><ul>
+<li><a href="#一-调度类型">一、调度类型</a></li>
+<li><a href="#二-调度准则">二、调度准则</a></li>
+<li><a href="#三-调度策略">三、调度策略</a><ul>
+<li><a href="#1-先来先服务">1. 先来先服务</a></li>
+<li><a href="#2-时间片轮转">2. 时间片轮转</a></li>
+<li><a href="#3-最短进程优先">3. 最短进程优先</a></li>
+<li><a href="#4最短剩余时间优先">4.最短剩余时间优先</a></li>
+<li><a href="#5-最高响应比优先">5. 最高响应比优先</a></li>
+<li><a href="#6-优先级调度">6. 优先级调度</a></li>
+<li><a href="#7-多级反馈队列">7. 多级反馈队列</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2 id="单处理器调度"><a href="#单处理器调度" class="headerlink" title="单处理器调度"></a>单处理器调度</h2><h3 id="一、调度类型"><a href="#一、调度类型" class="headerlink" title="一、调度类型"></a>一、调度类型</h3><p>三种类型：</p>
+<ul>
+<li>长程调度——将新建的进程加入到就绪队列</li>
+<li>中程调度——将挂起的进程从交换空间换入到内存中，并加入到就绪队列</li>
+<li>短程调度——选择某个确切的就绪进程运行</li>
+</ul>
+<p>名字反映了执行相应功能的时间长短。主要关注短程调度</p>
+<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-4/62001330.jpg" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/04/操作系统/sing-processor-scheduling/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/操作系统/process-thread/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2032,197 +2226,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/计算机基础/struct-usage/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/28/计算机基础/struct-usage/" itemprop="url">
-                  结构体使用方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-28 09:49:30" itemprop="dateCreated datePublished" datetime="2018-05-28T09:49:30+08:00">2018-05-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-13 21:38:27" itemprop="dateModified" datetime="2018-06-13T21:38:27+08:00">2018-06-13</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/28/计算机基础/struct-usage/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/28/计算机基础/struct-usage/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2><span id="结构体的声明及定义">结构体的声明及定义</span></h2><p><strong>方法一：直接声明结构体类型</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>这种方法下，定义结构体变量,需要使用struct book</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br></pre></td></tr></table></figure>
-<p><strong>方法二：声明结构体类型同时定义结构体变量</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125; Operating_System;</span><br></pre></td></tr></table></figure>
-<p>这里定义了一个结构体变量Operating_System，后续如果需要定义其他结构体变量，同方法一，仍然需要用struct book</p>
-<p><strong>方法三：通过匿名结构体定义结构体变量</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125; Operating_System;</span><br></pre></td></tr></table></figure>
-<p>直接定义了结构体变量Operating_System，而不定义结构体类型，因此无法再定义其他这种类型的结构体变量。</p>
-<p><strong>方法四：typedef声明结构体类型</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">book</span>&#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125; sci_book;</span><br></pre></td></tr></table></figure>
-<p>相当于给struct book 起了别名为：sci_book，从此可以用sci_book代替struct book</p>
-<p>因此，下面两种定义结构体变量的方法意思一样</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line">sci_book Operating_System;</span><br></pre></td></tr></table></figure>
-<p><strong>方法五：typedef声明匿名结构体类型</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125; sci_book;</span><br></pre></td></tr></table></figure>
-<p>相当于给匿名结构体起了别名为：sci_book，定义结构体变量的方法同方法四。</p>
-<h2><span id="初始化结构体">初始化结构体</span></h2><p><strong>方法一：按顺序初始化</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span> = &#123;</span></span><br><span class="line">  <span class="string">"Operating Systems"</span>;</span><br><span class="line">  <span class="string">"William"</span>;</span><br><span class="line">  <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>方法二：使用初始化器</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span> = &#123;</span></span><br><span class="line">  .title  = <span class="string">"Operating Systems"</span>;</span><br><span class="line">  .author = <span class="string">"William"</span>;</span><br><span class="line">  .value  = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="访问结构体成员">访问结构体成员</span></h2><p>通过”.”访问和”-&gt;”访问的区别</p>
-<p>结构体变量使用”.”访问成员；</p>
-<p>结构体指针通过“-&gt;”访问成员</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> *<span class="title">pbook</span> = &amp;<span class="title">Operating_System</span>;</span> </span><br><span class="line"><span class="comment">// 使用.访问结构体变量的成员</span></span><br><span class="line">Operating_System.author = <span class="string">"William"</span>;</span><br><span class="line"><span class="comment">// 使用-&gt;访问结构体指针所指的成员</span></span><br><span class="line">pbook-&gt;value = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-<h2><span id="c和c结构体的细微差异">C和C++结构体的细微差异</span></h2><p>C中定义结构体变量，必须使用struct book，C++则不需要加struct</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// C中定义结构体变量</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line"><span class="comment">// C++中定义结构体变量,加不加struct都可以</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line">book Operating_System;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2270,7 +2273,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">79</span>
+                    <span class="site-state-item-count">80</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2287,7 +2290,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>

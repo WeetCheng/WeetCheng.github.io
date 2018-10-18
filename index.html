@@ -324,6 +324,285 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/C字符串和string/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/18/C字符串和string/" itemprop="url">
+                  C字符串和string类
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-18 15:18:09 / 修改时间：16:42:26" itemprop="dateCreated datePublished" datetime="2018-10-18T15:18:09+08:00">2018-10-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/18/C字符串和string/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/18/C字符串和string/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>C风格字符串是指形如”hello world”这样的，以’\0’作为字符串结束符的传统的字符串。</p>
+<p>string字符串则是指C++中的string类对象。string类对象本质上是对C风格字符串的封装，从而方便程序员使用。</p>
+<h3><span id="常用c风格字符串函数">常用C风格字符串函数</span></h3><p>使用C风格字符串函数，需要包含以下其中一个</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;	</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>常用的C风格字符串处理函数有</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char <em>strcpy(char </em>dest, const char *src);</td>
+<td>将字符串从src处复制到dest处</td>
+</tr>
+<tr>
+<td>char <em>strncpy(char </em>dest, const char *src, size_t n);</td>
+<td>同上，不过最多复制n个字节</td>
+</tr>
+<tr>
+<td>void <em>memset(void </em>s, int c, size_t n);</td>
+<td>将s处开始的n个字节设为c</td>
+</tr>
+<tr>
+<td>void <em>memcpy(void </em>dest, const void *src, size_t n);</td>
+<td>从src处复制n个字节到dest处</td>
+</tr>
+<tr>
+<td>void <em>memmove(void </em>dest, const void *src, size_t n);</td>
+<td>从src处复制n个字节到dest处</td>
+</tr>
+<tr>
+<td>char <em>strcat(char </em>dest, const char *src);</td>
+<td>将src的字符串接到dest后面</td>
+</tr>
+<tr>
+<td>char <em>strncat(char </em>dest, const char *src, size_t n);</td>
+<td>同上，不过最多接n个字节</td>
+</tr>
+<tr>
+<td>int strcmp(const char <em>s1, const char </em>s2);</td>
+<td>比较两个字符串，按ASCII比较</td>
+</tr>
+<tr>
+<td>int strncmp(const char <em>s1, const char </em>s2, size_t n);</td>
+<td>同上，不过最多比较n个字符</td>
+</tr>
+<tr>
+<td>char <em>strstr(const char </em>haystack, const char *needle);</td>
+<td>找出子串needle在主串haystack的位置</td>
+</tr>
+<tr>
+<td>char <em>strcasestr(const char </em>haystack, const char *needle);</td>
+<td>同上，不过忽略子串和主串大小写的不同</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>C风格字符串转换成数字</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>atoi</td>
+<td></td>
+</tr>
+<tr>
+<td>atol</td>
+<td></td>
+</tr>
+<tr>
+<td>atoll</td>
+<td></td>
+</tr>
+<tr>
+<td>atof</td>
+<td></td>
+</tr>
+<tr>
+<td>strtod</td>
+<td></td>
+</tr>
+<tr>
+<td>strtol</td>
+<td></td>
+</tr>
+<tr>
+<td>strtoul</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数字转换成C风格字符串</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sprintf</span> <span class="params">( <span class="keyword">char</span> * str, <span class="keyword">const</span> <span class="keyword">char</span> * format, ... )</span></span>;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/26/C和C++/C++输入输出/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1837,160 +2116,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/17/日常/linux-蓝牙键盘/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/17/日常/linux-蓝牙键盘/" itemprop="url">
-                  linux-蓝牙键盘
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-17 13:20:47 / 修改时间：13:27:49" itemprop="dateCreated datePublished" datetime="2018-09-17T13:20:47+08:00">2018-09-17</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/09/17/日常/linux-蓝牙键盘/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/17/日常/linux-蓝牙键盘/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Linux下蓝牙键盘的配对使用</p>
-<h4><span id="查看本机是否有蓝牙适配器">查看本机是否有蓝牙适配器</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsusb</span><br></pre></td></tr></table></figure>
-<h4><span id="设置蓝牙">设置蓝牙</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入蓝牙控制器</span></span><br><span class="line">$ bluetoothctl</span><br><span class="line"><span class="comment"># 打开蓝牙</span></span><br><span class="line">[bluetooth]<span class="comment"># power on</span></span><br><span class="line">[bluetooth]<span class="comment"># default-agent</span></span><br><span class="line"><span class="comment"># 配对蓝牙键盘</span></span><br><span class="line">[bluetooth]<span class="comment"># pairable on</span></span><br><span class="line">[bluetooth]<span class="comment"># scan on</span></span><br><span class="line">[bluetooth]<span class="comment"># pair 34:88:5D:7E:42:04</span></span><br><span class="line">[bluetooth]<span class="comment"># trust 34:88:5D:7E:42:04</span></span><br><span class="line"><span class="comment"># 连接</span></span><br><span class="line">[bluetooth]<span class="comment"># connect 34:88:5D:7E:42:04</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2038,7 +2163,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">79</span>
+                    <span class="site-state-item-count">80</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2055,7 +2180,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
