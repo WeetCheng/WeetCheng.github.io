@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="C风格字符串是指形如”hello world”这样的，以’\0’作为字符串结束符的传统的字符串。 string字符串则是指C++中的string类对象。string类对象本质上是对C风格字符串的封装，从而方便程序员使用。 常用C风格字符串函数使用C风格字符串函数，需要包含以下其中一个 12#include &amp;lt;string.h&amp;gt;	#include &amp;lt;cstring&amp;gt; 常用的C">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-18T08:48:25.365Z">
+<meta property="og:updated_time" content="2018-10-18T09:09:05.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C字符串和string类">
 <meta name="twitter:description" content="C风格字符串是指形如”hello world”这样的，以’\0’作为字符串结束符的传统的字符串。 string字符串则是指C++中的string类对象。string类对象本质上是对C风格字符串的封装，从而方便程序员使用。 常用C风格字符串函数使用C风格字符串函数，需要包含以下其中一个 12#include &amp;lt;string.h&amp;gt;	#include &amp;lt;cstring&amp;gt; 常用的C">
@@ -370,7 +370,7 @@
                 
               
 
-              <time title="创建时间：2018-10-18 15:18:09 / 修改时间：16:48:25" itemprop="dateCreated datePublished" datetime="2018-10-18T15:18:09+08:00">2018-10-18</time>
+              <time title="创建时间：2018-10-18 15:18:09 / 修改时间：17:09:05" itemprop="dateCreated datePublished" datetime="2018-10-18T15:18:09+08:00">2018-10-18</time>
             
 
             
@@ -451,8 +451,61 @@
 <h3><span id="常用c风格字符串函数">常用C风格字符串函数</span></h3><p>使用C风格字符串函数，需要包含以下其中一个</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;	</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>常用的C风格字符串处理函数有</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcpy</span><span class="params">(<span class="keyword">char</span> *dest, <span class="keyword">const</span> <span class="keyword">char</span> *src)</span></span>;				<span class="comment">//将字符串从src处复制到dest处</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strncpy</span><span class="params">(<span class="keyword">char</span> *dest, <span class="keyword">const</span> <span class="keyword">char</span> *src, <span class="keyword">size_t</span> n)</span></span>;	<span class="comment">//同上，不过最多复制n个字节</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">memset</span><span class="params">(<span class="keyword">void</span> *s, <span class="keyword">int</span> c, <span class="keyword">size_t</span> n)</span></span>;					<span class="comment">//将s处开始的n个字节设为c</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">memcpy</span><span class="params">(<span class="keyword">void</span> *dest, <span class="keyword">const</span> <span class="keyword">void</span> *src, <span class="keyword">size_t</span> n)</span></span>;	<span class="comment">//从src处复制n个字节到dest处</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">memmove</span><span class="params">(<span class="keyword">void</span> *dest, <span class="keyword">const</span> <span class="keyword">void</span> *src, <span class="keyword">size_t</span> n)</span></span>;	<span class="comment">//从src处复制n个字节到dest处</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcat</span><span class="params">(<span class="keyword">char</span> *dest, <span class="keyword">const</span> <span class="keyword">char</span> *src)</span></span>;				<span class="comment">//将src的字符串接到dest后面</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strncat</span><span class="params">(<span class="keyword">char</span> *dest, <span class="keyword">const</span> <span class="keyword">char</span> *src, <span class="keyword">size_t</span> n)</span></span>;	<span class="comment">//同上，不过最多接n个字节</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">strcmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s1, <span class="keyword">const</span> <span class="keyword">char</span> *s2)</span></span>;				<span class="comment">//比较两个字符串，按ASCII比较</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">strncmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s1, <span class="keyword">const</span> <span class="keyword">char</span> *s2, <span class="keyword">size_t</span> n)</span></span>;	<span class="comment">//同上，不过最多比较n个字符</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strstr</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *haystack, <span class="keyword">const</span> <span class="keyword">char</span> *needle)</span></span>;	<span class="comment">//找出子串needle在主串haystack的位置</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">strcasestr</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *haystack, <span class="keyword">const</span> <span class="keyword">char</span> *needle)</span></span>;	<span class="comment">//同上，不过忽略子串和主串大小写的不同</span></span><br></pre></td></tr></table></figure>
-<p><strong>C风格字符串转换成数字</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char <em>strcpy(char </em>dest, const char *src);</td>
+<td>将字符串从src处复制到dest处</td>
+</tr>
+<tr>
+<td>char <em>strncpy(char </em>dest, const char *src, size_t n);</td>
+<td>同上，不过最多复制n个字节</td>
+</tr>
+<tr>
+<td>void <em>memset(void </em>s, int c, size_t n);</td>
+<td>将s处开始的n个字节设为c</td>
+</tr>
+<tr>
+<td>void <em>memcpy(void </em>dest, const void *src, size_t n);</td>
+<td>从src处复制n个字节到dest处</td>
+</tr>
+<tr>
+<td>void <em>memmove(void </em>dest, const void *src, size_t n);</td>
+<td>从src处复制n个字节到dest处</td>
+</tr>
+<tr>
+<td>char <em>strcat(char </em>dest, const char *src);</td>
+<td>将src的字符串接到dest后面</td>
+</tr>
+<tr>
+<td>char <em>strncat(char </em>dest, const char *src, size_t n);</td>
+<td>同上，不过最多接n个字节</td>
+</tr>
+<tr>
+<td>int strcmp(const char <em>s1, const char </em>s2);</td>
+<td>比较两个字符串，按ASCII比较</td>
+</tr>
+<tr>
+<td>int strncmp(const char <em>s1, const char </em>s2, size_t n);</td>
+<td>同上，不过最多比较n个字符</td>
+</tr>
+<tr>
+<td>char <em>strstr(const char </em>haystack, const char *needle);</td>
+<td>找出子串needle在主串haystack的位置</td>
+</tr>
+<tr>
+<td>char <em>strcasestr(const char </em>haystack, const char *needle);</td>
+<td>同上，不过忽略子串和主串大小写的不同</td>
+</tr>
+</tbody>
+</table>
+<p>C风格字符串转换成数字</p>
 <table>
 <thead>
 <tr>
@@ -487,11 +540,13 @@
 </tr>
 <tr>
 <td>strtoul</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p><strong>数字转换成C风格字符串</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sprintf</span> <span class="params">( <span class="keyword">char</span> * str, <span class="keyword">const</span> <span class="keyword">char</span> * format, ... )</span></span>;</span><br></pre></td></tr></table></figure>
 
       
     </div>
