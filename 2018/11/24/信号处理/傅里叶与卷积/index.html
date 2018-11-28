@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="两大主题信号与系统的两大主题：    信号处理 系统分析    信号处理常用傅里叶分析，系统分析常用卷积。信号处理与系统分析看似不同领域，实际有很多共通之处，特别是通过卷积定理，可以将傅里叶分析与卷积联系起来，因此不管是分析信号还是系统都可以使用傅里叶分析与卷积;当然信号处理与系统分析还有其他很多方法，比如信号处理中还有自相关，系统分析中还有拉普拉斯变换和Z变换 ,这些暂且按下不表，下面先介绍傅里">
+<meta name="keywords" content="信号处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="傅里叶与卷积">
+<meta property="og:url" content="http://yoursite.com/2018/11/24/信号处理/傅里叶与卷积/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="两大主题信号与系统的两大主题：    信号处理 系统分析    信号处理常用傅里叶分析，系统分析常用卷积。信号处理与系统分析看似不同领域，实际有很多共通之处，特别是通过卷积定理，可以将傅里叶分析与卷积联系起来，因此不管是分析信号还是系统都可以使用傅里叶分析与卷积;当然信号处理与系统分析还有其他很多方法，比如信号处理中还有自相关，系统分析中还有拉普拉斯变换和Z变换 ,这些暂且按下不表，下面先介绍傅里">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-27T08:25:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="傅里叶与卷积">
+<meta name="twitter:description" content="两大主题信号与系统的两大主题：    信号处理 系统分析    信号处理常用傅里叶分析，系统分析常用卷积。信号处理与系统分析看似不同领域，实际有很多共通之处，特别是通过卷积定理，可以将傅里叶分析与卷积联系起来，因此不管是分析信号还是系统都可以使用傅里叶分析与卷积;当然信号处理与系统分析还有其他很多方法，比如信号处理中还有自相关，系统分析中还有拉普拉斯变换和Z变换 ,这些暂且按下不表，下面先介绍傅里">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/24/信号处理/傅里叶与卷积/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>傅里叶与卷积 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/24/信号处理/傅里叶与卷积/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">傅里叶与卷积
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-24 15:24:14" itemprop="dateCreated datePublished" datetime="2018-11-24T15:24:14+08:00">2018-11-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-27 16:25:31" itemprop="dateModified" datetime="2018-11-27T16:25:31+08:00">2018-11-27</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/信号处理/" itemprop="url" rel="index"><span itemprop="name">信号处理</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/24/信号处理/傅里叶与卷积/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/11/24/信号处理/傅里叶与卷积/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3><span id="两大主题">两大主题</span></h3><p>信号与系统的两大主题：  </p>
+<ul>
+<li>信号处理</li>
+<li>系统分析  </li>
+</ul>
+<p>信号处理常用<code>傅里叶分析</code>，系统分析常用<code>卷积</code>。信号处理与系统分析看似不同领域，实际有很多共通之处，特别是通过<code>卷积定理</code>，可以将<code>傅里叶分析</code>与<code>卷积</code>联系起来，因此不管是分析信号还是系统都可以使用<code>傅里叶分析</code>与<code>卷积</code>;<br>当然信号处理与系统分析还有其他很多方法，比如信号处理中还有<code>自相关</code>，系统分析中还有<code>拉普拉斯变换</code>和<code>Z变换</code> ,这些暂且按下不表，下面先介绍<code>傅里叶</code>与<code>卷积</code>。</p>
+<h3><span id="傅里叶分析理论">傅里叶分析理论</span></h3><p><code>傅里叶分析理论</code>认为信号可以分解成许多不同频率的复正弦信号按照不同的权值组合而成。根据信号的不同，可以包括以下内容：  </p>
+<ul>
+<li><code>FS</code>——连续时间周期信号的傅里叶</li>
+<li><code>FT</code>——连续时间非周期信号的傅里叶</li>
+<li><code>DFS</code>——离散时间周期信号的傅里叶</li>
+<li><code>DTFT</code>——离散时间非周期信号的傅里叶</li>
+<li><code>DFT</code>——离散信号的傅里叶</li>
+<li><code>FFT</code>——快速傅里叶  </li>
+</ul>
+<p>其中<code>DFT</code>是对<code>DTFT</code>的近似，<code>FFT</code>是计算<code>DFT</code>的快速算法。  </p>
+<p><code>傅里叶分析</code>的要诀：<br>离散对周期，周期对离散；连续对非周期，非周期对连续；<br>因此根据以下的步骤可以很轻松写出傅里叶分析的公式</p>
+<ul>
+<li>基底为一组复正弦，找出这组复正弦的表达式$e^{j2 \pi 频率*时间}$，根据信号类型的不同，判断频率和时间是连续的，还是离散的  </li>
+</ul>
+<ul>
+<li>如果是离散的，用$\sum$；如果是连续的，用$\int$  </li>
+<li>如果是周期的，需要乘一个系数（周期的倒数）；如果是非周期的，则不用乘系数。时域和频域最多只有一个需要乘以系数；  </li>
+</ul>
+<h4><span id="fs">FS</span></h4><p>连续时间周期信号，周期为T，<strong>连续周期信号的频谱非周期离散，</strong>  </p>
+<ol>
+<li>频率是离散的，时间是连续的，则基频为$1 \over T$，其谐波频率为$k \over T$，基底为$e^{j2\pi {k \over T}t}$;  </li>
+<li>频谱是离散的，所以合成时用$\sum$，时间是连续的，所以分析时用$\int$;  </li>
+<li>时域是周期的，所以分析时时域积分长度为一个时间周期T，要乘以系数，周期的倒数；频域是非周期的，所以长度是$\infty$,不用乘以系数；  </li>
+</ol>
+<p>$$x(t) = \sum\limits_{ k = - \infty }^{ + \infty } {X({k \over T}){e^{j2\pi {k \over T}t}}} $$  </p>
+<p>$$X({k \over T}) = {1 \over T}\int_{ - {T \over 2}}^{ {T \over 2}} {x(t){e^{ - j2\pi {k \over T}t}}dt} $$</p>
+<h4><span id="ft">FT</span></h4><p>连续时间非周期信号，<strong>连续非周期信号的频谱是非周期连续的</strong>  </p>
+<ol>
+<li>频率是连续的，时间是连续的，则基底为$e^{j2 \pi ft}$;  </li>
+<li>频谱是连续的，所以合成时用$\int$,时间是连续的，所以分析时用$\int$;  </li>
+<li>频谱和时间都是非周期的，所以积分长度都为$\infty$，都不用乘以系数。  </li>
+</ol>
+<p>$$x(t) = \int_{ - \infty }^\infty  {X(f){e^{j2\pi ft}}df} $$<br>$$X(f) = \int_{ - \infty }^\infty  {x(t){e^{ - j2\pi ft}}dt} $$</p>
+<h4><span id="dfs">DFS</span></h4><p>离散时间周期信号，采样间隔为Ts，一个周期有N个采样点，周期为T=NTs，<strong>离散时间周期信号的频谱是周期离散的</strong>  </p>
+<ol>
+<li>频率是离散的，时间是离散的，基频为周期的倒数$1 \over NT_s$，谐波频率为$k {1 \over NT_s}$,故基底为$e^{j2 \pi k {1 \over NT_s} nT_s}$;  </li>
+<li>频谱是离散的，所以合成时用$\sum$，时间是离散的，所以分析时用$\sum$;    </li>
+<li>频谱是周期的，所以合成时长度为一个频率周期，需要乘以系数；时域是周期的，所以分析时长度为一个时间周期，本来还需要乘以系数；不过因为<code>时域和频域最多只需要一个乘以系数</code>，前面合成已经乘了，所以分析就不用了  </li>
+</ol>
+<p>$$x(n{T_s}) = {1 \over N}\sum\limits_{k = 0}^{N - 1} {X(k){e^{j2\pi {k \over {N{T_s}}}n{T_s}}}} $$</p>
+<p>$$X(k) = \sum\limits_{n = 0}^{N - 1} {x(n{T_s}){e^{ - j2\pi {k \over {NTs}}nTs}}} $$</p>
+<h4><span id="dtft">DTFT</span></h4><p>离散时间非周期信号，  <strong>离散时间非周期信号的频谱时周期连续的</strong>  </p>
+<ol>
+<li>频率是连续的，时间是离散的，基底为$e^{j2 \pi fnT_s}$;  </li>
+<li>频域是连续的，合成时用$\int$；时间是离散的，分析时用$\sum$;  </li>
+<li>频域是周期的，合成时长度为一个频率周期，需要乘以系数，为频率周期的倒数； 时域是非周期的，分析时不用乘以系数；<br><code>频率周期是离散时域两个点的时间间隔的倒数。</code>  </li>
+</ol>
+<p>  $$x(n{T_s}) = {1 \over { {f_s}}}\int_{ - { { {f_s}} \over 2}}^{ { { {f_s}} \over 2}} {X(f){e^{j2\pi fn{T_s}}}df} $$    </p>
+<p>$$X(f) = \sum\limits_{n =  - \infty }^{ + \infty } {x(n{T_s}){e^{ - j2\pi fnTs}}} $$</p>
+<h4><span id="dft">DFT</span></h4><p>隐含假设离散时间周期信号，DFT实际上是对DFS时域和频域各取一个周期，用于近似DTFT，<strong>离散时间周期信号的频谱是周期离散的</strong>  </p>
+<p>$$x(n{T_s}) = {1 \over N}\sum\limits_{k =  0 }^{ N-1} {X(k){e^{j2\pi k{1 \over {NTs}}nTs}}} $$  </p>
+<p>$$X(k) = \sum\limits_{n =  0 }^{ N-1 } {x(n{T_s}){e^{ - j2\pi k{1 \over {NTs}}nTs}}} $$    </p>
+<blockquote>
+<p><strong>DFT的原理</strong><br><strong>目标</strong>：我们想通过傅里叶变换了解信号，并且想借用计算机来帮助人们计算。<br><strong>遇到的问题</strong>：计算机只能计算和存储有限长的序列。<br><strong>解决方法</strong>：所以需要将信号的时域和频域进行采样离散化。而根据采样理论，时域的离散化会引起频域进行周期延拓。频域的离散化会引起时域的周期延拓。DFT正好使信号的时域延拓的周期等于信号的长度，频域延拓的周期等于采样频率。这一目标通过频域的一个周期的点数与时域的一个周期的点数相同实现的。  </p>
+</blockquote>
+<h4><span id="小结">小结</span></h4><p>这里写的公式跟书上不一样，原因在于，我坚持使用频率，而非其他什么角频率，圆周频率等作为频谱横坐标的表示，因此上面所有情况的频谱横坐标都是$f$，而非什么$\Omega$或者$\omega$。<br>全部用$f$才能更好地统一各种情况的频谱表示，才能理解频谱的真正含义。如果需要使用$\Omega$或者$\omega$的形式，可以查书，或者用关联表达式替换上面的$f$。  </p>
+<p>$$\Omega = 2 \pi f$$  </p>
+<p>$$\omega = 2 \pi f/f_s = 2 \pi fT_s$$   </p>
+<blockquote>
+<p>由于最后基本上都是用DFT或者FFT来分析，所以这里我整理一下DFT的公式  </p>
+</blockquote>
+<p>$$X(k) = \sum\limits_{n =  0 }^{ N-1 } {x(n){e^{ - j{2\pi  \over N}kn}}} $$<br>$$x(n) = {1 \over N} \sum\limits_{n =  0 }^{ N-1 } {X(k){e^{ j{2\pi  \over N}kn}}}$$</p>
+<h3><span id="lti系统和lsi系统">LTI系统和LSI系统</span></h3><p><code>LTI系统</code>连续的线性时不变系统，<code>LSI系统</code>是离散的线性移不变系统，有四种方法可以用来表达LTI系统或者LSI系统的特征  </p>
+<ul>
+<li>脉冲响应</li>
+<li>频率响应</li>
+<li>传递函数(LTI系统)或者转移函数(LSI系统)</li>
+<li>状态空间表达式</li>
+</ul>
+<p>不过这里主要讨论<code>脉冲响应</code>，<code>频率响应</code>将在<code>卷积定理</code>之后再介绍。  </p>
+<h4><span id="脉冲响应">脉冲响应</span></h4><p>对于<code>LSI系统</code>，知道单个脉冲引起的响应之后，根据LSI系统的线性性质和移不变性质，可以将输入信号x(n)看成是由一串脉冲序列，那么信号x(n)引起的输出就是这串脉冲序列引起的响应经过<code>调幅</code>,<code>平移</code>,<code>叠加</code>的信号。  </p>
+<p>如以下公式显示：<br>输入信号x(n)可以拆成一系列的脉冲，脉冲的大小为x(k)。<br>这里h(n)就是系统的<code>脉冲响应</code>，</p>
+<p>$$\eqalign{<br>   \delta (n) &amp;\to h(n)  \cr<br>   \delta (n - k) &amp;\to h(n - k)  \cr<br>   x(k)\delta (n - k) &amp;\to x(k)h(n - k)  \cr<br>   \sum\limits_{k =  - \infty }^{ + \infty } {x(k)\delta (n - k)}  &amp;\to \sum\limits_{k =  - \infty }^{ + \infty } {x(k)h(n - k)}   \cr} $$<br>从上面的公式引出了<code>卷积</code>的定义：  </p>
+<p>$$<br>x(n)*y(n)=\sum\limits_{k =  - \infty }^{ + \infty } {x(k)y(n - k)}<br>$$  </p>
+<h4><span id="频率响应">频率响应</span></h4><p>$$H({e^{j\omega }}) = \sum\limits_{n =  - \infty }^{ + \infty } {h(n){e^{ - j\omega n}}} $$<br>实际上就是说，LSI系统的<code>频率响应</code>是其<code>脉冲响应</code>的<code>DTFT</code>，因为在计算机中无法真正计算DTFT，通常用<code>DFT</code>近似<code>DTFT</code>，因此在计算机中可以用<code>DFT</code>来表示LSI系统的频率响应<br>$H(k) = DFT(h) = \sum\limits_{n =  0 }^{ N-1 } {h(n){e^{ - j{2\pi  \over N}kn}}}$ </p>
+<h3><span id="卷积定理">卷积定理</span></h3><p><code>卷积定理</code>：  </p>
+<p>$$DFT\left( {f*g} \right){\rm{ }} = {\rm{ }}DFT\left( f \right) \cdot DFT(g)$$</p>
+<p>用文字表述就是<br>卷积的傅里叶变换等价于傅里叶变换相乘;<br>时域的卷积等价于频域相乘;<br>频域的卷积等价于时域相乘;<br><code>卷积定理</code>联系了卷积和傅里叶变换，极大地丰富了信号分析和系统分析的内容。</p>
+<h3><span id="卷积定理的应用">卷积定理的应用</span></h3><h4><span id="理解时域加窗">理解时域加窗</span></h4><p>给信号x(n)加窗w(n)，即y(n) = x(n)w(n);<br>根据<code>卷积定理</code>，时域相乘等价于频域卷积，因此Y(k) = X(k) * Wk);  </p>
+<h4><span id="理解频域加窗">理解频域加窗</span></h4><p>给信号x(n)的频谱加方窗，频域相乘等价于时域卷积</p>
+<h4><span id="理解lsi系统的频率响应">理解LSI系统的频率响应</span></h4><p>LSI系统的输入是x(n)，系统的脉冲响应是h(n)，则输出信号y(n)=x(n)*h(n)<br>可以将系统的脉冲响应h(n)看成是一个窗函数，其频谱为DFT(h)，根据<code>卷积定理</code>，时域卷积等价于频域相乘</p>
+<p>$$DFT\left( {y} \right){\rm{ }} = {\rm{ }}DFT\left( x \right) \cdot DFT(h)$$<br>即$Y(k) = X(k)H(k)$  </p>
+<p>因此系统的频率响应就是  </p>
+<p>$$H(k) = DFT(h)$$</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/信号处理/" rel="tag"># 信号处理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/22/信号处理/dsp大纲/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/24/信号处理/频谱混叠与频谱泄露/" rel="prev" title="频谱混叠">
+                频谱混叠 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">WeetCheng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">107</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">两大主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">傅里叶分析理论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">FS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">FT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">DFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">DTFT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.5.</span> <span class="nav-text">DFT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.6.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">LTI系统和LSI系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">脉冲响应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">频率响应</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">卷积定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">卷积定理的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.1.</span> <span class="nav-text">理解时域加窗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.2.</span> <span class="nav-text">理解频域加窗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.3.</span> <span class="nav-text">理解LSI系统的频率响应</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WeetCheng</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.4.2</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/11/24/信号处理/傅里叶与卷积/';
+        this.page.identifier = '2018/11/24/信号处理/傅里叶与卷积/';
+        this.page.title = '傅里叶与卷积';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

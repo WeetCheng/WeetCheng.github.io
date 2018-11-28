@@ -116,20 +116,20 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="逻辑地址的生成 地址检查 连续存储分配方式 非连续存储分配方式   段式存储 页式存储 页式存储的两个问题 解决方法1：快表 解决方法2：多级页表   段页式存储 虚拟存储技术     逻辑地址的生成 编译 汇编 链接 加载(重定位)  一步一步生成程序的逻辑地址，但还没到物理地址。经过硬件MMU的转换之后才能得到真正的物理地址。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-21/65238552.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-21/75085524.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-21/13286019.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-21/64869696.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-21/95279826.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-21/84631603.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-21/74916927.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-21/63603056.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-22/61785034.jpg">
-<meta property="og:updated_time" content="2018-06-09T06:24:10.000Z">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/65238552.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/75085524.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/13286019.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/64869696.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/95279826.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/84631603.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/74916927.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/63603056.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/61785034.jpg">
+<meta property="og:updated_time" content="2018-10-19T14:53:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="存储管理">
 <meta name="twitter:description" content="逻辑地址的生成 地址检查 连续存储分配方式 非连续存储分配方式   段式存储 页式存储 页式存储的两个问题 解决方法1：快表 解决方法2：多级页表   段页式存储 虚拟存储技术     逻辑地址的生成 编译 汇编 链接 加载(重定位)  一步一步生成程序的逻辑地址，但还没到物理地址。经过硬件MMU的转换之后才能得到真正的物理地址。">
-<meta name="twitter:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-21/65238552.jpg">
+<meta name="twitter:image" content="https://github.com/WeetCheng/image/raw/master/blogs/65238552.jpg">
 
 
 
@@ -397,7 +397,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-10-19 22:53:35" itemprop="dateModified" datetime="2018-10-19T22:53:35+08:00">2018-10-19</time>
               
             
           </span>
@@ -478,9 +478,9 @@
 <li>加载(重定位)</li>
 </ol>
 <p>一步一步生成程序的逻辑地址，但还没到物理地址。经过硬件MMU的转换之后才能得到真正的物理地址。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-21/65238552.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/65238552.jpg" alt=""></p>
 <a id="more"></a>
-<h3><span id="地址检查">地址检查</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-21/75085524.jpg" alt=""></p>
+<h3><span id="地址检查">地址检查</span></h3><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/75085524.jpg" alt=""></p>
 <p>得到逻辑地址之后硬件会先检查逻辑地址的偏移量是否超过了对应段的长度，如果超过，访问异常。如果没有超过，则由MMU生成物理地址，访问内存。</p>
 <h2><span id="连续存储分配方式">连续存储分配方式</span></h2><ul>
 <li>固定分区</li>
@@ -510,11 +510,11 @@
 <p>检索段表，获得段号对应的段描述符，其中包含了段基址和段长度。</p>
 <p>比较段长度和偏移量，确定是否越界访问。</p>
 <p>如果没有，根据段基址和段偏移量可以得到实际的物理地址。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-21/13286019.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/13286019.jpg" alt=""></p>
 <h3><span id="页式存储">页式存储</span></h3><p>逻辑地址 = 页号 | 偏移量</p>
 <p>检索页表，获得页号所对应的页描述符，其中包含页标志位和页对应的帧号。</p>
 <p>根据帧号和偏移量，可以得到物理地址。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-21/64869696.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/64869696.jpg" alt=""></p>
 <h3><span id="页式存储的两个问题">页式存储的两个问题</span></h3><ul>
 <li>访问性能问题：需要访问两次内存，第一次，获取页表项，第二次，访问数据</li>
 <li>页表大小问题：大内存，需要很多页表项，导致页表很大。</li>
@@ -529,12 +529,12 @@
 <p>如果快表命中，则从快表中获得页号</p>
 <p>如果没有命中，则查内存中的页表，获得页号，同时更新快表，记录对应的页表项。</p>
 <p>根据获得的页号，访问物理内存。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-21/95279826.jpg" alt=""></p>
-<h4><span id="解决方法2多级页表">解决方法2：多级页表</span></h4><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-21/84631603.jpg" alt=""></p>
-<h3><span id="段页式存储">段页式存储</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-21/74916927.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/95279826.jpg" alt=""></p>
+<h4><span id="解决方法2多级页表">解决方法2：多级页表</span></h4><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/84631603.jpg" alt=""></p>
+<h3><span id="段页式存储">段页式存储</span></h3><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/74916927.jpg" alt=""></p>
 <p><strong>段页式存储的内存共享</strong></p>
 <p>两个进程的段表中有一个段描述符指向同一个页表，就能实现段共享。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-21/63603056.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/63603056.jpg" alt=""></p>
 <h2><span id="虚拟存储技术">虚拟存储技术</span></h2><p>​    虚拟存储技术是在非连续内存分配的基础上，可以把进程的一部分放到外存的做法。可以让用户程序感觉自己的内存空间很大。</p>
 <p>（1）虚拟存储技术的目标：</p>
 <ul>
@@ -561,7 +561,7 @@
 <li>进程可以继续运行</li>
 </ol>
 <p><strong>产生缺页异常之后的处理方式如下图所示</strong></p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-22/61785034.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/61785034.jpg" alt=""></p>
 
       
     </div>
@@ -687,7 +687,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -706,7 +706,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -759,7 +765,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1341,6 +1361,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

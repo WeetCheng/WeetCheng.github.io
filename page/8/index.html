@@ -324,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/计算机基础/struct-usage/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/21/日常/deepin更换字体/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeetCheng">
@@ -343,8 +343,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/28/计算机基础/struct-usage/" itemprop="url">
-                  结构体使用方法
+                <a class="post-title-link" href="/2018/06/21/日常/deepin更换字体/" itemprop="url">
+                  deepin更换字体
                 </a>
               
             
@@ -370,24 +370,12 @@
                 
               
 
-              <time title="创建时间：2018-05-28 09:49:30" itemprop="dateCreated datePublished" datetime="2018-05-28T09:49:30+08:00">2018-05-28</time>
+              <time title="创建时间：2018-06-21 18:50:39 / 修改时间：20:26:44" itemprop="dateCreated datePublished" datetime="2018-06-21T18:50:39+08:00">2018-06-21</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-13 21:38:27" itemprop="dateModified" datetime="2018-06-13T21:38:27+08:00">2018-06-13</time>
               
             
           </span>
@@ -401,10 +389,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/28/计算机基础/struct-usage/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/21/日常/deepin更换字体/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/28/计算机基础/struct-usage/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/21/日常/deepin更换字体/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -434,34 +422,11 @@
       
         
           
-            <h2><span id="结构体的声明及定义">结构体的声明及定义</span></h2><p><strong>方法一：直接声明结构体类型</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>这种方法下，定义结构体变量,需要使用struct book</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br></pre></td></tr></table></figure>
-<p><strong>方法二：声明结构体类型同时定义结构体变量</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125; Operating_System;</span><br></pre></td></tr></table></figure>
-<p>这里定义了一个结构体变量Operating_System，后续如果需要定义其他结构体变量，同方法一，仍然需要用struct book</p>
-<p><strong>方法三：通过匿名结构体定义结构体变量</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125; Operating_System;</span><br></pre></td></tr></table></figure>
-<p>直接定义了结构体变量Operating_System，而不定义结构体类型，因此无法再定义其他这种类型的结构体变量。</p>
-<p><strong>方法四：typedef声明结构体类型</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">book</span>&#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125; sci_book;</span><br></pre></td></tr></table></figure>
-<p>相当于给struct book 起了别名为：sci_book，从此可以用sci_book代替struct book</p>
-<p>因此，下面两种定义结构体变量的方法意思一样</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line">sci_book Operating_System;</span><br></pre></td></tr></table></figure>
-<p><strong>方法五：typedef声明匿名结构体类型</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125; sci_book;</span><br></pre></td></tr></table></figure>
-<p>相当于给匿名结构体起了别名为：sci_book，定义结构体变量的方法同方法四。</p>
-<h2><span id="初始化结构体">初始化结构体</span></h2><p><strong>方法一：按顺序初始化</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span> = &#123;</span></span><br><span class="line">  <span class="string">"Operating Systems"</span>;</span><br><span class="line">  <span class="string">"William"</span>;</span><br><span class="line">  <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>方法二：使用初始化器</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span> = &#123;</span></span><br><span class="line">  .title  = <span class="string">"Operating Systems"</span>;</span><br><span class="line">  .author = <span class="string">"William"</span>;</span><br><span class="line">  .value  = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="访问结构体成员">访问结构体成员</span></h2><p>通过”.”访问和”-&gt;”访问的区别</p>
-<p>结构体变量使用”.”访问成员；</p>
-<p>结构体指针通过“-&gt;”访问成员</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> *<span class="title">pbook</span> = &amp;<span class="title">Operating_System</span>;</span> </span><br><span class="line"><span class="comment">// 使用.访问结构体变量的成员</span></span><br><span class="line">Operating_System.author = <span class="string">"William"</span>;</span><br><span class="line"><span class="comment">// 使用-&gt;访问结构体指针所指的成员</span></span><br><span class="line">pbook-&gt;value = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-<h2><span id="c和c结构体的细微差异">C和C++结构体的细微差异</span></h2><p>C中定义结构体变量，必须使用struct book，C++则不需要加struct</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> &#123;</span></span><br><span class="line">  <span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">  <span class="keyword">char</span> author[MAXAUTH];</span><br><span class="line">  <span class="keyword">float</span> value;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// C中定义结构体变量</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line"><span class="comment">// C++中定义结构体变量,加不加struct都可以</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">Operating_System</span>;</span></span><br><span class="line">book Operating_System;</span><br></pre></td></tr></table></figure>
+            <p>deepin系统有个奇怪的现象：</p>
+<p>chrome非常卡，打开标签页卡，上下滚动卡。</p>
+<p>google搜索之后知道更改字体可以解决。于是在系统设置中更换字体，确实chrome不卡了，更神奇的是：整个系统都变得流畅多了！！！</p>
+<p>更换字体过程：</p>
+<p>控制中心-&gt;个性化-&gt;字体-&gt;标准字体-&gt;选择自己喜欢的字体。</p>
 
           
         
@@ -515,7 +480,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/elegant-code/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/19/计算机基础/float-number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeetCheng">
@@ -534,8 +499,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/27/elegant-code/" itemprop="url">
-                  优雅的代码片段
+                <a class="post-title-link" href="/2018/06/19/计算机基础/float-number/" itemprop="url">
+                  浮点数
                 </a>
               
             
@@ -561,7 +526,7 @@
                 
               
 
-              <time title="创建时间：2018-05-27 22:26:36" itemprop="dateCreated datePublished" datetime="2018-05-27T22:26:36+08:00">2018-05-27</time>
+              <time title="创建时间：2018-06-19 16:33:04" itemprop="dateCreated datePublished" datetime="2018-06-19T16:33:04+08:00">2018-06-19</time>
             
 
             
@@ -578,7 +543,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-13 21:37:09" itemprop="dateModified" datetime="2018-06-13T21:37:09+08:00">2018-06-13</time>
+                <time title="修改时间：2018-10-19 22:53:35" itemprop="dateModified" datetime="2018-10-19T22:53:35+08:00">2018-10-19</time>
               
             
           </span>
@@ -592,10 +557,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/27/elegant-code/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/19/计算机基础/float-number/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/27/elegant-code/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/19/计算机基础/float-number/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -625,17 +590,8 @@
       
         
           
-            <p>1.计算某个成员变量在结构体中的偏移量</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Return the offset of 'member' relative to the beginning of a struct type */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> offsetof(type, member)                                      \</span></span><br><span class="line">    ((<span class="keyword">size_t</span>)(&amp;((type *)<span class="number">0</span>)-&gt;member))</span><br></pre></td></tr></table></figure>
-<p>解析：</p>
-<p>ANSI C标准允许值为0的常量被强制转换成任何一种类型的指针，(type <em>)0转换结果是一个type类型的NULL指针。&amp;((type </em>)0)-&gt;member则是取member成员的地址。因为首地址为0，因此结果相当于结构体成员在结构体中的偏移量。</p>
-<blockquote>
-<p>来源: ucore_os_lab/labcodes_answer/lab2_result/libs/defs.h</p>
-</blockquote>
-<p>2.根据某个结构体指针得到另一个结构体指针</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* *</span></span><br><span class="line"><span class="comment"> * to_struct - get the struct from a ptr</span></span><br><span class="line"><span class="comment"> * @ptr:    a struct pointer of member</span></span><br><span class="line"><span class="comment"> * @type:   the type of the struct this is embedded in</span></span><br><span class="line"><span class="comment"> * @member: the name of the member within the struct</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> to_struct(ptr, type, member)                               \</span></span><br><span class="line">    ((type *)((<span class="keyword">char</span> *)(ptr) - offsetof(type, member)))</span><br></pre></td></tr></table></figure>
-<p>解析：</p>
-<p>offsetof可以就是第一个代码片段中的方法，可以求出成员在结构体类型中的偏移量。(char <em>)(ptr)转换成char </em>类型，是因为指针的减法并不是简单的地址相减，如 int * ptr，ptr - 2，实际上是减去2个int的大小。</p>
+            <p><img src="https://github.com/WeetCheng/image/raw/master/blogs/140426.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/78862945.jpg" alt=""></p>
 
           
         
@@ -689,7 +645,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/计算机基础/memory-layout/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/19/日常/Clion使用技巧/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeetCheng">
@@ -708,8 +664,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/27/计算机基础/memory-layout/" itemprop="url">
-                  程序内存布局
+                <a class="post-title-link" href="/2018/06/19/日常/Clion使用技巧/" itemprop="url">
+                  clion使用技巧
                 </a>
               
             
@@ -735,7 +691,7 @@
                 
               
 
-              <time title="创建时间：2018-05-27 21:28:50" itemprop="dateCreated datePublished" datetime="2018-05-27T21:28:50+08:00">2018-05-27</time>
+              <time title="创建时间：2018-06-19 14:27:09" itemprop="dateCreated datePublished" datetime="2018-06-19T14:27:09+08:00">2018-06-19</time>
             
 
             
@@ -752,7 +708,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-09-05 08:59:53" itemprop="dateModified" datetime="2018-09-05T08:59:53+08:00">2018-09-05</time>
               
             
           </span>
@@ -766,10 +722,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/27/计算机基础/memory-layout/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/19/日常/Clion使用技巧/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/27/计算机基础/memory-layout/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/19/日常/Clion使用技巧/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -799,581 +755,760 @@
       
         
           
-            <h2><span id="linux的进程空间布局">Linux的进程空间布局</span></h2><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-27/52136570.jpg" alt=""></p>
-<p>主要分成两部分：</p>
-<ul>
-<li>内核空间：占用1GB</li>
+            <p>快捷键参考：<a href="https://www.cnblogs.com/tonycody/p/3257601.html" target="_blank" rel="noopener">https://www.cnblogs.com/tonycody/p/3257601.html</a></p>
+<p>自定义代码模板：<a href="http://ice1000.org/2016/08/28/IDEAAdvance1/" target="_blank" rel="noopener">http://ice1000.org/2016/08/28/IDEAAdvance1/</a></p>
+<p>函数跳转：ctrl+鼠标左键点击</p>
+<p>函数跳转返回：ctrl+alt+  ←→方向键</p>
+<p>代码补全：ctrl + 空格</p>
+<p>智能补充提示：ctrl +shift +空格</p>
+<p>查找类：ctrl+N，输入类名</p>
+<p>快速打开工程的某个文件：ctrl + shift + N,输入文件名</p>
+<p>任意搜索(search everything)：连续两下shift</p>
+<p>如果要查看一个函数，变量在工程中哪里使用：鼠标移到该函数，alt + F7</p>
+<p>浮动窗口预览函数，变量定义：ctrl+shift+I</p>
+<p>高亮函数，变量在工程中的位置：ctrl + shift + F7，然后可以用F3和 shift + F3在高亮处来回切换，ESC退出高亮</p>
+<p>跳转到函数声明处：ctrl + B</p>
+<p>编译： ctrl + F9</p>
+<p>调试运行：shift + F9</p>
+<p>step over：F8</p>
+<p>step into：F7</p>
+<p>step out：shift + F8</p>
+<p>智能提示：点击灯泡或 alt + enter</p>
+<p>将代码用if，for等语句包围起来：菜单栏 code -&gt; surround with</p>
+<p>复制行：ctrl+D</p>
+<p>删除行：ctrl+X</p>
+<p>从函数中抽出一部分作为新的函数：选中-&gt;ctrl+alt+M</p>
+<p>选中代码作为宏：选中-&gt; ctrl+alt+D</p>
+<p>查看文件中的函数，类，结构体等：ctrl + F12； 选中之后按下enter或者F4跳转</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/15/嵌入式/stm32-BTStethoscope/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/15/嵌入式/stm32-BTStethoscope/" itemprop="url">
+                  stm32+串口蓝牙
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-15 15:03:01" itemprop="dateCreated datePublished" datetime="2018-06-15T15:03:01+08:00">2018-06-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-19 22:53:35" itemprop="dateModified" datetime="2018-10-19T22:53:35+08:00">2018-10-19</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/15/嵌入式/stm32-BTStethoscope/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/15/嵌入式/stm32-BTStethoscope/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3><span id="项目简介">项目简介</span></h3><ul>
+<li>使用ADC1的2个通道</li>
+<li>每个按照2KHz的采样频率进行采样</li>
+<li>ADC1的采样精度为12bits，数据寄存器为16bits</li>
+<li>串口设置为 115200bps, 1个停止位，没有校验位，8个数据位，禁用流控制</li>
+<li>使用双缓冲，用于改善数据从ADC -&gt; 内存 -&gt; 串口的传输</li>
 </ul>
+<h3><span id="流程总结">流程总结</span></h3><ol>
+<li>设置系统时钟</li>
+<li>设置定时器TIM3</li>
+<li>设置ADC1</li>
+<li>设置串口USART1</li>
+<li>设置DMA</li>
+<li>设置中断控制器，允许定时器中断，串口中断</li>
+<li>开启定时器</li>
+<li>定时时间到，产生定时器中断</li>
+<li>定时器中断中启动ADC采样一次</li>
+<li>采样完成，通过DMA将采样数据传送到串口发送缓冲区中</li>
+<li>串口发送缓冲区满，启动串口发送</li>
+<li>发送成功，产生串口发送中断，表示串口数据发送成功</li>
+</ol>
+<h3><span id="第一设置系统时钟">第一，设置系统时钟</span></h3><p>stm32的系统时钟(SYSCLK)有三个时钟源选择：</p>
 <ul>
-<li>用户空间：占用3GB<ul>
-<li>只读段</li>
-<li>读写段</li>
-<li>堆</li>
-<li>栈</li>
-<li>动态链接库映射区</li>
+<li>外部高速时钟(HSE)</li>
+<li>内部高速时钟(HSI)</li>
+<li>锁相环时钟(PLL)——其实是由外部高速时钟演变而来</li>
 </ul>
+<p>通常，使用8MHz的晶振作为stm32的时钟源，然后一生二，二生三，三生万物，最终形成一个完整的时钟系统。</p>
+<p>8MHz晶振 -&gt; SYSCLK -&gt; AHB和APB -&gt; 各种外设的时钟</p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/59571956.jpg" alt=""></p>
+<p>我的项目里的时钟设置，简化如下：</p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/8571648.jpg" alt=""></p>
+<p>TIM3的时钟挂载在APB1下，此外它还有自己的分频器</p>
+<p>ADC1的时钟挂载在APB2下，它也有自己的分频器</p>
+<p>USART1的时钟挂载在APB2下</p>
+<p>GPIO的时钟也挂载在APB2下</p>
+<h3><span id="第二设置定时器">第二，设置定时器</span></h3><p><strong>理论知识点</strong></p>
+<p>通用定时器有三个核心的寄存器</p>
+<ul>
+<li>计数寄存器(TIMx_CNT)——计数</li>
+<li>自动重装载寄存器(TIMx_ARR)——每次计数到0都会从这个寄存器读入新的计数值</li>
+<li>预分频寄存器(TIMx_PSC)——用于设置定时器的预分频器</li>
+</ul>
+<p>此外，就是一些设置定时器工作方式的寄存器了</p>
+<ul>
+<li>定时器控制寄存器(TIMx_CR1、TIMx_CR2)——设置定时器时钟源的分频器、向上/下计数、使能计数器，选择定时器的通道等定时器状态寄存器(TIMx_SR)</li>
+<li>定时器中断/DMA使能寄存器——决定是否开启中断或DMA功能</li>
+<li>定时器事件产生寄存器(TIMx_EGR)——设置什么时候会产生事件，比如，计数寄存器更新的时候</li>
+<li>定时器捕获和比较寄存器 (TIMx_CCMR1)</li>
+</ul>
+<p><strong>项目设置</strong></p>
+<p>我的项目里设置定时器的三个核心寄存器如下：</p>
+<ul>
+<li>设置定时器时钟源的分频器为/1</li>
+<li>预分频器为/72</li>
+<li>计数寄存器和自动重装载寄存器的计数值为500</li>
+</ul>
+<p>而在第一步中可以知道，定时器挂载在APB1中，时钟频率为72MHz，因此可以得到定时器计时频率为2KHz</p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/18983329.jpg" alt=""></p>
+<p>至于工作模式</p>
+<ul>
+<li>设置定时器向上计数，即从0开始计数 ，计数值到达自动重装载寄存器的500-1之后，又回到0重新计数</li>
+<li>设置当发生计数更新时，产生一个TRGO信号，后面会用该TRGO信号来触发ADC采样。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">TIM3_Config</span><span class="params">(u16 psc, u16 arr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;</span><br><span class="line">	</span><br><span class="line">  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);</span><br><span class="line">	</span><br><span class="line">  TIM_TimeBaseStructure.TIM_ClockDivision = <span class="number">1</span>;</span><br><span class="line">	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;</span><br><span class="line">	TIM_TimeBaseStructure.TIM_Period = arr;</span><br><span class="line">  TIM_TimeBaseStructure.TIM_Prescaler = psc;</span><br><span class="line">	</span><br><span class="line">	TIM_TimeBaseInit(TIM3, &amp;TIM_TimeBaseStructure);</span><br><span class="line">	</span><br><span class="line">	TIM_SelectOutputTrigger(TIM3, TIM_TRGOSource_Update); 					<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤1(4)</span></span><br><span class="line">	</span><br><span class="line">	TIM_Cmd(TIM3,ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="第三设置adc1">第三，设置ADC1</span></h3><p><strong>理论知识点</strong></p>
+<p>​    一个ADC往往会有几个通道可以使用，且每个通道都有一条采样的输入线，每条输入线与GPIO口共用stm32的某个引脚。比如ADC1的通道1和通道2的输入线分别与GPIOA0和GPIOA1共用引脚，那么引脚就是用来做ADC的采样输入线还是做GPIO呢？这就需要我们还设置引脚的复用功能。</p>
+<p>​    ADC有两种好用的功能</p>
+<ul>
+<li>可以有多个通道依次采样，即多通道扫描功能</li>
+<li>可以设置循环采样；</li>
+</ul>
+<p>结合多通道扫描功能和循环采样功能，可以实现多通道循环扫描，也就是多个通道不停地轮流采样。</p>
+<p>​    不过要使用ADC的多通道扫描功能，就必须启用DMA功能，这样才能快速地将采样的数据从ADC中保存到内存中，避免被下一通道的数据覆盖。开启DMA功能后，会在每一次转换结束后产生DMA请求，DMA就立马行动起来。（当然我们还需要设置DMA。后面再说）</p>
+<p>​    ADC的启动也是有多种方式的，一种是通过写某个寄存器的某个位，手动启动ADC，也可以设置用外部信号来触发ADC采样。比如可以用定时器产生的TRGO信号来触发。</p>
+<p>​    stm32的ADC1采样精度为12bits，而ADC1的数据寄存器有16bits，那么采样的12bits数据怎么放到16bits中呢？这就产生了两种存放的方法，你可以将12bits放在16位寄存器的高12位（左对齐），也可以放在16位寄存器的低12位（右对齐）。</p>
+<p>​    ADC采样的时候并不是一瞬间就完成的，而是在一个较短的时间内采样，然后ADC内部将模拟量转成数字量。stm32内部可以设置采样的时间，但模拟量转成数字量的时间是固定的12.5个周期。从采样到最后变成数字量的这段时长就称为ADC的转换时间。</p>
+<p>$转换时间 = 采样时间 + 12.5周期$</p>
+<p>​    注意上面的采样时间和采样频率是不一样的概念。采样频率表示的是多久采一次，而采样时间是采一次要花多长时间。</p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/95828997.jpg" alt=""></p>
+<p><strong>项目设置</strong></p>
+<p>开通了ADC1的两个通道用来采样，当定时器产生TRGO信号时，触发ADC进行采样，设置ADC1用多通道循环采样的方式来采，每个通道采完都会产生一个DMA请求。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures the ADC1:</span></span><br><span class="line"><span class="comment">	* 				ADC_Mode_Independent,non-ContinuousConvMode,ScanConvMode,</span></span><br><span class="line"><span class="comment">	*					ExternalTrigConv_T3_TRGO,DataAlign_Right,2 channels(PA0,PA1)</span></span><br><span class="line"><span class="comment">  * @param  None</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC1_Config</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">/* ADC,GPIO 初始化结构体 */</span></span><br><span class="line">  ADC_InitTypeDef ADC_InitStructure;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC的时钟要单独设置，通常设为72/6 = 12MHz */</span></span><br><span class="line">	RCC_ADCCLKConfig(RCC_PCLK2_Div6);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 所有外设都要开启时钟，才能使用 */</span></span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_ADC1,ENABLE);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC1的两个通道PA0和PA1配置为模拟输入(共18个通道))*/</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC1工作方式配置：*/</span></span><br><span class="line">	ADC_DeInit(ADC1);	</span><br><span class="line">	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;</span><br><span class="line">	ADC_InitStructure.ADC_ContinuousConvMode= DISABLE;															<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤2(4)</span></span><br><span class="line">	ADC_InitStructure.ADC_ScanConvMode = ENABLE;</span><br><span class="line">	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T3_TRGO;					<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤3(4)</span></span><br><span class="line">	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;</span><br><span class="line">	ADC_InitStructure.ADC_NbrOfChannel = <span class="number">2</span>;</span><br><span class="line">	ADC_Init(ADC1, &amp;ADC_InitStructure);	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 两个通道配置 */</span></span><br><span class="line">	ADC_RegularChannelConfig(ADC1, ADC_Channel_0, <span class="number">1</span>, ADC_SampleTime_13Cycles5);</span><br><span class="line">	ADC_RegularChannelConfig(ADC1, ADC_Channel_1, <span class="number">2</span>, ADC_SampleTime_13Cycles5);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 使能ADC的外部触发转换（外部触发源将在tim.c文件中设置成TIM1更新事件）*/</span></span><br><span class="line">	ADC_ExternalTrigConvCmd(ADC1,ENABLE);																						<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤4(4)</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/* ADC必须开启DMA功能才能使用扫描模式 */</span></span><br><span class="line">	ADC_DMACmd(ADC1, ENABLE);</span><br><span class="line">	</span><br><span class="line">	ADC_Cmd(ADC1, ENABLE);	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC内置校准电路，上电后都要进行校准 */</span></span><br><span class="line">	ADC_ResetCalibration(ADC1);		 </span><br><span class="line">	<span class="keyword">while</span>(ADC_GetResetCalibrationStatus(ADC1));	</span><br><span class="line">	ADC_StartCalibration(ADC1);	 </span><br><span class="line">	<span class="keyword">while</span>(ADC_GetCalibrationStatus(ADC1));	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="第四设置adc1对应的dma通道">第四，设置ADC1对应的DMA通道</span></h3><p>​    DMA包含有多个通道，可以设置每个通道用来处理不同的事务。比如前面我们设置ADC会产生DMA请求，那么DMA怎么处理呢？</p>
+<p>​    我们知道，DMA的功能是可以将数据从外设传送到内存中，或者从一片内存传送到另一片内存中。</p>
+<p>​    而ADC开启DMA功能的原因就是：希望ADC产生DMA请求之后，DMA可以帮忙将ADC的数据寄存器里的数据保存到内存中。知道这个目标，我们就可以分析出这个DMA通道需要知道哪些信息才能完成工作了。</p>
+<ul>
+<li>数据的来源在哪里？——ADC的数据寄存器</li>
+<li>数据送到哪里去？——内存的buffer数组</li>
+<li>一个数据有多大？——ADC的数据寄存器为16位，说明一个数据占2个字节</li>
+<li>送多少个数据过去？——ADC希望每采一个通道就立马把数据保存到内存中，说明一次只要传一个数据</li>
+<li>怎么知道数据到底传出去没有？——DMA通道也可以启动中断功能，一旦传送完成，就产生一个中断</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures DMA of ADC1:</span></span><br><span class="line"><span class="comment">	* 				from peripheral(ADC1) to memory,</span></span><br><span class="line"><span class="comment">	*					datasize of peripheral and memory are both halfword,</span></span><br><span class="line"><span class="comment">	* 				MemoryInc_Enable, PeripheralInc_Disable</span></span><br><span class="line"><span class="comment">	* 				DMA_Mode_Circular!</span></span><br><span class="line"><span class="comment">	*					enable DMA_IT_TC</span></span><br><span class="line"><span class="comment">  * @param  memBaseAddr: Where you want to store values of ADC convertion.</span></span><br><span class="line"><span class="comment">	* 				periphBaseAddr: DR of ADC1</span></span><br><span class="line"><span class="comment">	*					bufferSize: Its unit depends on direction of transmission</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC1_DMA_Config</span><span class="params">(u32 memBaseAddr, u32 periphBaseAddr, u32 bufferSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DMA_InitTypeDef DMA_InitStructure;</span><br><span class="line">	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);</span><br><span class="line"></span><br><span class="line">	DMA_DeInit(DMA1_Channel1);</span><br><span class="line">	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;															<span class="comment">//循环模式，每次传输完成，都会重新指向缓冲区的开头</span></span><br><span class="line">	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC ;													<span class="comment">//ADC1-&gt;DR &gt;&gt; 缓冲区 </span></span><br><span class="line">	DMA_InitStructure.DMA_BufferSize = bufferSize;															<span class="comment">//设定缓冲区大小，单位与MemoryDataSize或者PeripheralDataSize相同</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryBaseAddr = memBaseAddr;													<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord ;				<span class="comment">//缓冲区数据宽度为半字(16bits)</span></span><br><span class="line">	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;											<span class="comment">//缓冲区地址递增</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralBaseAddr = periphBaseAddr;									<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;	<span class="comment">//ADC1-&gt;DR的数据宽度也是半字(16bits),实际上，ADC分辨率只有12bits</span></span><br><span class="line">	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;						<span class="comment">//外设地址不增</span></span><br><span class="line">	DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;												<span class="comment">//</span></span><br><span class="line">	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;																<span class="comment">//</span></span><br><span class="line">	</span><br><span class="line">	DMA_Init(DMA1_Channel1, &amp;DMA_InitStructure);</span><br><span class="line">	</span><br><span class="line">	DMA_ITConfig(DMA1_Channel1, DMA_IT_TC, ENABLE);															<span class="comment">//开启DMA传输完成中断</span></span><br><span class="line">	DMA_Cmd(DMA1_Channel1, ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="第五设置串口usart1">第五，设置串口USART1</span></h3><p>（1）设置串口的时钟源</p>
+<p>串口也需要设置时钟，它的时钟源挂载在APB2下（36MHz）。</p>
+<p>（2）设置stm32的引脚复用作为USART1的Tx和Rx</p>
+<p>串口的Tx和Rx分别与GPIOA9和GPIO10共用引脚，因此需要设置引脚的复用功能。</p>
+<p>（3）设置串口的参数</p>
+<p>一般串口需要设置以下的参数：</p>
+<ul>
+<li>串口的波特率是多少？</li>
+<li>串口是用来接收的，发送的，还是既能接收又能发送的？</li>
+<li>串口接收或者发送的数据是否有奇偶校验位？有的话，是奇校验还是偶校验？</li>
+<li>数据有几个停止位？</li>
+<li>真实数据的长度有多长？8bits？9bits？</li>
+<li>串口要不要使用流量控制的功能？</li>
+</ul>
+<p>串口设置如下：115200bps, 没有校验位，1个停止位，8位数据长度，禁用流控制</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures the USART1:</span></span><br><span class="line"><span class="comment">	* 				1.Configure PA9 and PA10; </span></span><br><span class="line"><span class="comment">	*					2.Configure USART1 </span></span><br><span class="line"><span class="comment">  * @param  None</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_Config</span><span class="params">(u32 bound)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	USART_InitTypeDef USART_InitStructure;</span><br><span class="line">	</span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* GPIO configuration*/</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* USART1 configuration*/</span></span><br><span class="line">	USART_InitStructure.USART_BaudRate = bound;</span><br><span class="line">	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx ;								<span class="comment">//收发模式</span></span><br><span class="line">	USART_InitStructure.USART_Parity = USART_Parity_No;</span><br><span class="line">	USART_InitStructure.USART_StopBits = USART_StopBits_1;													<span class="comment">//1位停止位</span></span><br><span class="line">	USART_InitStructure.USART_WordLength = USART_WordLength_8b;											<span class="comment">//8bits数据宽度						</span></span><br><span class="line">	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;</span><br><span class="line">	</span><br><span class="line">	USART_Init(USART1, &amp;USART_InitStructure);	</span><br><span class="line">	USART_DMACmd(USART1, USART_DMAReq_Tx, ENABLE);</span><br><span class="line">	USART_Cmd(USART1, ENABLE);                    <span class="comment">//使能串口 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="第六设置usart1对应的dma通道">第六，设置USART1对应的DMA通道</span></h3><p>串口是用来发送数据的，那数据是什么呢？</p>
+<p>我的项目里串口是用来发送ADC的采样数据的。为了方便快捷，我为USART1也开了一个DMA通道，可以将前面保存到buffer中的ADC采样数据通过DMA送到串口的发送缓冲寄存器中。同样面临一样的DMA该怎么设置的问题：</p>
+<ul>
+<li>数据的来源是什么？——保存在内存buffer中的ADC采样数据</li>
+<li>数据送到哪里去？——送到USART1的发送缓冲寄存器中</li>
+<li>一个数据有多大？——因为串口的发送缓冲寄存器只有8位，因此一次只能传8bits</li>
+<li>传多少数据？——buffer的作用就是缓存。所以我等ADC的两个通道每个通道采56次数据，然后再加上帧头跟帧尾6个字节，组成一个数据帧，一共有$2通道 <em> 56次/通道 </em> 16bits/次 + 6bytes = 230 bytes$，也就是说每次传230个字节的数据</li>
+<li>什么时候串口对应的DMA通道开始工作？——缓冲区满了以后。我们知道缓冲区有多大，知道每个数据有多大，自然就知道什么时候缓冲区会满</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures DMA of USART1:</span></span><br><span class="line"><span class="comment">	* 				from memory to peripheral(USART1),</span></span><br><span class="line"><span class="comment">	*					datasize of peripheral and memory are both Byte(8bits),</span></span><br><span class="line"><span class="comment">	* 				MemoryInc_Enable, PeripheralInc_Disable</span></span><br><span class="line"><span class="comment">	* 				DMA_Mode_Circular!</span></span><br><span class="line"><span class="comment">	*					enable DMA_IT_TC</span></span><br><span class="line"><span class="comment">  * @param  memBaseAddr: Where you contents your data.</span></span><br><span class="line"><span class="comment">	* 				periphBaseAddr: DR of USART1</span></span><br><span class="line"><span class="comment">	*					bufferSize: Its unit depends on direction of transmission</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">USART1_TX_DMA_Config</span><span class="params">(u32 memBaseAddr, u32 periphBaseAddr, u32 bufferSize)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DMA_InitTypeDef DMA_InitStructure;</span><br><span class="line">	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);</span><br><span class="line"></span><br><span class="line">	DMA_DeInit(DMA1_Channel4);</span><br><span class="line">	DMA_InitStructure.DMA_BufferSize = bufferSize;</span><br><span class="line">	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST ;</span><br><span class="line">	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryBaseAddr = memBaseAddr;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte ;</span><br><span class="line">	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;</span><br><span class="line">	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralBaseAddr = periphBaseAddr;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralDataSize = DMA_MemoryDataSize_Byte;</span><br><span class="line">	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable ;</span><br><span class="line">	DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;</span><br><span class="line">	</span><br><span class="line">	DMA_Init(DMA1_Channel4, &amp;DMA_InitStructure);</span><br><span class="line">	</span><br><span class="line">	DMA_ITConfig(DMA1_Channel4, DMA_IT_TC, ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="第七启动定时器一切按部就班开始运行">第七，启动定时器，一切按部就班开始运行</span></h3><ul>
+<li>定时时间到，触发ADC开始采样</li>
+<li>ADC每次采样后触发DMA，DMA将采样数据保存到内存缓冲区buffer中</li>
+<li>buffer满了以后，就触发DMA，将buffer中的数据一个一个送到串口的发送寄存器中</li>
+<li>串口发送寄存器有了数据，就会触发发送功能。于是数据源源不断发送出去。</li>
+</ul>
+<h3><span id="后记">后记</span></h3><p>​    为了采样和数据发送可以同时进行，我在内存中开辟了两个buffer，上面为了解释方便，我并没有说明这一点。我们已经知道内存中的buffer有两个作用</p>
+<ul>
+<li>保存ADC的采样数据到buffer中</li>
+<li>从buffer中将数据送到串口中</li>
+</ul>
+<p>​    假设只使用一个buffer，那么buffer满了之后，就需要暂停采样，才能用DMA将buffer的数据送到串口中。而暂停采样将会导致采样断断续续，很不合理。</p>
+<p>​    如果使用两个buffer，事情就好办了。可以让采样的数据保存在buffer1中，而将buffer2中的数据送到串口。等buffer1满了，反过来，将采样的数据保存在buffer2中，而将buffer1中的数据送到串口。</p>
+<p>​    当然，这还涉及到采样数据产生的速度和数据发送出去的速度。很容易理解，数据发送的速度必须比数据产生的速度快才行，不然会有一部分数据丢失。</p>
+<p>分析两者：</p>
+<p>（1）数据产生的速度</p>
+<p>采样频率为2KHz，2个通道，每次采样数据长度为2个字节，则数据产生的速度为</p>
+<p>$2000Hz <em> 2通道 </em> 2字节/次 = 8000字节/s = 64000bps$</p>
+<p>ADC产生数据后我们还会加上帧头帧尾，而且串口在发送的时候会加入停止位，导致每秒要发送的实际数据产生量比ADC每秒产生数据量要多一些，但也大不了太多。</p>
+<p>（2）串口发送的速度</p>
+<p>串口发送的速度115200bps &gt; 64000bps很多，即使算上帧头帧尾和串口发送时加入的停止位导致的开销，也完全可以满足串口发送的速度大于数据产生的速度</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/15/嵌入式/stm32-interrupt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/15/嵌入式/stm32-interrupt/" itemprop="url">
+                  stm32中断
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-15 09:53:07 / 修改时间：15:28:01" itemprop="dateCreated datePublished" datetime="2018-06-15T09:53:07+08:00">2018-06-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/15/嵌入式/stm32-interrupt/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/15/嵌入式/stm32-interrupt/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>stm32的中断控制器NVIC可以设置不同的中断配置方案，即抢占优先级和响应优先级的配比。</p>
+<p>这两种优先级的含义：</p>
+<ul>
+<li>抢占优先级：高优先级的中断可以抢占低优先级的中断</li>
+<li>响应优先级：假设有多个中断，抢占优先级相同。如果在一个中断运行期间，来了很多个抢占优先级相同，但响应优先级不同的中断，那么后续来的这些中断将会根据响应优先级排序，等当前的中断处理后，选择最高响应优先级的中断去处理。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/14/嵌入式/arm开发环境搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/14/嵌入式/arm开发环境搭建/" itemprop="url">
+                  Arm开发环境搭建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-14 08:55:24" itemprop="dateCreated datePublished" datetime="2018-06-14T08:55:24+08:00">2018-06-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-24 19:46:45" itemprop="dateModified" datetime="2018-06-24T19:46:45+08:00">2018-06-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/14/嵌入式/arm开发环境搭建/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/14/嵌入式/arm开发环境搭建/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在Linux下搭建2440的开发环境</p>
+<h3><span id="一构建arm-linux交叉编译工具链">一，构建arm-linux交叉编译工具链</span></h3><p>有三种方法构建工具链</p>
+<ul>
+<li>直接下载别人编译好的交叉工具链arm-linux-gcc-4.4.3</li>
+<li>apt-get下载gcc-arm-linux-gnueabi</li>
+<li>自己下载arm-linux-gcc的源码，编译安装</li>
+</ul>
+<h4><span id="法1下载编译好的arm-linux-gcc">法1，下载编译好的arm-linux-gcc</span></h4><p>（1） 下载</p>
+<p>下载地址：<a href="http://www.arm9.net/download.asp" target="_blank" rel="noopener">http://www.arm9.net/download.asp</a></p>
+<p>假设下载后解压放在目录/home/cheng/arm-linux/中</p>
+<p>（2）配置PATH路径</p>
+<p>编辑/etc/profile文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/profile</span><br><span class="line"><span class="comment"># 在文件中添加一下内容</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/cheng/arm-linux/bin/</span><br></pre></td></tr></table></figure>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile	<span class="comment"># 使/etc/profile生效</span></span><br></pre></td></tr></table></figure>
+<h4><span id="法2apt-get下载交叉编译工具链">法2，apt-get下载交叉编译工具链</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-arm-linux-gnueabi</span><br></pre></td></tr></table></figure>
+<h4><span id="法3源码编译安装arm-linux-gcc">法3，源码编译安装arm-linux-gcc</span></h4><ol>
+<li>sudo apt-get install build-essential    #基本开发环境<ol>
+<li>sudo apt-get install bison flex#分别是语法、词法分析器</li>
+<li>sudo apt-get install manpages-dev#安装C函数库man 手册</li>
+</ol>
 </li>
-</ul>
-<h2><span id="进程堆管理">进程堆管理</span></h2><p>堆的分配有两种方式：</p>
-<ul>
-<li>通过brk()系统调用。可以设置数据段的结束地址（Linux下将.data，.bss合并在一起统称数据段）。将数据段的结束地址向高地址移动后，多出来的空间就可以用作堆空间使用。</li>
-<li>通过mmap()系统调用。通过匿名映射虚拟地址申请空间。</li>
-</ul>
-<p>malloc函数申请空间的原理：</p>
-<p>若申请的空间&lt;128K，在堆空间中分配</p>
-<p>若申请的空间&gt;128K，申请匿名空间给用户使用</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/计算机基础/elf-analysis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/27/计算机基础/elf-analysis/" itemprop="url">
-                  ELF文件分析命令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-27 15:06:32" itemprop="dateCreated datePublished" datetime="2018-05-27T15:06:32+08:00">2018-05-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/27/计算机基础/elf-analysis/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/27/计算机基础/elf-analysis/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>命令总结</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">objdump				<span class="comment"># 查看目标文件的信息</span></span><br><span class="line">readelf				<span class="comment"># 查看elf文件的信息</span></span><br><span class="line">size				<span class="comment"># 查看目标文件各个section的大小和目标文件总大小</span></span><br><span class="line">nm					<span class="comment"># 查看目标文件的符号</span></span><br></pre></td></tr></table></figure>
-<h3><span id="objdump命令">objdump命令</span></h3><p>常用选项：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-d					<span class="comment"># 反汇编</span></span><br><span class="line">-f					<span class="comment"># 目标文件头部</span></span><br><span class="line">-h					<span class="comment"># 目标文件section头部</span></span><br><span class="line">-s					<span class="comment"># 所有section的内容</span></span><br><span class="line">-t					<span class="comment"># 符号表</span></span><br><span class="line">-T					<span class="comment"># 动态符号表</span></span><br><span class="line">-r					<span class="comment"># 重定位符号信息</span></span><br><span class="line">-R					<span class="comment"># 动态重定位符号信息</span></span><br></pre></td></tr></table></figure>
-<h3><span id="readelf命令">readelf命令</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-a					<span class="comment"># 显示elf文件所有信息</span></span><br><span class="line">-h					<span class="comment"># 文件头</span></span><br><span class="line">-l					<span class="comment"># 程序头(segment header、program header)</span></span><br><span class="line">-S					<span class="comment"># 节头(section header)</span></span><br><span class="line">-e					<span class="comment"># 所有头部，包括文件头、程序头、节头</span></span><br><span class="line">-s					<span class="comment"># 符号表</span></span><br><span class="line">-r					<span class="comment"># 重定位表</span></span><br></pre></td></tr></table></figure>
-<h3><span id="size命令">size命令</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ size a.o</span><br><span class="line">   text	   data	    bss	    dec	    hex	filename</span><br><span class="line">    100	     20	      0	    120	     78	a.o</span><br></pre></td></tr></table></figure>
-<h3><span id="nm命令">nm命令</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ nm ab</span><br><span class="line">0000000000601004 D __bss_start</span><br><span class="line">0000000000601004 D _edata</span><br><span class="line">0000000000601008 D _end</span><br><span class="line">0000000000601000 d _GLOBAL_OFFSET_TABLE_</span><br><span class="line">00000000004000e8 T main</span><br><span class="line">0000000000601000 D shared</span><br><span class="line">0000000000400114 T swap</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/26/计算机基础/compile-link-load/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/26/计算机基础/compile-link-load/" itemprop="url">
-                  编译链接装载
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-26 22:33:40" itemprop="dateCreated datePublished" datetime="2018-05-26T22:33:40+08:00">2018-05-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/26/计算机基础/compile-link-load/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/26/计算机基础/compile-link-load/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <!-- toc-->
-<h3 id="一、目标文件的格式"><a href="#一、目标文件的格式" class="headerlink" title="一、目标文件的格式"></a>一、目标文件的格式</h3><p>目标文件的格式，以前有很多种格式，当前比较流行的是linux的ELF格式，Windows下的PE格式，两种都是源自unix的COFF格式</p>
-<p>主要讲解ELF格式</p>
-<p><strong>目标文件有三种类型</strong></p>
-<ul>
-<li>可重定位文件(relocatable file，如.o)：可与其他可重定位文件链接，创建可执行文件或共享库文件</li>
-<li>可执行文件(executable file，如.exe)：规定了exec[]如何创建进程映像</li>
-<li>共享目标文件(shared object file，如.so)：分成两种，一种用于静态链接，一种用于动态链接</li>
-</ul>
-<p><strong>目标文件的内容：</strong></p>
-<ul>
-<li>代码</li>
-<li>数据</li>
-<li>链接时需要的信息，如符号表、调试信息、字符串等</li>
-</ul>
-<p><strong>为什么要将代码和数据分开存放呢？</strong></p>
-<ul>
-<li>代码一般只读，数据一般可读写，将代码和数据分别映射到不同的虚拟空间区域，设置读写属性，防止代码被误改</li>
-<li>代码和数据各自都满足局部性原理，分开存放，可以用指令cache和数据cache分别缓存，提高效率</li>
-<li>分开存储，可以设置共享代码，如动态库。因为指令和数据混合存放，无法只共享指令。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/26/计算机基础/compile-link-load/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/操作系统/i386/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/23/操作系统/i386/" itemprop="url">
-                  i386知识点
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-23 20:44:01" itemprop="dateCreated datePublished" datetime="2018-05-23T20:44:01+08:00">2018-05-23</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/23/操作系统/i386/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/23/操作系统/i386/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2><span id="地址转换">地址转换</span></h2><p>i386的虚拟地址—-&gt;物理地址的转换过程：经过段转换、页转换两个过程。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-23/47463084.jpg" alt=""></p>
-<p>较详细过程</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-23/74156780.jpg" alt=""></p>
-<h3><span id="段转换过程">段转换过程</span></h3><p>段转换需要四个要素：</p>
-<ul>
-<li>段描述符</li>
-<li>段描述符表</li>
-<li>选择子</li>
-<li>段寄存器</li>
-</ul>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-23/25885198.jpg" alt=""></p>
-<h4><span id="段描述符格式">段描述符格式</span></h4><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-23/84088606.jpg" alt=""></p>
-<p>数据结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define SEG_ASM(type,base,lim)                                  \</span><br><span class="line">    .word (((lim) &gt;&gt; 12) &amp; 0xffff), ((base) &amp; 0xffff);          \</span><br><span class="line">    .byte (((base) &gt;&gt; 16) &amp; 0xff), (0x90 | (type)),             \</span><br><span class="line">        (0xC0 | (((lim) &gt;&gt; 28) &amp; 0xf)), (((base) &gt;&gt; 24) &amp; 0xff)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>段描述符主要由三部分组成：</p>
-<ol>
-<li>base: 段基址，占32位</li>
-<li>limit：段限制，占20位，实际段限制 = limit &gt;&gt; 12</li>
-<li>access：段属性，占12位</li>
+<li>sudo apt-get install libncurses5-dev</li>
+<li>安装交叉编译工具链(自己利用crosstool工具制作)<br>下载crosstool<br>wget <a href="http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.21.0.tar.xz" target="_blank" rel="noopener">http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.21.0.tar.xz</a><br>解压并进入源码目录<br>tar vxf crosstool-ng-1.21.0.tar.xz<br>cd crosstool-ng-1.21.0<br>打补丁<br>在源码目录中执行<br>lzcat contrib/openrisc-or32.patch.lzma | patch -p1<br>先安装crosstool-NG的依赖项：</li>
 </ol>
-</blockquote>
-<h4><span id="段描述符表">段描述符表</span></h4><p>分成全局描述符表(GDT)和局部描述符表(LDT)</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-23/16659178.jpg" alt=""></p>
-<p>注意：全局描述符表的第一个段描述符不使用。</p>
-<h4><span id="段选择子">段选择子</span></h4><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-23/96922152.jpg" alt=""></p>
-<h4><span id="段寄存器">段寄存器</span></h4><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-23/5411442.jpg" alt=""></p>
-<h3><span id="页转换过程">页转换过程</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-23/89964038.jpg" alt=""></p>
-<h4><span id="页目录表项和页表项格式">页目录表项和页表项格式</span></h4><p>页目录表和页表本身也是一个页，因此页目录表项和页表项格式相同。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-23/92977345.jpg" alt=""></p>
+<ul>
+<li>gperf</li>
+<li>bison</li>
+<li>flex</li>
+<li>texinfo</li>
+<li>gawk</li>
+<li>libtool</li>
+<li>automake</li>
+<li>libncurses5-dev</li>
+<li>g++</li>
+</ul>
+<p>执行编译三部曲<br>./configure –prefix=/home/cheng/Programs/Crosstool<br>make<br>make install<br>确认/opt/cross/bin已经安装，当然你可以用你习惯的路径替代/opt/cross</p>
+<p>在三部曲第一步中提示缺少什么依赖项就安装什么。</p>
+<p>如缺少makeinfo,在网上查阅知道<br>sudo apt-get install texinfo （注意这里不是makeinfo，可能是包含在texinfo里了）<br>configure: error: missing required tool: gperf<br>则<br>sudo apt-get install gperf<br>configure: error: missing required tool: makeinfo<br>则<br>sudo apt-get install texinfo<br>configure: error: could not find GNU awk<br>则<br>sudo apt-get install gawk</p>
+<p>configure: error: could not find GNU automake &gt;= 1.10<br>则<br>sudo apt-get install automake</p>
+<p>configure: error: could not find curses header, required for the kconfig frontends<br>则<br>sudo apt-get install libncurse5-dev</p>
+<p>设置环境变量<br>export PATH=$PATH:/home/cheng/Programs/Crosstool/bin</p>
+<p>检查是否安装成功<br>ct-ng -v</p>
+<p>配置crosstool<br><a href="https://www.cnblogs.com/zzb-Dream-90Time/p/7198873.html" target="_blank" rel="noopener">crosstool-NG配置</a></p>
+<h3><span id="二串口调试">二，串口调试</span></h3><p><strong>安装串口驱动</strong></p>
+<p>Linux会自动安装PL2303的驱动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$&gt; ls /dev/ttyUSB*</span><br><span class="line">/dev/ttyUSB0 	//这就是我们的串口</span><br></pre></td></tr></table></figure>
+<p><strong>串口调试工具</strong></p>
+<ul>
+<li>minicom：命令行界面</li>
+<li>cutecom：图形界面</li>
+<li>picocom：命令行界面（我比较喜欢这个）</li>
+</ul>
+<p>picocom的使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&gt; sudo picocom -b 115200 /dev/ttyUSB0	//具体是ttyUSB* 可以去/dev目录下查看</span><br></pre></td></tr></table></figure>
+<p><strong>退出picocom</strong></p>
+<p>先按ctrl+a(表示转义)再按ctrl+q</p>
+<h3><span id="三烧录程序">三，烧录程序</span></h3><p>JZ2440有两种烧录程序的方法，</p>
+<ul>
+<li>使用调试下载器EOP+OpenOCD</li>
+<li>使用调试下载器EOP+oflash</li>
+<li>使用uboot+dnw，则可通过usb线烧录程序，不过前提是必须先用EOP烧录uboot到芯片中</li>
+</ul>
+<p><a href="https://github.com/ntfreak/openocd" target="_blank" rel="noopener">官方介绍</a></p>
+<p><a href="http://blog.csdn.net/heyuqian_csdn/article/details/52507111" target="_blank" rel="noopener">参考博客</a></p>
+<h4><span id="法1eopopenocd烧录">法1，EOP+OpenOCD烧录</span></h4><p><strong>（1）下载安装OpenOCD</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openocd</span><br></pre></td></tr></table></figure>
+<p>安装成功后，会识别出eop</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$&gt; lsusb 	//查看usb设备</span><br><span class="line">Bus 001 Device 009: ID 067b:2303 Prolific Technology, Inc. PL2303 Serial Port</span><br><span class="line">Bus 001 Device 010: ID 1457:5118 First International Computer, Inc. OpenMoko Neo1973 Debug board (V2+)</span><br></pre></td></tr></table></figure>
+<p>OpenMoko Neo1973 Debug board，是eop。加下ID号为 14567:5118，后面要使用</p>
+<p><strong>（2）配置OpenOCD</strong></p>
+<p>openocd的默认配置文件是openocd.cfg，当启动openocd时，会在安装目录openocd/scripts下搜索openocd.cfg。如何没有创建openocd.cfg，则需要使用-f 参数指定配置文件。为了方便，直接在/usr/share/openocd/scripts/中创建openocd.cfg文件，配置如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/share/openocd/scripts/</span><br><span class="line">$ sudo vim openocd.cfg	//复制以下内容</span><br><span class="line">interface ftdi  </span><br><span class="line"><span class="comment">#通过描述来指定设备，应当和dmesg中的Product一致  </span></span><br><span class="line"><span class="comment">#ftdi_device_desc "USB&lt;=&gt;JTAG&amp;RS232"  </span></span><br><span class="line"><span class="comment">#通过PID VID指定调试器，比描述更准确些  </span></span><br><span class="line">ftdi_vid_pid 0x1457 0x5118  </span><br><span class="line"><span class="comment">#如果有多个同样的调试器，还可以指定要使用的调试器序列号  </span></span><br><span class="line"><span class="comment">#ftdi_serial  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#引脚定义，相当于旧版中的 ft2232_layout jtagkey  </span></span><br><span class="line">ftdi_layout_init 0x0c08 0x0f1b  </span><br><span class="line">ftdi_layout_signal nTRST -data 0x0100 -noe 0x0400  </span><br><span class="line">ftdi_layout_signal nSRST -data 0x0200 -noe 0x0800  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># Target configuration for the Samsung 2440 system on chip  </span></span><br><span class="line"><span class="comment"># Tested on a S3C2440 Evaluation board by keesj  </span></span><br><span class="line"><span class="comment"># Processor       : ARM920Tid(wb) rev 0 (v4l)  </span></span><br><span class="line"><span class="comment"># Info:   JTAG tap: s3c2440.cpu tap/device found: 0x0032409d (Manufacturer: 0x04e, Part: 0x0324, Version: 0x0)  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">if</span> &#123; [info exists CHIPNAME] &#125; &#123;  </span><br><span class="line">   <span class="built_in">set</span>  _CHIPNAME <span class="variable">$CHIPNAME</span>  </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">   <span class="built_in">set</span>  _CHIPNAME s3c2440  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">if</span> &#123; [info exists ENDIAN] &#125; &#123;  </span><br><span class="line">   <span class="built_in">set</span>  _ENDIAN <span class="variable">$ENDIAN</span>  </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">  <span class="comment"># this defaults to a bigendian  </span></span><br><span class="line">   <span class="built_in">set</span>  _ENDIAN little  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">if</span> &#123; [info exists CPUTAPID ] &#125; &#123;  </span><br><span class="line">   <span class="built_in">set</span> _CPUTAPID <span class="variable">$CPUTAPID</span>  </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">  <span class="comment"># force an error till we get a good number  </span></span><br><span class="line">   <span class="built_in">set</span> _CPUTAPID 0x0032409d  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#jtag scan chain  </span></span><br><span class="line">jtag newtap <span class="variable">$_CHIPNAME</span> cpu -irlen 4 -ircapture 0x1 -irmask 0x0f -expected-id <span class="variable">$_CPUTAPID</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#  </span></span><br><span class="line"><span class="comment">#jtag_rclk 3000  </span></span><br><span class="line">adapter_khz 1234  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#set _TARGETNAME $_CHIPNAME.cpu  </span></span><br><span class="line"><span class="comment">#target create $_TARGETNAME arm920t -endian $_ENDIAN -chain-position $_TARGETNAME -variant arm920t  </span></span><br><span class="line"><span class="comment">#$_TARGETNAME configure -work-area-phys 0x200000 -work-area-size 0x4000 -work-area-backup 0  </span></span><br><span class="line"><span class="comment">#arm7_9 fast_memory_access enable  </span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">set</span> _TARGETNAME <span class="variable">$_CHIPNAME</span>.cpu  </span><br><span class="line">target create <span class="variable">$_TARGETNAME</span> arm920t -chain-position <span class="variable">$_TARGETNAME</span>  </span><br><span class="line"><span class="variable">$_TARGETNAME</span> configure -work-area-phys 0x00200000 \  </span><br><span class="line">-work-area-size 0x4000 -work-area-backup 0  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#reset configuration  </span></span><br><span class="line">reset_config trst_and_srst  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#Flash CFG&lt;openocd.pdf P[74~]  </span></span><br><span class="line"><span class="comment">#flash bank name driver base size chip_width bus_width target [driver_options]  </span></span><br><span class="line"><span class="comment">#usage: flash bank &lt;name&gt; &lt;driver&gt; &lt;base&gt; &lt;size&gt; &lt;chip_width&gt; &lt;bus_width&gt; &lt;target&gt;  </span></span><br><span class="line"><span class="comment">#flash bank bank_id driver_name base_address size_bytes chip_width_bytes bus_width_bytes target [driver_options ...]  </span></span><br><span class="line">flash bank 0 cfi 0x0 0x200000 2 2 <span class="variable">$_TARGETNAME</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#NAND CFG &lt;openocd.pdf P[88~92]&gt;  </span></span><br><span class="line"><span class="comment">#nand device name driver target [ configparams... ]  </span></span><br><span class="line">nand device 0 s3c2440 <span class="variable">$_TARGETNAME</span></span><br></pre></td></tr></table></figure>
+<p>其实openocd/script/interface目录下包含多种调试器的配置文件，其下，board目录中的配置文件是比较有名的开发板(如mini2440)的配置文件，如果可以在里面找到自己的开发板，就直接用。而JZ2440需要自己配置。</p>
+<p><strong>（3）启动OpenOCD</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openocd</span><br></pre></td></tr></table></figure>
+<p>出现libusb_open()错误，其实是没有权限写设备</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$&gt; sudo openocd -f  cheng-openjtag.cfg</span><br><span class="line">...</span><br><span class="line">Info : Listening on port 6666 <span class="keyword">for</span> tcl connections</span><br><span class="line">Info : Listening on port 4444 <span class="keyword">for</span> telnet connections</span><br><span class="line">Info : clock speed 1234 kHz</span><br><span class="line">Info : JTAG tap: s3c2440.cpu tap/device found: 0x0032409d (mfg: 0x04e (Samsung), part: 0x0324, ver: 0x0)</span><br><span class="line">Info : Embedded ICE version 2</span><br><span class="line">Info : s3c2440.cpu: hardware has 2 breakpoint/watchpoint units</span><br><span class="line">Info : Listening on port 3333 <span class="keyword">for</span> gdb connections</span><br></pre></td></tr></table></figure>
+<p>表明已经成功了</p>
+<p><strong>（4）烧录</strong></p>
+<p>烧录方法参考：<a href="http://d1.amobbs.com/bbs_upload782111/files_38/ourdev_631472V6X051.pdf" target="_blank" rel="noopener">http://d1.amobbs.com/bbs_upload782111/files_38/ourdev_631472V6X051.pdf</a></p>
+<h4><span id="法2eopoflash烧录u-boot">法2，EOP+oflash烧录u-boot</span></h4><p><strong>（1）安装oflash</strong></p>
+<p>下载oflash工具：<a href="https://pan.baidu.com/s/1KGTB0jC_11W7WjzfXFvNzQ" target="_blank" rel="noopener">百度网盘</a></p>
+<p>假设下载后放在/home/cheng/ProgramFiles/Portable/oflash/bin/oflash</p>
+<p>设置PATH路径</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/profile</span><br><span class="line"><span class="comment"># 添加PATH路径</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/cheng/ProgramFiles/Portable/oflash/bin/</span><br></pre></td></tr></table></figure>
+<p><strong>（2）烧录程序</strong></p>
+<p>进入想要烧录的程序所在的目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">$ oflash u-boot.bin</span><br><span class="line"><span class="comment"># 根据提示，输入</span></span><br><span class="line"><span class="comment"># 1.选择JTAG类型为：OpenJTAG</span></span><br><span class="line"><span class="comment"># 2.选择CPU为：S3C2440</span></span><br><span class="line"><span class="comment"># 3.选择烧录到：Nor flash</span></span><br><span class="line"><span class="comment"># 4.选择偏移量为：0</span></span><br><span class="line"></span><br><span class="line">+---------------------------------------------------------+</span><br><span class="line">|   Flash Programmer v1.3 <span class="keyword">for</span> OpenJTAG of www.100ask.net  |</span><br><span class="line">|   OpenJTAG is a USB to JTAG &amp; RS232 tool based FT2232   |</span><br><span class="line">|   This programmer supports both of S3C24X0 &amp; S3C6410    |</span><br><span class="line">|   Author: Email/MSN(thisway.diy@163.com), QQ(17653039)  |</span><br><span class="line">+---------------------------------------------------------+</span><br><span class="line">Usage: </span><br><span class="line">1. oflash, run with cfg.txt or prompt</span><br><span class="line">2. oflash [file], write [file] to flash with prompt</span><br><span class="line">3. oflash [-f config_file]</span><br><span class="line">4. oflash [jtag_type] [cpu_type] [flash_type] [read_or_write] [offset] [file]</span><br><span class="line">Select the JTAG <span class="built_in">type</span>: </span><br><span class="line">0. OpenJTAG</span><br><span class="line">1. Dongle JTAG(parallel port)</span><br><span class="line">2. Wiggler JTAG(parallel port)</span><br><span class="line">Enter the number: 0</span><br><span class="line">Select the CPU:</span><br><span class="line">0. S3C2410</span><br><span class="line">1. S3C2440</span><br><span class="line">2. S3C6410</span><br><span class="line">Enter the number: 1</span><br><span class="line"></span><br><span class="line"><span class="string">'ft2232'</span> interface using libftdi with <span class="string">'jtagkey'</span> layout (1457:5118)</span><br><span class="line">current latency timer: 2</span><br><span class="line">FTDI chip <span class="built_in">type</span>: 2 <span class="string">"2232C"</span>S3C2440 detected, cpuID = 0x0032409d</span><br><span class="line"></span><br><span class="line">[Main Menu]</span><br><span class="line"> 0:Nand Flash prog     1:Nor Flash prog   2:Memory Rd/Wr     3:Exit            </span><br><span class="line">Select the <span class="keyword">function</span> to <span class="built_in">test</span>:1</span><br><span class="line">Detect Nor Flash ...</span><br><span class="line">MXIC MX29LV160B </span><br><span class="line">Size: 2 MB</span><br><span class="line"></span><br><span class="line">Image Size: 0x304bc</span><br><span class="line"></span><br><span class="line">Available Target Offset:</span><br><span class="line"></span><br><span class="line">Bank <span class="comment"># 1: MXIC MX29LV160B FLASH (16 x 16)  Size: 2 MB in 35 Sectors</span></span><br><span class="line">  AMD Standard <span class="built_in">command</span> <span class="built_in">set</span>, Manufacturer ID: 0xC2, Device ID: 0x2249</span><br><span class="line">  Erase timeout: 30000 ms, write timeout: 100 ms</span><br><span class="line"></span><br><span class="line">Sector Start Addresses:</span><br><span class="line">00000000  00004000  00006000  00008000  00010000  </span><br><span class="line">00020000  00030000  00040000  00050000  00060000  </span><br><span class="line">00070000  00080000  00090000  000A0000  000B0000  </span><br><span class="line">000C0000  000D0000  000E0000  000F0000  00100000  </span><br><span class="line">00110000  00120000  00130000  00140000  00150000  </span><br><span class="line">00160000  00170000  00180000  00190000  001A0000  </span><br><span class="line">001B0000  001C0000  001D0000  001E0000  001F0000  </span><br><span class="line">Input target offset:0</span><br><span class="line">Erasing ....... <span class="keyword">done</span></span><br><span class="line">write ...</span><br><span class="line">100%<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h4><span id="法3使用ubootdnw烧录程序">法3，使用uboot+dnw烧录程序</span></h4><p>​    dnw实现USB传输文件的功能，可以结合dnw和u-boot的USB功能，快速的将文件下载，烧录到开发板中。</p>
+<p><strong>直接使用现成dnw</strong></p>
+<p><strong>（1）下载安装</strong></p>
+<p>下载地址：<a href="https://pan.baidu.com/s/1KnIZF27eiKmYUXNknvJZSw" target="_blank" rel="noopener">百度网盘</a></p>
+<p>可以去github上下载，自己编译安装：<a href="https://github.com/changbindu/dnw-linux" target="_blank" rel="noopener">dnw-linux</a>，按照其中的步骤，make，makeinstall，安装完毕。</p>
+<p><strong>（2）配置PATH路径</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加以下内容</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/home/cheng/ProgramFiles/Portable/dnw/bin/</span><br></pre></td></tr></table></figure>
+<p><strong>（3）烧录程序</strong></p>
+<p>烧录程序之前，确保：</p>
+<ul>
+<li>已经安装picocom、oflash、dnw</li>
+<li>已经将uboot烧录到JZ2440上</li>
+<li>已经将启动的拨码开关拨到Nor启动（即用于启动uboot）</li>
+<li>已经将板子的USB口和COM口连上电脑</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.打开串口调试工具</span></span><br><span class="line">sudo picocom -b 115200 /dev/ttyUSB0</span><br><span class="line"><span class="comment"># 2.按下复位按键，进入uboot</span></span><br><span class="line">+---------------------------------------------+</span><br><span class="line">| S3C2440A USB Downloader ver R0.03 2004 Jan  |</span><br><span class="line">+---------------------------------------------+</span><br><span class="line">USB: IN_ENDPOINT:1 OUT_ENDPOINT:3</span><br><span class="line">FORMAT: &lt;ADDR(DATA):4&gt;+&lt;SIZE(n+10):4&gt;+&lt;DATA:n&gt;+&lt;CS:2&gt;</span><br><span class="line">NOTE: Power off/on or press the reset button <span class="keyword">for</span> 1 sec</span><br><span class="line">      <span class="keyword">in</span> order to get a valid USB device address.</span><br><span class="line"></span><br><span class="line">Hit any key to stop autoboot:  2</span><br><span class="line"><span class="comment"># 3.在上面2s的倒计时计数之前，按下空格，进入uboot菜单，如下：</span></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">[n] Download u-boot to Nand Flash</span><br><span class="line">[o] Download u-boot to Nor Flash</span><br><span class="line">[c] Re-scan Nor Flash</span><br><span class="line">[u] Copy bootloader from nand to nor</span><br><span class="line">[v] Copy bootloader from nor to nand</span><br><span class="line">[k] Download Linux kernel uImage</span><br><span class="line">[j] Download root_jffs2 image</span><br><span class="line">[y] Download root_yaffs image</span><br><span class="line">[d] Download to SDRAM &amp; Run</span><br><span class="line">[z] Download zImage into RAM</span><br><span class="line">[g] Boot linux from RAM</span><br><span class="line">[f] Format the Nand Flash</span><br><span class="line">[s] Set the boot parameters</span><br><span class="line">[b] Boot the system</span><br><span class="line">[r] Reboot u-boot</span><br><span class="line">[q] Quit from menu</span><br><span class="line">Enter your selection: </span><br><span class="line"><span class="comment"># 4.选择n，表示通过uboot下载程序到Nand flash中，正处于等待从USB下载程序的状态</span></span><br><span class="line">Enter your selection: n</span><br><span class="line">USB host is connected. Waiting a download.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5.打开另一个终端窗口，使用dnw下载程序</span></span><br><span class="line">$ dnw /home/cheng/led/led.bin	<span class="comment"># 可以使用相对路径也可以使用绝对路径</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 6.一瞬间下载成功，此时可以看到第一个终端窗口又显示uboot菜单</span></span><br><span class="line">Now, Downloading [ADDRESS:30000000h,TOTAL:46]</span><br><span class="line">RECEIVED FILE SIZE:      46 (0KB/S, 1S)</span><br><span class="line"></span><br><span class="line">NAND erase: device 0 offset 0x0, size 0x40000</span><br><span class="line">Erasing at 0x20000 -- 100% complete.</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">NAND write: device 0 offset 0x0, size 0x24</span><br><span class="line"></span><br><span class="line">Writing data at 0x0 -- 100% complete.</span><br><span class="line"> 36 bytes written: OK</span><br><span class="line"></span><br><span class="line"><span class="comment">##### 100ask Bootloader for OpenJTAG #####</span></span><br><span class="line">[n] Download u-boot to Nand Flash</span><br><span class="line">[o] Download u-boot to Nor Flash</span><br><span class="line">[c] Re-scan Nor Flash</span><br><span class="line">[u] Copy bootloader from nand to nor</span><br><span class="line">[v] Copy bootloader from nor to nand</span><br><span class="line">[k] Download Linux kernel uImage</span><br><span class="line">[j] Download root_jffs2 image</span><br><span class="line">[y] Download root_yaffs image</span><br><span class="line">[d] Download to SDRAM &amp; Run</span><br><span class="line">[z] Download zImage into RAM</span><br><span class="line">[g] Boot linux from RAM</span><br><span class="line">[f] Format the Nand Flash</span><br><span class="line">[s] Set the boot parameters</span><br><span class="line">[b] Boot the system</span><br><span class="line">[r] Reboot u-boot</span><br><span class="line">[q] Quit from menu</span><br><span class="line">Enter your selection: </span><br><span class="line"></span><br><span class="line"><span class="comment"># 7.将启动拨码开关，拨到Nand启动，复位，则可以看到led亮了，说明下载成功  O(∩_∩)O~~</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1427,7 +1562,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/操作系统/ucore启动过程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/日常/github-page-theme/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeetCheng">
@@ -1446,8 +1581,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/23/操作系统/ucore启动过程/" itemprop="url">
-                  ucore启动过程分析
+                <a class="post-title-link" href="/2018/06/13/日常/github-page-theme/" itemprop="url">
+                  Hexo更换NexT主题
                 </a>
               
             
@@ -1473,7 +1608,7 @@
                 
               
 
-              <time title="创建时间：2018-05-23 12:09:27" itemprop="dateCreated datePublished" datetime="2018-05-23T12:09:27+08:00">2018-05-23</time>
+              <time title="创建时间：2018-06-13 21:46:41" itemprop="dateCreated datePublished" datetime="2018-06-13T21:46:41+08:00">2018-06-13</time>
             
 
             
@@ -1490,7 +1625,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-13 21:39:00" itemprop="dateModified" datetime="2018-06-13T21:39:00+08:00">2018-06-13</time>
+                <time title="修改时间：2018-06-22 18:45:43" itemprop="dateModified" datetime="2018-06-22T18:45:43+08:00">2018-06-22</time>
               
             
           </span>
@@ -1504,10 +1639,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/23/操作系统/ucore启动过程/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/13/日常/github-page-theme/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/23/操作系统/ucore启动过程/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/13/日常/github-page-theme/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1537,29 +1672,27 @@
       
         
           
-            <!-- toc-->
-<h2><span id="ucore启动过程简介">ucore启动过程简介</span></h2><ol>
-<li>CPU上电，CS = F000，EIP = FFF0,而CS 的影子寄存器Base = FFFF0000；i386的启动地址为Base + EIP = FFFFFFF0</li>
-<li>物理地址0xFFFFFFF0是BIOS的起始地址，其中存放一条长跳转指令，跳转到物理地址0xFFFF0（为了兼容8086,80286），从0xFFFF0开始执行BIOS程序，自检，查找启动设备</li>
-<li>BIOS加载bootloader到物理地址0x7C00（这是BIOS厂商和操作系统厂商共同约定的地址），加载后跳转到0x7c00，开始执行bootloader程序</li>
-<li>bootloader设置段表，开启段机制，进入保护模式，因为段表的设置，虚拟地址 = 线性地址  = 物理地址</li>
-<li>bootloader读取硬盘加载内核文件kern的前8个扇区到物理地址0x10000，（8个扇区，共4K字节，即一个block)，分析ELF文件头，得到内核程序的起始地址</li>
-<li>bootloader正式加载内核的程序部分（包含数据段、代码段、bss段等…）到物理地址 0x100000，跳转到内核程序的起始地址，即0x100000，开始执行内核程序</li>
-<li>内核设置页表，开启页机制，从此虚拟地址 = 线性地址 ==&gt; 物理地址，（虚拟地址不再直接等于物理地址）</li>
-<li>内核初始化：控制台初始化，物理内存管理初始化，中断控制器初始化，IDT初始化，时钟初始化，中断使能。</li>
-</ol>
-<h2><span id="物理内存探测">物理内存探测</span></h2><p>​    操作系统需要知道计算机有多大的物理内存，才能进行管理。这一工作在bootloader中完成，利用BIOS中断调用来实现（BIOS中断INT 15h，参数为e820h）。</p>
-<p>​    INT 15中断调用原型如下：</p>
-<blockquote>
-<p><strong>int 15中断调用</strong><br><strong>输入参数</strong><br>1.eax：INT 15的中断调用参数，这里输入e820h<br>2.edx：534D4150h (即4个ASCII字符“SMAP”)，固定签名<br>3.ebx：若为第一次调用或内存区域扫描完毕，则为0；否则，存放上次调用之后的计数值<br>4.ecx：指定输出缓冲区的大小，应该大于等于20字节<br>5.es:di：指定输出缓冲区的地址</p>
-<p><strong>输出参数</strong><br>1.cflags的CF位：int 15执行成功–&gt;0；int 15执行失败–&gt;1<br>2.eax：534D4150h (‘SMAP’)<br>3.es:di：输出缓冲区（BIOS将扫描结果放在其中）<br>4.ebx：下一个地址范围描述符的计数地址<br>5.ecx：返回BIOS往输出缓冲区写入的字节数<br>6.ah：失败时的错误代码</p>
-<p><strong>BIOS一次返回的数据格式，共20字节</strong></p>
-<p>+—————————–+&lt;——-8字节<br>|         系统内存          |<br>|         块基地址          |<br>+—————————–+&lt;——–8字节<br>|             系统              |<br>|           内存大小          |<br>+—————————–+&lt;——–4字节<br>|          内存类型         |<br>+—————————–+</p>
-</blockquote>
-<p>用结构体来存返回的数据</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">e820map</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> nr_map;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">        <span class="keyword">uint64_t</span> addr;	<span class="comment">// 对应上图的系统内存基地址</span></span><br><span class="line">        <span class="keyword">uint64_t</span> size;	<span class="comment">// 对应上图的系统内存大小</span></span><br><span class="line">        <span class="keyword">uint32_t</span> type;	<span class="comment">// 对应上图的内存类型</span></span><br><span class="line">    &#125; __attribute__((packed)) <span class="built_in">map</span>[E820MAX];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>源码对照上面的调用原型理解</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">probe_memory:</span><br><span class="line">    movl $0, 0x8000			# 0x8000 ---&gt; nr_map = 0</span><br><span class="line">    xorl %ebx, %ebx			</span><br><span class="line">    movw $0x8004, %di		# 0x8004 ---&gt; </span><br><span class="line">start_probe:</span><br><span class="line">    movl $0xE820, %eax</span><br><span class="line">    movl $20, %ecx</span><br><span class="line">    movl $SMAP, %edx</span><br><span class="line">    int $0x15</span><br><span class="line">    jnc cont</span><br><span class="line">    movw $12345, 0x8000</span><br><span class="line">    jmp finish_probe</span><br><span class="line">cont:</span><br><span class="line">    addw $20, %di</span><br><span class="line">    incl 0x8000</span><br><span class="line">    cmpl $0, %ebx</span><br><span class="line">    jnz start_probe</span><br><span class="line">finish_probe:</span><br><span class="line">	......</span><br></pre></td></tr></table></figure>
+            <p>使用next主题</p>
+<h3><span id="下载主题">下载主题</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/Documents/Hexo</span><br><span class="line">$ mkdir themes/next</span><br><span class="line">$ curl -s https://api.github.com/repos/iissnan/hexo-theme-next/releases/latest | grep tarball_url | cut -d <span class="string">'"'</span> -f 4 | wget -i - -O- | tar -zx -C themes/next --strip-components=1</span><br></pre></td></tr></table></figure>
+<h3><span id="开启next主题">开启next主题</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vim _config.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件中theme字段，主题改为next</span></span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<p>清除一下，然后重新启动hexo本地站点，并开启调试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean | hexo s --debug</span><br></pre></td></tr></table></figure>
+<p>浏览器登陆 <a href="https://localhost:4000" target="_blank" rel="noopener">https://localhost:4000</a></p>
+<h3><span id="添加第三方插件">添加第三方插件</span></h3><h4><span id="搜索">搜索</span></h4><p>(1) 安装hexo-generator-searchdb插件</p>
+<p>进入站点的根目录，执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p>(2) 编辑站点配置文件</p>
+<p>在根目录下的_config.yml，插入以下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># local search</span></span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  <span class="built_in">limit</span>: 10000</span><br></pre></td></tr></table></figure>
+<p>(3) 编辑主题配置文件</p>
+<p>NexT主题目录下的_config.yml，找到以下内容，设置enable: true</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line">local_search:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h4><span id="阅读统计">阅读统计</span></h4><p>使用不蒜子统计</p>
+<p>编辑主题配置文件的<code>busuanzi_count</code>的配置项</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span>	<span class="comment"># 全局总开关</span></span><br><span class="line"></span><br><span class="line">  site_uv: <span class="literal">true</span>	<span class="comment"># 用户访问量开关</span></span><br><span class="line">  site_pv: <span class="literal">true</span>	<span class="comment"># 站点访问量开关</span></span><br><span class="line">  page_pv: <span class="literal">true</span>	<span class="comment"># 页访问量开关</span></span><br></pre></td></tr></table></figure>
+<h3><span id="参考文献">参考文献</span></h3><p>[1] <a href="https://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT开始使用</a></p>
+<p>[2] <a href="http://theme-next.iissnan.com/third-party-services.html#comment-system" target="_blank" rel="noopener">第三方服务集成</a></p>
+<p>[3] <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">Next github详细介绍</a></p>
 
           
         
@@ -1613,7 +1746,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/计算机基础/memory-manage/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/操作系统/linux-task-thread/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeetCheng">
@@ -1632,8 +1765,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/21/计算机基础/memory-manage/" itemprop="url">
-                  存储管理
+                <a class="post-title-link" href="/2018/06/11/操作系统/linux-task-thread/" itemprop="url">
+                  linux的内核线程，普通进程和普通线程
                 </a>
               
             
@@ -1659,7 +1792,7 @@
                 
               
 
-              <time title="创建时间：2018-05-21 14:55:07" itemprop="dateCreated datePublished" datetime="2018-05-21T14:55:07+08:00">2018-05-21</time>
+              <time title="创建时间：2018-06-11 14:23:38" itemprop="dateCreated datePublished" datetime="2018-06-11T14:23:38+08:00">2018-06-11</time>
             
 
             
@@ -1676,7 +1809,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-10-19 22:53:34" itemprop="dateModified" datetime="2018-10-19T22:53:34+08:00">2018-10-19</time>
               
             
           </span>
@@ -1690,10 +1823,212 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/21/计算机基础/memory-manage/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/11/操作系统/linux-task-thread/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/21/计算机基础/memory-manage/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/11/操作系统/linux-task-thread/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>进程/线程的描述</strong></p>
+<p>​    严格来说，Linux中并没有真正的线程，而是共享地址空间的一组进程来实现线程的功能，不过我们还是使用线程这个术语。在操作系统原理中我们知道，操作系统既有进程控制块PCB又有线程控制块TCB。然而在Linux中，进程和线程的控制块都用数据结构task_struct来表示，线程并没有自己独立的线程控制块。</p>
+<p>​    同一个进程中的线程共享地址空间，共享堆，但是并不共享栈。由于地址空间是由mm_struct和页表描述的，也就是说线程间也共享页表。</p>
+<blockquote>
+<p>mm_struct负责描述进程/线程的虚拟地址空间，页表则负责将虚拟地址空间描述成物理地址空间。</p>
+</blockquote>
+<p>每个进程/线程在内核中都有一个与之相对应的内核栈。当创建一个新的进程/线程时，内核为进程/线程创建了</p>
+<ul>
+<li>进程/线程描述符(task_struct)</li>
+<li>在内核地址空间中申请了两页的空间作为该进程/线程的内核栈。</li>
+</ul>
+<p>准确的说，这两页的空间低地址处放了一个thread_info数据结构，指向进程描述符，剩下的空间才是真的拿来做内核栈的。</p>
+<p>进程描述符其实也有一个指针指向thread_info数据结构</p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/3152712.jpg" alt=""></p>
+<p><strong>内核栈，进程栈，线程栈和中断栈</strong></p>
+<p>（1）操作系统创建进程时，会在用户地址空间创建进程栈，同时在内核空间为该进程也创建一个内核栈。</p>
+<ul>
+<li>用户进程在用户态下运行，使用进程栈。</li>
+<li>当其陷入内核态时，使用内核栈。</li>
+</ul>
+<p>（2）操作系统创建线程时，除了复制主进程的地址空间外，还会为每个线程创建一个独立的线程栈，当然在内核空间也创建了一个内核栈。</p>
+<p>（3）操作系统初始化时，就已经在内核空间中创建了一个中断栈，中断服务例程调用函数时就会用到该中断栈。</p>
+<p><strong>系统启动时的内核线程</strong></p>
+<p>系统正式启动时，会执行 start_kernel 函数，其中创建了第一个进程，名为init_task，其PID=0，运行于内核态。</p>
+<p>然后init_task会创建内核线程init，其PID=1，运行于内核态，完成内核空间的初始化。完成内核空间初始化后，载入/sbin/init可执行程序，变成普通进程，仍有PID=1，运行于用户态。</p>
+<p>接着init_task进程演变成idle进程，仍有PID=0。</p>
+<p>idle进程又会创建kthreadd内核线程，其PID=2，用来创建并管理其他内核线程。</p>
+<p><strong>虚拟内存地址空间</strong></p>
+<p>系统内核常驻于物理内存中，并不会被换出。</p>
+<p><strong>页表</strong></p>
+<p>有两种页表，一种是内核页表，一种是进程页表</p>
+<p>内核页表，称为主内核页全局目录，它的作用应该是作为一个模板，不管是普通进程还是内核线程都不能访问。</p>
+<p>进程页表，最开始的部分映射0~3G的地址空间，后面部分映射内核地址空间3~4G，其内容就是从内核页表中复制过来的，完全一样。所以普通进程只要陷入内核态，就可以处理系统调用和中断/异常。即当系统调用，中断或异常发生时，只需要切换CPU上下文，而不需要切换进程上下文。</p>
+<p><strong>内核线程如何访问页表</strong></p>
+<p>尽管内核中存在内核页表，但是不管是普通进程还是内核线程都不能访问它。普通进程有自己的页表，要访问页表自然是轻而易举。但是内核线程没有自己的页表，它该如何是好？</p>
+<p>既然普通进程有页表，内核页表却不能访问，那内核线程访问普通进程的页表不就可以了吗？普通进程对应于内核空间的页表内容是从内核页表中复制过来的，因此内核线程可以找到内核空间。</p>
+<h3><span id="参考文献">参考文献</span></h3><p>[1] <a href="http://abcdxyzk.github.io/blog/2018/01/10/kernel-task-thread/" target="_blank" rel="noopener">Linux 内核线程及普通进程总结</a></p>
+<p>[2] <a href="https://blog.csdn.net/yangkuanqaz85988/article/details/52403726" target="_blank" rel="noopener">Linux 中的各种栈：进程栈 线程栈 内核栈 中断栈</a></p>
+<p>这两篇博客都写得非常好！</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/操作系统/os-keywords/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/09/操作系统/os-keywords/" itemprop="url">
+                  操作系统关键词
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-09 17:59:12" itemprop="dateCreated datePublished" datetime="2018-06-09T17:59:12+08:00">2018-06-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-19 22:53:34" itemprop="dateModified" datetime="2018-10-19T22:53:34+08:00">2018-10-19</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/09/操作系统/os-keywords/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/09/操作系统/os-keywords/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1724,36 +2059,29 @@
         
           <!-- toc -->
 <ul>
-<li><a href="#逻辑地址的生成">逻辑地址的生成</a></li>
-<li><a href="#地址检查">地址检查</a><ul>
-<li><a href="#连续存储分配方式">连续存储分配方式</a></li>
-<li><a href="#非连续存储分配方式">非连续存储分配方式</a></li>
-</ul>
-</li>
-<li><a href="#段式存储">段式存储</a></li>
-<li><a href="#页式存储">页式存储</a></li>
-<li><a href="#页式存储的两个问题">页式存储的两个问题</a><ul>
-<li><a href="#解决方法1快表">解决方法1：快表</a></li>
-<li><a href="#解决方法2多级页表">解决方法2：多级页表</a></li>
-</ul>
-</li>
-<li><a href="#段页式存储">段页式存储</a><ul>
-<li><a href="#虚拟存储技术">虚拟存储技术</a></li>
-</ul>
-</li>
+<li><a href="#第1章-计算机系统概述">第1章 计算机系统概述</a></li>
+<li><a href="#第2章-操作系统概述">第2章 操作系统概述</a></li>
+<li><a href="#第3章-进程描述和控制">第3章 进程描述和控制</a></li>
+<li><a href="#第4章-线程-对称多处理和微内核">第4章 线程、对称多处理和微内核</a></li>
+<li><a href="#第5章-并发性互斥和同步">第5章 并发性：互斥和同步</a></li>
+<li><a href="#第6章-并发死锁和饥饿">第6章 并发：死锁和饥饿</a></li>
+<li><a href="#第7章-内存管理">第7章 内存管理</a></li>
+<li><a href="#第8章-虚拟内存">第8章 虚拟内存</a></li>
+<li><a href="#第9章-单处理器调度">第9章 单处理器调度</a></li>
+<li><a href="#第10章-多处理器和实时调度">第10章 多处理器和实时调度</a></li>
+<li><a href="#第11章-io管理和磁盘调度">第11章 I/O管理和磁盘调度</a></li>
+<li><a href="#第12章-文件管理">第12章 文件管理</a></li>
+<li><a href="#第13章-嵌入式操作系统">第13章 嵌入式操作系统</a></li>
+<li><a href="#第14章-计算机安全威胁">第14章 计算机安全威胁</a></li>
+<li><a href="#第15章-计算机安全技术">第15章 计算机安全技术</a></li>
+<li><a href="#第16章-分布式处理-客户服务器和集群">第16章 分布式处理、客户/服务器和集群</a></li>
 </ul>
 <!-- tocstop -->
-<h3 id="逻辑地址的生成"><a href="#逻辑地址的生成" class="headerlink" title="逻辑地址的生成"></a>逻辑地址的生成</h3><ol>
-<li>编译</li>
-<li>汇编</li>
-<li>链接</li>
-<li>加载(重定位)</li>
-</ol>
-<p>一步一步生成程序的逻辑地址，但还没到物理地址。经过硬件MMU的转换之后才能得到真正的物理地址。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-21/65238552.jpg" alt=""></p>
+<h3 id="第1章-计算机系统概述"><a href="#第1章-计算机系统概述" class="headerlink" title="第1章 计算机系统概述"></a>第1章 计算机系统概述</h3><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/48368817.jpg" alt=""></p>
+<h3 id="第2章-操作系统概述"><a href="#第2章-操作系统概述" class="headerlink" title="第2章 操作系统概述"></a>第2章 操作系统概述</h3><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/44410375.jpg" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/21/计算机基础/memory-manage/#more" rel="contents">
+            <a class="btn" href="/2018/06/09/操作系统/os-keywords/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1809,7 +2137,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/19/操作系统/os-boot/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/操作系统/ucore实验环境搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeetCheng">
@@ -1828,8 +2156,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/19/操作系统/os-boot/" itemprop="url">
-                  计算机启动过程
+                <a class="post-title-link" href="/2018/06/09/操作系统/ucore实验环境搭建/" itemprop="url">
+                  ucore实验环境搭建
                 </a>
               
             
@@ -1855,7 +2183,7 @@
                 
               
 
-              <time title="创建时间：2018-05-19 09:30:40" itemprop="dateCreated datePublished" datetime="2018-05-19T09:30:40+08:00">2018-05-19</time>
+              <time title="创建时间：2018-06-09 17:55:46" itemprop="dateCreated datePublished" datetime="2018-06-09T17:55:46+08:00">2018-06-09</time>
             
 
             
@@ -1872,7 +2200,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-10-19 22:53:34" itemprop="dateModified" datetime="2018-10-19T22:53:34+08:00">2018-10-19</time>
               
             
           </span>
@@ -1886,10 +2214,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/19/操作系统/os-boot/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/09/操作系统/ucore实验环境搭建/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/19/操作系统/os-boot/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/09/操作系统/ucore实验环境搭建/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1918,217 +2246,35 @@
 
       
         
-          <!--toc-->
-<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><h3 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h3><p>（1）.word和.long</p>
-<p>bootasm.S中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gdtdesc:</span><br><span class="line">    .word 0x17                                      # sizeof(gdt) - 1</span><br><span class="line">    .long gdt                                       # address gdt</span><br></pre></td></tr></table></figure>
-<p>.word代表2个字节，.long代表4个字节。因此gdtdesc下占用了6个字节。</p>
-<p>（2）ljmp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ljmp $PROT_MODE_CSEG, $protcseg</span><br></pre></td></tr></table></figure>
-<p>ljmp 段选择子，段偏移量</p>
-<h3 id="attribute"><a href="#attribute" class="headerlink" title="_attribute_"></a>_attribute_</h3><p>GNU C有一种_attribute_ 的机制，用于辅助编译器检查和编译，可以设置：</p>
+          <!-- toc -->
 <ul>
-<li>函数属性</li>
-<li>变量属性</li>
-<li>类型属性</li>
+<li><a href="#安装工具">安装工具</a><ul>
+<li><a href="#配置eclipse">配置eclipse</a></li>
+<li><a href="#使用eclipse调试">使用eclipse调试</a></li>
+<li><a href="#使用命令行运行">使用命令行运行</a></li>
+<li><a href="#使用命令行调试">使用命令行调试</a></li>
 </ul>
+</li>
+<li><a href="#安装gitbook">安装gitbook</a><ul>
+<li><a href="#下载实验手册">下载实验手册</a></li>
+</ul>
+</li>
+<li><a href="#参考文献">参考文献</a></li>
+</ul>
+<!-- tocstop -->
+<h2 id="安装工具"><a href="#安装工具" class="headerlink" title="安装工具"></a>安装工具</h2><ul>
+<li>qemu    硬件模拟器</li>
+<li>eclipse    c/c++代码阅读器</li>
+<li>understand     代码分析工具</li>
+<li>meld        文件对比工具（图形界面）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install qemu-system-x86</span><br><span class="line">sudo apt-get install eclipse-cdt</span><br><span class="line">sudo apt-get install meld</span><br></pre></td></tr></table></figure>
+<h3 id="配置eclipse"><a href="#配置eclipse" class="headerlink" title="配置eclipse"></a>配置eclipse</h3><p><strong>安装插件 “Zylin Embedded CDT”</strong></p>
+<p>进入菜单help-&gt; install new software，填上以下内容，然后next直到完成。</p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/91399195.jpg" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/操作系统/os-boot/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/19/日常/搭建gitpage博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/19/日常/搭建gitpage博客/" itemprop="url">
-                  搭建githubpage博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-19 07:50:37" itemprop="dateCreated datePublished" datetime="2018-05-19T07:50:37+08:00">2018-05-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-18 10:55:36" itemprop="dateModified" datetime="2018-09-18T10:55:36+08:00">2018-09-18</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/折腾/" itemprop="url" rel="index"><span itemprop="name">折腾</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/19/日常/搭建gitpage博客/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/19/日常/搭建gitpage博客/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <!--toc-->
-<h2 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1. 创建仓库"></a>1. 创建仓库</h2><p>登录github，创建仓库：用户名.github.io</p>
-<h2 id="2-配置SSH"><a href="#2-配置SSH" class="headerlink" title="2. 配置SSH"></a>2. 配置SSH</h2><h3 id="2-1-生成SSH密钥和公钥"><a href="#2-1-生成SSH密钥和公钥" class="headerlink" title="2.1 生成SSH密钥和公钥"></a>2.1 生成SSH密钥和公钥</h3><p>通过ssh方式来保证安全性。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"邮件地址"</span></span><br></pre></td></tr></table></figure>
-<p>连按三次enter键，使用默认配置即可。这样会生成 ~/.ssh目录，其中包含</p>
-<ul>
-<li>id_rsa——密钥</li>
-<li>id_rsa.pub——公钥</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/日常/搭建gitpage博客/#more" rel="contents">
+            <a class="btn" href="/2018/06/09/操作系统/ucore实验环境搭建/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2173,7 +2319,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2216,7 +2362,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2235,7 +2381,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2288,7 +2440,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2833,6 +2999,35 @@
   
 
   
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+
 
   
   

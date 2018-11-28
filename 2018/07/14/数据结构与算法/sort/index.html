@@ -117,9 +117,9 @@
 <meta property="og:description" content="插入排序和希尔排序属于同一类，希尔排序是在插入排序的基础上改进的：是缩小增量的多次插入排序 插入排序 插入排序的思路是： 1.读取元素A[i]，保存到Tmp 2.让Tmp跟A[i]前面的元素比较，如果Tmp比较小，就让被比较的元素往前挪 3.直到Tmp≥某个元素之后，停止挪动，把Tmp的值存到该元素前面  123456789101112void InsertionSort( ElementType">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://images2017.cnblogs.com/blog/849589/201710/849589-20171015225645277-1151100000.gif">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-7-14/1979998.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-7-14/78023857.jpg">
-<meta property="og:updated_time" content="2018-07-14T15:21:18.000Z">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/1979998.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/78023857.jpg">
+<meta property="og:updated_time" content="2018-10-19T14:53:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="插入排序和希尔排序">
 <meta name="twitter:description" content="插入排序和希尔排序属于同一类，希尔排序是在插入排序的基础上改进的：是缩小增量的多次插入排序 插入排序 插入排序的思路是： 1.读取元素A[i]，保存到Tmp 2.让Tmp跟A[i]前面的元素比较，如果Tmp比较小，就让被比较的元素往前挪 3.直到Tmp≥某个元素之后，停止挪动，把Tmp的值存到该元素前面  123456789101112void InsertionSort( ElementType">
@@ -374,12 +374,24 @@
                 
               
 
-              <time title="创建时间：2018-07-14 09:20:12 / 修改时间：23:21:18" itemprop="dateCreated datePublished" datetime="2018-07-14T09:20:12+08:00">2018-07-14</time>
+              <time title="创建时间：2018-07-14 09:20:12" itemprop="dateCreated datePublished" datetime="2018-07-14T09:20:12+08:00">2018-07-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-19 22:53:35" itemprop="dateModified" datetime="2018-10-19T22:53:35+08:00">2018-10-19</time>
               
             
           </span>
@@ -442,12 +454,12 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">( ElementType A[ ], <span class="keyword">int</span> Length )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i, j;</span><br><span class="line">  ElementType Tmp;</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt; Length; i++)	<span class="comment">// A[0]前面没有元素了，不用插入，因此从下标1开始</span></span><br><span class="line">  &#123;</span><br><span class="line">    Tmp = A[i];						</span><br><span class="line">    <span class="keyword">for</span>(j = i; j &gt; <span class="number">0</span> &amp;&amp; Tmp &lt; A[j - <span class="number">1</span>]; j--)</span><br><span class="line">      A[j] = A[j - <span class="number">1</span>];</span><br><span class="line">    A[j] = Tmp;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>希尔排序</strong></p>
 <p>动态图可以查看<a href="https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html</a></p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-7-14/1979998.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/1979998.jpg" alt=""></p>
 <p>增量从Length/2开始，不断缩小。</p>
 <p><strong>（1）4-排序</strong></p>
 <p>i从增量4开始，不断加1，直到最后一个元素的下标</p>
 <p>然后对i所指的元素所在的分组进行插入排序</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-7-14/78023857.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/78023857.jpg" alt=""></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Shellsort</span><span class="params">( ElementType A[ ], <span class="keyword">int</span> Length )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, Increment;</span><br><span class="line">    <span class="keyword">for</span>(Increment = Length/<span class="number">2</span>; Increment &gt; <span class="number">0</span>; Increment /= <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ElementType Tmp;</span><br><span class="line">        <span class="keyword">for</span>(i = Increment; i &lt; Length; i++)     <span class="comment">// 从Increment到最后一个元素，对每个元素</span></span><br><span class="line">        &#123;</span><br><span class="line">            Tmp = A[i];</span><br><span class="line">            <span class="keyword">for</span>(j = i; j &gt;= Increment &amp;&amp; Tmp &lt; A[j - Increment]; j -= Increment)</span><br><span class="line">                A[j] = A[j - Increment];</span><br><span class="line">            A[j] = Tmp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可以看到希尔排序与插入排序是非常相似的。</p>
 <p>当Increment=1时，执行的就是插入排序。</p>
@@ -568,7 +580,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -587,7 +599,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -640,7 +658,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1206,6 +1238,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

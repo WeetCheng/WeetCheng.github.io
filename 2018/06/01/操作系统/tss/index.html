@@ -116,16 +116,16 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="TSS任务状态段中记录了处理器为了管理任务所需要的信息。  其中包含两类信息：  动态信息：即在切换任务的时候，处理器会更新的信息。包括： 通用寄存器 段寄存器 标志寄存器 指令寄存器 上一任务的TSS对应的段选择子   静态信息：即处理器只读，但不会修改的信息。包括 任务的LDT对应的段选择子 任务的页目录表的基地址   (PDBR) 栈指针   (从特权级0到2都有) T标志位（debug标志">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-1/32170859.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-1/37375677.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-1/73317647.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-1/60935710.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-1/24630204.jpg">
-<meta property="og:updated_time" content="2018-06-09T06:24:10.000Z">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/32170859.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/37375677.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/73317647.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/60935710.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/24630204.jpg">
+<meta property="og:updated_time" content="2018-10-19T14:53:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="任务状态段TSS">
 <meta name="twitter:description" content="TSS任务状态段中记录了处理器为了管理任务所需要的信息。  其中包含两类信息：  动态信息：即在切换任务的时候，处理器会更新的信息。包括： 通用寄存器 段寄存器 标志寄存器 指令寄存器 上一任务的TSS对应的段选择子   静态信息：即处理器只读，但不会修改的信息。包括 任务的LDT对应的段选择子 任务的页目录表的基地址   (PDBR) 栈指针   (从特权级0到2都有) T标志位（debug标志">
-<meta name="twitter:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-1/32170859.jpg">
+<meta name="twitter:image" content="https://github.com/WeetCheng/image/raw/master/blogs/32170859.jpg">
 
 
 
@@ -393,7 +393,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-10-19 22:53:34" itemprop="dateModified" datetime="2018-10-19T22:53:34+08:00">2018-10-19</time>
               
             
           </span>
@@ -447,7 +447,7 @@
 
       
         <h3><span id="tss">TSS</span></h3><p>任务状态段中记录了处理器为了管理任务所需要的信息。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/32170859.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/32170859.jpg" alt=""></p>
 <p>其中包含两类信息：</p>
 <ul>
 <li>动态信息：即在切换任务的时候，处理器会更新的信息。包括：<ul>
@@ -467,11 +467,11 @@
 </ul>
 </li>
 </ul>
-<h3><span id="tss描述符">TSS描述符</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/37375677.jpg" alt=""></p>
-<h3><span id="tr寄存器task-register">TR寄存器(Task register)</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/73317647.jpg" alt=""></p>
+<h3><span id="tss描述符">TSS描述符</span></h3><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/37375677.jpg" alt=""></p>
+<h3><span id="tr寄存器task-register">TR寄存器(Task register)</span></h3><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/73317647.jpg" alt=""></p>
 <p>TR寄存器里存放的是逻辑地址。因此跟普通的由逻辑地址-&gt;线性地址步骤一样</p>
-<h3><span id="任务门描述符">任务门描述符</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/60935710.jpg" alt=""></p>
-<p>任务可以通过人物们描述符或TSS描述符被访问，LDT中任务门，LDT中的任务门可指向相同的任务<img src="http://p65ksscu3.bkt.clouddn.com/18-6-1/24630204.jpg" alt=""></p>
+<h3><span id="任务门描述符">任务门描述符</span></h3><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/60935710.jpg" alt=""></p>
+<p>任务可以通过人物们描述符或TSS描述符被访问，LDT中任务门，LDT中的任务门可指向相同的任务<img src="https://github.com/WeetCheng/image/raw/master/blogs/24630204.jpg" alt=""></p>
 <h3><span id="何时才会执行任务切换">何时才会执行任务切换？</span></h3><p>四种情况：</p>
 <ul>
 <li>当前task执行JMP或CALL指令——指向TSS描述符</li>
@@ -612,7 +612,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -631,7 +631,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -684,7 +690,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1266,6 +1286,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

@@ -116,15 +116,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="项目简介 使用ADC1的2个通道 每个按照2KHz的采样频率进行采样 ADC1的采样精度为12bits，数据寄存器为16bits 串口设置为 115200bps, 1个停止位，没有校验位，8个数据位，禁用流控制 使用双缓冲，用于改善数据从ADC -&amp;gt; 内存 -&amp;gt; 串口的传输  流程总结 设置系统时钟 设置定时器TIM3 设置ADC1 设置串口USART1 设置DMA 设置中断控制器，允">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/59571956.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/8571648.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/18983329.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/95828997.jpg">
-<meta property="og:updated_time" content="2018-06-15T07:27:12.000Z">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/59571956.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/8571648.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/18983329.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/95828997.jpg">
+<meta property="og:updated_time" content="2018-10-19T14:53:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stm32+串口蓝牙">
 <meta name="twitter:description" content="项目简介 使用ADC1的2个通道 每个按照2KHz的采样频率进行采样 ADC1的采样精度为12bits，数据寄存器为16bits 串口设置为 115200bps, 1个停止位，没有校验位，8个数据位，禁用流控制 使用双缓冲，用于改善数据从ADC -&amp;gt; 内存 -&amp;gt; 串口的传输  流程总结 设置系统时钟 设置定时器TIM3 设置ADC1 设置串口USART1 设置DMA 设置中断控制器，允">
-<meta name="twitter:image" content="http://p65ksscu3.bkt.clouddn.com/18-6-15/59571956.jpg">
+<meta name="twitter:image" content="https://github.com/WeetCheng/image/raw/master/blogs/59571956.jpg">
 
 
 
@@ -375,12 +375,24 @@
                 
               
 
-              <time title="创建时间：2018-06-15 15:03:01 / 修改时间：15:27:12" itemprop="dateCreated datePublished" datetime="2018-06-15T15:03:01+08:00">2018-06-15</time>
+              <time title="创建时间：2018-06-15 15:03:01" itemprop="dateCreated datePublished" datetime="2018-06-15T15:03:01+08:00">2018-06-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-19 22:53:35" itemprop="dateModified" datetime="2018-10-19T22:53:35+08:00">2018-10-19</time>
               
             
           </span>
@@ -462,9 +474,9 @@
 </ul>
 <p>通常，使用8MHz的晶振作为stm32的时钟源，然后一生二，二生三，三生万物，最终形成一个完整的时钟系统。</p>
 <p>8MHz晶振 -&gt; SYSCLK -&gt; AHB和APB -&gt; 各种外设的时钟</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-15/59571956.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/59571956.jpg" alt=""></p>
 <p>我的项目里的时钟设置，简化如下：</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-15/8571648.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/8571648.jpg" alt=""></p>
 <p>TIM3的时钟挂载在APB1下，此外它还有自己的分频器</p>
 <p>ADC1的时钟挂载在APB2下，它也有自己的分频器</p>
 <p>USART1的时钟挂载在APB2下</p>
@@ -491,7 +503,7 @@
 <li>计数寄存器和自动重装载寄存器的计数值为500</li>
 </ul>
 <p>而在第一步中可以知道，定时器挂载在APB1中，时钟频率为72MHz，因此可以得到定时器计时频率为2KHz</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-15/18983329.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/18983329.jpg" alt=""></p>
 <p>至于工作模式</p>
 <ul>
 <li>设置定时器向上计数，即从0开始计数 ，计数值到达自动重装载寄存器的500-1之后，又回到0重新计数</li>
@@ -512,7 +524,7 @@
 <p>​    ADC采样的时候并不是一瞬间就完成的，而是在一个较短的时间内采样，然后ADC内部将模拟量转成数字量。stm32内部可以设置采样的时间，但模拟量转成数字量的时间是固定的12.5个周期。从采样到最后变成数字量的这段时长就称为ADC的转换时间。</p>
 <p>$转换时间 = 采样时间 + 12.5周期$</p>
 <p>​    注意上面的采样时间和采样频率是不一样的概念。采样频率表示的是多久采一次，而采样时间是采一次要花多长时间。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-15/95828997.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/95828997.jpg" alt=""></p>
 <p><strong>项目设置</strong></p>
 <p>开通了ADC1的两个通道用来采样，当定时器产生TRGO信号时，触发ADC进行采样，设置ADC1用多通道循环采样的方式来采，每个通道采完都会产生一个DMA请求。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Configures the ADC1:</span></span><br><span class="line"><span class="comment">	* 				ADC_Mode_Independent,non-ContinuousConvMode,ScanConvMode,</span></span><br><span class="line"><span class="comment">	*					ExternalTrigConv_T3_TRGO,DataAlign_Right,2 channels(PA0,PA1)</span></span><br><span class="line"><span class="comment">  * @param  None</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ADC1_Config</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">/* ADC,GPIO 初始化结构体 */</span></span><br><span class="line">  ADC_InitTypeDef ADC_InitStructure;</span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC的时钟要单独设置，通常设为72/6 = 12MHz */</span></span><br><span class="line">	RCC_ADCCLKConfig(RCC_PCLK2_Div6);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 所有外设都要开启时钟，才能使用 */</span></span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_ADC1,ENABLE);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC1的两个通道PA0和PA1配置为模拟输入(共18个通道))*/</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;</span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;</span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">	</span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC1工作方式配置：*/</span></span><br><span class="line">	ADC_DeInit(ADC1);	</span><br><span class="line">	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;</span><br><span class="line">	ADC_InitStructure.ADC_ContinuousConvMode= DISABLE;															<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤2(4)</span></span><br><span class="line">	ADC_InitStructure.ADC_ScanConvMode = ENABLE;</span><br><span class="line">	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T3_TRGO;					<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤3(4)</span></span><br><span class="line">	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;</span><br><span class="line">	ADC_InitStructure.ADC_NbrOfChannel = <span class="number">2</span>;</span><br><span class="line">	ADC_Init(ADC1, &amp;ADC_InitStructure);	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 两个通道配置 */</span></span><br><span class="line">	ADC_RegularChannelConfig(ADC1, ADC_Channel_0, <span class="number">1</span>, ADC_SampleTime_13Cycles5);</span><br><span class="line">	ADC_RegularChannelConfig(ADC1, ADC_Channel_1, <span class="number">2</span>, ADC_SampleTime_13Cycles5);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 使能ADC的外部触发转换（外部触发源将在tim.c文件中设置成TIM1更新事件）*/</span></span><br><span class="line">	ADC_ExternalTrigConvCmd(ADC1,ENABLE);																						<span class="comment">//使用TIM3的TRGO触发ADC进行转换,步骤4(4)</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/* ADC必须开启DMA功能才能使用扫描模式 */</span></span><br><span class="line">	ADC_DMACmd(ADC1, ENABLE);</span><br><span class="line">	</span><br><span class="line">	ADC_Cmd(ADC1, ENABLE);	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* ADC内置校准电路，上电后都要进行校准 */</span></span><br><span class="line">	ADC_ResetCalibration(ADC1);		 </span><br><span class="line">	<span class="keyword">while</span>(ADC_GetResetCalibrationStatus(ADC1));	</span><br><span class="line">	ADC_StartCalibration(ADC1);	 </span><br><span class="line">	<span class="keyword">while</span>(ADC_GetCalibrationStatus(ADC1));	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -699,7 +711,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -718,7 +730,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -771,7 +789,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1353,6 +1385,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

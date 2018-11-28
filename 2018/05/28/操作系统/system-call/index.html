@@ -116,12 +116,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="系统调用的入口：  linux —— 0x80号中断 windows——0x2E号中断  一个0x80中断，通过eax传递系统调用号，衍生出多个系统调用服务例程。 Linux系统调用Linux内核版本2.6.19共有319个系统调用。 eax —— 传递系统调用号 ebx、ecx、edx、esi、edi、ebp —— 传递参数 Linux系统调用实现过程 （1）使用系统调用函数，触发中断 1234">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-29/16508447.jpg">
-<meta property="og:updated_time" content="2018-06-09T06:24:10.000Z">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/16508447.jpg">
+<meta property="og:updated_time" content="2018-10-19T14:53:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统调用">
 <meta name="twitter:description" content="系统调用的入口：  linux —— 0x80号中断 windows——0x2E号中断  一个0x80中断，通过eax传递系统调用号，衍生出多个系统调用服务例程。 Linux系统调用Linux内核版本2.6.19共有319个系统调用。 eax —— 传递系统调用号 ebx、ecx、edx、esi、edi、ebp —— 传递参数 Linux系统调用实现过程 （1）使用系统调用函数，触发中断 1234">
-<meta name="twitter:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-29/16508447.jpg">
+<meta name="twitter:image" content="https://github.com/WeetCheng/image/raw/master/blogs/16508447.jpg">
 
 
 
@@ -389,7 +389,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-10-19 22:53:34" itemprop="dateModified" datetime="2018-10-19T22:53:34+08:00">2018-10-19</time>
               
             
           </span>
@@ -469,7 +469,7 @@
 <li>找到当前进程的内核栈（每一个进程都有自己的内核栈）</li>
 <li>硬件实现在内核栈中一次压入用户态寄存器：SS、ESP、EFLAGS、CS、EIP（硬件只保存中断前最重要的三个信息：下一条指令地址，栈，标志寄存器）</li>
 </ul>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-29/16508447.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/16508447.jpg" alt=""></p>
 <blockquote>
 <p>如果还需要保存其他寄存器，那么在中断服务例程中手动压栈。</p>
 </blockquote>
@@ -605,7 +605,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -624,7 +624,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -677,7 +683,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1259,6 +1279,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

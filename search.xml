@@ -1,14 +1,292 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[C字符串和string类]]></title>
-    <url>%2F2018%2F10%2F18%2FC%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8Cstring%2F</url>
-    <content type="text"><![CDATA[C风格字符串是指形如”hello world”这样的，以’\0’作为字符串结束符的传统的字符串。 string字符串则是指C++中的string类对象。string类对象本质上是对C风格字符串的封装，从而方便程序员使用。 常用C风格字符串函数使用C风格字符串函数，需要包含以下其中一个 12#include &lt;string.h&gt; #include &lt;cstring&gt; 常用的C风格字符串处理函数有 函数名 作用 char *strcpy(char *dest, const char *src); 将字符串从src处复制到dest处 char *strncpy(char *dest, const char *src, size_t n); 同上，不过最多复制n个字节 void *memset(void *s, int c, size_t n); 将s处开始的n个字节设为c void *memcpy(void *dest, const void *src, size_t n); 从src处复制n个字节到dest处 void *memmove(void *dest, const void *src, size_t n); 从src处复制n个字节到dest处 char *strcat(char *dest, const char *src); 将src的字符串接到dest后面 char *strncat(char *dest, const char *src, size_t n); 同上，不过最多接n个字节 int strcmp(const char *s1, const char *s2); 比较两个字符串，按ASCII比较 int strncmp(const char *s1, const char *s2, size_t n); 同上，不过最多比较n个字符 char *strstr(const char *haystack, const char *needle); 找出子串needle在主串haystack的位置 char *strcasestr(const char *haystack, const char *needle); 同上，不过忽略子串和主串大小写的不同 C风格字符串转换成数字 函数名 作用 atoi atol atoll atof strtod strtol strtoul]]></content>
+    <title></title>
+    <url>%2F2018%2F11%2F27%2F%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2FHexo%E6%96%87%E6%A1%A3%2F</url>
+    <content type="text"><![CDATA[Hexo文档source 资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2018%2F11%2F27%2F%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[搭建过程 安装nodejs和npm1$ sudo apt-get install nodejs npm]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[thinkdsp源码阅读]]></title>
+    <url>%2F2018%2F11%2F26%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2Fthinkdsp%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%2F</url>
+    <content type="text"><![CDATA[Signal方法：add,makewave，plot；属性：period Sinusoid继承自 Signal]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+        <tag>源码阅读</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[DFT的应用]]></title>
+    <url>%2F2018%2F11%2F26%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2FDFT%E7%9A%84%E5%BA%94%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[DFT的应用可以利用DFT 计算信号的频谱 计算线性卷积 计算循环卷积 计算自相关]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[加窗与滑动窗口]]></title>
+    <url>%2F2018%2F11%2F26%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E5%8A%A0%E7%AA%97%E4%B8%8E%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%2F</url>
+    <content type="text"><![CDATA[加窗是静态过程，相当于信号与窗函数相乘，频域与窗函数的频谱卷积;滑动窗口是动态过程，相当于信号与窗函数卷积，频域与窗函数的频谱相乘; 加窗 滑动窗口使用[0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1]进行窗口滑动平均，窗口每次向右移动一个单位，滑动窗口的过程等价于以下几个步骤： 将窗口补零到与信号一样长 将窗口反转 再计算卷积 在计算卷积之前需要将窗口反转的原因在于，卷积与滑动窗口略有不同，卷积会将窗口反转再向右移动。因此需要先将窗口反转，以抵消卷积的反转。]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[卷积与互相关]]></title>
+    <url>%2F2018%2F11%2F24%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E5%8D%B7%E7%A7%AF%E4%B8%8E%E4%BA%92%E7%9B%B8%E5%85%B3%2F</url>
+    <content type="text"><![CDATA[卷积与互相关十分相似，两者公式如下： $$x\left( n \right)*y\left( n \right){\rm{ }} = \sum\limits_{m = - \infty }^{ + \infty } {x(m)y(n - m)} = \sum\limits_{m = - \infty }^{ + \infty } {x(n - m)y(m)} $$ $${r_{xy}(n)}{\rm{ }} = \sum\limits_{m = - \infty }^{ + \infty } {x(m)y(n + m)} = \sum\limits_{m = - \infty }^{ + \infty } {x(m - n)y(m)} $$ 解释一下上面公式代表的含义 卷积$$\sum\limits_{m = - \infty }^{ + \infty } {x(m)y(n - m)} $$表示信号x(n)保持不动，信号y(n)左右反转，然后向右移动；根据牛顿的相对运动原理，这一过程等价于信号y(n)保持不动，信号x(n)左右反转，然后向右移动，即 $$\sum\limits_{m = - \infty }^{ + \infty } {x(m)y(n - m)} = \sum\limits_{m = - \infty }^{ + \infty } {x(n - m)y(m)} $$ 互相关$${r_{xy}(n)}{\rm{ }} = \sum\limits_{m = - \infty }^{ + \infty } {x(m)y(n + m)} $$表示信号x(n)保持不动，信号y(n)向左移动；根据牛顿的相对运动原理，这一过程等价于信号y(n)保持不动，信号x(n)向右移动，即 $$\sum\limits_{m = - \infty }^{ + \infty } {x(m)y(n + m)} = \sum\limits_{m = - \infty }^{ + \infty } {x(m - n)y(m)} $$ 卷积与互相关的关联我们看两个过程的第二个公式 $$x\left( n \right)*y\left( n \right){\rm{ }} = \sum\limits_{m = - \infty }^{ + \infty } {x(n - m)y(m)} $$ $${r_{xy}(n)}{\rm{ }} = \sum\limits_{m = - \infty }^{ + \infty } {x(m - n)y(m)} $$ 可以根据公式，也可以根据上面对公式的动作描述，看出 $${r_{xy}}(n) = x( - n)*y(n)$$ 注意不能写成 $${r_{xy}}(n) = x(n)*y(-n)$$]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[加窗与补零]]></title>
+    <url>%2F2018%2F11%2F24%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E5%8A%A0%E7%AA%97%E4%B8%8E%E8%A1%A5%E9%9B%B6%2F</url>
+    <content type="text"><![CDATA[加窗加窗的意义DFT的隐含假设：信号是周期的，只不过我们只用了其中一个周期，信号截短相当于加了矩形窗，如下第一幅图，但是矩形窗选得不好，导致首尾一个为0，一个为1，在拼接信号的时候会出现跳跃点，这会引入很多杂质频率成分，即频谱泄露。有两种方法来解决，一种是调整矩形窗的长度，使首尾的信号值相等，从而光滑拼接，就能避免频谱泄露。不过在实际的信号处理中，并不是像正弦波这么容易选择的，因此通常采用另一种补救的措施，选择合适的窗，平滑首尾，例如下面的第二幅图(使用汉明窗)。可以看出其将首尾的值平滑了不少，从而减少了频谱泄露。 常见窗函数 矩形窗() 高斯窗(Gaussian) 三角窗(Bartlett) 汉明窗(Hamming) 汉宁窗(Hanning) 布莱克曼窗(Blackman) 补零DFT的采样点数与间隔的关系如下表所示：||采样点数|间隔||—|—|—||时域|N|$T_s$即${1 \over f_s}$||频域|N|$1 \over NT_s$即$f_s \over N$| 补零相当于增加了用于计算DFT的点数N，因此频域的谱线间隔变密。这就是所谓的计算分辨率变密。但是补零并没有增加实际信号的信息，因此仍然不能提高实际信号的物理分辨率 结论加窗会导致频谱泄露，选择合适的窗口，可以减少频谱泄露 补零可以提高频率的计算分辨率，但不能提高物理分辨率， 因为补零并没有增加实际的信息。]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[差分与积分]]></title>
+    <url>%2F2018%2F11%2F24%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E5%B7%AE%E5%88%86%E4%B8%8E%E7%A7%AF%E5%88%86%2F</url>
+    <content type="text"><![CDATA[时域差分表示相邻两个元素的差值，等价于时域卷积[1, -1]窗口;时域微分等价于时域乘以$j2 \pi f$，等价于频域 幅值乘以$2\pi f$，相位偏移$\pi \over 2$;时域积分等价于时域除以$j2 \pi f$，等价于频域 幅值除以$2\pi f$，相位偏移$- {\pi \over 2}$;时域累加表示元素的累加; 差分与微分， 累加与积分的近似，但也有差距，如下图所示： 时域差分时域差分表示后一个元素减去前一个元素，相当于将一个窗[-1,1]不断地向右滑动过去，这个窗口滑动过程与卷积很像，只不过卷积会将窗口翻转之后再滑动，因此，如果想借用卷积的方法来计算窗口滑动，必须先将目标窗口[-1, 1]反转，这样可以抵消卷积的反转。 结论使用[-1, 1] 对信号进行窗口滑动，等价于使用反转窗口[1, -1]与信号进行卷积。 时域微分使用傅里叶分析理论，我们可以将信号分解成许许多多不同频率的复正弦信号 $$E_f(t) = e^{j2 \pi ft}$$对这些复正弦信号进行微分 $${d \over dt} E_f(t) = j2\pi fe^{j2 \pi ft}$$ 即 $${d \over dt} E_f(t) = j2\pi fE_f(t)$$因此，时域微分等价于时域乘以$j2 \pi f$，等价于频域 幅值乘以$2\pi f$，相位偏移$\pi \over 2$; 时域积分类似时域微分过程时域积分等价于时域除以$j2 \pi f$，等价于频域 幅值除以$2\pi f$，相位偏移$- {\pi \over 2}$;]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[噪声]]></title>
+    <url>%2F2018%2F11%2F24%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E5%99%AA%E5%A3%B0%2F</url>
+    <content type="text"><![CDATA[怎么看噪声可以从四个方面来看 时域 频域 功率谱 积分功率谱 举个例子，假设生成一个在[-1,1]之间均匀分布的噪声，从四个角度来看，如下：对于噪声，一般使用从功率谱来看，根据书上所说，均匀分布的白噪声功率谱为常数，但是我们从左下角的图看不太出来。因此，可以使用积分功率谱，它表示从频率0开始，累加功率谱，从右下角的图可以看出，功率谱的积分是一条直线，那么显然功率谱就是一个常数啦！均匀分布噪声 不相关噪声和相关噪声不相关是指各个值之间是相互独立的，知道一个值并不能知道另一个值。常见的不相关噪声有不相关均匀噪声(UU Noise)，不相关高斯噪声(UG Noise)相关是指各个值之间存在相关性，知道一个值，可以大致估计另一个值。常见的相关噪声有布朗噪声，粉红噪声等； 白噪声与有色噪声 噪声类型 功率谱公式 功率谱描述 例子 白噪声 $P = {K \over {f^0}}$ 功率谱为常数 均匀噪声和高斯噪声 红噪声 $P = {K \over {f^\beta}} {(0&lt; \beta &lt;2 )}$ 功率谱与$f^\beta$成反比 布朗噪声 粉红噪声 $P = {K \over {f^2}}$ 功率谱与$f^2$成反比]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[自相关与互相关]]></title>
+    <url>%2F2018%2F11%2F24%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E8%87%AA%E7%9B%B8%E5%85%B3%E4%B8%8E%E4%BA%92%E7%9B%B8%E5%85%B3%2F</url>
+    <content type="text"><![CDATA[关于自相关的内容将从三个方面不断地切入讲解 相关系数 序列相关 自相关 相关系数通常意义上，变量之间的相关意味着知道一个变量的值，那么就能得到一些关于其他变量的信息。关于相关性，有很多衡量的方法，比较常用的是皮尔森积矩相关系数，即 $$\rho = { {\sum\limits_i {({x_i} - {\mu _x})({y_i} - {\mu _y})} } \over {N{\sigma _x}{\sigma _y}}}$$其中，$\mu_x$和$\mu_y$分别是x和y的均值，$\sigma _x$和$\sigma _y$分别是x和y的标准差，N是x和y的长度。皮尔森积矩相关系数是标准化的相关系数，其取值在[-1,1]之间。可以反映两个信号之间的相关关系，如果$\rho = 1或者-1$,则知道两个信号的其中一个就可以完美地预测另外一个；如果$\rho \to 0$，那么两个信号之间的关系可能很弱。 序列相关信号通常代表的是随时间变化的数值的度量，比如电压，电流，压力等。这些信号很多时候都没办法突变，也就是说当前值常常与之前的值(或者与之后的值)相关，这种相关性可以用序列相关来衡量。也就是将信号平移一段之后，再计算平移后的信号与原始信号的相关性。 比如我们可以将信号x(n)平移10个单位之后得到y(n)，然后就可以求x(n)与y(n)的相关系数，从而统计出，信号x(n)的每一个点x(k)与其后10个单位的点x(k+10)的相关性 自相关自相关则是计算一系列不同平移单位的序列相关的组合起来的函数。同时为了简化计算，还将相关性的计算公式从皮尔森积矩相关系数简化了一下：假设信号已经是无偏的归一化信号，即均值为0，标准差为1 $$\eqalign{ &amp; \rho = { {\sum\limits_i {({x_i} - {\mu _x})({y_i} - {\mu _y})} } \over {N{\sigma _x}{\sigma _y}}} \cr &amp; \rho = {1 \over N}\sum\limits_i { {x_i}{y_i}} \cr &amp; r = \sum\limits_i { {x_i}{y_i}} \cr} $$如果使用第一个公式表示相关性，来计算自相关的话，那么得到的自相关函数就是标准化的，$\rho \sim [ - 1,1]$如果使用第二个和第三个公式表示相关性，来计算自相关，则得到的自相关函数不是标准化的，取值并不在[-1, 1] 如果信号x(n)是周期为N的周期信号，使用第一个和第二个公式，那么得到的自相关函数也是周期的；而使用第三个公式，则周期信号的自相关函数不是周期的，因为r没有除以计算点数，所以在自相关函数的两头，由于实际计算的x和y点数比中间的部分少，所以用r计算出来的自相关不是周期的;第一幅图使用标准化自相关公式，所以取值在[-1, 1]，并且对于周期信号也是周期的；第二幅图使用简化公式，取值没有归一化，也不是周期的; 互相关在了解自相关之后，互相关就容易理解了，这里忽略。 总结 信号相关性有三种公式表现： $$\eqalign{ &amp; \rho = { {\sum\limits_i {({x_i} - {\mu _x})({y_i} - {\mu _y})} } \over {N{\sigma _x}{\sigma _y}}} \cr &amp; \rho = {1 \over N}\sum\limits_i { {x_i}{y_i}} \cr &amp; r = \sum\limits_i { {x_i}{y_i}} \cr} $$ 序列相关是将信号平移若干单位之后，选择上面三种公式之一计算平移后的信号与原信号的相关性；比如选择第三种表示相关性的方法，那么信号x(n)各个点与其往后第三个点的相关性为： $$ r_3 = \sum\limits_i { {x_i}{x_{i+3}}} $$或者写成这样: $$ r_x (3) = \sum\limits_i { {x(i)}{x(i+3)}} $$ 自相关则是求平移不同单位的信号的序列相关，设移动m单位，m为自变量 $$ r_x (m) = \sum\limits_i { {x(i)}{x(i+m)}} $$ 互相关与自相关类似，只不过平移的是另一个信号y(n) $$ r_{xy} (m) = \sum\limits_i { {x(i)}{y(i+m)}} $$ 关于自相关的物理含义理解可以从两个角度来理解：第一种，将信号看成一个整体，那么自相关代表的就是信号x(n)与平移后的信号x(n+m)的相似性；第二种，将信号看成一个一个的点，那么自相关代表的是每个点与其往后第m个点的相关性；比如知道信号的第1个点的值x(1)，那么就能大概知道x(1+m)的值，知道信号第2个点的值x(2)，就能大概知道x(2+m)的值。]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[采样定理]]></title>
+    <url>%2F2018%2F11%2F24%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E9%87%87%E6%A0%B7%E5%AE%9A%E7%90%86%2F</url>
+    <content type="text"><![CDATA[时域脉冲序列及其频谱：采样的意思就是时域上乘以下面的时域脉冲序列，根据卷积定理，时域乘以脉冲序列就等于频域卷积上频谱的脉冲序列。又因为频谱与脉冲的卷积实际上是等于对频谱进行复制，平移和调幅，因此采样的结果就是将信号的频谱在频域的脉冲序列处复制一块出来。 关于采样定理的内容，可以参考知乎大佬 J Pan的专栏文章 如何理解离散傅里叶变换及Z变换]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[时间分辨率与频率分辨率]]></title>
+    <url>%2F2018%2F11%2F24%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E6%97%B6%E9%97%B4%E5%88%86%E8%BE%A8%E7%8E%87%E4%B8%8E%E9%A2%91%E7%8E%87%E5%88%86%E8%BE%A8%E7%8E%87%2F</url>
+    <content type="text"><![CDATA[频谱图与时频图频谱图：认为信号的频谱是固定的，不随时间改变。用fft计算 时频图：认为信号的频谱是随时间变化的。用sfft计算 chirp信号：频率随时间改变的正弦信号。 下面是在1s内频率从220均匀变化到440Hz的chirp信号的频谱图和时频图。 从时频图可以看出chirp信号的频率随时间线性增大。图中的马赛克反应了两个概念时间分辨率和频率分辨率，后面讲解。 时间分辨率与频率分辨率1234signal = thinkdsp.Chirp(start=220, end=440)wave = signal.make_wave(duration=1, framerate=11025)spectrogram = wave.make_spectrogram(seg_length=512)spectrogram.plot(high=700) 上面的代码生成1s内从220Hz变化到440Hz的chirp信号，采样频率为11025，计算时频图时用512个点来计算sfft。 马赛克的宽表示时间分辨率，高表示频率分辨率。 时间分辨率是指用于计算sfft的每小段信号的长度（单位：秒） 频率分辨率是指sfft算出来的相邻两个频率的间隔，亦为基频（单位：Hz） 要想知道相邻两个频率的间隔是怎么算的，就必须了解DFT的原理 可以算出， $$时间分辨率 = 512* \frac{1}{11025} = 0.046s$$$$频率分辨率 = \frac{11025}{512} = 21.6Hz$$ 假设DFT的计算点数为N，采样频率为fs，则 $$时间分辨率=N \cdot f_s$$$$频率分辨率=f_s/N$$从上面的公式可以看出，时间分辨率和频率分辨率互为倒数，因此两者相互制约，不可能同时提高，提高时间分辨率必然会降低频率分辨率，提高频率分辨率必然降低时间分辨率。这种现象称为Gabor limit。]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[频谱混叠]]></title>
+    <url>%2F2018%2F11%2F24%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E9%A2%91%E8%B0%B1%E6%B7%B7%E5%8F%A0%E4%B8%8E%E9%A2%91%E8%B0%B1%E6%B3%84%E9%9C%B2%2F</url>
+    <content type="text"><![CDATA[频谱混叠频谱混叠是指信号的高频成分被搬移到低频成分。造成频谱混叠的主要原因跟采样频率有关，假设用10000Hz的采样频率去采样5500Hz和4500Hz的正弦波，得到的采样点是一样的，因此无法判断实际信号到底是4500Hz还是5500Hz，而通常都是取较小的那个，因此如果实际信号是5500Hz，用10000Hz的频率采样的话，会被误认为是4500Hz。 可检测的实际频率范围：根据频谱混叠的原理，可以知道如果实际信号的频率小于等于采样频率的一半，那么频率就没有搞错，如果频率大于采样频率的一半，就会搞错，因此可检测的实际频率范围是采样频率的一半。称为folding frequency 可以注意到 4500Hz+5500Hz=10000Hz(采样频率)。 频谱泄露DFT背后有一个隐含的假设：信号是周期的，不过只截取了其中一小段来计算。如下图所示，假设我们取了正弦信号的一部分用于计算dft，由于dft的隐含假设，我们需要将这一段信号进行周期延拓。然后你可能会想当然地觉得就是正弦波的无限扩展，如第二幅图一样。很遗憾，dft的隐含条件是将拿来计算的那段信号首尾拼接，所以dft算的实际是第三幅图那样的信号。 因为在首尾拼接的时候，起点和终点的值不相等，所以拼接产生了跳跃点，而跳跃点包含了丰富的频率成分，因此dft算出来的频谱就不会是你以为的只有一根谱线，而是包含了周围的其他频率成分，如下图所示。这种现象称为频谱泄露。 当然，如果我们拿来计算DFT时截取的那段信号能够正巧使首尾拼接的话，那么算出来的就真的是一根谱线。]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[傅里叶与卷积]]></title>
+    <url>%2F2018%2F11%2F24%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E5%82%85%E9%87%8C%E5%8F%B6%E4%B8%8E%E5%8D%B7%E7%A7%AF%2F</url>
+    <content type="text"><![CDATA[两大主题信号与系统的两大主题： 信号处理 系统分析 信号处理常用傅里叶分析，系统分析常用卷积。信号处理与系统分析看似不同领域，实际有很多共通之处，特别是通过卷积定理，可以将傅里叶分析与卷积联系起来，因此不管是分析信号还是系统都可以使用傅里叶分析与卷积;当然信号处理与系统分析还有其他很多方法，比如信号处理中还有自相关，系统分析中还有拉普拉斯变换和Z变换 ,这些暂且按下不表，下面先介绍傅里叶与卷积。 傅里叶分析理论傅里叶分析理论认为信号可以分解成许多不同频率的复正弦信号按照不同的权值组合而成。根据信号的不同，可以包括以下内容： FS——连续时间周期信号的傅里叶 FT——连续时间非周期信号的傅里叶 DFS——离散时间周期信号的傅里叶 DTFT——离散时间非周期信号的傅里叶 DFT——离散信号的傅里叶 FFT——快速傅里叶 其中DFT是对DTFT的近似，FFT是计算DFT的快速算法。 傅里叶分析的要诀：离散对周期，周期对离散；连续对非周期，非周期对连续；因此根据以下的步骤可以很轻松写出傅里叶分析的公式 基底为一组复正弦，找出这组复正弦的表达式$e^{j2 \pi 频率*时间}$，根据信号类型的不同，判断频率和时间是连续的，还是离散的 如果是离散的，用$\sum$；如果是连续的，用$\int$ 如果是周期的，需要乘一个系数（周期的倒数）；如果是非周期的，则不用乘系数。时域和频域最多只有一个需要乘以系数； FS连续时间周期信号，周期为T，连续周期信号的频谱非周期离散， 频率是离散的，时间是连续的，则基频为$1 \over T$，其谐波频率为$k \over T$，基底为$e^{j2\pi {k \over T}t}$; 频谱是离散的，所以合成时用$\sum$，时间是连续的，所以分析时用$\int$; 时域是周期的，所以分析时时域积分长度为一个时间周期T，要乘以系数，周期的倒数；频域是非周期的，所以长度是$\infty$,不用乘以系数； $$x(t) = \sum\limits_{ k = - \infty }^{ + \infty } {X({k \over T}){e^{j2\pi {k \over T}t}}} $$ $$X({k \over T}) = {1 \over T}\int_{ - {T \over 2}}^{ {T \over 2}} {x(t){e^{ - j2\pi {k \over T}t}}dt} $$ FT连续时间非周期信号，连续非周期信号的频谱是非周期连续的 频率是连续的，时间是连续的，则基底为$e^{j2 \pi ft}$; 频谱是连续的，所以合成时用$\int$,时间是连续的，所以分析时用$\int$; 频谱和时间都是非周期的，所以积分长度都为$\infty$，都不用乘以系数。 $$x(t) = \int_{ - \infty }^\infty {X(f){e^{j2\pi ft}}df} $$$$X(f) = \int_{ - \infty }^\infty {x(t){e^{ - j2\pi ft}}dt} $$ DFS离散时间周期信号，采样间隔为Ts，一个周期有N个采样点，周期为T=NTs，离散时间周期信号的频谱是周期离散的 频率是离散的，时间是离散的，基频为周期的倒数$1 \over NT_s$，谐波频率为$k {1 \over NT_s}$,故基底为$e^{j2 \pi k {1 \over NT_s} nT_s}$; 频谱是离散的，所以合成时用$\sum$，时间是离散的，所以分析时用$\sum$; 频谱是周期的，所以合成时长度为一个频率周期，需要乘以系数；时域是周期的，所以分析时长度为一个时间周期，本来还需要乘以系数；不过因为时域和频域最多只需要一个乘以系数，前面合成已经乘了，所以分析就不用了 $$x(n{T_s}) = {1 \over N}\sum\limits_{k = 0}^{N - 1} {X(k){e^{j2\pi {k \over {N{T_s}}}n{T_s}}}} $$ $$X(k) = \sum\limits_{n = 0}^{N - 1} {x(n{T_s}){e^{ - j2\pi {k \over {NTs}}nTs}}} $$ DTFT离散时间非周期信号， 离散时间非周期信号的频谱时周期连续的 频率是连续的，时间是离散的，基底为$e^{j2 \pi fnT_s}$; 频域是连续的，合成时用$\int$；时间是离散的，分析时用$\sum$; 频域是周期的，合成时长度为一个频率周期，需要乘以系数，为频率周期的倒数； 时域是非周期的，分析时不用乘以系数；频率周期是离散时域两个点的时间间隔的倒数。 $$x(n{T_s}) = {1 \over { {f_s}}}\int_{ - { { {f_s}} \over 2}}^{ { { {f_s}} \over 2}} {X(f){e^{j2\pi fn{T_s}}}df} $$ $$X(f) = \sum\limits_{n = - \infty }^{ + \infty } {x(n{T_s}){e^{ - j2\pi fnTs}}} $$ DFT隐含假设离散时间周期信号，DFT实际上是对DFS时域和频域各取一个周期，用于近似DTFT，离散时间周期信号的频谱是周期离散的 $$x(n{T_s}) = {1 \over N}\sum\limits_{k = 0 }^{ N-1} {X(k){e^{j2\pi k{1 \over {NTs}}nTs}}} $$ $$X(k) = \sum\limits_{n = 0 }^{ N-1 } {x(n{T_s}){e^{ - j2\pi k{1 \over {NTs}}nTs}}} $$ DFT的原理目标：我们想通过傅里叶变换了解信号，并且想借用计算机来帮助人们计算。遇到的问题：计算机只能计算和存储有限长的序列。解决方法：所以需要将信号的时域和频域进行采样离散化。而根据采样理论，时域的离散化会引起频域进行周期延拓。频域的离散化会引起时域的周期延拓。DFT正好使信号的时域延拓的周期等于信号的长度，频域延拓的周期等于采样频率。这一目标通过频域的一个周期的点数与时域的一个周期的点数相同实现的。 小结这里写的公式跟书上不一样，原因在于，我坚持使用频率，而非其他什么角频率，圆周频率等作为频谱横坐标的表示，因此上面所有情况的频谱横坐标都是$f$，而非什么$\Omega$或者$\omega$。全部用$f$才能更好地统一各种情况的频谱表示，才能理解频谱的真正含义。如果需要使用$\Omega$或者$\omega$的形式，可以查书，或者用关联表达式替换上面的$f$。 $$\Omega = 2 \pi f$$ $$\omega = 2 \pi f/f_s = 2 \pi fT_s$$ 由于最后基本上都是用DFT或者FFT来分析，所以这里我整理一下DFT的公式 $$X(k) = \sum\limits_{n = 0 }^{ N-1 } {x(n){e^{ - j{2\pi \over N}kn}}} $$$$x(n) = {1 \over N} \sum\limits_{n = 0 }^{ N-1 } {X(k){e^{ j{2\pi \over N}kn}}}$$ LTI系统和LSI系统LTI系统连续的线性时不变系统，LSI系统是离散的线性移不变系统，有四种方法可以用来表达LTI系统或者LSI系统的特征 脉冲响应 频率响应 传递函数(LTI系统)或者转移函数(LSI系统) 状态空间表达式 不过这里主要讨论脉冲响应，频率响应将在卷积定理之后再介绍。 脉冲响应对于LSI系统，知道单个脉冲引起的响应之后，根据LSI系统的线性性质和移不变性质，可以将输入信号x(n)看成是由一串脉冲序列，那么信号x(n)引起的输出就是这串脉冲序列引起的响应经过调幅,平移,叠加的信号。 如以下公式显示：输入信号x(n)可以拆成一系列的脉冲，脉冲的大小为x(k)。这里h(n)就是系统的脉冲响应， $$\eqalign{ \delta (n) &amp;\to h(n) \cr \delta (n - k) &amp;\to h(n - k) \cr x(k)\delta (n - k) &amp;\to x(k)h(n - k) \cr \sum\limits_{k = - \infty }^{ + \infty } {x(k)\delta (n - k)} &amp;\to \sum\limits_{k = - \infty }^{ + \infty } {x(k)h(n - k)} \cr} $$从上面的公式引出了卷积的定义： $$x(n)*y(n)=\sum\limits_{k = - \infty }^{ + \infty } {x(k)y(n - k)}$$ 频率响应$$H({e^{j\omega }}) = \sum\limits_{n = - \infty }^{ + \infty } {h(n){e^{ - j\omega n}}} $$实际上就是说，LSI系统的频率响应是其脉冲响应的DTFT，因为在计算机中无法真正计算DTFT，通常用DFT近似DTFT，因此在计算机中可以用DFT来表示LSI系统的频率响应$H(k) = DFT(h) = \sum\limits_{n = 0 }^{ N-1 } {h(n){e^{ - j{2\pi \over N}kn}}}$ 卷积定理卷积定理： $$DFT\left( {f*g} \right){\rm{ }} = {\rm{ }}DFT\left( f \right) \cdot DFT(g)$$ 用文字表述就是卷积的傅里叶变换等价于傅里叶变换相乘;时域的卷积等价于频域相乘;频域的卷积等价于时域相乘;卷积定理联系了卷积和傅里叶变换，极大地丰富了信号分析和系统分析的内容。 卷积定理的应用理解时域加窗给信号x(n)加窗w(n)，即y(n) = x(n)w(n);根据卷积定理，时域相乘等价于频域卷积，因此Y(k) = X(k) * Wk); 理解频域加窗给信号x(n)的频谱加方窗，频域相乘等价于时域卷积 理解LSI系统的频率响应LSI系统的输入是x(n)，系统的脉冲响应是h(n)，则输出信号y(n)=x(n)*h(n)可以将系统的脉冲响应h(n)看成是一个窗函数，其频谱为DFT(h)，根据卷积定理，时域卷积等价于频域相乘 $$DFT\left( {y} \right){\rm{ }} = {\rm{ }}DFT\left( x \right) \cdot DFT(h)$$即$Y(k) = X(k)H(k)$ 因此系统的频率响应就是 $$H(k) = DFT(h)$$]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2018%2F11%2F22%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2Fdsp%E5%A4%A7%E7%BA%B2%2F</url>
+    <content type="text"><![CDATA[dsp大纲DFT背后隐含的信息DFT隐含假设：信号是周期的，只不过在使用的时候，只拿其中一个周期出来计算。 所以我们计算信号的DFT时，要清楚算出来的频谱并不是这个信号的，而是这个信号扩展后的周期信号的。 基频与主频fundamental frequency：周期信号最低的频率成分 dominant frequency：周期信号幅度最大的频率成分 通常人耳通过基频感受音调的，即使它不是幅度最大的频率成分 谐波结构谐波：频率是基频的整数倍的成分T 频谱与谱图signal： wave: 将信号的时间轴ts和取值fs组合在一起，就是wave spectrum:频谱 sepctrogram：谱图，随时间变化的频谱 时间分辨率和频率分辨率Gabor limit: 提高时间分辨率就会降低频率分辨率，提高频率分辨率就是降低时间分辨率。 时间分辨率与频率分辨率互为倒数，因此无法同时提高时间分辨率和频率分辨率。 混叠现象folding frequency：采样频率的一半。 混叠现象(aliasing)是数字信号处理中最重要的的现象之一，表示采样时高频信号被当成低频信号。例如，采样频率为10000Hz时，folding frequency是5000Hz，如果去采样5500Hz的正弦信号时，采样结果与采样4500Hz的正弦波一样，错误地以为信号是4500Hz，而非实际的5500Hz，将原本的高频信号当成了低频信号，即aliasing。 频谱泄漏现象频谱泄漏：即在分析信号时，引入了其他本没有的频率成分。 就像我们在测量物体的长度时，并不能获得真实长度，而是得到测量长度，存在测量误差，但是可以通过更加精密的手段来减少测量误差。我们在在分析信号的频谱时，也会不可避免的引入 比如有一个周期为440Hz的正弦波信号，使用计算机算它的频谱，由于计算机只能计算有限长度，因此，我们只能截取其中一段出来计算DFT，根据DFT的隐含假设，DFT实际计算的是所截那段的周期延拓信号的频谱。信号周期延拓时，如果前一周期的最后一个点与下一周期的第一个点不相等，那么就会出现跳跃点，而跳跃点通常包含丰富的频率成分，也就引入了实际信号没有的频率。 基本波形三角波：只有奇次谐波，并且谐波的幅度与频率的平方成反比。$A(f) = \frac{k}{f^2}$ 方波：只有奇次谐波，并且谐波的幅度与频率成反比$A(f) = \frac{k}{f}$ 锯齿波：同时包含奇次谐波和偶次谐波，并且谐波的幅度与频率成反比$A(f) = \frac{k}{f}$ 抛物线波：同时包含奇次谐波和偶次谐波，并且谐波的幅度与频率的平方成反比$A(f) = \frac{k}{f^2}$ 基本波形的实现周期信号与非周期信号加窗常用窗函数： 噪声自相关DCTDFT滤波器与卷积卷积理论差分与积分LTI系统调制采样理论]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[基本波形的频谱]]></title>
+    <url>%2F2018%2F11%2F22%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E5%9F%BA%E6%9C%AC%E6%B3%A2%E5%BD%A2%E7%9A%84%E9%A2%91%E8%B0%B1%2F</url>
+    <content type="text"><![CDATA[信号与波形信号与波形的区别：信号：只有时间序列及对应的值，但不知道相邻两个信号点的实际时间间隔。 波形：带有时间戳的信号。给定时间序列和采样频率，就可以得到实际的时间戳。 以视频字幕来比喻，信号就是单纯的字幕文字，而波形就是带了时间戳的字幕，将字幕与实际的讲话时间对应上。 谐波结构周期信号是由基频和谐波组成的。 基频(fundamental frequency)：基频是周期信号最低的频率成分。 主频(dominant frequency)：主频是周期信号幅值最大的频率成分。 这里第一个频率既是基频，也是主频。而有些信号的基频和主频并不是同一个频率。 四种基本波形的谐波结构方波，三角波，锯齿波，抛物线波，及其频谱特性 方波：只包含奇次谐波，并且谐波的幅度与频率成反比，$A(f) = \frac{k}{f}$ 三角波：只有奇次谐波，并且谐波的幅度与频率的平方成反比，$A(f) = \frac{k}{f^2}$ 锯齿波：同时包含奇次谐波和偶次谐波，并且谐波的幅度与频率成反比，$A(f) = \frac{k}{f}$ 抛物线波：同时包含奇次谐波和偶次谐波，并且谐波的幅度与频率的平方成反比，$A(f) = \frac{k}{f^2}$ 什么时候只包含奇次谐波，什么时候只包含偶次谐波？ 如果将信号平移半个周期与原来的波形正好相反，那么只包含奇次谐波， 如果将信号平移半个周期与原来的波形正好重合，那么只包含偶次谐波]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+        <tag>基本波形</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python魔法函数]]></title>
+    <url>%2F2018%2F11%2F17%2Fpython%2Fpython%E9%AD%94%E6%B3%95%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[%matplotlib inline的含义： 这是Ipython内置的魔法函数，在plot()绘图时，会自动绘制，而不需要调用plt.show()方法。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[数字信号处理]]></title>
+    <url>%2F2018%2F11%2F15%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F</url>
+    <content type="text"><![CDATA[周期卷积与线性卷积 如果将周期为N的周期序列$\tilde x(n)$ 和$\tilde y(n)$的主值序列x(n)和y(n) 作线性卷积，然后再讲线性卷积序列以N为周期进行周期延拓，得到的周期序列就是两个周期序列的周期卷积。 $$\begin {split}x(n) &amp;= \tilde x(n) \cdot R_N(n), y(n) &amp;= \tilde y(n) \cdot R_N(n) \g(n) &amp;= x(n) y(n), \tilde f(n) &amp;= \tilde x(n) \tilde y(n) \\tilde f(n) &amp;= \sum\limits_{i = =\infty} ^{+\infty} {g(n -iN)} \\end {split}$$ 离散时间傅里叶变换为周期函数，周期为2π]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python基础]]></title>
+    <url>%2F2018%2F11%2F12%2Fpython%2Fpython%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[环境 系统：deepin15.7 终端：deepin-terminal 安装python3pip用于管理和下载python包 123# 安装python3和pip$ sudo apt-get install python3$ sudo apt-get install python3-pip 安装Pygame软件包 如果使用的是python2，那么直接apt-get install python-pygame，Python3则不可以。原因是软件仓库中中pygame是很老以前的版本，python3不能使用。不过，我想用python3，则不能这样做。 123$ sudo apt-get install python3-dev mercurial $ sudo apt-get install libsdl-image1.2-dev libsdl2-dev $ sudo apt-get install libsdl-ttf2.0-dev libfreetype6-dev 如果想要启动pygame的一些高级功能，如声音，需要安装额外的库： 123$ sudo apt-get install libsdl-mixer1.2-dev libportmidi-dev$ sudo apt-get install libswscale-dev libsmpeg-dev libavformat-dev libavcodec-dev $ sudo apt-get install python-numpy 然后安装pygame 1$ pip3 install --user hg+http://bitbucket.org/pygame/pygame 测试是否安装成功，如下则成功 123$ python3&gt;&gt;&gt; import pygame&gt;&gt;&gt; 安装matplotlib1$ sudo apt-get install python3-matplotlib]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[命令行增强]]></title>
+    <url>%2F2018%2F11%2F11%2F%E6%97%A5%E5%B8%B8%2F%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%A2%9E%E5%BC%BA%2F</url>
+    <content type="text"><![CDATA[使用fish替换bash安装fish1$ sudo apt-get install fish 安装oh-my-fish1$ curl -L https://get.oh-my.fish | fish 设置fish为默认shell1234$ chsh正在更改 cheng 的 shell请输入新值，或直接敲回车键以使用默认值 登录 Shell [/usr/bin/fish]: 美化fish列出oh-my-fish所安装的所有插件和主题 1$ omf list 列出fish所有的可用的主题 123456$ omf themeInstalled:agnoster batman bobthefish defaultAvailable:agnoster clearance eden ....... Available里列出了所有可用的主题，可以在 github 上预览，选择自己喜欢的主题。 我很喜欢agnoster主题，决定采用该主题。 安装fish主题 1$ omf install agnoster fish主题agnoster乱码 安装agnoster主题后出现乱码，原因是agnoster有些符号deepin15.7操作系统中没有，需要安装相关的符号。 12345$ wget https://raw.githubusercontent.com/powerline/powerline/develop/font/10-powerline-symbols.conf$ wget https://raw.githubusercontent.com/powerline/powerline/develop/font/PowerlineSymbols.otf$ sudo cp 10-powerline-symbols.conf /usr/share/fonts/OTF/ $ sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/$ sudo mv PowerlineSymbols.otf /usr/share/fonts/OTF/ 参考CSDN博客 deepin oh my zsh agnoster乱码 更换fish主题 1$ omf theme &lt;主题名&gt; # 必须先安装了该主题 安装fish插件 例如安装天气插件 123$ omf install weather# 安装后，直接在fish中输入插件名称，就可以运行该插件$ weather 搜索包 1$ omf search 字符串 显示包信息 1$ omf descript 包名 # 包，即插件和主题等 更新包 12$ omf update omf # 只更新omf本身$ omf update # 更新omf及所有的插件，主题 移除包 1$ omf remove emacs # 移除emacs包 oh-my-fish仓库管理 12$ omf repositories list # 列出已经安装的所有仓库$ omf repositories add &lt;URL&gt; # 添加新仓库地址 oh-my-fish排错 1$ omf doctor oh-my-fish帮助 12$ omf -h$ omf --help 卸载oh-my-fish 1$ omf destroy 更换深度终端主题菜单中-&gt;更换主题，选择breeze主题，最后的效果如下： 使用bat替换catbat具有语法高亮、分页、行号和 git 集成的特点，并且可以用/搜索 下载地址： github/sharkdp/bat 取别名 1alias cat='bat' 使用prettyping替换ping到 github/denilsonsa/prettyping下载源码文件，放在自己喜欢的地方，赋予可执行权限，然后创建软连接到/usr/local/bin中，方便以后直接在命令行中使用。 取别名 1alias ping='prettyping --nolegend' 使用fzf替换ctrl+r以前使用ctrl+r进行历史命令的方向搜索，现在用fzf替换，可以支持模糊搜索，并且交互性更好 安装方法： 12$ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf~/.fzf/install 命令行文件预览结合fzf和bat实现命令行文件预览，命令别名为 preview 123alias preview="fzf --preview 'bat --color \"always\" &#123;&#125;'"# 支持用 ctrl+o 使用默认程序来打开选择的文件export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(xdg-open &#123;&#125; 2&gt; /dev/null)+abort'" 使用htop替换top1$ sudo apt-get install htop 使用diff-so-fancy替换diff在 github/so-fancy/diff-so-fancy 下载后，解压到喜欢的目录中，然后创建软连接到/usr/local/bin中 然后在~/.gitconfig文件中打开git diff和git show的diff-so-fancy功能 123[pager] diff = diff-so-fancy | less --tabs=1,5 -RFX show = diff-so-fancy | less --tabs=1,5 -RFX 使用fd替换find举例子如下： 123$ fd cli # 所有包含 "cli" 的文件名$ fd -e md # 所有以 .md 作为扩展名的文件$ fd cli -x wc -w # 搜索 "cli" 并且在每个搜索结果上运行 `wc -w` 使用ncdu替换du1$ sudo apt-get install ncdu 操作按键 n——按名称（name）排序 s——按大小（size）排序 C——升序/降序 c——切换是否显示目录下的文件数量 g——切换显示所占比例数值显示，还是#多少显示 e——切换是否显示隐藏文件 i——显示选择的文件的信息 q——退出 取别名 1alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules" 使用tldr替换manman命令得到的输出一般很长，来不及看，可以使用tldr来查看主要内容 使用ack替换grep fish的别名永久生效方法fish shell使用function的方法来取别名，格式如下 123function 别名 原命令名end 可以在~/.config/fish/中创建配置文件config.fish，添加如下内容： 12345678910111213141516171819202122232425262728293031323334353637383940# preview命令用于结合bat和fzf，实现预览文件，并且按住ctrl+o打开文件export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(xdg-open &#123;&#125; 2&gt; /dev/null)+abort'"function preview fzf --preview 'bat --color "always" &#123;&#125;' end# 用prettyping覆盖ping命令function ping prettyping --nolegend $argvend# 用bat命令覆盖cat命令function cat bat $argvend# 用ncdu命令覆盖du命令function du ncdu --color dark -rr -x --exclude .git --exclude node_modules $argvend# 用fd命令覆盖findfunction find fd $argvend# 用htop命令覆盖top命令function top htop $argvend# 用tldr命令覆盖man命令#function man# tldr $argv#end# 用ack命令覆盖grep命令#function grep# ack#end 忽略别名使用原命令1$ command ping # 忽略别名和函数 参考文献[1] 命令行：增强版 [2] Oh My Fish! 让你的 Shell 漂亮起来 [3] deepin oh my zsh agnoster乱码]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>日常</tag>
+        <tag>fish</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[DSP matlab常用函数]]></title>
+    <url>%2F2018%2F11%2F08%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2FDSP-matlab%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[生成信号rand——用于生成均匀分布的信号 randn——生成高斯分布的信号 sinc——生成sinc信号 diric——生成周期的sinc信号 chirp——生成chirp信号(该信号的频率是时变的，与时间成正比) 信号的运算conv——两个信号的卷积 xcorr——两个信号的相关函数（如果两个信号相同，则变成自相关函数） fliplr——信号左右翻转 离散系统y = filter(b, a, x)——由B(z)和A(z)决定离散系统H(z),输入信号x，得到输出信号y h = impz(b, a, N)——根据B(z)和A(z)求出离散系统H(z)的单位抽样响应h(n),长度为N [H, w] = freqz(b, a, N, &#39;whole&#39;, Fs)——求离散系统H(z)的频率响应$H(e^{j \omega})$,N是点数，Fs是抽样频率 zplane(b, a)——绘制离散系统H(z)的零极点图 [r, p, k] = residuez(b, a)——将离散系统H(z)的有理分式分解成多个简单有理分式的和 绘图相关stem——绘制序列图 subplot(abc)——绘制figure分成a行b列，绘制第c幅 title，xlabel，ylable——图名，横坐标名，纵坐标名 axis——控制横纵坐标显示范围 set(gcf, ‘color’, ‘w’)——控制图形背景为白色]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[傅变拉变Z变]]></title>
+    <url>%2F2018%2F11%2F05%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E5%82%85%E5%8F%98%E6%8B%89%E5%8F%98Z%E5%8F%98%2F</url>
+    <content type="text"><![CDATA[前言拉普拉斯变换和傅里叶变换都是针对连续信号的； 拉普拉斯变换是傅里叶变换的推广； 傅里叶变换是从频域的角度看待信号，拉普拉斯变换是从复频域的角度看待信号； 傅里叶变换有一个限制条件就是：信号必须绝对可积； 拉普拉斯变换为了弥补这一缺陷，先将信号乘以衰减指数$${e^{ - \beta t }}$$，从而保证信号绝对可积； Z变换相当于离散信号的拉普拉斯变换； Z变换单位圆上的点相当于离散信号的傅里叶变换; Z变换中的Z平面与拉普拉斯的S平面存在映射关系，$z = e^{Ts}$;]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[正态分布和均匀分布]]></title>
+    <url>%2F2018%2F11%2F01%2F%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%2F%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%92%8C%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83%2F</url>
+    <content type="text"><![CDATA[# 正态分布randn()：产生正态分布的随机数或随机矩阵的函数，生成的标准正态分布，即期望为0，方差为1 randn(N): 产生N * N的随机矩阵 randn(M, N): 产生 M * N的随机矩阵 randn(M, N, P, …): 产生M N P * …的随机矩阵 randn(size(A)): 产生与矩阵A相同大小的随机矩阵 example y = randn(1000, 1) % 产生一维，长度为1000的随机数 如果想生成非标准正态分布，可以借用正态分布的一个性质来实现。 $$X{\sim}N(\mu ,{\sigma ^2}) \Y = aX + b{\sim} N(a\mu + b, {a^2 \sigma ^2})$$ 正态分布标准化公式 $$X{\sim}N(\mu, \sigma ^2) \{ {X-\mu}\over{\sigma}} \sim N(0, 1)$$ 1234567y = randn(1000, 1);y = y - mean(y); % 这两行就是标准化y = y/std(y); % 其实可以不用的，因为randn生成的序列本身就是标准正态分布a = sqrt(5);b = 0;y1 = a*y + b;plot(y1); # 均匀分布rand(): 产生均匀分布的随机数或随机矩阵的函数 rand(N): 产生N * N的随机矩阵 rand(M, N): 产生 M * N的随机矩阵 rand(M, N, P, …): 产生M N P * …的随机矩阵 rand(size(A)): 产生与矩阵A相同大小的随机矩阵]]></content>
+      <categories>
+        <category>信号处理</category>
+      </categories>
+      <tags>
+        <tag>信号处理</tag>
+        <tag>matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vultr上搭建shadowsocks]]></title>
+    <url>%2F2018%2F10%2F25%2F%E6%97%A5%E5%B8%B8%2Fvultr%E4%B8%8A%E6%90%AD%E5%BB%BAshadowsocks%2F</url>
+    <content type="text"><![CDATA[#1 部署vps首先在vultr上注册账号，充值。然后部署服务器。 vultr各站点一键测速脚本 linux上一键测速脚本bench.sh，然后增加可执行权限，再运行该脚本。 windows上一键测速脚本Vultr_Ping_Test_For_Windows.bat 根据测速的结果，选择速度比较快的机房。我选择的是美国洛杉矶或者硅谷的机房，部署Ubuntu18.04, $3.50/mo的方案。 安装成功后可以在server中看到自己的服务器相关的信息，记住下面的IP地址，用户名和密码，后面可以登录 #2 登录vps首先在本地机上通过ssh登录部署的vps， 123$ ssh root@你的vps的地址# 会提示你是否生成ssh-key，回答yes# 输入vps的密码(上面部署的时候生成的) #3 vps上安装shadowsocks服务器123sudo apt-get updatesudo apt-get install -y python-pip python-setuptools m2cryptopip install shadowsocks #4 vps上配置shadowsocks服务器12# 创建配置脚本$ vim ss.sh 添加下内容： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#! /bin/sh#按照提示来输入配置参数setup()&#123; echo "输入你的服务器的IP地址：" read server echo "输入想设定的服务器接口（推荐大于2000的四位数或五位数如9400）：" read server_port echo "输入你要设置的密码：" read passwd echo echo echo "配置如下：" echo "ip :$&#123;server&#125;" echo "password :$&#123;passwd&#125;" echo "port :$&#123;server_port&#125;" echo "metho :aes-256-cfb" echo echo&#125;setupwhile :do echo "确定配置信息吗[Y/n]\c" read sure if [ $&#123;sure:=y&#125; = "n" ] || [ $&#123;sure:=y&#125; = "N" ]; then setup else break fidone#生成json文件config="/etc/shadowsocks.json"if [ -f "$&#123;config&#125;" ]; then `rm $config`fi`touch $config``echo &#123; &gt;&gt; $config``echo "\"server\":\"$&#123;server&#125;\"," &gt;&gt; $config``echo "\"server_port\":$&#123;server_port&#125;," &gt;&gt; $config``echo "\"local_port\":1080," &gt;&gt; $config``echo "\"password\":\"$&#123;passwd&#125;\"," &gt;&gt; $config``echo "\"timeout\":300," &gt;&gt; $config``echo "\"method\":\"aes-256-cfb\"" &gt;&gt; $config``echo &#125; &gt;&gt; $config`echo `ssserver -c "$&#123;config&#125;" -d start`#开启BBR拥塞算法，提高速度sysctl net.core.default_qdisc=fqsysctl net.ipv4.tcp_congestion_control=bbrlsmod | grep bbr 运行脚本 12345678# 增加可执行权限$ chmod u+x ss.sh$ ./ss.sh# 根据提示输入相关的参数# 1.服务器地址# 2.shadowsocks密码# 3.shadowsocks端口# 4.加密方法 如果运行之后报错： AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup 那么需要修改一点内容： 1sudo vim /usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py 将其中的cleanup修改成reset就可以了，一共只有两处。可以在vim中输入以下命令来替换 :%s/cleanup/reset/g #5 本地机安装客户端deepin上有深度影梭可以使用， 深度影梭下载地址 #6 本地机配置客户端 编辑服务器 开启系统代理，设置系统代理模式为PAC模式，设置开机自启 注意deepin中需要在设置-&gt;网络-&gt;系统代理中设置socks代理，其他不要改 地址为127.0.0.1，端口为1080 # 7 PAC模式与全局模式PAC模式就是会在你连接网站的时候读取PAC文件里的规则，来确定你访问的网站有没有被墙，如果符合，那就会使用代理服务器连接网站，而PAC列表一般都是从GFWList更新的。GFWList定期会更新被墙的网站，不过里面可能不全。也自已手动编辑本地的PAC文件，自定义添加一些GFWList没有记录的被墙的网站。 # 8 测试成功但不能翻墙吸取多次教训，一般两种情况： 进入系统代理设置界面，没有退出下面的页面，记得按确定，返回 修改shadowsocks客户端中的配置之后没有重启shadowsocks客户端。 保证以下两点，基本上客户端就能设置成功 1) shadowsocks客户端的本地端口设置必须与系统代理中socksdialing端口一致 2) 每次修改shadowsocks客户端都必须重启shadowsocks客户端]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[VPS上安装owncloud]]></title>
+    <url>%2F2018%2F10%2F24%2F%E6%97%A5%E5%B8%B8%2FUbuntu18-04-owncloud%2F</url>
+    <content type="text"><![CDATA[vps是虚拟专用服务器，可以在国外部署服务器，然后在国内登录访问。 owncloud是一款用于构建私有云的软件，服务器端只能在linux上部署，但是客户端支持全平台。 主要的步骤： 部署VPS 构建LAMP栈 安装和配置owncloud 部署VPS在vultr中，选择美国洛杉矶，部署Ubuntu18.04 假设部署的VPS的IP地址为：11.22.33.44 构建LAMP栈LAMP是指一组通常一起使用来运行动态网站或者服务器的自由软件名称首字母缩写： Linux，操作系统 Apache，网页服务器 MariaDB或者MySQL，数据库管理系统 PHP、Perl或Python，脚本语言 本次构建环境所采用的软件版本如下： Ubuntu18.04 Apache2——web服务器 PHP7.2——web开发脚本语言 MariaDB/MySQL——数据库 PHPMyAdmin——是一个用PHP编写的软件工具，可以通过web方式控制和操作MySQL数据库 #1 安装MariaDBMariaDB数据库管理系统是MySQL的一个分支，兼容MySQL 安装MariaDB server和client 1$ sudo apt-get install mariadb-server mariadb-client 执行初始化安全脚本 123456789$ sudo mysql_secure_installationEnter current password for root (enter for none): &lt;-- 回车Set root password? [Y/n] &lt;-- yNew password: &lt;-- 设置新root密码Re-enter new password: &lt;-- 重复输入密码Remove anonymous users? [Y/n] &lt;-- yDisallow root login remotely? [Y/n] &lt;-- yReload privilege tables now? [Y/n] &lt;-- y 记住这里数据库的root用户的账号和密码 登录MariaDB测试 123$ sudo mysql -u root -p# 登录成功，说明root账号密码设置成功，执行quit退出 #2 安装Apache1$ sudo apt-get install apache2 Apache默认网站根目录为/var/www/html，配置文件为/etc/apache2/apache2.conf 在浏览器上输入服务器地址http://11.22.33.44，测试apache是否安装成功。 #3 安装PHP安装PHP和Apache PHP模块 1$ sudo apt-get install php libapache2-mod-php 重启Apache 1$ sudo systemctl restart apache2 测试PHP 在网站根目录下创建文件info.php 12345$ sudo vim /var/www/html/info.php# 输入如下内容：&lt;?phpphpinfo();?&gt; 改变文件所有者： 1$ sudo chwon www-data:www-data /var/www/html/info.php 在浏览器中输入地址访问：http://11.22.33.44，可以看到： #4 安装PHP支持MariaDB数据库的模块列出PHP支持的所有模块 1$ sudo apt-cache search php 安装模块 123sudo apt-get install php-mysql php-curl php-gd php-intl php-pear php-imagick \php-imap php-memcache php-pspell php-recode php-sqlite3 php-tidy php-xmlrpc \php-mbstring php-gettext php-zip php-ssh2 重启Apache 1$ sudo systemctl restart apache2 #5 安装PHP缓存(php-apcu)安装php-apcu 可以提速PHP页面 1$ sudo apt-get install php-apcu 重启Apache 1$ sudo systemctl restart apache2 删除info.php 1$ sudo rm /var/www/html/info.php #6 安装phpMyAdmin使用phpMyAdmin可以在浏览器上管理数据库 12345$ sudo apt-get install phpmyadminWeb server to configure automatically: &lt;-- 选择 apache2Configure database for phpmyadmin with dbconfig-common? &lt;-- YesMySQL application password for phpmyadmin: &lt;-- 输入密码(可以直接按回车，生成随机密码) MariaDB默认启动了一个unix_socket的插件，这个插件防止使用root登录。关闭这个插件的方法： 12$ sudo echo "update user set plugin='' where User='root'; flush privileges;" \| sudo mysql --defaults-file=/etc/mysql/debian.cnf mysql phpmyadmin的安装目录是/usr/share/phpmyadmin，可以通过创建软链接的方式将其添加到/var/www/html/phpmyadmin 在浏览器上输入地址：http://11.22.33.44/phpmyadmin 输入数据库的账号和密码，这里我使用的是root用户，密码在前面安装数据库的时候已经修改过。 登录成功后可以看到： 至此，LAMP栈已经构建完成 安装owncloud官方安装包 #1 添加软件源1234$ wget -nv https://download.owncloud.org/download/repositories/production/Ubuntu_18.04/Release.key -O Release.keyapt-key add - &lt; Release.key$ echo 'deb http://download.owncloud.org/download/repositories/production/Ubuntu_18.04/ /' &gt; /etc/apt/sources.list.d/owncloud.list #2 安装和配置owncloud12$ sudo apt-get update$ sudo apt-get install owncloud-files owncloud安装成功后会生成/var/www/owncloud目录，这个就是将来owncloud网站的内容。 #3 修改Apache的根目录Apache默认的httpd服务的根目录为/var/www/html，我们修改成/var/www/owncloud 1234$ sudo vim /etc/apache2/sites-enabled/000-default.conf# 修改其中的DocumentRoot选项为：DocumentRoot /var/www/owncloud #4 为owncloud创建一个数据库用root账号登录mysql，创建owncloud数据库，并为该数据库创建了用户owncloud,密码是test1234 12345$ sudo mysql -u root -pMariaDB [(none)]&gt; CREATE DATABASE owncloud;MariaDB [(none)]&gt; GRANT ALL ON owncloud.* to 'owncloud'@'localhost' IDENTIFIED BY 'test1234';MariaDB [(none)]&gt; FLUSH PRIVILEGES;MariaDB [(none)]&gt; exit #5 创建owncloud管理员账号和密码在浏览器上输入http://11.22.33.44 安装完成。 为IP地址绑定域名到花生壳官网下载deb包 安装花生壳deb包 12345678910$ sudo dpkg -i phddns_3.0_x86_64.deb +--------------------------------------------------+ | Oray PeanutHull Linux 3.0 | +--------------------------------------------------+ | SN: ORAYxxxxxxxxx4f8 Default password: admin | +--------------------------------------------------+ | Remote Management Address http://b.oray.com | +--------------------------------------------------+ # 记住上面的SN码和密码 登录http://b.oray.com ，账号是SN码，初始密码是admin 然后添加内网穿透 总结有几组账号和密码需要弄清楚 Ubuntu系统的用户和密码 MariaDB/MySQL数据库管理系统的用户和密码 某个数据库(如owncloud数据库)的用户和密码 owncloud web端的管理员和密码 owncloud客户端的密码 参考文献[1] Ubuntu 16.04 搭建 LAMP 作者：斗大的熊猫 [2] Ubuntu 16.04 安装配置 ownCloud 作者：斗大的熊猫 [3] 树莓派+owncloud+花生壳打造私有云 作者：先知丨先觉]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[七牛云图床转github]]></title>
+    <url>%2F2018%2F10%2F20%2F%E6%97%A5%E5%B8%B8%2F%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A%E8%BD%ACgithub%2F</url>
+    <content type="text"><![CDATA[之前是用七牛云做图床的，但是8月份的时候收到邮件，七牛云的测试域名要封掉了，当时没时间弄，现在比较空闲，决定将图床迁移到github上。查了一下我的测试域名，好在还没被封，27天后才会封，所以现在还能下载图片。 迁移过程主要有几个步骤： 从七牛云上将图床下载到本地 将本地图片上传到github上 修改博客中所有图片的旧地址为github上的新地址 从七牛云下载图片到本地需要借助工具qshell 1. 下载qshell qshell下载地址 下载后解压到你喜欢的目录下，比如我解压到/home/cheng/opt/ 2. 添加qshell路径到PATH环境变量 export PATH=$PATH:/home/cheng/opt/qshell/ 3. qshell添加七牛云账号 12345$ qshell account ak sk# 上面的ak和sk是指七牛云账号的`AccessKey`和`SecretKey`，替换成你自己的。$ qshell account #查看是否添加成功AccessKey: 你添加的AKSecretKey: 你添加的SK 4. 新建qshell的qdownload配置文件 123456789$ vim download.conf# 添加以下内容：&#123; "dest_dir" : "/home/cheng/Pictures/qiniu", "bucket" : "你的测试空间名", "cdn_domain" : "你的测试域名", "prefix" : "blogs/", "suffixes" : ".jpg,.png"&#125; “dest_dir”是指本地目标目录， “bucket”是指你的测试空间名 “cdn_domain”是指你的测试域名，这一项必须要有，如果没有可能会收流量费! ”prefix“和”suffixes”选项分别填你要下载的七牛云测试域名下的图片路径前缀和后缀 5. 下载图片到本地 1$ qshell qdownload 10 download.conf 很快下载完成，接下来需要将图片上传到github 上传图片到github在下载的图片目录下创建仓库，push到github上就可以了 1. 在github上创建仓库image 2. 在本地的图片目录下初始化git仓库 3. 将本地仓库关联github上的image仓库 4. git add,git commit, git push 更换所有博客中的图片源地址1. 进入hexo的博客源文件目录下 我的是在/home/cheng/Documents/Hexo/source/_posts/ 使用sed命令对所有的源文件进行替换 1sed -i 's#(http://p65ksscu3.bkt.clouddn.com/#(https://github.com/WeetCheng/image/raw/master/blogs/#g' ./*]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数组和指针的区别]]></title>
+    <url>%2F2018%2F10%2F18%2FC%E5%92%8CC%2B%2B%2F%E6%95%B0%E7%BB%84%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[数组和指针在某些地方看上去很相似，但是实际上两者本质上是不同的。 数组是一块连续的内存单元的名称，这块内存单元存放着数据。 指针则是一个内存单元的名称，这个内存单元存放的是另一个内存单元的地址。 根据这个不同可以解释很多现象，比如指针占用的内存大小是固定的，即为机器的位数；而数组占用的内存空间可以自定义的。 假设定义了一个二维数组a，如下： 1int a[2][3] = &#123;&#123;1, 2, 3&#125;, &#123;4, 5, 6&#125;&#125;; 那么 a——代表二维数组本身，即连续 6个int大小的内存单元。本质是一个数组 a+1——a原本是二维数组，运算表达式中先被转换成指针，指向a的第一个元素，然后指针加1，则a+1指向二维数组a的第2个元素。本质是一个指针 a[1]——代表二维数组a的第2个元素，即一维数组。本质是一个数组 a[0]+1——a[0]本来是一个一维数组，运算表达式中先被转换成一个指针，指向a[0]的第1个元素，然后指针加1，则a[0]+1指向一维数组a[0]的第2个元素。本质是一个指针 a[0][0]——代表第一个内存单元。本质是一个变量]]></content>
       <categories>
         <category>编程</category>
       </categories>
       <tags>
-        <tag>C++</tag>
+        <tag>C/C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[C字符串和string类]]></title>
+    <url>%2F2018%2F10%2F18%2FC%E5%92%8CC%2B%2B%2FC%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8Cstring%2F</url>
+    <content type="text"><![CDATA[C风格字符串是指形如”hello world”这样的，以’\0’作为字符串结束符的传统的字符串。 string字符串则是指C++中的string类对象。string类对象本质上是对C风格字符串的封装，从而方便程序员使用。 常用C风格字符串函数使用C风格字符串函数，需要包含以下其中一个 12#include &lt;string.h&gt; #include &lt;cstring&gt; 常用的C风格字符串处理函数有 函数名 作用 char *strcpy(char *dest, const char *src); 将字符串从src处复制到dest处 char *strncpy(char *dest, const char *src, size_t n); 同上，不过最多复制n个字节 void *memset(void *s, int c, size_t n); 将s处开始的n个字节设为c void *memcpy(void *dest, const void *src, size_t n); 从src处复制n个字节到dest处 void *memmove(void *dest, const void *src, size_t n); 从src处复制n个字节到dest处 char *strcat(char *dest, const char *src); 将src的字符串接到dest后面 char *strncat(char *dest, const char *src, size_t n); 同上，不过最多接n个字节 int strcmp(const char *s1, const char *s2); 比较两个字符串，按ASCII比较 int strncmp(const char *s1, const char *s2, size_t n); 同上，不过最多比较n个字符 char *strstr(const char *haystack, const char *needle); 找出子串needle在主串haystack的位置 char *strcasestr(const char *haystack, const char *needle); 同上，不过忽略子串和主串大小写的不同 C风格字符串转换成数字 函数名 作用 int atoi(const char *nptr); 字符串转int long atol(const char *nptr); 字符串转long long long atoll(const char *nptr); 字符串转long long double atof(const char *nptr); 字符串转double double strtod(const char *nptr, char **endptr); 字符串转double float strtof(const char *nptr, char **endptr); 字符串转float long double strtold(const char *nptr, char **endptr); 字符串转long double int sscanf(const char str, const char format, …); 字符串转各种类型数字 1234// 测试：将字符串转成float类型char str[] = "3.14159";float pi;sscanf(str, "%f", &amp;pi); C风格数字转成字符串 函数名 作用 int sprintf(char str, const char format, …); 可以将各种类型数字转成字符串 123// 测试：将数字转成字符串数组char buff[10];sprintf(buff, "%d", 100); 常用string类成员函数查找 123456789str.find("ab");str.find("ab", 2); // 在str[2]~str[n-1]范围内查找abstr.rfind("ab", 2); // 在str[0]~str[2]范围内查找abstr.find_first_of("apple");str.find_first_not_of("apple");str.find_first_not_of("apple", 2);str.find_last_of("apple");str.find_last_not_of("apple");str.find_last_not_of("apple", 2); 子串 12str.substr(3); // 返回str[3]~str[n-1]的子串str.substr(3, 4); // 返回str[3]开始，长度为4的子串 替换 12str.replace(2, 4, "sz"); // 从str[2]开始，长度为4的内容替换成"sz"str.replace(2, 4, "abcd", 3); // 从str[2]开始，长度为4的内容替换成"abcd"字符串的前3个字符 插入 123str.insert(2, "sz"); // 从str[2]开始，追加"sz"str.insert(2, "abcd", 3); // 从str[2]开始，追加"abcd"的前3个字符str.insert(2, str2, 1, 3); // 从str[2]开始，追加str2[1]开始，长度为3的字符串 删除 12str.erase(3); // 删除str[3]~str[n-1]str.erase(3, 5); // 删除str[3]开始，长度为5 交换 1str1.swap(str2); // 交换str1和str2 C风格字符串和string类对象的相互转换C风格字符串转string对象 使用C风格字符串直接赋值或者初始化string对自动完成转换 12string str = "hello world!";string str2("welcome"); string对象转C风格字符串 需要借助string类的成员函数c_str() 12string str = "abcd";const char *a = str.c_str(); 参考文献[1] C++ string 字符串函数详解 [2] C string.h 常用函数]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
       </tags>
   </entry>
   <entry>
@@ -243,7 +521,7 @@
   </entry>
   <entry>
     <title><![CDATA[大疆嵌入式软件笔试题]]></title>
-    <url>%2F2018%2F07%2F05%2Fdji-test%2F</url>
+    <url>%2F2018%2F07%2F05%2F%E5%B5%8C%E5%85%A5%E5%BC%8F%2F%E5%A4%A7%E7%96%86%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%87%86%E5%A4%87%2F</url>
     <content type="text"><![CDATA[一、编程题1. 有如下CAT_s结构体定义，回答： 1) 在一台64位的机器上，使用32位编译，Garfield 变量占用多少内存空间？64位编译又是如何？（总分5分） 2) 使用32位编译情况下，给出一种判断所使用机器大小端的方法。（总分5分） 1234567struct CAT_s&#123; int ld; char Color; unsigned short Age; char *Name; void(*Jump)(void);&#125;Garfield; 2. 描述下面XXX 这个宏的作用。（总分10分） 12345#define offsetof(TYPE,MEMBER)((size_t)&amp;((TYPE*)0)-&gt;MEMBER) // 计算MEMBER在结构体中的偏移量#define container_of(ptr, type, member) (&#123;\ const typeof( ((type *)0)-&gt;member ) *__mptr = (ptr);\ (type *)( (char *)__mptr - offsetof(type,member) );&#125;) 3. 简述C 函数： 1) 参数如何传递（__cdecl调用方式）； 2) 返回值如何传递； 3) 调用后如何 返回到调用前的下一条指令执行。（总分10分） 答： 1) __cdecl调用方式的三个特点： 从右向左压入参数 由调用方负责参数压栈和清除栈(栈帧回退) 函数名会自动添加前导下划线 __stdcall是StandardCall的缩写，是C++的标准调用方式：所有参数从右到左依次入栈，由调用者负责把参数压入栈，最后由被调用者负责清除栈的内容 2) 返回值 返回值小于等于4个字节时，存储在eax中 返回值5~8个字节时，eax和edx联合存储返回 返回值大于8个字节时，创建临时栈，返回值存在临时栈中 3) 如何返回 完整介绍调用和返回的过程 调用过程： 函数调用方将参数从右向左依次压入栈中 压入函数返回地址 pushl %ebp; movl %esp %ebp; 保存在函数调用过程中需要保持不变的寄存器，如ebx,esi,edi 被调用函数保存临时变量 返回过程： movl %ebp, %esp; popl %ebp 弹出函数返回地址到程序计数器PC中 二．嵌入式基本知识1. 简述处理器中断处理的过程（中断向量、中断保护现场、中断嵌套、中断返回等）。（总 分10分） 外设产生中断信号，经过中断控制器进行筛选，选出中断优先级比较高的中断信号，把中断号传给CPU CPU禁用中断 CPU根据中断号，查找中断向量表，获得对应的中断服务程序的地址 CPU将一些重要的寄存器的内容压入堆栈中，如CS,EIP,SS,ESP,EFLAG 跳转到中断服务程序，CPU重新允许中断 执行中断服务例程，如何此时又有其他中断信号产生，重复以上步骤 中断返回时，需要先禁用中断 将堆栈中的寄存器弹回，回到原来的程序中 重新允许中断 2. 简述处理器在读内存的过程中，CPU 核、cache 、MMU 如何协同工作？画出CPU 核、 cache 、MMU 、内存之间的关系示意图加以说明（可以以你熟悉的处理器为例）。（总分10分） 三．基本通信知识1. 请说明总线接口USRT 、I2C 、USB 的异同点（串/并、速度、全/半双工、总线拓扑等）。 （总分5分） UART 通用异步串行口，速率不快，可全双工，结构上一般由波特率产生器、UART发送器、UART接收器组成，硬件上两线，一收一发。 SPI 高速同步串行口，高速，可全双工，收发独立，同步接口，可实现多个SPI设备互联，硬件3~4线。 I2C 双向、两线、串行、多主控接口标准。速率不快，半双工，同步接口，具有总线仲裁机制，非常适合器件间近距离经常性数据通信，可实现设备组网。 USB 通用串行总线，高速，半双工，由主机、hub、设备组成。设备可以与下级hub相连构成星型结构。 以表格总结如下： 2. 列举你所知道的linux 内核态和用户态之间的通信方式并给出你认为效率最高的方式， 说明理由。（总分5分） 四．系统设计有一个使用UART 进行通信的子系统X ，其中UART0进行数据包接收和回复，UART1进行数据包转发。子系统X 的通信模块职责是从UART0接收数据包，如果为本地数据包（receiver 为子系统X ），则解析数据包中的命令码（2字节）和数据域（0~128字节），根据命令码调用内部的处理程序，并将处理结果通过UART0回复给发送端，如果非本地数据包，则通过UART1转发。 如果由你来设计子系统X 的通信模块： 1) 请设计通信数据包格式，并说明各字段的定义；（总分5分） 2) 在一个实时操作系统中，你会如何部署模块中的任务和缓存数据，画出任务间的数据流视图加以说明；（总分5分） 3) 你会如何设置任务的优先级，说说优缺点；（总分5分） 4) 如果将命令码对应的处理优先级分为高、低两个等级，你又会如何设计；（总分5分） 参考文献[1] 2014年大疆创新笔试题目]]></content>
       <tags>
         <tag>编程</tag>
@@ -283,7 +561,7 @@
   </entry>
   <entry>
     <title><![CDATA[知识点准备]]></title>
-    <url>%2F2018%2F06%2F27%2Fpreparing%2F</url>
+    <url>%2F2018%2F06%2F27%2F%E5%B5%8C%E5%85%A5%E5%BC%8F%2F%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%2F</url>
     <content type="text"><![CDATA[1. DSP和ARM有什么区别？ 2. 设备的独立性 应用程序独立于具体使用的物理设备 3. 进程上下文是进程执行全过程的静态描述 4. 静态优先和动态优先，是否会饥饿 静态优先算法，不管是可抢占的还是不可抢占的，低优先级进程都有可能饥饿 动态优先算法则不会，因为会随着等待时间的增加而提高进程的优先级 5. 死锁的处理方法 鸵鸟策略——系统发生死锁的可能性/频率比较小，则不用管是否会死锁，等发生了死锁导致系统崩溃，重启即可 预防策略 避免策略 检测与解除死锁 ARM嵌入式1. Nand和Nor的区别 指标 Nor Nand 容量 小，1MB~32MB 16MB~512MB 片上运行(XIP) 支持XIP 不支持XIP 性能 读写擦除都很快 读快，写慢，擦除特别慢 生命周期 长 短 接口 RAM接口 I/O接口 访问顺序 随机访问 顺序访问 主要用途 保存代码和关键数据 保存数据（不支持XIP，不能保存程序） 价格 贵 便宜 2. Nand的访问 物理连接： 片选线 数据线 地址锁存线 命令锁存线 读使能线 写使能线 就绪/忙输出线 使用方法 传命令字 -&gt; 传地址 -&gt; 读/写数据 3. Nand参数 64MB，26根地址线 组织方式，一页512B，一块32页，总共4096块，即128K页 4. S3C2440的地址空间 地址空间总共有1GB，分成8个Bank 每个bank可以设置总线位宽（8/16/32bit） 支持外接ROM，SRAM，SDRAM 5. S3C2440的外设 Nor flash,SDRAM,网卡，IDE接口，串口芯片 6. 三种存储器 Nand——I/O接口，程序不能在片上运行，只能存放数据，相当于硬盘 Nor——内存接口，支持片上运行，可以存放程序和数据 SDRAM——内存接口，支持片上运行，相当于内存 7. S3C2440启动方式 启动地址固定为0地址， 从Nor启动——Nor地址会被映射到0地址，因此可以从Nor开始执行程序。 从Nand启动——Nand使用的I/O接口，刚上电时，未进行I/O初始化，不能读取，芯片内部设计，当选择从Nand启动时，硬件自动复制Nand的前4K的内容到steppingstone中，并且此时steppingstone被映射到0地址，因此从steppingstone中开始执行程序。因为SDRAM具有更好的性能，因此，一般会再将steppingstone的内容复制到SDRAM中，运行。 8. 操作SDRAM 关闭看门狗，否则CPU会不断重启 设置存储控制器（13个）：位宽和等待控制寄存器，8个Bank控制寄存器，3个SDRAM的相关寄存器 复制代码到SDRAM中 设置栈（有了栈才可以使用函数） 跳转到SDRAM中运行程序]]></content>
       <tags>
         <tag>找工作</tag>
@@ -579,8 +857,8 @@
   </entry>
   <entry>
     <title><![CDATA[优雅的代码片段]]></title>
-    <url>%2F2018%2F05%2F27%2Felegant-code%2F</url>
-    <content type="text"><![CDATA[1.计算某个成员变量在结构体中的偏移量 123/* Return the offset of 'member' relative to the beginning of a struct type */#define offsetof(type, member) \ ((size_t)(&amp;((type *)0)-&gt;member)) 解析： ANSI C标准允许值为0的常量被强制转换成任何一种类型的指针，(type )0转换结果是一个type类型的NULL指针。&amp;((type )0)-&gt;member则是取member成员的地址。因为首地址为0，因此结果相当于结构体成员在结构体中的偏移量。 来源: ucore_os_lab/labcodes_answer/lab2_result/libs/defs.h 2.根据某个结构体指针得到另一个结构体指针 12345678/* * * to_struct - get the struct from a ptr * @ptr: a struct pointer of member * @type: the type of the struct this is embedded in * @member: the name of the member within the struct * */#define to_struct(ptr, type, member) \ ((type *)((char *)(ptr) - offsetof(type, member))) 解析： offsetof可以就是第一个代码片段中的方法，可以求出成员在结构体类型中的偏移量。(char )(ptr)转换成char 类型，是因为指针的减法并不是简单的地址相减，如 int * ptr，ptr - 2，实际上是减去2个int的大小。]]></content>
+    <url>%2F2018%2F05%2F27%2F%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%2Felegant-code%2F</url>
+    <content type="text"><![CDATA[#1 计算某个成员变量在结构体中的偏移量 123/* Return the offset of 'member' relative to the beginning of a struct type */#define offsetof(type, member) \ ((size_t)(&amp;((type *)0)-&gt;member)) 解析： ANSI C标准允许值为0的常量被强制转换成任何一种类型的指针，(type )0转换结果是一个type类型的NULL指针。&amp;((type )0)-&gt;member则是取member成员的地址。因为首地址为0，因此结果相当于结构体成员在结构体中的偏移量。 来源: ucore_os_lab/labcodes_answer/lab2_result/libs/defs.h #2 根据某个结构体指针得到另一个结构体指针 12345678/* * * to_struct - get the struct from a ptr * @ptr: a struct pointer of member * @type: the type of the struct this is embedded in * @member: the name of the member within the struct * */#define to_struct(ptr, type, member) \ ((type *)((char *)(ptr) - offsetof(type, member))) 解析： offsetof可以就是第一个代码片段中的方法，可以求出成员在结构体类型中的偏移量。(char )(ptr)转换成char 类型，是因为指针的减法并不是简单的地址相减，如 int * ptr，ptr - 2，实际上是减去2个int的大小。 #3 不通过中间变量交换两个值 根据异或运算的一个性质： 如果a ^ b = c，那么也有a ^ c = b, b ^ c = a; 1234int a = 5, b = 7;a = a ^ b;b = b ^ a;a = a ^ b;]]></content>
       <tags>
         <tag>编程</tag>
       </tags>

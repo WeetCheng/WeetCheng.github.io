@@ -116,13 +116,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="知识点汇编（1）.word和.long bootasm.S中 123gdtdesc:    .word 0x17                                      # sizeof(gdt) - 1    .long gdt                                       # address gdt .word代表2个字节，.long代表4个字">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-19/31500391.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-20/29846382.jpg">
-<meta property="og:updated_time" content="2018-06-09T06:24:10.000Z">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/31500391.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/29846382.jpg">
+<meta property="og:updated_time" content="2018-10-19T14:53:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机启动过程">
 <meta name="twitter:description" content="知识点汇编（1）.word和.long bootasm.S中 123gdtdesc:    .word 0x17                                      # sizeof(gdt) - 1    .long gdt                                       # address gdt .word代表2个字节，.long代表4个字">
-<meta name="twitter:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-19/31500391.jpg">
+<meta name="twitter:image" content="https://github.com/WeetCheng/image/raw/master/blogs/31500391.jpg">
 
 
 
@@ -390,7 +390,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
+                <time title="修改时间：2018-10-19 22:53:34" itemprop="dateModified" datetime="2018-10-19T22:53:34+08:00">2018-10-19</time>
               
             
           </span>
@@ -498,7 +498,7 @@
 <h3><span id="内存地址空间分配">内存地址空间分配</span></h3><p>对于1G的物理内存来说，其物理空间分配如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">+------------------+  &lt;- 0xFFFFFFFF (4GB)</span><br><span class="line">|     无效空间      |</span><br><span class="line">|                  |</span><br><span class="line">+------------------+  &lt;- addr:3G+256M</span><br><span class="line">|     256MB        |</span><br><span class="line">|   IO外设地址空间   |</span><br><span class="line">|                  |</span><br><span class="line">+------------------+  &lt;- 0xC0000000(3GB)</span><br><span class="line">|                  |</span><br><span class="line">/\/\/\/\/\/\/\/\/\/\</span><br><span class="line"></span><br><span class="line">/\/\/\/\/\/\/\/\/\/\</span><br><span class="line">|     无效空间      |</span><br><span class="line">+------------------+  &lt;- 0x40000000(1GB)</span><br><span class="line">|                  |</span><br><span class="line">|    实际有效内存    |</span><br><span class="line">|                  |</span><br><span class="line">+------------------+  &lt;- 0x00100000 (1MB)</span><br><span class="line">|     BIOS ROM     |</span><br><span class="line">+------------------+  &lt;- 0x000F0000 (960KB)</span><br><span class="line">|  16-bit devices, |</span><br><span class="line">|  expansion ROMs  |</span><br><span class="line">+------------------+  &lt;- 0x000C0000 (768KB)</span><br><span class="line">|   VGA Display    |</span><br><span class="line">+------------------+  &lt;- 0x000A0000 (640KB)</span><br><span class="line">|                  |</span><br><span class="line">|    Low Memory    |</span><br><span class="line">|                  |</span><br><span class="line">+------------------+  &lt;- 0x00000000</span><br></pre></td></tr></table></figure>
 <h2><span id="bootasms">bootasm.S</span></h2><p>bootasm.S文件内容：</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-19/31500391.jpg" alt=""></p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/31500391.jpg" alt=""></p>
 <p>总结来说，bootasm.S的主要工作为：</p>
 <p>实模式 —-&gt;  保护模式 —-&gt; 跳转到bootmain</p>
 <ol>
@@ -523,7 +523,7 @@
 <li>加载ucore的程序段</li>
 <li>跳转到ucore程序入口点</li>
 </ol>
-<h3><span id="kerninitc">kern/init.c</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-20/29846382.jpg" alt=""></p>
+<h3><span id="kerninitc">kern/init.c</span></h3><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/29846382.jpg" alt=""></p>
 <ol>
 <li>控制台初始化：</li>
 </ol>
@@ -665,7 +665,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -684,7 +684,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -737,7 +743,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1319,6 +1339,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

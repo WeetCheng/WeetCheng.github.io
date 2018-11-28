@@ -116,14 +116,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="中断门描述符 查找中断服务例程入口点  产生中断，得到中断向量号 查询中断描述符表，得到中断门或陷阱门描述符 根据门描述符去查找LDT或GDT，得到段描述符(也就是TSS描述符) 根据段描述符可以找到中断服务例程的入口点  中断入栈 分成两种情况： • 没有特权级变换：不需要压入 SS和ESP • 产生特权级转换：需要压入 SS和ESP">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-31/29294317.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-31/13175133.jpg">
-<meta property="og:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-31/6404475.jpg">
-<meta property="og:updated_time" content="2018-06-13T13:39:15.000Z">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/29294317.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/13175133.jpg">
+<meta property="og:image" content="https://github.com/WeetCheng/image/raw/master/blogs/6404475.jpg">
+<meta property="og:updated_time" content="2018-10-19T14:53:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="386的中断机制">
 <meta name="twitter:description" content="中断门描述符 查找中断服务例程入口点  产生中断，得到中断向量号 查询中断描述符表，得到中断门或陷阱门描述符 根据门描述符去查找LDT或GDT，得到段描述符(也就是TSS描述符) 根据段描述符可以找到中断服务例程的入口点  中断入栈 分成两种情况： • 没有特权级变换：不需要压入 SS和ESP • 产生特权级转换：需要压入 SS和ESP">
-<meta name="twitter:image" content="http://p65ksscu3.bkt.clouddn.com/18-5-31/29294317.jpg">
+<meta name="twitter:image" content="https://github.com/WeetCheng/image/raw/master/blogs/29294317.jpg">
 
 
 
@@ -391,7 +391,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-13 21:39:15" itemprop="dateModified" datetime="2018-06-13T21:39:15+08:00">2018-06-13</time>
+                <time title="修改时间：2018-10-19 22:53:34" itemprop="dateModified" datetime="2018-10-19T22:53:34+08:00">2018-10-19</time>
               
             
           </span>
@@ -444,15 +444,15 @@
       
 
       
-        <h3><span id="中断门描述符">中断门描述符</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-31/29294317.jpg" alt=""></p>
-<h3><span id="查找中断服务例程入口点">查找中断服务例程入口点</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-31/13175133.jpg" alt=""></p>
+        <h3><span id="中断门描述符">中断门描述符</span></h3><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/29294317.jpg" alt=""></p>
+<h3><span id="查找中断服务例程入口点">查找中断服务例程入口点</span></h3><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/13175133.jpg" alt=""></p>
 <ol>
 <li>产生中断，得到中断向量号</li>
 <li>查询中断描述符表，得到中断门或陷阱门描述符</li>
 <li>根据门描述符去查找LDT或GDT，得到段描述符(也就是TSS描述符)</li>
 <li>根据段描述符可以找到中断服务例程的入口点</li>
 </ol>
-<h3><span id="中断入栈">中断入栈</span></h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-31/6404475.jpg" alt=""></p>
+<h3><span id="中断入栈">中断入栈</span></h3><p><img src="https://github.com/WeetCheng/image/raw/master/blogs/6404475.jpg" alt=""></p>
 <p>分成两种情况：</p>
 <p>• 没有特权级变换：不需要压入 SS和ESP</p>
 <p>• 产生特权级转换：需要压入 SS和ESP</p>
@@ -583,7 +583,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -602,7 +602,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -655,7 +661,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1237,6 +1257,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   

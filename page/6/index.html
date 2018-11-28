@@ -324,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/操作系统/linux-task-thread/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/数据结构与算法/b-tree-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeetCheng">
@@ -343,8 +343,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/操作系统/linux-task-thread/" itemprop="url">
-                  linux的内核线程，普通进程和普通线程
+                <a class="post-title-link" href="/2018/07/12/数据结构与算法/b-tree-1/" itemprop="url">
+                  B树
                 </a>
               
             
@@ -370,7 +370,7 @@
                 
               
 
-              <time title="创建时间：2018-06-11 14:23:38" itemprop="dateCreated datePublished" datetime="2018-06-11T14:23:38+08:00">2018-06-11</time>
+              <time title="创建时间：2018-07-12 19:11:30" itemprop="dateCreated datePublished" datetime="2018-07-12T19:11:30+08:00">2018-07-12</time>
             
 
             
@@ -387,7 +387,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-13 21:31:38" itemprop="dateModified" datetime="2018-06-13T21:31:38+08:00">2018-06-13</time>
+                <time title="修改时间：2018-10-19 22:53:35" itemprop="dateModified" datetime="2018-10-19T22:53:35+08:00">2018-10-19</time>
               
             
           </span>
@@ -401,10 +401,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/11/操作系统/linux-task-thread/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/12/数据结构与算法/b-tree-1/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/11/操作系统/linux-task-thread/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/12/数据结构与算法/b-tree-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -434,45 +434,31 @@
       
         
           
-            <p><strong>进程/线程的描述</strong></p>
-<p>​    严格来说，Linux中并没有真正的线程，而是共享地址空间的一组进程来实现线程的功能，不过我们还是使用线程这个术语。在操作系统原理中我们知道，操作系统既有进程控制块PCB又有线程控制块TCB。然而在Linux中，进程和线程的控制块都用数据结构task_struct来表示，线程并没有自己独立的线程控制块。</p>
-<p>​    同一个进程中的线程共享地址空间，共享堆，但是并不共享栈。由于地址空间是由mm_struct和页表描述的，也就是说线程间也共享页表。</p>
-<blockquote>
-<p>mm_struct负责描述进程/线程的虚拟地址空间，页表则负责将虚拟地址空间描述成物理地址空间。</p>
-</blockquote>
-<p>每个进程/线程在内核中都有一个与之相对应的内核栈。当创建一个新的进程/线程时，内核为进程/线程创建了</p>
+            <p><strong>下面来具体介绍一下B-树（Balance Tree），一个m阶的B树具有如下几个特征：</strong></p>
+<p>1.根结点至少有两个子女。</p>
+<p>2.每个中间节点都包含k-1个元素和k个孩子，其中 m/2 &lt;= k &lt;= m</p>
+<p>3.每一个叶子节点都包含k-1个元素，其中 m/2 &lt;= k &lt;= m</p>
+<p>4.所有的叶子节点都位于同一层。</p>
+<p>5.每个节点中的元素从小到大排列，节点当中k-1个元素正好是k个孩子包含的元素的值域分划。</p>
+<p>举个最简单的例子，</p>
+<p><strong>3阶B树，又称2-3树</strong></p>
+<p>其根节点有三种情况：叶节点，2-节点，3-节点（叶节点，2 ~ M-节点）</p>
+<p>其非根节点有两种情况：2-节点，3-节点（⌈M/2⌉ ~ M-节点）</p>
+<p><strong>4阶B树</strong></p>
+<p>其根节点有四种情况：叶节点，2-节点，3-节点，4-节点（叶节点，2 ~ M-节点）</p>
+<p>其非根节点有三种情况：2-节点，3-节点，4-节点（⌈M/2⌉ ~ M-节点）</p>
+<p><strong>5阶B树</strong></p>
+<p>其根节点有五种情况：叶节点，2-节点，3-节点，4-节点，5-节点（叶节点，2 ~ M-节点）</p>
+<p>其非根节点有三种情况：3-节点，4-节点，5-节点（⌈M/2⌉ ~ M-节点）</p>
+<p><strong>6阶B树</strong></p>
+<p>其根节点有6种情况：叶节点，2-节点，3-节点，4-节点，5-节点，6-节点（叶节点，2 ~ M-节点）</p>
+<p>其非根节点有四种情况：3-节点，4-节点，5-节点，6-节点（⌈M/2⌉ ~ M-节点）</p>
+<p>综上所述，可知，M阶B树的节点类型为</p>
 <ul>
-<li>进程/线程描述符(task_struct)</li>
-<li>在内核地址空间中申请了两页的空间作为该进程/线程的内核栈。</li>
+<li>根节点要么没有儿子，要么有2～M个儿子</li>
+<li>非根节点类型有⌈M/2⌉ -节点  ….  M节点。</li>
 </ul>
-<p>准确的说，这两页的空间低地址处放了一个thread_info数据结构，指向进程描述符，剩下的空间才是真的拿来做内核栈的。</p>
-<p>进程描述符其实也有一个指针指向thread_info数据结构</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-11/3152712.jpg" alt=""></p>
-<p><strong>内核栈，进程栈，线程栈和中断栈</strong></p>
-<p>（1）操作系统创建进程时，会在用户地址空间创建进程栈，同时在内核空间为该进程也创建一个内核栈。</p>
-<ul>
-<li>用户进程在用户态下运行，使用进程栈。</li>
-<li>当其陷入内核态时，使用内核栈。</li>
-</ul>
-<p>（2）操作系统创建线程时，除了复制主进程的地址空间外，还会为每个线程创建一个独立的线程栈，当然在内核空间也创建了一个内核栈。</p>
-<p>（3）操作系统初始化时，就已经在内核空间中创建了一个中断栈，中断服务例程调用函数时就会用到该中断栈。</p>
-<p><strong>系统启动时的内核线程</strong></p>
-<p>系统正式启动时，会执行 start_kernel 函数，其中创建了第一个进程，名为init_task，其PID=0，运行于内核态。</p>
-<p>然后init_task会创建内核线程init，其PID=1，运行于内核态，完成内核空间的初始化。完成内核空间初始化后，载入/sbin/init可执行程序，变成普通进程，仍有PID=1，运行于用户态。</p>
-<p>接着init_task进程演变成idle进程，仍有PID=0。</p>
-<p>idle进程又会创建kthreadd内核线程，其PID=2，用来创建并管理其他内核线程。</p>
-<p><strong>虚拟内存地址空间</strong></p>
-<p>系统内核常驻于物理内存中，并不会被换出。</p>
-<p><strong>页表</strong></p>
-<p>有两种页表，一种是内核页表，一种是进程页表</p>
-<p>内核页表，称为主内核页全局目录，它的作用应该是作为一个模板，不管是普通进程还是内核线程都不能访问。</p>
-<p>进程页表，最开始的部分映射0~3G的地址空间，后面部分映射内核地址空间3~4G，其内容就是从内核页表中复制过来的，完全一样。所以普通进程只要陷入内核态，就可以处理系统调用和中断/异常。即当系统调用，中断或异常发生时，只需要切换CPU上下文，而不需要切换进程上下文。</p>
-<p><strong>内核线程如何访问页表</strong></p>
-<p>尽管内核中存在内核页表，但是不管是普通进程还是内核线程都不能访问它。普通进程有自己的页表，要访问页表自然是轻而易举。但是内核线程没有自己的页表，它该如何是好？</p>
-<p>既然普通进程有页表，内核页表却不能访问，那内核线程访问普通进程的页表不就可以了吗？普通进程对应于内核空间的页表内容是从内核页表中复制过来的，因此内核线程可以找到内核空间。</p>
-<h3><span id="参考文献">参考文献</span></h3><p>[1] <a href="http://abcdxyzk.github.io/blog/2018/01/10/kernel-task-thread/" target="_blank" rel="noopener">Linux 内核线程及普通进程总结</a></p>
-<p>[2] <a href="https://blog.csdn.net/yangkuanqaz85988/article/details/52403726" target="_blank" rel="noopener">Linux 中的各种栈：进程栈 线程栈 内核栈 中断栈</a></p>
-<p>这两篇博客都写得非常好！</p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/84186627.jpg" alt=""></p>
 
           
         
@@ -526,7 +512,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/操作系统/os-keywords/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/数据结构与算法/binary-tree-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WeetCheng">
@@ -545,8 +531,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/09/操作系统/os-keywords/" itemprop="url">
-                  操作系统关键词
+                <a class="post-title-link" href="/2018/07/12/数据结构与算法/binary-tree-2/" itemprop="url">
+                  二叉树讲解
                 </a>
               
             
@@ -572,7 +558,7 @@
                 
               
 
-              <time title="创建时间：2018-06-09 17:59:12 / 修改时间：18:01:44" itemprop="dateCreated datePublished" datetime="2018-06-09T17:59:12+08:00">2018-06-09</time>
+              <time title="创建时间：2018-07-12 09:12:07 / 修改时间：09:16:56" itemprop="dateCreated datePublished" datetime="2018-07-12T09:12:07+08:00">2018-07-12</time>
             
 
             
@@ -591,392 +577,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/09/操作系统/os-keywords/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/12/数据结构与算法/binary-tree-2/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/09/操作系统/os-keywords/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <!-- toc -->
-<ul>
-<li><a href="#第1章-计算机系统概述">第1章 计算机系统概述</a></li>
-<li><a href="#第2章-操作系统概述">第2章 操作系统概述</a></li>
-<li><a href="#第3章-进程描述和控制">第3章 进程描述和控制</a></li>
-<li><a href="#第4章-线程-对称多处理和微内核">第4章 线程、对称多处理和微内核</a></li>
-<li><a href="#第5章-并发性互斥和同步">第5章 并发性：互斥和同步</a></li>
-<li><a href="#第6章-并发死锁和饥饿">第6章 并发：死锁和饥饿</a></li>
-<li><a href="#第7章-内存管理">第7章 内存管理</a></li>
-<li><a href="#第8章-虚拟内存">第8章 虚拟内存</a></li>
-<li><a href="#第9章-单处理器调度">第9章 单处理器调度</a></li>
-<li><a href="#第10章-多处理器和实时调度">第10章 多处理器和实时调度</a></li>
-<li><a href="#第11章-io管理和磁盘调度">第11章 I/O管理和磁盘调度</a></li>
-<li><a href="#第12章-文件管理">第12章 文件管理</a></li>
-<li><a href="#第13章-嵌入式操作系统">第13章 嵌入式操作系统</a></li>
-<li><a href="#第14章-计算机安全威胁">第14章 计算机安全威胁</a></li>
-<li><a href="#第15章-计算机安全技术">第15章 计算机安全技术</a></li>
-<li><a href="#第16章-分布式处理-客户服务器和集群">第16章 分布式处理、客户/服务器和集群</a></li>
-</ul>
-<!-- tocstop -->
-<h3 id="第1章-计算机系统概述"><a href="#第1章-计算机系统概述" class="headerlink" title="第1章 计算机系统概述"></a>第1章 计算机系统概述</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-8/48368817.jpg" alt=""></p>
-<h3 id="第2章-操作系统概述"><a href="#第2章-操作系统概述" class="headerlink" title="第2章 操作系统概述"></a>第2章 操作系统概述</h3><p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-8/44410375.jpg" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/09/操作系统/os-keywords/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/操作系统/ucore实验环境搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/09/操作系统/ucore实验环境搭建/" itemprop="url">
-                  ucore实验环境搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-09 17:55:46" itemprop="dateCreated datePublished" datetime="2018-06-09T17:55:46+08:00">2018-06-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-13 21:29:53" itemprop="dateModified" datetime="2018-06-13T21:29:53+08:00">2018-06-13</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/09/操作系统/ucore实验环境搭建/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/09/操作系统/ucore实验环境搭建/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <!-- toc -->
-<ul>
-<li><a href="#安装工具">安装工具</a><ul>
-<li><a href="#配置eclipse">配置eclipse</a></li>
-<li><a href="#使用eclipse调试">使用eclipse调试</a></li>
-<li><a href="#使用命令行运行">使用命令行运行</a></li>
-<li><a href="#使用命令行调试">使用命令行调试</a></li>
-</ul>
-</li>
-<li><a href="#安装gitbook">安装gitbook</a><ul>
-<li><a href="#下载实验手册">下载实验手册</a></li>
-</ul>
-</li>
-<li><a href="#参考文献">参考文献</a></li>
-</ul>
-<!-- tocstop -->
-<h2 id="安装工具"><a href="#安装工具" class="headerlink" title="安装工具"></a>安装工具</h2><ul>
-<li>qemu    硬件模拟器</li>
-<li>eclipse    c/c++代码阅读器</li>
-<li>understand     代码分析工具</li>
-<li>meld        文件对比工具（图形界面）</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install qemu-system-x86</span><br><span class="line">sudo apt-get install eclipse-cdt</span><br><span class="line">sudo apt-get install meld</span><br></pre></td></tr></table></figure>
-<h3 id="配置eclipse"><a href="#配置eclipse" class="headerlink" title="配置eclipse"></a>配置eclipse</h3><p><strong>安装插件 “Zylin Embedded CDT”</strong></p>
-<p>进入菜单help-&gt; install new software，填上以下内容，然后next直到完成。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-5-8/91399195.jpg" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/09/操作系统/ucore实验环境搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/日常/my-deepin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/09/日常/my-deepin/" itemprop="url">
-                  我的deepin15.5配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-09 14:52:44" itemprop="dateCreated datePublished" datetime="2018-06-09T14:52:44+08:00">2018-06-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-13 21:38:03" itemprop="dateModified" datetime="2018-06-13T21:38:03+08:00">2018-06-13</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/09/日常/my-deepin/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/09/日常/my-deepin/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/12/数据结构与算法/binary-tree-2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1006,1296 +610,1663 @@
       
         
           
-            <h3><span id="1设置网络">1.设置网络</span></h3><p>省略</p>
-<h3><span id="2-下载各种软件">2. 下载各种软件</span></h3><p><strong>(1) 可以在终端下载的软件：</strong></p>
-<p>sudo apt-get install locate guake typora git xmind keepass2 meld zeal vscode sublime cutecom picocom albert xscreensaver bleachbit stacer mpv virtualbox netease-cloud-music alacarte gnome-sushi uget xpad draw.io catfish calibre whatever teamviewer npm  &amp;&amp;  wget -qO- <a href="https://raw.github.com/ma6174/vim/master/setup.sh" target="_blank" rel="noopener">https://raw.github.com/ma6174/vim/master/setup.sh</a> | sh -x  &amp;&amp; sudo npm install -g hexo</p>
-<p><strong>(2) 下载安装包，用深度软件包管理器的软件：</strong></p>
-<ul>
-<li>stacer</li>
-<li>netease</li>
-<li>understand</li>
-</ul>
-<blockquote>
-<p>cd ~/Downloads </p>
-<p>wget <a href="http://d1.music.126.net/dmusic/netease-cloud-music_1.1.0_amd64_deepin.deb" target="_blank" rel="noopener">http://d1.music.126.net/dmusic/netease-cloud-music_1.1.0_amd64_deepin.deb</a> \</p>
-<p><a href="https://github.com/oguzhaninan/Stacer/releases/download/v1.0.9/stacer_1.0.9_amd64.deb" target="_blank" rel="noopener">https://github.com/oguzhaninan/Stacer/releases/download/v1.0.9/stacer_1.0.9_amd64.deb</a> \</p>
-<p><a href="http://builds.scitools.com/all_builds/b944/Understand/Understand-5.0.944-Linux-64bit.tgz" target="_blank" rel="noopener">http://builds.scitools.com/all_builds/b944/Understand/Understand-5.0.944-Linux-64bit.tgz</a></p>
-</blockquote>
-<p>这两个软件用命令行下载的版本有问题，因此去官网下最新的版本</p>
-<p><strong>(3) 应用商店安装的软件：</strong></p>
-<ul>
-<li>TIM</li>
-<li>坚果云</li>
-<li>go-for-it</li>
-<li>sublime text 3</li>
-</ul>
-<h3><span id="3-破解understand">3. 破解understand</span></h3><p>打开understand，选择使用legacy license</p>
-<p>进入软件界面后，help-&gt;legacy licensing，选择输入注册码：D59E41A3360B</p>
-<h3><span id="4-设置软件启动">4. 设置软件启动</span></h3><ul>
-<li>guake</li>
-<li>go-for-it</li>
-<li>坚果云</li>
-<li>albert</li>
-<li>xscreensaver（需要在stacer中设置开机启动命令：xscreensaver -nosplash&amp;）</li>
-</ul>
-<h3><span id="5-显示网速小插件">5. 显示网速小插件</span></h3><p>如何安装：<a href="https://jingyan.baidu.com/article/90808022004c15fd90c80f4f.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/90808022004c15fd90c80f4f.html</a></p>
-<p>下载地址：<a href="https://pan.baidu.com/s/17gEBP1ABln_USwrg9MgpBA" target="_blank" rel="noopener">https://pan.baidu.com/s/17gEBP1ABln_USwrg9MgpBA</a></p>
-<h3><span id="6-安装qluqlo">6. 安装qluqlo</span></h3><p>(1) 下载xscreensaver，并设置开机启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xscreensaver</span><br></pre></td></tr></table></figure>
-<p>启动stacer，在里面设置开机软件，添加启动命令为：xscreensaver -nosplash&amp;</p>
-<p>(2) 下载编译gluqlo</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Downloads</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/alexanderk23/gluqlo.git</span><br><span class="line"><span class="built_in">cd</span> gluqlo/</span><br><span class="line">sudo apt-get install build-essential libsdl1.2-dev libsdl-ttf2.0-dev libsdl-gfx1.2-dev libx11-dev</span><br><span class="line">make &amp;&amp; sudo make install</span><br></pre></td></tr></table></figure>
-<p>(3) 配置xscreensaver</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.xscreensaver</span><br><span class="line">在库中添加：</span><br><span class="line">-GL: gluqlo -root \n\</span><br></pre></td></tr></table></figure>
-<p>在启动器中打开xscreensaver,选择onl one screen saver,并选中gluqlo</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-9/86905365.jpg" alt=""></p>
-<p>(4) 设置锁屏快捷键</p>
-<p>在控制中心中修改系统默认的锁屏快捷键为ctrl+alt+l  (系统原本为super + L，但是我不想用系统自带的锁屏，因此腾出该快捷键给xscreensaver用)</p>
-<p>自定义快捷键：</p>
-<p>名称：Xscreensaver</p>
-<p>命令：xscreensaver-command -lock</p>
-<p>快捷方式：super + L</p>
-<h3><span id="7-vs-code配置印象笔记插件">7. VS code配置印象笔记插件</span></h3><p>(1) 安装插件 evermonkey</p>
-<p>(2) 安装markdown all in one</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/07/操作系统/os-questions/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/07/操作系统/os-questions/" itemprop="url">
-                  关于操作系统的一些疑问
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-07 21:53:34" itemprop="dateCreated datePublished" datetime="2018-06-07T21:53:34+08:00">2018-06-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-12 08:21:34" itemprop="dateModified" datetime="2018-06-12T08:21:34+08:00">2018-06-12</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/07/操作系统/os-questions/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/07/操作系统/os-questions/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3><span id="关于内存管理">关于内存管理</span></h3><p><strong>1.既要有物理内存管理，又要有虚拟内存管理，两者分别管理什么？</strong></p>
-<p><strong>2.如果产生了缺页异常，该怎么处理？</strong></p>
-<blockquote>
-<p>根据缺页异常的中断向量号，去查询中断描述符表IDT，可以找到对应的ISR所在的地址。其中进行了相应的处理。缺页异常一共有三个原因：</p>
+            <p>转载自：<a href="https://lufficc.com/blog/binary-search-tree#main-content" target="_blank" rel="noopener">多动态图详细讲解二叉搜索树</a></p>
+<p>作者：<a href="https://lufficc.com/blog" target="_blank" rel="noopener">luffic</a></p>
+<p>在计算机科学中，二叉搜索树（Binary Search Tree）（有时称为有序或排序的二叉树）是一种能存储特定数据类型的容器。二叉搜索树允许快速查找、添加或者删除某一个节点，并且它是动态的集合。<br>二叉搜索树按照关键字顺序地保存节点，因此查找和其他操作可以使用二叉搜索原理：当在树（或者寻找插入新节点的地方）中查找节点时，它从根节点遍历到叶节点，与每个节点的关键字进行比较，然后基于比较结果，决定继续在左子树或者右子树中进行搜索。平均而言，每次比较将跳过树的大约一半的元素，这使得每次查找，插入或删除一个节点所花费的时间与树的节点个数的对数成（树的高度）正比，比线性表的性能要好很多。</p>
+<h2><span id="定义">定义</span></h2><p>二叉搜索树是以一棵二叉树来组织，每个节点就是一个对象，包括<code>key</code>、卫星数据，除此之外还包括一些为了维持树结构所需要的信息：<code>left</code>、<code>right</code>、<code>parent</code>，分别指向左孩子、右孩子、父节点。其中如果孩子节点或者父节点不存在时，用<code>NIL</code>表示。根节点是树中唯一一个父节点为<code>NIL</code>的节点。</p>
+<p>二叉搜索树具有以下性质：</p>
 <ol>
-<li>虚拟地址不合法</li>
-<li>虚拟页不在内存中，也不在硬盘中，即第一次访问，没有建立过映射</li>
-<li>虚拟页在硬盘中</li>
+<li>如果节点的左子树不空，则左子树上所有结点的值均小于等于它的根结点的值；</li>
+<li>如果节点的右子树不空，则右子树上所有结点的值均大于等于它的根结点的值；</li>
+<li>任意节点的左、右子树也分别为二叉查找树；</li>
 </ol>
-<p>针对三种情况，分别处理：</p>
+<p><img src="https://static.lufficc.com/image/08dc83f3bff58335354b0e92c5f1e3a4.png" alt="二叉树">二叉树</p>
+<p>比如在上图中根节点的关键字为6，左子树有关键字2、4和5，均不大于6；右子树有关键字7和8，均不小于6。这个性质对树中的每个节点都成立，也就是说，二叉搜索树的定义是递归的。</p>
+<p>在讨论二叉搜索树的操作之前，先看看二叉搜索树的遍历。二叉搜索树可以使用先序遍历（preorder tree walk）、中序遍历（inorder tree walk）和后序遍历（postorder tree walk）。这样命名的依据是根据输出关键字相对于左右子树的位置。以中序遍历为例，伪代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CopyINORDER-TREE-WALK(x)</span><br><span class="line">    <span class="keyword">if</span> x != nil  <span class="comment">// 如果节点不为空</span></span><br><span class="line">        INORDER-TREE-WALK(x.left)  <span class="comment">// 首先递归地遍历左孩子，直到左孩子为空</span></span><br><span class="line">        print x.key     <span class="comment">// 输出当前节点（显然第一次运行到这里时，它是最小值，因为它是整棵树的最左节点）  </span></span><br><span class="line">        INORDER-TREE-WALK(x.right)  <span class="comment">// 递归地遍历右孩子</span></span><br></pre></td></tr></table></figure>
+<p>对于上图中的二叉搜索树，动态过程如下，这样输出结果为：2，4，5，6，7，8，即按照从小到大的顺序排列。因为输出时一直遍历左孩子，知道遇到第一个左孩子为空的节点，将它输出，然后出栈返回继续输出。</p>
+<p><img src="https://static.lufficc.com/image/4b899ff7efabbc8eeb5a89c766d4c7f9.gif" alt="file"></p>
+<h2><span id="查询">查询</span></h2><p>二叉搜索树还应该可以完成<code>MINIMUM</code>，<code>MAXIMUM</code>，<code>SUCCESSOR</code>和<code>PREDECESSOR</code>操作，即求最小值，最大值，后继和前驱，并且这些操作都可以在<code>o(lgn)</code>的时间内完成。</p>
+<h4><span id="查找指定关键字">查找指定关键字</span></h4><p><code>TREE-SEARCH</code>操作在二叉树中查找一个具有指定的关键字的节点，输入树的根节点指针和关键字<code>k</code>，如果存在，返回节点指针，否则，返回<code>nil</code>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-SEARCH(x, k)</span><br><span class="line">    <span class="keyword">if</span> x == nil <span class="keyword">or</span> k == x.key  <span class="comment">//如不存在或者找到，直接返回</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">if</span> k &lt; x.key                    <span class="comment">//如果小于当前节点，根据性质，在左子树中搜索</span></span><br><span class="line">        <span class="keyword">return</span> TREE-SEARCH(x.left, k)</span><br><span class="line">    <span class="keyword">else</span>                          <span class="comment">//如果大于等于当前节点，根据性质，在右子树中搜索</span></span><br><span class="line">        <span class="keyword">return</span> TREE-SEARCH(x.right, k)</span><br></pre></td></tr></table></figure>
+<p>比如查找关键字为5的节点，首先从根节点6开始，与5进行比较，因为5小于6，因此在节点6的左子树继续搜索。到达节点4时因为5大于4，所以在4节点的右子树搜索，这样就顺利找到了节点5，此时函数将返回指向节点5的指针。如果找不到目标节点，<code>TREE-SEARCH</code>函数将返回<code>nil</code>。整个搜索过程如下：</p>
+<p><img src="https://static.lufficc.com/image/1d2971466d707afea63848d8ff1819d6.gif" alt="搜索过程">搜索过程</p>
+<h4><span id="最小最大关键字">最小/最大关键字</span></h4><p>通过从树根开始，沿着<code>left</code>孩子向下搜索，直到遇到<code>nil</code>，那么根据二叉搜索树的性质，如果节点<code>x</code>没有左子树，而<code>x</code>的右子树的关键字肯定都大于<code>x.key</code>，因此此时当前节点一定是整个树中的最小值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-MINIMUM(x)</span><br><span class="line">    <span class="keyword">while</span> x.left != nil  <span class="comment">// 沿着左子树一直深入搜索下去，直到遇到左子树为空的节点，此时当前节点为最小值</span></span><br><span class="line">        x = x.left</span><br><span class="line">    <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p>同理，最大关键字的伪代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-MAXIMUM(x)</span><br><span class="line">    <span class="keyword">while</span> x.right != nil  <span class="comment">// 沿着右子树一直深入搜索下去，直到遇到右子树为空的节点，此时当前节点为最大值</span></span><br><span class="line">        x = x.right</span><br><span class="line">    <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p>求取最大、最小关键字的时间复杂度仅为<code>o(lgn)</code>，即与树的高度成正比，因为查找过程自上而下形成一条线，线的最大长度为数的高度，如求取最小值的过程：</p>
+<p><img src="https://static.lufficc.com/image/f7a94798ed0a119cc9bb51eb19620e91.gif" alt="求取最小值">求取最小值</p>
+<h4><span id="前驱后继">前驱/后继</span></h4><p>给定二叉搜索树的一个节点，有事需要按照中序遍历的次序查找它的后继，如果所有的关键字互不相同，则一个节点<code>x</code>的后继一定是大于<code>x.key</code>的最小关键字。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-SUCCESSOR(x)</span><br><span class="line">    <span class="keyword">if</span> x.right != nil   <span class="comment">//case 1:如果右子树不为空，则后继一定是右子树的最小值，即大于x的最小值（右子树的值都大于x节点）</span></span><br><span class="line">        <span class="keyword">return</span> TREE-MINIMUM(x.right)</span><br><span class="line">    y = x.p    <span class="comment">// case 2:右子树为空时</span></span><br><span class="line">    <span class="keyword">while</span> y != nil <span class="keyword">and</span> x == y.right</span><br><span class="line">        x = y   <span class="comment">// 变量x代表节点原始x的祖先，如果找到x，它是父节点的左孩子，则循环终止</span></span><br><span class="line">        y = y.p   <span class="comment">// y 代表节点x的父节点，如果x是y的左孩子，循环终止，并且返回y</span></span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure>
+<p>1.对于第一种情况比较简单，如果<code>x</code>右子树不为空，那它的后继就是右子树的<strong>最左节点</strong>，对应伪代码<code>case 1</code>，例如下图寻找68的后继，即寻找68的右子树的最小节点72，同时它也是右子树的最左节点。</p>
+<p><img src="https://static.lufficc.com/image/8bd06a98a87c2103de26010413454645.gif" alt="寻找68的后继">寻找68的后继</p>
+<p>2.第二种情况是<code>x</code>的右子树为空，注意<code>x</code>的后继始终是大于<code>x</code>的最小值（或者不存在），所以当<code>x</code>的右子树不存在时大于<code>x</code>的最小值在哪儿呢？我们只需要简单的从<code>x</code>开始沿树而上，找到第一个这样一个节点：它的父节点为空（即根节点）或者它的左孩子是<code>x</code>节点的祖先节点（不一定是直接祖先）。例如下图中为了寻找17的后继，沿着树上升，首先以此遇到了节点<code>13</code>，<code>11</code>，它们均不符合条件，因为它们不是父节点的左孩子。当遇到节点<code>10</code>时，此时<code>x</code>指向节点<code>10</code>，<code>y</code>指向节点<code>19</code>，并且节点<code>10</code>是节点<code>19</code>的左孩子，符合条件，所以返回节点<code>y</code>，它是节点<code>x</code>的后继。</p>
+<p><img src="https://static.lufficc.com/image/e487db1de1bb0138d925a193d60cafa7.gif" alt="寻找17的后继">寻找17的后继</p>
+<p>再举一个例子，下图为了找15的后继，仍然沿着树上升，直到遇到节点10（此时伪代码中的变量<code>x</code>指向节点10）：它是15的祖先，而且是左孩子。所以此时返回节点10的父节点19，即节点15的后继。</p>
+<p><img src="https://static.lufficc.com/image/2bc42a442c637772fc62e48ddda211d1.gif" alt="寻找15的后继">寻找15的后继</p>
+<p>一个二叉搜索树中除了最大节点外，都有后继。对于前驱节点，和后继节点原理一样，这里不再赘述。</p>
+<h2><span id="插入">插入</span></h2><p>插入操作会引起二叉搜索树集合的动态变化，因此需要一定的修改来维持二叉搜索树。由于二叉搜索树的性质，即左孩子小于等于父节点，右孩子大于等于父节点，因此插入操作相对简单。</p>
+<p>将一个节点插入到二叉搜索树中，需要调用<code>TREE-INSERT</code>，该过程以节点<code>z</code>作为输入，其中<code>z.left = nil, z.right = nil, z.key = 将要插入数据的关键字</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-INSERT(T, z)</span><br><span class="line">    y = nil</span><br><span class="line">    x = T.root</span><br><span class="line">    <span class="keyword">while</span> x != nil <span class="comment">//循环结束后，x一定为空，此时x即为节点z要插入的地方</span></span><br><span class="line">        y = x    <span class="comment">//在这里给y赋值，保证循环结束后y始终是x的父节点</span></span><br><span class="line">        <span class="keyword">if</span> z.key &lt; x.key</span><br><span class="line">            x = x.left</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            x = x.right</span><br><span class="line">        z.p = y  <span class="comment">//  y始终是x的父节点，为了插入z，需要让z的父节点指向x的父节点，即指向y</span></span><br><span class="line">        <span class="keyword">if</span> y == nil  <span class="comment">//  如果y为空，说明插入时是一棵空的树，需要将树根指向z</span></span><br><span class="line">            T.root = z</span><br><span class="line">        elseif z.key &lt; y.key   <span class="comment">//  判断节点z是y的左孩子还是右孩子</span></span><br><span class="line">            y.left = z</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            y.right = z</span><br></pre></td></tr></table></figure>
+<p>上述伪代码从树根开始，指针<code>x</code>记录了一条向下的简单路径，通过<code>while</code>循环比较<code>z.key</code>和<code>x.key</code>的大小，使指针<code>x</code>和指针<code>y</code>向下移动，循环结束时则找到一个空的<code>x</code>并作为一个槽，将节点<code>z</code>放到这里（插入），同时保持节点<code>y</code>为节点<code>x</code>的父节点，这样可以很方便的决定插入之后将<code>z</code>作为它的左孩子还是右孩子。举一个例子：</p>
+<p><img src="https://static.lufficc.com/image/428df4bcae641c08ff0e049d7cdf7711.gif" alt="file"></p>
+<p>上图为了在树中插入节点<code>46</code>，首先<code>x</code>指向根节点，节点<code>46</code>与根节点<code>68</code>（<code>x</code>节点）比较，小于<code>68</code>，因此指针<code>x</code>指向根节点（<code>x</code>节点）的左孩子<code>62</code>，然后一直下移。注意当<code>x</code>指向<code>45</code>的时候，节点<code>46</code>大于45，因此将<code>x</code>指向节点<code>45</code>的右孩子，此时<code>x</code>为<code>nil</code>了，循环结束，也就找到了节点<code>46</code>的位置：节点<code>45</code>的右孩子。然后进行一些操作将节点<code>46</code>插入到树中即可。</p>
+<h2><span id="删除">删除</span></h2><p>从二叉搜索树中删除一个节点<code>z</code>稍微有点棘手，但总的来说可以分为三种情况：</p>
 <ol>
-<li>直接报错</li>
-<li>分配空闲页，并填写虚拟页对应的页表项。如果当前没有空闲页，还需要执行置换算法</li>
-<li>将虚拟页从硬盘中换入到内存中。</li>
+<li>如果<code>z</code>没有孩子节点，那么简单的将它删除，并修改它的父节点，用<code>nil</code>作为孩子节点代替<code>z</code>即可。</li>
+<li>如果<code>z</code>只有一个孩子，那么将这个孩子提升到<code>z</code>的位置，并修改它的父节点，用<code>z</code>的孩子代替<code>z</code>即可。</li>
+<li>如果<code>z</code>有两个孩子，那么用<code>z</code>的后继<code>y</code>（此时<code>z</code>的后继<code>y</code>一定在<code>z</code>的右子树中，因为<code>z</code>的右孩子不为空）来占据<code>z</code>的位置，此时<code>z</code>的原来的右子树部分称为<code>y</code>的新的右子树，并且<code>z</code>的左子树称为<code>y</code>的新的左子树。这种情况稍微麻烦，因为还与<code>y</code>是否为<code>z</code>的右孩子相关。</li>
 </ol>
-</blockquote>
-<p><strong>3.ISR的地址是虚拟地址，线性地址还是物理地址？</strong></p>
-<blockquote>
-<p>我想应该时线性地址，因为是通过查询全局描述符表GDT获得的。而GDT的作用就是获得段的起始地址</p>
-</blockquote>
-<p><strong>4.虚拟内存区域vma是什么意思？</strong></p>
-<blockquote>
-<p>我们知道linux虚拟内存的布局如下：</p>
-<p>用户空间占用3G，内核空间占用1G。其实这3G的用户空间也不是虚拟内存能够使用。只有申请为vma的区域才是可以合法的区域。如果没有申请为vma，相当于没有这块虚拟内存。比如申请了一块vma为0x10000000~0x10001000,那么位于该虚拟区间的虚拟地址合法（如0x10000FFF）。</p>
-</blockquote>
-<p><strong>5.连续内存如何分配？</strong></p>
-<p>动态分配策略：</p>
-<ul>
-<li>first-fit</li>
-<li>best-fit</li>
-<li>worst-fit</li>
-<li>伙伴系统</li>
-</ul>
-<p>操作系统需要维护的数据结构：</p>
-<ul>
-<li>空闲物理区域</li>
-<li>已分配给各个进程的物理页</li>
-</ul>
-<p>连续内存分配的缺点：外部碎片——可以使用碎片紧凑的方法克服外部碎片，不过前提是所有的应用程序都是可重定位的。</p>
-<p><strong>6.非连续内存分配方法有哪些？</strong></p>
-<ul>
-<li>段式存储——不连续的二维结构，需要知道每个段的起始地址和长度</li>
-<li>页式存储</li>
-</ul>
-<p><strong>7.快表的作用是什么？</strong></p>
-<p>​    可以缓存近期访问过的页表项，如果这里能找到，那就不用去内存中查找，提高响应速度。</p>
-<p><strong>8.多级页表的作用是什么？</strong></p>
-<p>​    建立页表树，等到用到的时候再创建相应的页表，没有用到的就不用创建，这样可以大大减少页表数量。</p>
-<p><strong>9.什么是反置页表？</strong></p>
-<p>​    反置页表又称倒置页表，倒排页表。传统的方法用页表来表示4G的虚拟内存空间，页表按照虚拟页号排序，页表项内容为该虚拟页对应的物理页帧。如果只用一个页表来表示，显然页表会非常长，所以目前多采用多级页表。</p>
-<p>​    但是现在的64bit系统允许使用非常大的虚拟内存空间，用多级页表页也会占用很大的内存空间。因此采用逆向思维，反过来，用页表来表示实际物理内存空间，而不是虚拟内存空间，页表按照物理页帧号排序，页表项的内容为该物理页帧对应的虚拟页号和所属的进程PID。我们可以检索进程PID和要访问的虚拟地址的页号来找到对应的物理页帧号。不过要检索进程PID和虚拟页号还是比较费时的，可以使用hash映射来加快速度。</p>
-<p>​    给定虚拟地址后，对进程PID和虚拟地址的页号进行hash映射，得到物理页帧号，如果hash结果冲突，就去遍历冲突项链表，这样可以很快找到虚拟地址对应的物理地址。</p>
-<p><strong>10.如何进行物理内存管理？操作系统怎么记录已分配的物理页？</strong></p>
-<p>操作系统有数据结构用来记录物理内存空间中的连续物理内存区域。Linux采用伙伴系统来管理物理内存。</p>
-<blockquote>
-<p>伙伴系统的原理如下：</p>
-<p>伙伴系统的zone数据结构中有一个数据结构数组free_area[]就是用来记录连续的物理内存区域的。物理内存区域的基本单位是页帧。数组free_area[]的第n个元素存放的是所有长度为2^n个页帧的连续空闲物理内存区域构成的链表。如free_area[0]存放的是长度为1个页帧的所有空闲区域构成的链表,ree_area[1]存放的是长度为2个页帧的空闲区域构成的链表。</p>
-</blockquote>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-11/75124719.jpg" alt=""></p>
-<p><strong>11.缺页异常的发生和处理过程是怎么样的？</strong></p>
+<h4><span id="第一种情况节点z没有孩子">第一种情况：节点<code>z</code>没有孩子</span></h4><p>这种情况比较简单，我们直接删除节点<code>z</code>即可，并不会影响到二叉搜索树的性质：</p>
+<p><img src="https://static.lufficc.com/image/cf4a29bbf497763af823c3da5048ec32.png" alt="file"></p>
+<p>用动图来表示就是：</p>
+<p><img src="https://static.lufficc.com/image/21fe24091d17ba82f64aec0e973dbed2.gif" alt="file"></p>
+<h4><span id="第二种情况节点z只有一个孩子">第二种情况：节点<code>z</code>只有一个孩子</span></h4><p>这种情况也比较简单，直接用节点<code>z</code>的孩子代替节点<code>z</code>即可。其实第一种情况和第二种情况可以归为一个：节点<code>z</code>的孩子个数小于2个，直接用节点<code>z</code>的孩子代替节点<code>z</code>即可，只是节点<code>z</code>没有孩子时是用的<code>nil</code>代替节点<code>z</code>，这里为了更加清楚地说明分了三种情况。</p>
+<p><img src="https://static.lufficc.com/image/064534db4f36c6d5e5b7f425b0d1915b.png" alt="file"></p>
+<p>例如如下图，当节点<code>42</code>只有左孩子时，直接将<code>42</code>的父节点<code>6</code>的右孩子指向节点<code>29</code>，将节点<code>29</code>的父节点设置为节点<code>6</code>即可：</p>
+<p><img src="https://static.lufficc.com/image/94583c3a70a3a0e9c9d17c27482c2b68.gif" alt="file"></p>
+<p>或者只有右孩子时也是如此，直接将<code>94</code>的左孩子指向<code>78</code>，<code>78</code>的父节点指向<code>94</code>即可：<br><img src="https://static.lufficc.com/image/f1774f832f870b121909b0dc7d27b08a.gif" alt="file"></p>
+<h4><span id="第三种情况节点z有两个孩子">第三种情况：节点<code>z</code>有两个孩子</span></h4><p>这种情况稍微复杂一点，因为此时我们需要找到节点<code>z</code>的后继<code>y</code>，而后继节点<code>y</code>又分为<code>y</code>是节点<code>z</code>的直接右孩子或者不是。</p>
 <ol>
-<li>访问虚拟地址</li>
-<li>查询页表</li>
-<li>页表项中没有映射关系，或者该页不在物理内存中</li>
-<li>产生缺页异常</li>
-<li>根据缺页异常的中断向量号跳转对应的ISR中</li>
-<li>判断属于哪种原因导致的缺页异常，这里假设是页表项中没有映射关系导致的</li>
-<li>由物理内存管理器选择一个物理页帧，分配给虚拟页</li>
-<li>填写对应的页表项</li>
-<li>根据虚拟地址找到其所在的虚拟页在磁盘中的位置（可以根据文件系统找到可执行文件在磁盘中的位置）</li>
-<li>磁盘驱动器将虚拟页从磁盘中复制到物理内存中</li>
+<li><code>z</code>的后继<code>y</code>是 <code>z</code>的右孩子<br>此时可以直接用后继<code>y</code>代替<code>z</code>，而且<code>y</code>的左孩子此时一定为空（因为后继的左孩子一定为空），再用<code>z</code>的左孩子代替<code>y</code>的原来为空的左孩子即可。<br><img src="https://static.lufficc.com/image/7c5bf7ed18e03a52118c4d7293cb7d95.png" alt="file"><br>用动图表示删除节点67就是：<br><img src="https://static.lufficc.com/image/5719e314f6dc71c8d2dab91c613c4234.gif" alt="file"></li>
+<li><code>z</code>的后继<code>y</code>不是 <code>z</code>的右孩子<br>在这种情况下我们先用<code>y</code>的右孩子<code>x</code>代替<code>y</code>，然后再用<code>y</code>代替<code>z</code>:</li>
 </ol>
-<p><strong>12.如果缺页时，物理内存已经没有空间了，怎么办？</strong></p>
-<p>​    这个时候需要使用页面置换算法，从物理内存中选出一个物理页帧换出到磁盘中，再把该物理页帧分配给造成缺页异常的虚拟页。</p>
-<p><strong>13.有哪些页置换算法？</strong></p>
-<p>可以分成两大类：一种是从当前的进程占用的物理页帧中选择，一种是从整个物理内存中未锁定的物理页帧选择。</p>
-<p>第一大类有以下几种：</p>
-<ul>
-<li><p>最优算法——理想中的算法，选择未来最不可能使用的虚拟页对应的物理页帧。遗憾的是，无法知道未来。</p>
-</li>
-<li><p>先入先出算法——选择分配时间最久的物理页帧。但是在内存中待的最久的虚拟页常常也是使用比较频繁的页，这种方法不好。</p>
-</li>
-<li><p>最近最久未使用算法——接近最优算法。我们没办法知道未来，但是可以根据最近使用的情况来预测对应的物理页在未来是否会被访问。如果最近都没有使用，可以假设短期的未来也不会访问。</p>
-</li>
-<li><p>时钟算法——最近最久算法实现起来比较麻烦，开销比较大，因为要根据过去的一段时间的访问情况来预测。为了简单，时钟算法只统计上一次扫描周期是否被访问过。</p>
-</li>
-<li><p>改进时钟算法——最近最久未使用算法和时钟算法都没考虑到一点，如果一个物理页被修改过，那么置换出去的时候就必须将页帧写回磁盘中，这样就得等它写完之后才能把该物理页重新分配，太慢了。于是在最近最久未使用的规则上再加一条限制：该物理页没有修改过。也就是说选出最近最久未使用且没有修改的物理页帧。用二元组 (是否访问过， 是否修改 ) 来表示一个页帧的使用情况，通常按照以下顺序选择置换的页：</p>
-<p>(0, 0) &gt; (0,1) &gt; (1, 0) &gt; (1, 1)</p>
-</li>
-</ul>
-<p>第二大类有以下几种：</p>
-<ul>
-<li>工作集算法</li>
-<li>缺页率算法</li>
-</ul>
-<h3><span id="386编程模型">386编程模型</span></h3><p>1.中断、异常和系统调用有什么区别和联系？</p>
-<p>中断——来自硬件设备的请求，又称硬件中断，外部中断，异步中断</p>
-<p>异常——非法指令或者其他原因导致当前的指令执行失败，包含traps,faults,aborts</p>
-<p>系统调用——应用程序主动向操作系统请求系统服务。</p>
-<p>系统调用是有了操作系统后的一个叫法，在裸机的时候应该称之为“软中断”。系统调用的处理方法与异常相同。</p>
-<p>广义上讲，硬件中断、异常和系统调用都属于“中断”，都有相应的中断号与之相对应。</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-11/99022040.jpg" alt=""></p>
-<p>2.中断/异常与CALL指令的异同？</p>
-<p>3.产生中断/异常之后的处理过程？</p>
-<p>首先需要保护现场，然后跳转到中断服务例程进行中断处理，最后恢复现场。详细过程如下：</p>
-<p>(1) 产生中断，硬件自动设置中断标志位，CPU切换特权级</p>
-<p>(2) 硬件自动保护现场，入栈：标志寄存器EFLAGS、返回地址CS和EIP、栈地址SS和ESP</p>
-<p>(3) 切换堆栈：设置SS和ESP</p>
-<p>保护现场有两个含义：</p>
-<p>(1) 硬件执行：中断隐指令自动保存重要的现场信息：标志寄存器EFLAGS、返回地址CS和EIP、栈地址SS和ESP(产生特权级转换才需要)</p>
-<p>(2) 软件编程执行：由中断服务例程中保存通用寄存器。而中断服务例程是操作系统的一部分</p>
-<p>4.产生中断/</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/操作系统/磁盘调度/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/05/操作系统/磁盘调度/" itemprop="url">
-                  磁盘调度
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-05 15:22:02" itemprop="dateCreated datePublished" datetime="2018-06-05T15:22:02+08:00">2018-06-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/05/操作系统/磁盘调度/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/05/操作系统/磁盘调度/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3><span id="磁盘性能参数">磁盘性能参数</span></h3><ul>
-<li>寻道时间——磁头定位到目标磁道所需要的时间</li>
-<li>旋转延迟——磁头到达目标扇区做需要的时间</li>
-<li>传送时间——读写数据所需要的时间</li>
-</ul>
-<h3><span id="磁盘调度策略">磁盘调度策略</span></h3><ul>
-<li>随机调度(RSS)</li>
-<li>先进先出(FIFO)</li>
-<li>进程优先级(PRI)</li>
-<li>后进先出(LIFO)</li>
-<li>最短服务时间优先(SSTF)</li>
-<li>电梯算法(SCAN)——来回扫</li>
-<li>循环扫描算法(C-SCAN)——一个方向扫</li>
-<li>N-step-SCAN</li>
-<li>分步电梯算法(FSCAN)</li>
-</ul>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-5/80355003.jpg" alt=""></p>
-<h3><span id="raid">RAID</span></h3><p>分成7个级别，RAID 0~6</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-5/48847543.jpg" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/操作系统/io-manager/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/05/操作系统/io-manager/" itemprop="url">
-                  I/O管理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-05 07:51:55" itemprop="dateCreated datePublished" datetime="2018-06-05T07:51:55+08:00">2018-06-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/05/操作系统/io-manager/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/05/操作系统/io-manager/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <!-- toc -->
-<ul>
-<li><a href="#一-io设备的基本概念">一、I/O设备的基本概念</a></li>
-<li><a href="#二-操作系统关于io的设计">二、操作系统关于I/O的设计</a></li>
-<li><a href="#io缓冲">I/O缓冲</a></li>
-</ul>
-<!-- tocstop -->
-<h3 id="一、I-O设备的基本概念"><a href="#一、I-O设备的基本概念" class="headerlink" title="一、I/O设备的基本概念"></a>一、I/O设备的基本概念</h3><p><strong>I/O设备分类</strong></p>
-<p>一般可以分成三种类型：</p>
-<ul>
-<li>人可读：适用于计算机与用户之间的交互，例如打印机，终端，显示器，键盘，鼠标等</li>
-<li>机器可读：适用于与电子设备通信，例如磁盘驱动器，传感器，控制器和执行器</li>
-<li>通信：适用于与远程设备通信，例如数字线路驱动器和调制解调器</li>
-</ul>
-<p><strong>执行I/O的三种技术</strong></p>
-<ul>
-<li>可编程I/O——处理器代表进程向I/O模块发出一个I/O命令，查询方式</li>
-<li>中断驱动I/O</li>
-<li>DMA</li>
-</ul>
-<p><strong>I/O功能的发展</strong></p>
-<ul>
-<li>处理器直接控制外围设备</li>
-<li>I/O控制器或I/O模块</li>
-<li>I/O控制器或I/O模块，中断方式</li>
-<li>DMA</li>
-<li>I/O通道——特殊的处理器，可以执行专用的I/O指令，但没有内存，与CPU共用内存</li>
-<li>I/O处理器——完整的处理器功能，具有自己的内存</li>
-</ul>
-<p>后面三种方式，广义来讲，都可以称为DMA方式，都让CPU从I/O的任务中解脱出来。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/05/操作系统/io-manager/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/日常/deepin安装打印机驱动/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/04/日常/deepin安装打印机驱动/" itemprop="url">
-                  deepin添加HP网络打印机
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-04 22:23:35" itemprop="dateCreated datePublished" datetime="2018-06-04T22:23:35+08:00">2018-06-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-13 21:36:52" itemprop="dateModified" datetime="2018-06-13T21:36:52+08:00">2018-06-13</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/04/日常/deepin安装打印机驱动/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/04/日常/deepin安装打印机驱动/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>环境</strong></p>
-<p>打印机型号：HP Laserjet Pro M126nw</p>
-<p>系统：deepin 15.5</p>
-<p><strong>安装打印机驱动程序</strong></p>
-<p><strong>方法一：</strong></p>
-<p>deepin系统默认安装了hplip，如果没有，则先安装hplip</p>
-<p>终端运行命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install hplip</span><br><span class="line"><span class="comment"># hplip安装成功后，运行</span></span><br><span class="line">$ hp-setup</span><br></pre></td></tr></table></figure>
-<p>弹出打印机设置界面</p>
-<p>实验室的打印机是固定分配IP地址的，输入IP查找</p>
-<p><img src="http://p65ksscu3.bkt.clouddn.com/18-6-4/9567358.jpg" alt=""></p>
-<p>可以轻易查找到实验室的打印机，往后一直next，直到完成。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/04/日常/deepin安装打印机驱动/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/操作系统/real-time-scheduling/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/04/操作系统/real-time-scheduling/" itemprop="url">
-                  实时调度
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-04 20:59:43" itemprop="dateCreated datePublished" datetime="2018-06-04T20:59:43+08:00">2018-06-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/04/操作系统/real-time-scheduling/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/04/操作系统/real-time-scheduling/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <!--- toc -->
-<h3 id="一、实时调度的概念"><a href="#一、实时调度的概念" class="headerlink" title="一、实时调度的概念"></a>一、实时调度的概念</h3><p><strong>定义</strong></p>
-<p>实时计算可以定义成这样一类计算：即系统的正确性不仅取决于计算的逻辑结果，而且还依赖于产生结果的时间</p>
-<p><strong>分类</strong></p>
-<ul>
-<li>硬实时任务：必须在规定期限内完成，否则将出现致命错误</li>
-<li>软实时任务：尽量在规定期限内完成，超过期限也还可以接受</li>
-</ul>
-<ul>
-<li>周期性任务</li>
-<li>非周期性任务</li>
-</ul>
-<p><strong>实时操作系统的要求</strong></p>
-<ul>
-<li>可确定性：从高优先的设备产生中断到操作系统开始服务的延迟，表示操作系统感知中断之前的延迟</li>
-<li>可响应性：中断之后操作系统提供中断服务的时长。</li>
-<li>用户控制：允许用户细粒度地控制任务优先级，以及指定其他的一些特性</li>
-<li>可靠性：非实时系统如果出现故障，通过重启解决。实时系统如果故障，代价非常昂贵，因此要求可靠性高</li>
-<li>故障弱化操作：实在出现故障了，实时操作系统将尝试改正问题或最小化它的影响，并继续执行。当需要关机时，也必须维护文件和数据的一致性</li>
-</ul>
-<p><strong>实时操作系统的特点</strong></p>
-<p>实时操作系统有以上五个要求，因此一般具有以下特征：</p>
-<ul>
-<li>快速的进程或线程切换</li>
-<li>体积小</li>
-<li>迅速响应外部中断的能力</li>
-<li>通过诸如信号量、信号、事件之类进程间通信工具，实现多任务处理</li>
-<li>使用特殊的顺序文件，可以快速存储数据</li>
-<li>基于优先级的抢占式调度</li>
-<li>最小化禁止中断的时间</li>
-<li>用于使任务延迟一段固定的时间或暂停/恢复任务的原语</li>
-<li>特定的报警和超时设定</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/04/操作系统/real-time-scheduling/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/操作系统/mul-processor-scheduling/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WeetCheng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/04/操作系统/mul-processor-scheduling/" itemprop="url">
-                  多处理器调度
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-04 16:38:44" itemprop="dateCreated datePublished" datetime="2018-06-04T16:38:44+08:00">2018-06-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-09 14:24:10" itemprop="dateModified" datetime="2018-06-09T14:24:10+08:00">2018-06-09</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/04/操作系统/mul-processor-scheduling/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/04/操作系统/mul-processor-scheduling/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <!-- toc -->
-<ul>
-<li><a href="#一-多处理器系统">一、多处理器系统</a></li>
-<li><a href="#二-多处理器调度的设计问题">二、多处理器调度的设计问题</a></li>
-<li><a href="#三-多处理器的线程调度">三、多处理器的线程调度</a></li>
-</ul>
-<!-- tocstop -->
-<h3 id="一、多处理器系统"><a href="#一、多处理器系统" class="headerlink" title="一、多处理器系统"></a>一、多处理器系统</h3><ul>
-<li>松耦合、分布式多处理器、集群</li>
-<li>专门功能的处理器</li>
-<li>紧耦合多处理</li>
-</ul>
-<p><strong>粒度的概念</strong></p>
-<p>描述系统中多个进程的并行和同步程度。可分为：</p>
-<ul>
-<li>无约束并行性</li>
-<li>粗粒度和非常粗粒度并行性</li>
-<li>中等粒度并行性</li>
-<li>细粒度并行性</li>
-</ul>
-<h3 id="二、多处理器调度的设计问题"><a href="#二、多处理器调度的设计问题" class="headerlink" title="二、多处理器调度的设计问题"></a>二、多处理器调度的设计问题</h3><p>三个相互关联的问题：</p>
-<ul>
-<li>把进程分配到处理器</li>
-<li>在单个处理器上使用多道程序设计</li>
-<li>一个进程的实际分派</li>
-</ul>
-<p><strong>（1）把进程分配到处理器</strong></p>
-<p>两种方式：</p>
+<p><img src="https://static.lufficc.com/image/5c736a8e765db3cb6f76f8e81e7ea005.png" alt="file"></p>
+<p><img src="https://static.lufficc.com/image/724901291a2138ab3fbc12e66b64c23c.png" alt="file"></p>
+<p>用动图表示删除节点<code>50</code>就是用<code>74</code>代替<code>73</code>，即将<code>73</code>的父节点<code>82</code>的右孩子指向<code>74</code>,<code>74</code>的父节点设置为<code>82</code>，然后再用<code>73</code>代替<code>50</code>，即将<code>50</code>左孩子<code>31</code>设置为<code>73</code>的左孩子，<code>50</code>的右孩子<code>82</code>设置为<code>73</code>的右孩子：<br><img src="https://static.lufficc.com/image/48ecb1feea1b39d7b9512e6a4b9a1241.gif" alt="file"></p>
+<p>为了实现删除过程的伪代码，我们需要定义一个子过程<code>TRANSPLANT</code>，它是用为了用以<code>v</code>为根的子树替换以<code>u</code>为根的子树，让<code>u</code>的双亲节点变为<code>v</code>的双亲节点，即让<code>v</code>称为<code>u</code>的双亲节点的孩子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CopyTRANSPLANT(T, u, v)</span><br><span class="line">    <span class="keyword">if</span> u.p == nil   <span class="comment">// 当u位树的根节点时，直接将树的根节点指向v</span></span><br><span class="line">        T.root = v</span><br><span class="line">    elseif u == u.p.left   <span class="comment">// 如果u是左孩子，则u的父节点的左孩子指向v</span></span><br><span class="line">        u.p.left = v</span><br><span class="line">    <span class="keyword">else</span>    <span class="comment">// 如果u是右孩子，则u的父节点的右孩子指向v</span></span><br><span class="line">        u.p.right = v</span><br><span class="line">    <span class="keyword">if</span> v != nil   </span><br><span class="line">        v.p = u.p    <span class="comment">// 将v的父节点设为u的父节点</span></span><br></pre></td></tr></table></figure>
+<p>然后实现具体的删除过程：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CopyTREE-DELETE(T, z)</span><br><span class="line">    <span class="keyword">if</span> z.left == nil  <span class="comment">// 如果左孩子为空，则直接用右孩子代替z即可，而不管右孩子是否为空（右孩子为空时对应情况一否则对应情况二）</span></span><br><span class="line">        TRANSPLANT(T, z, z.right)</span><br><span class="line">    elseif z.right == nil  <span class="comment">// 右孩子为空，直接用做孩子代替z</span></span><br><span class="line">        TRANSPLANT(T, z, z.left)</span><br><span class="line">    <span class="keyword">else</span> y = TREE-MINIMUM(z.right)  <span class="comment">// 左右孩子均不为空，找到z的后继y，即z的右子树的最小值，对应第三种情况</span></span><br><span class="line">        <span class="keyword">if</span> y.p != z   <span class="comment">// 如果z的后继y不是z的右孩子，对应第三种情况的2</span></span><br><span class="line">            TRANSPLANT(T, y, y.right)  <span class="comment">// 用y的右孩子代替y</span></span><br><span class="line">            y.right = z.right    <span class="comment">// 将y的右孩子指向z的右孩子</span></span><br><span class="line">            y.right.p = y     <span class="comment">// 将y的右孩子(原来的z的右孩子)的父节点设为y</span></span><br><span class="line">        TRANSPLANT(T, z, y)  <span class="comment">// 用y代替z</span></span><br><span class="line">        y.left = z.left</span><br><span class="line">        y.left.p = p</span><br></pre></td></tr></table></figure>
+<p>因此总的来说，删除操作可以分为两大类：</p>
 <ol>
-<li>静态分配——进程从激活到完成，一直都分配给同一个处理器</li>
-<li>动态分配——所有进程进入一个全局队列，然后调度到任何一个可用的处理器上运行。在不同的时间可以在不同的处理器上运行</li>
+<li><code>z</code>的孩子总数小于2时，直接用<code>z</code>的孩子代替<code>z</code>即完成了对<code>z</code>的删除。</li>
+<li><code>z</code>有两个孩子时：<br>2.1. <code>z</code>的后继<code>y</code>是<code>z</code>的右孩子：直接用<code>y</code>代替<code>z</code>即可（别忘了将<code>z</code>的左孩子的父节点设置为<code>y</code>）。<br>2.2. <code>z</code>的后继<code>y</code>不是<code>z</code>的右孩子：先用<code>y</code>的右孩子<code>x</code>代替<code>y</code>，再用<code>y</code>代替<code>z</code>。</li>
 </ol>
-<p><strong>（2）在单个处理器上使用多道程序设计</strong></p>
-<p>如果使用动态分配方式将进程分配给处理器，那么单个处理器不需要再实现多道程序设计了，因为调度已经是在上一步完成了。</p>
-<p>但如果使用静态分配方式，即把单个进程与处理器绑定，就需要考虑该问题。因为进程可能因为I/O阻塞而使得其绑定的处理器经常空闲，这时候就需要多个进程来使用该处理器，以提高使用率</p>
-<p><strong>（3）进程分派问题</strong></p>
-<p>多处理器系统的进程调度尽量选用简单的分配策略。因为时间轮转法、优先级调度法等复杂的调度算法在多处理器上的提升效果不明显，甚至</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/04/操作系统/mul-processor-scheduling/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<h2><span id="总结">总结</span></h2><p>因为二叉搜索树的性质，即可以在每个比较之后将数据规模变为原来的一半，因此平均情况下每一个操作都可以在<code>o(lgn)</code>的时间内完成，即花费时间与树的高度成正比。但在最坏的情况下，二叉搜索树就退化为一个链表，此时的时间复杂度退化到了<code>o(n)</code>。但很多改进版的二叉查找树可以使树高为<code>o(lgn)</code>，如SBT，AVL树，红黑树等。</p>
+<h2><span id="参考文献">参考文献</span></h2><ol>
+<li>算法导论</li>
+<li>维基百科</li>
+<li>visualgo</li>
+</ol>
+<p><a href="https://lufficc.com/blog/binary-search-tree#main-content" target="_blank" rel="noopener">⬆️</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/数据结构与算法/avl-tree-simplify/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/数据结构与算法/avl-tree-simplify/" itemprop="url">
+                  AVL树精简版
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-11 22:23:59 / 修改时间：22:36:43" itemprop="dateCreated datePublished" datetime="2018-07-11T22:23:59+08:00">2018-07-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/11/数据结构与算法/avl-tree-simplify/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/11/数据结构与算法/avl-tree-simplify/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>四种情况：</p>
+<p><img src="https://images0.cnblogs.com/i/497634/201403/281624280475098.jpg" alt="img"></p>
+<p><img src="https://images0.cnblogs.com/i/497634/201403/281625317193879.jpg" alt="img"></p>
+<p>左旋转</p>
+<p><img src="https://images0.cnblogs.com/i/497634/201403/281626153129361.jpg" alt="img"></p>
+<p>右旋转</p>
+<p><img src="https://images0.cnblogs.com/i/497634/201403/281626410316969.jpg" alt="img"></p>
+<p>左右旋转</p>
+<p><img src="https://images0.cnblogs.com/i/497634/201403/281627088127150.jpg" alt="img"></p>
+<p>右左旋转</p>
+<p><img src="https://images0.cnblogs.com/i/497634/201403/281628118447060.jpg" alt="img"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/数据结构与算法/avl-tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/11/数据结构与算法/avl-tree/" itemprop="url">
+                  AVL树
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-11 22:21:04 / 修改时间：22:31:58" itemprop="dateCreated datePublished" datetime="2018-07-11T22:21:04+08:00">2018-07-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/11/数据结构与算法/avl-tree/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/11/数据结构与算法/avl-tree/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>转载自：<a href="https://www.cnblogs.com/skywang12345/p/3576969.html" target="_blank" rel="noopener">AVL树(一)之 图文解析 和 C语言的实现</a></p>
+<p>作者：<a href="http://www.cnblogs.com/skywang12345/" target="_blank" rel="noopener">skywang12345</a></p>
+<h3><span id="概要"><strong>概要</strong></span></h3><p>本章介绍AVL树。和前面介绍”<a href="http://www.cnblogs.com/skywang12345/p/3576328.html" target="_blank" rel="noopener">二叉查找树</a>“的流程一样，本章先对AVL树的理论知识进行简单介绍，然后给出C语言的实现。本篇实现的二叉查找树是C语言版的，后面章节再分别给出C++和Java版本的实现。<br>建议：若您对”二叉查找树”不熟悉，建议先学完”<a href="http://www.cnblogs.com/skywang12345/p/3576328.html" target="_blank" rel="noopener">二叉查找树</a>“再来学习AVL树。</p>
+<p><strong>目录</strong></p>
+<ol>
+<li><a href="https://www.cnblogs.com/skywang12345/p/3576969.html#a1" target="_blank" rel="noopener">AVL树的介绍</a></li>
+<li><a href="https://www.cnblogs.com/skywang12345/p/3576969.html#a2" target="_blank" rel="noopener">AVL树的C实现</a>3. <a href="https://www.cnblogs.com/skywang12345/p/3576969.html#aa1" target="_blank" rel="noopener">AVL树的C实现(完整源码)</a></li>
+<li><a href="https://www.cnblogs.com/skywang12345/p/3576969.html#a3" target="_blank" rel="noopener">AVL树的C测试程序</a></li>
+</ol>
+<p>转载请注明出处：<a href="http://www.cnblogs.com/skywang12345/p/3576969.html" target="_blank" rel="noopener">http://www.cnblogs.com/skywang12345/p/3576969.html</a></p>
+<hr>
+<p><strong>更多内容</strong>: <a href="http://www.cnblogs.com/skywang12345/p/3603935.html" target="_blank" rel="noopener">数据结构与算法系列 目录</a> </p>
+<p>(01) <a href="http://www.cnblogs.com/skywang12345/p/3576969.html" target="_blank" rel="noopener">AVL树(一)之 图文解析 和 C语言的实现</a><br>(02) <a href="http://www.cnblogs.com/skywang12345/p/3577360.html" target="_blank" rel="noopener">AVL树(二)之 C++的实现</a><br>(03) <a href="http://www.cnblogs.com/skywang12345/p/3577479.html" target="_blank" rel="noopener">AVL树(三)之 Java的实现</a></p>
+<h3><span id="avl树的介绍"><strong>AVL树的介绍</strong></span></h3><p>AVL树是根据它的发明者G.M. <strong>A</strong>delson-<strong>V</strong>elsky和E.M. <strong>L</strong>andis命名的。<br>它是最先发明的自平衡二叉查找树，也被称为高度平衡树。相比于”二叉查找树”，它的特点是：AVL树中任何节点的两个子树的高度最大差别为1。 (关于树的高度等基本概念，请参考”<a href="http://www.cnblogs.com/skywang12345/p/3576328.html" target="_blank" rel="noopener">二叉查找树(一)之 图文解析 和 C语言的实现</a> “)</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281623404229547.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281623404229547.jpg" alt="img"></a></p>
+<p><em>上面的两张图片，左边的是AVL树，它的任何节点的两个子树的高度差别都&lt;=1；而右边的不是AVL树，因为7的两颗子树的高度相差为2(以2为根节点的树的高度是3，而以8为根节点的树的高度是1)。</em></p>
+<p>AVL树的查找、插入和删除在平均和最坏情况下都是O(logn)。<br>如果在AVL树中插入或删除节点后，使得高度之差大于1。此时，AVL树的平衡状态就被破坏，它就不再是一棵二叉树；为了让它重新维持在一个平衡状态，就需要对其进行旋转处理。学AVL树，重点的地方也就是它的旋转算法；在后文的介绍中，再来对它进行详细介绍。</p>
+<h3><span id="avl树的c实现"><strong>AVL树的C实现</strong></span></h3><p><strong>1. 节点</strong></p>
+<p><strong>1.1 定义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typedef int Type;</span><br><span class="line"></span><br><span class="line">typedef struct AVLTreeNode&#123;</span><br><span class="line">    Type key;                    // 关键字(键值)</span><br><span class="line">    int height;</span><br><span class="line">    struct AVLTreeNode *left;    // 左孩子</span><br><span class="line">    struct AVLTreeNode *right;    // 右孩子</span><br><span class="line">&#125;Node, *AVLTree;</span><br></pre></td></tr></table></figure>
+<p>AVL树的节点包括的几个组成对象:<br>(01) key – 是关键字，是用来对AVL树的节点进行排序的。<br>(02) left – 是左孩子。<br>(03) right – 是右孩子。<br>(04) height – 是高度。</p>
+<p><strong>1.2 节点的创建</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 创建AVL树结点。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 参数说明：</span></span><br><span class="line"><span class="comment"> *     key 是键值。</span></span><br><span class="line"><span class="comment"> *     left 是左孩子。</span></span><br><span class="line"><span class="comment"> *     right 是右孩子。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> Node* <span class="title">avltree_create_node</span><span class="params">(Type key, Node *left, Node* right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node* p;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((p = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node))) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    p-&gt;key = key;</span><br><span class="line">    p-&gt;height = <span class="number">0</span>;</span><br><span class="line">    p-&gt;left = left;</span><br><span class="line">    p-&gt;right = right;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>1.3 树的高度</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> HEIGHT(p)    ( (p==NULL) ? 0 : (((Node *)(p))-&gt;height) )</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 获取AVL树的高度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">avltree_height</span><span class="params">(AVLTree tree)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> HEIGHT(tree);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于高度，有的文章中将”空二叉树的高度定义为-1”，而本文采用<a href="http://zh.wikipedia.org/zh-cn/%E6%A0%91_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" target="_blank" rel="noopener">维基百科</a>)上的定义：树的高度为最大层次。即空的二叉树的高度是0，非空树的高度等于它的最大层次(根的层次为1，根的子节点为第2层，依次类推)。</p>
+<p><strong>1.4 比较大小</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX(a, b)    ( (a) &gt; (b) ? (a) : (b) )</span></span><br></pre></td></tr></table></figure>
+<p><strong>2. 旋转</strong><br>前面说过，如果在AVL树中进行插入或删除节点后，可能导致AVL树失去平衡。这种失去平衡的可以概括为4种姿态：LL(左左)，LR(左右)，RR(右右)和RL(右左)。下面给出它们的示意图：</p>
+<p><img src="https://images0.cnblogs.com/i/497634/201403/281624280475098.jpg" alt="img"></p>
+<p>上图中的4棵树都是”失去平衡的AVL树”，从左往右的情况依次是：LL、LR、RL、RR。除了上面的情况之外，还有其它的失去平衡的AVL树，如下图：</p>
+<p><img src="https://images0.cnblogs.com/i/497634/201403/281625317193879.jpg" alt="img"><br>上面的两张图都是为了便于理解，而列举的关于”失去平衡的AVL树”的例子。总的来说，AVL树失去平衡时的情况一定是LL、LR、RL、RR这4种之一，它们都由各自的定义：</p>
+<p>(1) <strong>LL</strong>：LeftLeft，也称为”左左”。插入或删除一个节点后，根节点的左子树的左子树还有非空子节点，导致”根的左子树的高度”比”根的右子树的高度”大2，导致AVL树失去了平衡。<br>​     <em>例如，在上面LL情况中，由于”根节点(8)的左子树(4)的左子树(2)还有非空子节点”，而”根节点(8)的右子树(12)没有子节点”；导致”根节点(8)的左子树(4)高度”比”根节点(8)的右子树(12)”高2。</em></p>
+<p>(2) <strong>LR</strong>：LeftRight，也称为”左右”。插入或删除一个节点后，根节点的左子树的右子树还有非空子节点，导致”根的左子树的高度”比”根的右子树的高度”大2，导致AVL树失去了平衡。<br>​    <em> 例如，在上面LR情况中，由于”根节点(8)的左子树(4)的左子树(6)还有非空子节点”，而”根节点(8)的右子树(12)没有子节点”；导致”根节点(8)的左子树(4)高度”比”根节点(8)的右子树(12)”高2。</em></p>
+<p>(3)<strong> RL</strong>：RightLeft，称为”右左”。插入或删除一个节点后，根节点的右子树的左子树还有非空子节点，导致”根的右子树的高度”比”根的左子树的高度”大2，导致AVL树失去了平衡。<br>​     <em>例如，在上面RL情况中，由于”根节点(8)的右子树(12)的左子树(10)还有非空子节点”，而”根节点(8)的左子树(4)没有子节点”；导致”根节点(8)的右子树(12)高度”比”根节点(8)的左子树(4)”高2。</em></p>
+<p>(4) <strong>RR</strong>：RightRight，称为”右右”。插入或删除一个节点后，根节点的右子树的右子树还有非空子节点，导致”根的右子树的高度”比”根的左子树的高度”大2，导致AVL树失去了平衡。<br>​     <em>例如，在上面RR情况中，由于”根节点(8)的右子树(12)的右子树(14)还有非空子节点”，而”根节点(8)的左子树(4)没有子节点”；导致”根节点(8)的右子树(12)高度”比”根节点(8)的左子树(4)”高2。</em></p>
+<p>前面说过，如果在AVL树中进行插入或删除节点后，可能导致AVL树失去平衡。AVL失去平衡之后，可以通过旋转使其恢复平衡，下面分别介绍”LL(左左)，LR(左右)，RR(右右)和RL(右左)”这4种情况对应的旋转方法。</p>
+<p><strong>2.1 LL的旋转</strong></p>
+<p>LL失去平衡的情况，可以通过一次旋转让AVL树恢复平衡。如下图：</p>
+<p><img src="https://images0.cnblogs.com/i/497634/201403/281626153129361.jpg" alt="img"></p>
+<p>图中左边是旋转之前的树，右边是旋转之后的树。从中可以发现，旋转之后的树又变成了AVL树，而且该旋转只需要一次即可完成。<br>对于LL旋转，你可以这样理解为：LL旋转是围绕”失去平衡的AVL根节点”进行的，也就是节点k2；而且由于是LL情况，即左左情况，就用手抓着”左孩子，即k1”使劲摇。将k1变成根节点，k2变成k1的右子树，”k1的右子树”变成”k2的左子树”。</p>
+<p>LL的旋转代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * LL：左左对应的情况(左单旋转)。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 返回值：旋转后的根节点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> Node* <span class="title">left_left_rotation</span><span class="params">(AVLTree k2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    AVLTree k1;</span><br><span class="line"></span><br><span class="line">    k1 = k2-&gt;left;</span><br><span class="line">    k2-&gt;left = k1-&gt;right;</span><br><span class="line">    k1-&gt;right = k2;</span><br><span class="line"></span><br><span class="line">    k2-&gt;height = MAX( HEIGHT(k2-&gt;left), HEIGHT(k2-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">    k1-&gt;height = MAX( HEIGHT(k1-&gt;left), k2-&gt;height) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> k1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.2 RR的旋转</strong></p>
+<p>理解了LL之后，RR就相当容易理解了。RR是与LL对称的情况！RR恢复平衡的旋转方法如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281626410316969.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281626410316969.jpg" alt="img"></a></p>
+<p>图中左边是旋转之前的树，右边是旋转之后的树。RR旋转也只需要一次即可完成。</p>
+<p>RR的旋转代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * RR：右右对应的情况(右单旋转)。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 返回值：旋转后的根节点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> Node* <span class="title">right_right_rotation</span><span class="params">(AVLTree k1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    AVLTree k2;</span><br><span class="line"></span><br><span class="line">    k2 = k1-&gt;right;</span><br><span class="line">    k1-&gt;right = k2-&gt;left;</span><br><span class="line">    k2-&gt;left = k1;</span><br><span class="line"></span><br><span class="line">    k1-&gt;height = MAX( HEIGHT(k1-&gt;left), HEIGHT(k1-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">    k2-&gt;height = MAX( HEIGHT(k2-&gt;right), k1-&gt;height) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> k2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.3 LR的旋转</strong></p>
+<p>LR失去平衡的情况，需要经过两次旋转才能让AVL树恢复平衡。如下图：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281627088127150.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281627088127150.jpg" alt="img"></a><br>第一次旋转是围绕”k1”进行的”RR旋转”，第二次是围绕”k3”进行的”LL旋转”。</p>
+<p>LR的旋转代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * LR：左右对应的情况(左双旋转)。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 返回值：旋转后的根节点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> Node* <span class="title">left_right_rotation</span><span class="params">(AVLTree k3)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    k3-&gt;left = right_right_rotation(k3-&gt;left);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> left_left_rotation(k3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.4 RL的旋转</strong><br>RL是与LR的对称情况！RL恢复平衡的旋转方法如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281628118447060.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281628118447060.jpg" alt="img"></a></p>
+<p>第一次旋转是围绕”k3”进行的”LL旋转”，第二次是围绕”k1”进行的”RR旋转”。</p>
+<p>RL的旋转代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * RL：右左对应的情况(右双旋转)。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 返回值：旋转后的根节点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> Node* <span class="title">right_left_rotation</span><span class="params">(AVLTree k1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    k1-&gt;right = left_left_rotation(k1-&gt;right);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> right_right_rotation(k1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3. 插入</strong><br>插入节点的代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * 将结点插入到AVL树中，并返回根节点</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 参数说明：</span></span><br><span class="line"><span class="comment"> *     tree AVL树的根结点</span></span><br><span class="line"><span class="comment"> *     key 插入的结点的键值</span></span><br><span class="line"><span class="comment"> * 返回值：</span></span><br><span class="line"><span class="comment"> *     根节点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Node* <span class="title">avltree_insert</span><span class="params">(AVLTree tree, Type key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (tree == <span class="literal">NULL</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 新建节点</span></span><br><span class="line">        tree = avltree_create_node(key, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br><span class="line">        <span class="keyword">if</span> (tree==<span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"ERROR: create avltree node failed!\n"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (key &lt; tree-&gt;key) <span class="comment">// 应该将key插入到"tree的左子树"的情况</span></span><br><span class="line">    &#123;</span><br><span class="line">        tree-&gt;left = avltree_insert(tree-&gt;left, key);</span><br><span class="line">        <span class="comment">// 插入节点后，若AVL树失去平衡，则进行相应的调节。</span></span><br><span class="line">        <span class="keyword">if</span> (HEIGHT(tree-&gt;left) - HEIGHT(tree-&gt;right) == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (key &lt; tree-&gt;left-&gt;key)</span><br><span class="line">                tree = left_left_rotation(tree);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                tree = left_right_rotation(tree);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (key &gt; tree-&gt;key) <span class="comment">// 应该将key插入到"tree的右子树"的情况</span></span><br><span class="line">    &#123;</span><br><span class="line">        tree-&gt;right = avltree_insert(tree-&gt;right, key);</span><br><span class="line">        <span class="comment">// 插入节点后，若AVL树失去平衡，则进行相应的调节。</span></span><br><span class="line">        <span class="keyword">if</span> (HEIGHT(tree-&gt;right) - HEIGHT(tree-&gt;left) == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (key &gt; tree-&gt;right-&gt;key)</span><br><span class="line">                tree = right_right_rotation(tree);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                tree = right_left_rotation(tree);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">//key == tree-&gt;key)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"添加失败：不允许添加相同的节点！\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tree-&gt;height = MAX( HEIGHT(tree-&gt;left), HEIGHT(tree-&gt;right)) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> tree;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>4. 删除</strong><br>删除节点的代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * 删除结点(z)，返回根节点</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 参数说明：</span></span><br><span class="line"><span class="comment"> *     ptree AVL树的根结点</span></span><br><span class="line"><span class="comment"> *     z 待删除的结点</span></span><br><span class="line"><span class="comment"> * 返回值：</span></span><br><span class="line"><span class="comment"> *     根节点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> Node* <span class="title">delete_node</span><span class="params">(AVLTree tree, Node *z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 根为空 或者 没有要删除的节点，直接返回NULL。</span></span><br><span class="line">    <span class="keyword">if</span> (tree==<span class="literal">NULL</span> || z==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (z-&gt;key &lt; tree-&gt;key)        <span class="comment">// 待删除的节点在"tree的左子树"中</span></span><br><span class="line">    &#123;</span><br><span class="line">        tree-&gt;left = delete_node(tree-&gt;left, z);</span><br><span class="line">        <span class="comment">// 删除节点后，若AVL树失去平衡，则进行相应的调节。</span></span><br><span class="line">        <span class="keyword">if</span> (HEIGHT(tree-&gt;right) - HEIGHT(tree-&gt;left) == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            Node *r =  tree-&gt;right;</span><br><span class="line">            <span class="keyword">if</span> (HEIGHT(r-&gt;left) &gt; HEIGHT(r-&gt;right))</span><br><span class="line">                tree = right_left_rotation(tree);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                tree = right_right_rotation(tree);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (z-&gt;key &gt; tree-&gt;key)<span class="comment">// 待删除的节点在"tree的右子树"中</span></span><br><span class="line">    &#123;</span><br><span class="line">        tree-&gt;right = delete_node(tree-&gt;right, z);</span><br><span class="line">        <span class="comment">// 删除节点后，若AVL树失去平衡，则进行相应的调节。</span></span><br><span class="line">        <span class="keyword">if</span> (HEIGHT(tree-&gt;left) - HEIGHT(tree-&gt;right) == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            Node *l =  tree-&gt;left;</span><br><span class="line">            <span class="keyword">if</span> (HEIGHT(l-&gt;right) &gt; HEIGHT(l-&gt;left))</span><br><span class="line">                tree = left_right_rotation(tree);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                tree = left_left_rotation(tree);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>    <span class="comment">// tree是对应要删除的节点。</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// tree的左右孩子都非空</span></span><br><span class="line">        <span class="keyword">if</span> ((tree-&gt;left) &amp;&amp; (tree-&gt;right))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (HEIGHT(tree-&gt;left) &gt; HEIGHT(tree-&gt;right))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 如果tree的左子树比右子树高；</span></span><br><span class="line">                <span class="comment">// 则(01)找出tree的左子树中的最大节点</span></span><br><span class="line">                <span class="comment">//   (02)将该最大节点的值赋值给tree。</span></span><br><span class="line">                <span class="comment">//   (03)删除该最大节点。</span></span><br><span class="line">                <span class="comment">// 这类似于用"tree的左子树中最大节点"做"tree"的替身；</span></span><br><span class="line">                <span class="comment">// 采用这种方式的好处是：删除"tree的左子树中最大节点"之后，AVL树仍然是平衡的。</span></span><br><span class="line">                Node *max = avltree_maximum(tree-&gt;left);</span><br><span class="line">                tree-&gt;key = max-&gt;key;</span><br><span class="line">                tree-&gt;left = delete_node(tree-&gt;left, max);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 如果tree的左子树不比右子树高(即它们相等，或右子树比左子树高1)</span></span><br><span class="line">                <span class="comment">// 则(01)找出tree的右子树中的最小节点</span></span><br><span class="line">                <span class="comment">//   (02)将该最小节点的值赋值给tree。</span></span><br><span class="line">                <span class="comment">//   (03)删除该最小节点。</span></span><br><span class="line">                <span class="comment">// 这类似于用"tree的右子树中最小节点"做"tree"的替身；</span></span><br><span class="line">                <span class="comment">// 采用这种方式的好处是：删除"tree的右子树中最小节点"之后，AVL树仍然是平衡的。</span></span><br><span class="line">                Node *min = avltree_maximum(tree-&gt;right);</span><br><span class="line">                tree-&gt;key = min-&gt;key;</span><br><span class="line">                tree-&gt;right = delete_node(tree-&gt;right, min);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            Node *tmp = tree;</span><br><span class="line">            tree = tree-&gt;left ? tree-&gt;left : tree-&gt;right;</span><br><span class="line">            <span class="built_in">free</span>(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> tree;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * 删除结点(key是节点值)，返回根节点</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 参数说明：</span></span><br><span class="line"><span class="comment"> *     tree AVL树的根结点</span></span><br><span class="line"><span class="comment"> *     key 待删除的结点的键值</span></span><br><span class="line"><span class="comment"> * 返回值：</span></span><br><span class="line"><span class="comment"> *     根节点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Node* <span class="title">avltree_delete</span><span class="params">(AVLTree tree, Type key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *z; </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((z = avltree_search(tree, key)) != <span class="literal">NULL</span>)</span><br><span class="line">        tree = delete_node(tree, z);</span><br><span class="line">    <span class="keyword">return</span> tree;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：关于AVL树的”前序遍历”、”中序遍历”、”后序遍历”、”最大值”、”最小值”、”查找”、”打印”、”销毁”等接口与”<a href="http://www.cnblogs.com/skywang12345/p/3576328.html" target="_blank" rel="noopener">二叉查找树</a>“基本一样，这些操作在”二叉查找树”中已经介绍过了，这里就不再单独介绍了。当然，后文给出的AVL树的完整源码中，有给出这些API的实现代码。这些接口很简单，Please RTFSC(Read The Fucking Source Code)！</p>
+<h3><span id="avl树的c实现完整源码"><strong>AVL树的C实现(完整源码)</strong></span></h3><p>AVL树的头文件(avltree.h)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="meta">#<span class="meta-keyword">ifndef</span> _AVL_TREE_H_</span></span><br><span class="line"> <span class="number">2</span> <span class="meta">#<span class="meta-keyword">define</span> _AVL_TREE_H_</span></span><br><span class="line"> <span class="number">3</span> </span><br><span class="line"> <span class="number">4</span> <span class="keyword">typedef</span> <span class="keyword">int</span> Type;</span><br><span class="line"> <span class="number">5</span> </span><br><span class="line"> <span class="number">6</span> <span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">AVLTreeNode</span>&#123;</span></span><br><span class="line"> <span class="number">7</span>     Type key;                    <span class="comment">// 关键字(键值)</span></span><br><span class="line"> <span class="number">8</span>     <span class="keyword">int</span> height;</span><br><span class="line"> <span class="number">9</span>     <span class="class"><span class="keyword">struct</span> <span class="title">AVLTreeNode</span> *<span class="title">left</span>;</span>    <span class="comment">// 左孩子</span></span><br><span class="line"><span class="number">10</span>     <span class="class"><span class="keyword">struct</span> <span class="title">AVLTreeNode</span> *<span class="title">right</span>;</span>    <span class="comment">// 右孩子</span></span><br><span class="line"><span class="number">11</span> &#125;Node, *AVLTree;</span><br><span class="line"><span class="number">12</span> </span><br><span class="line"><span class="number">13</span> <span class="comment">// 获取AVL树的高度</span></span><br><span class="line"><span class="number">14</span> <span class="function"><span class="keyword">int</span> <span class="title">avltree_height</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">15</span> </span><br><span class="line"><span class="number">16</span> <span class="comment">// 前序遍历"AVL树"</span></span><br><span class="line"><span class="number">17</span> <span class="function"><span class="keyword">void</span> <span class="title">preorder_avltree</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">18</span> <span class="comment">// 中序遍历"AVL树"</span></span><br><span class="line"><span class="number">19</span> <span class="function"><span class="keyword">void</span> <span class="title">inorder_avltree</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">20</span> <span class="comment">// 后序遍历"AVL树"</span></span><br><span class="line"><span class="number">21</span> <span class="function"><span class="keyword">void</span> <span class="title">postorder_avltree</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">22</span> </span><br><span class="line"><span class="number">23</span> <span class="function"><span class="keyword">void</span> <span class="title">print_avltree</span><span class="params">(AVLTree tree, Type key, <span class="keyword">int</span> direction)</span></span>;</span><br><span class="line"><span class="number">24</span> </span><br><span class="line"><span class="number">25</span> <span class="comment">// (递归实现)查找"AVL树x"中键值为key的节点</span></span><br><span class="line"><span class="number">26</span> <span class="function">Node* <span class="title">avltree_search</span><span class="params">(AVLTree x, Type key)</span></span>;</span><br><span class="line"><span class="number">27</span> <span class="comment">// (非递归实现)查找"AVL树x"中键值为key的节点</span></span><br><span class="line"><span class="number">28</span> <span class="function">Node* <span class="title">iterative_avltree_search</span><span class="params">(AVLTree x, Type key)</span></span>;</span><br><span class="line"><span class="number">29</span> </span><br><span class="line"><span class="number">30</span> <span class="comment">// 查找最小结点：返回tree为根结点的AVL树的最小结点。</span></span><br><span class="line"><span class="number">31</span> <span class="function">Node* <span class="title">avltree_minimum</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">32</span> <span class="comment">// 查找最大结点：返回tree为根结点的AVL树的最大结点。</span></span><br><span class="line"><span class="number">33</span> <span class="function">Node* <span class="title">avltree_maximum</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">34</span> </span><br><span class="line"><span class="number">35</span> <span class="comment">// 将结点插入到AVL树中，返回根节点</span></span><br><span class="line"><span class="number">36</span> <span class="function">Node* <span class="title">avltree_insert</span><span class="params">(AVLTree tree, Type key)</span></span>;</span><br><span class="line"><span class="number">37</span> </span><br><span class="line"><span class="number">38</span> <span class="comment">// 删除结点(key是节点值)，返回根节点</span></span><br><span class="line"><span class="number">39</span> <span class="function">Node* <span class="title">avltree_delete</span><span class="params">(AVLTree tree, Type key)</span></span>;</span><br><span class="line"><span class="number">40</span> </span><br><span class="line"><span class="number">41</span> <span class="comment">// 销毁AVL树</span></span><br><span class="line"><span class="number">42</span> <span class="function"><span class="keyword">void</span> <span class="title">destroy_avltree</span><span class="params">(AVLTree tree)</span></span>;</span><br><span class="line"><span class="number">43</span> </span><br><span class="line"><span class="number">44</span> </span><br><span class="line"><span class="number">45</span> <span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>AVL树的实现文件(avltree.c)</p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> View Code</p>
+<p>AVL树的测试程序(avltree_test.c) </p>
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"> View Code</p>
+<h3><span id="avl树的c测试程序"><strong>AVL树的C测试程序</strong></span></h3><p>AVL树的测试程序运行结果如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">== 依次添加: <span class="number">3</span> <span class="number">2</span> <span class="number">1</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">16</span> <span class="number">15</span> <span class="number">14</span> <span class="number">13</span> <span class="number">12</span> <span class="number">11</span> <span class="number">10</span> <span class="number">8</span> <span class="number">9</span> </span><br><span class="line">== 前序遍历: <span class="number">7</span> <span class="number">4</span> <span class="number">2</span> <span class="number">1</span> <span class="number">3</span> <span class="number">6</span> <span class="number">5</span> <span class="number">13</span> <span class="number">11</span> <span class="number">9</span> <span class="number">8</span> <span class="number">10</span> <span class="number">12</span> <span class="number">15</span> <span class="number">14</span> <span class="number">16</span> </span><br><span class="line">== 中序遍历: <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> </span><br><span class="line">== 后序遍历: <span class="number">1</span> <span class="number">3</span> <span class="number">2</span> <span class="number">5</span> <span class="number">6</span> <span class="number">4</span> <span class="number">8</span> <span class="number">10</span> <span class="number">9</span> <span class="number">12</span> <span class="number">11</span> <span class="number">14</span> <span class="number">16</span> <span class="number">15</span> <span class="number">13</span> <span class="number">7</span> </span><br><span class="line">== 高度: <span class="number">5</span></span><br><span class="line">== 最小值: <span class="number">1</span></span><br><span class="line">== 最大值: <span class="number">16</span></span><br><span class="line">== 树的详细信息: </span><br><span class="line"> <span class="number">7</span> is root</span><br><span class="line"> <span class="number">4</span> is  <span class="number">7'</span>s   left child</span><br><span class="line"> <span class="number">2</span> is  <span class="number">4'</span>s   left child</span><br><span class="line"> <span class="number">1</span> is  <span class="number">2'</span>s   left child</span><br><span class="line"> <span class="number">3</span> is  <span class="number">2'</span>s  right child</span><br><span class="line"> <span class="number">6</span> is  <span class="number">4'</span>s  right child</span><br><span class="line"> <span class="number">5</span> is  <span class="number">6'</span>s   left child</span><br><span class="line"><span class="number">13</span> is  <span class="number">7'</span>s  right child</span><br><span class="line"><span class="number">11</span> is <span class="number">13'</span>s   left child</span><br><span class="line"> <span class="number">9</span> is <span class="number">11'</span>s   left child</span><br><span class="line"> <span class="number">8</span> is  <span class="number">9'</span>s   left child</span><br><span class="line"><span class="number">10</span> is  <span class="number">9'</span>s  right child</span><br><span class="line"><span class="number">12</span> is <span class="number">11'</span>s  right child</span><br><span class="line"><span class="number">15</span> is <span class="number">13'</span>s  right child</span><br><span class="line"><span class="number">14</span> is <span class="number">15'</span>s   left child</span><br><span class="line"><span class="number">16</span> is <span class="number">15'</span>s  right child</span><br><span class="line"></span><br><span class="line">== 删除根节点: <span class="number">8</span></span><br><span class="line">== 高度: <span class="number">5</span></span><br><span class="line">== 中序遍历: <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> </span><br><span class="line">== 树的详细信息: </span><br><span class="line"> <span class="number">7</span> is root</span><br><span class="line"> <span class="number">4</span> is  <span class="number">7'</span>s   left child</span><br><span class="line"> <span class="number">2</span> is  <span class="number">4'</span>s   left child</span><br><span class="line"> <span class="number">1</span> is  <span class="number">2'</span>s   left child</span><br><span class="line"> <span class="number">3</span> is  <span class="number">2'</span>s  right child</span><br><span class="line"> <span class="number">6</span> is  <span class="number">4'</span>s  right child</span><br><span class="line"> <span class="number">5</span> is  <span class="number">6'</span>s   left child</span><br><span class="line"><span class="number">13</span> is  <span class="number">7'</span>s  right child</span><br><span class="line"><span class="number">11</span> is <span class="number">13'</span>s   left child</span><br><span class="line"> <span class="number">9</span> is <span class="number">11'</span>s   left child</span><br><span class="line"><span class="number">10</span> is  <span class="number">9'</span>s  right child</span><br><span class="line"><span class="number">12</span> is <span class="number">11'</span>s  right child</span><br><span class="line"><span class="number">15</span> is <span class="number">13'</span>s  right child</span><br><span class="line"><span class="number">14</span> is <span class="number">15'</span>s   left child</span><br><span class="line"><span class="number">16</span> is <span class="number">15'</span>s  right child</span><br></pre></td></tr></table></figure>
+<p>下面，我们对测试程序的流程进行分析！</p>
+<p><strong>1. 新建AVL树</strong><br>   新建AVL树的根节点root。</p>
+<p><strong>2. 依次添加”3,2,1,4,5,6,7,16,15,14,13,12,11,10,8,9” 到AVL树中，过程如下。</strong><br><strong>2.01 添加3,2</strong><br>添加3,2都不会破坏AVL树的平衡性。</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281629117501758.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281629117501758.jpg" alt="img"></a></p>
+<p><strong>2.02 添加1</strong><br>添加1之后，AVL树失去平衡(LL)，此时需要对AVL树进行旋转(LL旋转)。旋转过程如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281634456412753.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281634456412753.jpg" alt="img"></a></p>
+<p><strong>2.03 添加4</strong><br>添加4不会破坏AVL树的平衡性。</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281635320315546.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281635320315546.jpg" alt="img"></a></p>
+<p><strong>2.04 添加5</strong><br>添加5之后，AVL树失去平衡(RR)，此时需要对AVL树进行旋转(RR旋转)。旋转过程如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281636063911351.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281636063911351.jpg" alt="img"></a></p>
+<p><strong>2.05 添加6</strong><br>添加6之后，AVL树失去平衡(RR)，此时需要对AVL树进行旋转(RR旋转)。旋转过程如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281637453446319.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281637453446319.jpg" alt="img"></a></p>
+<p><strong>2.06 添加7</strong><br>添加7之后，AVL树失去平衡(RR)，此时需要对AVL树进行旋转(RR旋转)。旋转过程如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281638362348337.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281638362348337.jpg" alt="img"></a></p>
+<p><strong>2.07 添加16</strong><br>添加16不会破坏AVL树的平衡性。</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281638573917909.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281638573917909.jpg" alt="img"></a></p>
+<p><strong>2.08 添加15</strong><br>添加15之后，AVL树失去平衡(RR)，此时需要对AVL树进行旋转(RR旋转)。旋转过程如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281640036563530.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281640036563530.jpg" alt="img"></a></p>
+<p><strong>2.09 添加14</strong><br>添加14之后，AVL树失去平衡(RL)，此时需要对AVL树进行旋转(RL旋转)。旋转过程如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281642392668958.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281642392668958.jpg" alt="img"></a></p>
+<p><strong>2.10 添加13</strong><br>添加13之后，AVL树失去平衡(RR)，此时需要对AVL树进行旋转(RR旋转)。旋转过程如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281643136725046.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281643136725046.jpg" alt="img"></a></p>
+<p><strong>2.11 添加12</strong><br>添加12之后，AVL树失去平衡(LL)，此时需要对AVL树进行旋转(LL旋转)。旋转过程如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281645069697034.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281645069697034.jpg" alt="img"></a></p>
+<p><strong>2.12 添加11</strong><br>添加11之后，AVL树失去平衡(LL)，此时需要对AVL树进行旋转(LL旋转)。旋转过程如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281645445949305.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281645445949305.jpg" alt="img"></a></p>
+<p><strong>2.13 添加10</strong><br>添加10之后，AVL树失去平衡(LL)，此时需要对AVL树进行旋转(LL旋转)。旋转过程如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281646073129132.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281646073129132.jpg" alt="img"></a></p>
+<p><strong>2.14 添加8</strong><br>添加8不会破坏AVL树的平衡性。</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281646414069548.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281646414069548.jpg" alt="img"></a></p>
+<p><strong>2.15 添加9</strong><br>但是添加9之后，AVL树失去平衡(LR)，此时需要对AVL树进行旋转(LR旋转)。旋转过程如下：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281646589693751.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281646589693751.jpg" alt="img"></a></p>
+<p><strong>3. 打印树的信息</strong><br>输出下面树的信息：</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281647225471447.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281647225471447.jpg" alt="img"></a></p>
+<p>前序遍历:<strong>7 4 2 1 3 6 5 13 11 9 8 10 12 15 14 16</strong><br>中序遍历:<strong>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</strong><br>后序遍历:<strong>1 3 2 5 6 4 8 10 9 12 11 14 16 15 13 7</strong><br>高度: <strong>5</strong><br>最小值: <strong>1</strong><br>最大值: <strong>16</strong></p>
+<p><strong>4. 删除节点8</strong></p>
+<p>删除操作并不会造成AVL树的不平衡。</p>
+<p><a href="https://images0.cnblogs.com/i/497634/201403/281647514696711.jpg" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/i/497634/201403/281647514696711.jpg" alt="img"></a></p>
+<p>删除节点8之后，在打印该AVL树的信息。<br>高度: 5<br>中序遍历: 1 2 3 4 5 6 7 9 10 11 12 13 14 15 16</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/09/数据结构与算法/huffman-code/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/09/数据结构与算法/huffman-code/" itemprop="url">
+                  赫夫曼编码
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-09 21:59:18 / 修改时间：22:11:33" itemprop="dateCreated datePublished" datetime="2018-07-09T21:59:18+08:00">2018-07-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/09/数据结构与算法/huffman-code/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/09/数据结构与算法/huffman-code/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>转载自：<a href="https://blog.csdn.net/wtfmonking/article/details/17150499" target="_blank" rel="noopener">https://blog.csdn.net/wtfmonking/article/details/17150499</a></p>
+<p>作者：<a href="https://blog.csdn.net/wtfmonking" target="_blank" rel="noopener">WTF</a></p>
+<h4><span id="1-基本概念">1、基本概念</span></h4><p>a、路径和路径长度</p>
+<p>若在一棵树中存在着一个结点序列 k1，k2，……，kj， 使得 ki是ki+1 的双亲（1&lt;=i&lt;j），则称此结点序列是从 k1 到 kj 的路径。</p>
+<p>从 k1 到 kj 所经过的分支数称为这两点之间的路径长度，它等于路径上的结点数减1.</p>
+<p>b、结点的权和带权路径长度</p>
+<p>在许多应用中，常常将树中的结点赋予一个有着某种意义的实数，我们称此实数为该结点的权，(如下面一个树中的蓝色数字表示结点的权)</p>
+<p>结点的带权路径长度规定为从树根结点到该结点之间的路径长度与该结点上权的乘积。</p>
+<p>c、树的带权路径长度</p>
+<p>树的带权路径长度定义为树中所有叶子结点的带权路径长度之和，公式为：</p>
+<p><img src="https://img-blog.csdn.net/20131205224108125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd3RmbW9ua2luZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p>
+<p>其中，n表示叶子结点的数目，wi 和 li 分别表示叶子结点 ki 的权值和树根结点到 ki 之间的路径长度。</p>
+<p>如下图中树的带权路径长度 WPL = 9 x 2 + 12 x 2 + 15 x 2 + 6 x 3 + 3 x 4 + 5 x 4  =  122</p>
+<p>d、哈夫曼树</p>
+<p>哈夫曼树又称最优二叉树。它是 n 个带权叶子结点构成的所有二叉树中，带权路径长度 WPL 最小的二叉树。</p>
+<p>如下图为一哈夫曼树示意图。</p>
+<p><img src="https://img-blog.csdn.net/20131205232832062?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd3RmbW9ua2luZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p>
+<h4><span id="2-构造哈夫曼树">2、构造哈夫曼树</span></h4><p>假设有n个权值，则构造出的哈夫曼树有n个叶子结点。 n个权值分别设为 w1、w2、…、wn，则哈夫曼树的构造规则为：</p>
+<p>(1) 将w1、w2、…，wn看成是有n 棵树的森林(每棵树仅有一个结点)；</p>
+<p>(2) 在森林中选出两个根结点的权值最小的树合并，作为一棵新树的左、右子树，且新树的根结点权值为其左、右子树根结点权值之和；</p>
+<p>(3)从森林中删除选取的两棵树，并将新树加入森林；</p>
+<p>(4)重复(2)、(3)步，直到森林中只剩一棵树为止，该树即为所求得的哈夫曼树。</p>
+<p> 如：对 下图中的六个带权叶子结点来构造一棵哈夫曼树，步骤如下：</p>
+<p><img src="https://img-blog.csdn.net/20131205234828406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd3RmbW9ua2luZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p>
+<hr>
+<p><strong>注意：为了使得到的哈夫曼树的结构尽量唯一，通常规定生成的哈夫曼树中每个结点的左子树根结点的权小于等于右子树根结点的权。</strong></p>
+<p>具体算法如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2、根据数组 a 中 n 个权值建立一棵哈夫曼树，返回树根指针</span></span><br><span class="line"><span class="function">PBTreeNode <span class="title">CreateHuffman</span><span class="params">(ElemType a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BTreeNode</span> **<span class="title">b</span>, *<span class="title">q</span>;</span></span><br><span class="line">    b = <span class="built_in">malloc</span>(n*<span class="keyword">sizeof</span>(struct BTreeNode));</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++) <span class="comment">//初始化b指针数组，使每个指针元素指向a数组中对应的元素结点</span></span><br><span class="line">    &#123;</span><br><span class="line">        b[i] = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct BTreeNode));</span><br><span class="line">        b[i]-&gt;data = a[i];</span><br><span class="line">        b[i]-&gt;left = b[i]-&gt;right = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; n; i++)<span class="comment">//进行 n-1 次循环建立哈夫曼树</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//k1表示森林中具有最小权值的树根结点的下标，k2为次最小的下标</span></span><br><span class="line">        <span class="keyword">int</span> k1 = <span class="number">-1</span>, k2;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; n; j++)<span class="comment">//让k1初始指向森林中第一棵树，k2指向第二棵</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (b[j] != <span class="literal">NULL</span> &amp;&amp; k1 == <span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                k1 = j;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (b[j] != <span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                k2 = j;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (j = k2; j &lt; n; j++)<span class="comment">//从当前森林中求出最小权值树和次最小</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (b[j] != <span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (b[j]-&gt;data &lt; b[k1]-&gt;data)</span><br><span class="line">                &#123;</span><br><span class="line">                    k2 = k1;</span><br><span class="line">                    k1 = j;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (b[j]-&gt;data &lt; b[k2]-&gt;data)</span><br><span class="line">                    k2 = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//由最小权值树和次最小权值树建立一棵新树，q指向树根结点</span></span><br><span class="line">        q = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct BTreeNode));</span><br><span class="line">        q-&gt;data = b[k1]-&gt;data + b[k2]-&gt;data;</span><br><span class="line">        q-&gt;left = b[k1];</span><br><span class="line">        q-&gt;right = b[k2];</span><br><span class="line"></span><br><span class="line">        b[k1] = q;<span class="comment">//将指向新树的指针赋给b指针数组中k1位置</span></span><br><span class="line">        b[k2] = <span class="literal">NULL</span>;<span class="comment">//k2位置为空</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">free</span>(b); <span class="comment">//删除动态建立的数组b</span></span><br><span class="line">    <span class="keyword">return</span> q; <span class="comment">//返回整个哈夫曼树的树根指针</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="3-哈夫曼编码">3、哈夫曼编码</span></h4><p>在电报通信中，电文是以二进制的0、1序列传送的，每个字符对应一个二进制编码，为了缩短电文的总长度，采用不等长编码方式，构造哈夫曼树，</p>
+<p>将每个字符的出现频率作为字符结点的权值赋予叶子结点，每个分支结点的左右分支分别用0和1编码，从树根结点到每个叶子结点的路径上</p>
+<p>所经分支的0、1编码序列等于该叶子结点的二进制编码。如上文所示的哈夫曼编码如下：</p>
+<p><img src="https://img-blog.csdn.net/20131206233126390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd3RmbW9ua2luZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p>
+<p>a 的编码为：00</p>
+<p>b 的编码为：01</p>
+<p>c 的编码为：100</p>
+<p>d 的编码为：1010</p>
+<p>e 的编码为：1011</p>
+<p>f 的编码为：11</p>
+<h4><span id="4-哈夫曼树的操作运算">4、哈夫曼树的操作运算</span></h4><p>以上文的哈夫曼树作为具体实例，用详细的程序展示哈夫曼树的操作运算</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by cheng on 18-7-9.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"huffman.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//1、输出二叉树，可在前序遍历的基础上修改。采用广义表格式，元素类型为int</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintBTree_int</span><span class="params">(struct BTreeNode* BT)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (BT != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>, BT-&gt;data); <span class="comment">//输出根结点的值</span></span><br><span class="line">        <span class="keyword">if</span> (BT-&gt;left != <span class="literal">NULL</span> || BT-&gt;right != <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"("</span>);</span><br><span class="line">            PrintBTree_int(BT-&gt;left); <span class="comment">//输出左子树</span></span><br><span class="line">            <span class="keyword">if</span> (BT-&gt;right != <span class="literal">NULL</span>)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">","</span>);</span><br><span class="line">            PrintBTree_int(BT-&gt;right); <span class="comment">//输出右子树</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">")"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2、根据数组 a 中 n 个权值建立一棵哈夫曼树，返回树根指针</span></span><br><span class="line"><span class="function">PBTreeNode <span class="title">CreateHuffman</span><span class="params">(ElemType a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BTreeNode</span> **<span class="title">b</span>, *<span class="title">q</span>;</span></span><br><span class="line">    b = <span class="built_in">malloc</span>(n*<span class="keyword">sizeof</span>(struct BTreeNode));</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++) <span class="comment">//初始化b指针数组，使每个指针元素指向a数组中对应的元素结点</span></span><br><span class="line">    &#123;</span><br><span class="line">        b[i] = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct BTreeNode));</span><br><span class="line">        b[i]-&gt;data = a[i];</span><br><span class="line">        b[i]-&gt;left = b[i]-&gt;right = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; n; i++)<span class="comment">//进行 n-1 次循环建立哈夫曼树</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//k1表示森林中具有最小权值的树根结点的下标，k2为次最小的下标</span></span><br><span class="line">        <span class="keyword">int</span> k1 = <span class="number">-1</span>, k2;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; n; j++)<span class="comment">//让k1初始指向森林中第一棵树，k2指向第二棵</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (b[j] != <span class="literal">NULL</span> &amp;&amp; k1 == <span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                k1 = j;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (b[j] != <span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                k2 = j;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (j = k2; j &lt; n; j++)<span class="comment">//从当前森林中求出最小权值树和次最小</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (b[j] != <span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (b[j]-&gt;data &lt; b[k1]-&gt;data)</span><br><span class="line">                &#123;</span><br><span class="line">                    k2 = k1;</span><br><span class="line">                    k1 = j;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (b[j]-&gt;data &lt; b[k2]-&gt;data)</span><br><span class="line">                    k2 = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//由最小权值树和次最小权值树建立一棵新树，q指向树根结点</span></span><br><span class="line">        q = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct BTreeNode));</span><br><span class="line">        q-&gt;data = b[k1]-&gt;data + b[k2]-&gt;data;</span><br><span class="line">        q-&gt;left = b[k1];</span><br><span class="line">        q-&gt;right = b[k2];</span><br><span class="line"></span><br><span class="line">        b[k1] = q;<span class="comment">//将指向新树的指针赋给b指针数组中k1位置</span></span><br><span class="line">        b[k2] = <span class="literal">NULL</span>;<span class="comment">//k2位置为空</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">free</span>(b); <span class="comment">//删除动态建立的数组b</span></span><br><span class="line">    <span class="keyword">return</span> q; <span class="comment">//返回整个哈夫曼树的树根指针</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//3、求哈夫曼树的带权路径长度</span></span><br><span class="line"><span class="function">ElemType <span class="title">WeightPathLength</span><span class="params">(PBTreeNode FBT, <span class="keyword">int</span> len)</span><span class="comment">//len初始为0</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (FBT == <span class="literal">NULL</span>) <span class="comment">//空树返回0</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (FBT-&gt;left == <span class="literal">NULL</span> &amp;&amp; FBT-&gt;right == <span class="literal">NULL</span>)<span class="comment">//访问到叶子结点</span></span><br><span class="line">            <span class="keyword">return</span> FBT-&gt;data * len;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">//访问到非叶子结点，进行递归调用，返回左右子树的带权路径长度之和，len递增</span></span><br><span class="line">            <span class="keyword">return</span> WeightPathLength(FBT-&gt;left,len+<span class="number">1</span>)+WeightPathLength(FBT-&gt;right,len+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//4、哈夫曼编码（可以根据哈夫曼树带权路径长度的算法基础上进行修改）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HuffManCoding</span><span class="params">(PBTreeNode FBT, <span class="keyword">int</span> len)</span><span class="comment">//len初始值为0</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a[<span class="number">10</span>];<span class="comment">//定义静态数组a，保存每个叶子的编码，数组长度至少是树深度减一</span></span><br><span class="line">    <span class="keyword">if</span> (FBT != <span class="literal">NULL</span>)<span class="comment">//访问到叶子结点时输出其保存在数组a中的0和1序列编码</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (FBT-&gt;left == <span class="literal">NULL</span> &amp;&amp; FBT-&gt;right == <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> i;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"结点权值为%d的编码："</span>, FBT-&gt;data);</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d"</span>, a[i]);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span><span class="comment">//访问到非叶子结点时分别向左右子树递归调用，并把分支上的0、1编码保存到数组a</span></span><br><span class="line">        &#123;   <span class="comment">//的对应元素中，向下深入一层时len值增1</span></span><br><span class="line">            a[len] = <span class="number">0</span>;</span><br><span class="line">            HuffManCoding(FBT-&gt;left, len + <span class="number">1</span>);</span><br><span class="line">            a[len] = <span class="number">1</span>;</span><br><span class="line">            HuffManCoding(FBT-&gt;right, len + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><img src="https://img-blog.csdn.net/20131206230909031?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd3RmbW9ua2luZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/09/数据结构与算法/binary-tree-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/09/数据结构与算法/binary-tree-1/" itemprop="url">
+                  二叉树的性质
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-09 21:21:18 / 修改时间：21:23:44" itemprop="dateCreated datePublished" datetime="2018-07-09T21:21:18+08:00">2018-07-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/09/数据结构与算法/binary-tree-1/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/09/数据结构与算法/binary-tree-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>转载自：<a href="https://blog.csdn.net/why_still_confused/article/details/51532222" target="_blank" rel="noopener">https://blog.csdn.net/why_still_confused/article/details/51532222</a></p>
+<p>作者：<a href="https://blog.csdn.net/why_still_confused" target="_blank" rel="noopener">若明天不见</a></p>
+<p><strong>二叉树（Binary Tree）</strong></p>
+<blockquote>
+<p><strong>定义：</strong>一棵二叉树是结点的一个有限集合，该集合或者为空，或者是由一个根结点加上两棵分别称为左子树和右子树的、互不相交的二叉树组成。</p>
+<p><strong>特点：</strong>每个结点至多只有两棵子树（二叉树中不存在度大于2的结点）</p>
+<p><strong>五种形态</strong>：</p>
+</blockquote>
+<p><img src="https://img-blog.csdn.net/20160529151724567" alt="img"></p>
+<h1><span id="1-性质1">1. 性质1</span></h1><p><strong>性质1</strong>  在二叉树的第 i 层至多有 2^(i －1)个结点。(i&gt;=1)</p>
+<p>[用数学归纳法证明]</p>
+<p>​       证明：当i=1时，只有根结点，2^(i －1)=2^0=1。</p>
+<p>​       1) 设：对所有j，i&gt;j&gt;=1，命题成立，即第j层上至多有2^(j-1)个结点。</p>
+<p>​       2) 由归纳假设第i-1层上至多有2^(i－2)个结点。</p>
+<p>​       3) 由于二叉树的每个结点的度至多为2，故在第i层上的最大结点数为第i-1层上的最大结点数的2倍，即2* 2^(i－2)= 2^(i-1) </p>
+<p>证毕。</p>
+<p>​              </p>
+<h1><span id="2-性质2">2. 性质2</span></h1><p><strong>性质2</strong>  深度为 k 的二叉树至多有 2^(k-1)个结点(k &gt;=1)。</p>
+<p>​       证明：由性质1可见，深度为k的二叉树的最大结点数为 </p>
+<h1><span id="3-性质3">3. 性质3</span></h1><p><strong>性质3</strong>  对任何一棵二叉树T, 如果其叶结点数为n0, 度为2的结点数为 n2,则n0＝n2＋1。</p>
+<p>​       证明：若度为1的结点有 n1个，总结点个数为n，总边数为 e，则根据二叉树的定义，</p>
+<p>​            n = n0 + n1 + n2    </p>
+<p>​            e = 2n2 + n1 = n - 1 (除了根节点，每个节点对应一条边 )</p>
+<p>​           因此，有  2n2+ n1 =n0 + n1 + n2- 1</p>
+<p>​                          n2= n0 - 1  =&gt;   n0= n2+ 1</p>
+<p>​          空链域：2n0+ n1 = n0 + n2 +1+ n1 = n+1</p>
+<h1><span id="4-性质4">4. 性质4</span></h1><p><strong>性质4</strong>  具有 n (n&gt;=0) 个结点的完全二叉树的深度为<img src="https://img-blog.csdn.net/20160529154127355" alt="img">＋1   </p>
+<p>​       证明：设完全二叉树的深度为 h，则根据性质2 和完全二叉树的定义有</p>
+<p>​            2^(h－1)- 1 &lt; n &lt;= 2^(h- 1)或 2^(h－1)&lt;= n &lt; 2^h</p>
+<p>​               取对数 h－1 &lt; log2n  &lt;= h，又h是整数，</p>
+<p>​               因此有 h = <img src="https://img-blog.csdn.net/20160529154127355" alt="img">＋1 </p>
+<h1><span id="5-性质5">5. 性质5</span></h1><p><strong>性质5</strong>  如将一棵有n个结点的完全二叉树自顶向下，同层自左向右连续为结点编号0,1, …, n-1，则有： </p>
+<p>​       1）若i = 0, 则 i 无双亲,   若i &gt; 0, 则 i 的双亲为」(i -1)/2」</p>
+<p>​       2）若2<em>i+1 &lt; n, 则i 的左子女为 2</em>i+1，若2<em>i+2 &lt; n, 则 i 的右子女为2</em>i+2</p>
+<p>​       3）若结点编号i为偶数，且i != 0,则左兄弟结点i-1.</p>
+<p>​       4）若结点编号i为奇数，且i != n-1,则右兄弟结点为i+1.</p>
+<p>​       5）结点i 所在层次为」log2(i+1) 」</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/09/数据结构与算法/infix-to-suffix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/09/数据结构与算法/infix-to-suffix/" itemprop="url">
+                  中缀表达式转后缀表达式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-09 16:03:49 / 修改时间：16:21:05" itemprop="dateCreated datePublished" datetime="2018-07-09T16:03:49+08:00">2018-07-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/09/数据结构与算法/infix-to-suffix/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/09/数据结构与算法/infix-to-suffix/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>转载自：<a href="https://blog.csdn.net/sgbfblog/article/details/8001651" target="_blank" rel="noopener">https://blog.csdn.net/sgbfblog/article/details/8001651</a></p>
+<p>作者：<a href="https://blog.csdn.net/sgbfblog" target="_blank" rel="noopener"><strong>七把刀</strong></a></p>
+<h2><span id="一-后缀表达式求值">一、后缀表达式求值</span></h2><p>后缀表达式也叫逆波兰表达式，其求值过程可以用到栈来辅助存储。假定待求值的后缀表达式为：<strong>6  5  2  3  + 8 * + 3  +  *，</strong>则其求值过程如下：</p>
+<p>1）遍历表达式，遇到的数字首先放入栈中，此时栈如下所示：</p>
+<p><img src="http://img.my.csdn.net/uploads/201209/20/1348144826_6731.png" alt="img"></p>
+<p>2）接着读到“+”，则弹出3和2，执行3+2，计算结果等于5，并将5压入到栈中。</p>
+<p><img src="http://img.my.csdn.net/uploads/201209/20/1348144932_4049.png" alt="img"></p>
+<p>3）读到8，将其直接放入栈中。</p>
+<p><img src="http://img.my.csdn.net/uploads/201209/20/1348144994_1525.png" alt="img"></p>
+<p>4）读到“*”，弹出8和5，执行8*5，并将结果40压入栈中。而后过程类似，读到“+”，将40和5弹出，将40+5的结果45压入栈…以此类推。最后求的值288。</p>
+<h2><span id="二-中缀表达式转后缀表达式">二、中缀表达式转后缀表达式</span></h2><h3><span id="21规则">2.1）规则</span></h3><p>中缀表达式a + b<em>c + (d </em> e + f) <em> g，其转换成后缀表达式则为a b c </em> + d e <em> f  + g </em> +。</p>
+<p>转换过程需要用到栈，具体过程如下：</p>
+<p>1）如果遇到操作数，我们就直接将其输出。</p>
+<p>2）如果遇到操作符，则我们将其放入到栈中，遇到左括号时我们也将其放入栈中。</p>
+<p>3）如果遇到一个右括号，则将栈元素弹出，将弹出的操作符输出直到遇到左括号为止。<strong>注意，左括号只弹出并不输出。</strong></p>
+<p>4）如果遇到任何其他的操作符，如（“+”， “*”，“（”）等，<strong>从栈中弹出元素直到遇到发现更低优先级的元素(或者栈为空)为止</strong>。弹出完这些元素后，才将遇到的操作符压入到栈中。<strong>有一点需要注意，只有在遇到” ) “的情况下我们才弹出” ( “，其他情况我们都不会弹出” ( “。</strong></p>
+<p>5）如果我们读到了输入的末尾，则将栈中所有元素依次弹出。</p>
+<hr>
+<h3><span id="22实例">2.2）实例</span></h3><p>规则很多，还是用实例比较容易说清楚整个过程。以上面的转换为例，输入为a + b * c + (d * e + f)*g，处理过程如下：</p>
+<p>1）首先读到a，直接输出。</p>
+<p>2）读到“+”，将其放入到栈中。</p>
+<p>3）读到b，直接输出。</p>
+<p>此时栈和输出的情况如下：</p>
+<p><img src="http://img.my.csdn.net/uploads/201209/20/1348146428_8057.png" alt="img"></p>
+<p>4）读到“*”，因为栈顶元素”+”优先级比” * “ 低，所以将” * “直接压入栈中。</p>
+<p>5）读到c，直接输出。</p>
+<p>此时栈和输出情况如下：</p>
+<p><img src="http://img.my.csdn.net/uploads/201209/20/1348146721_9861.png" alt="img"></p>
+<p>6）读到” + “，因为栈顶元素” <em> “的优先级比它高，所以弹出” \</em> “并输出， 同理，栈中下一个元素” + “优先级与读到的操作符” + “一样，所以也要弹出并输出。然后再将读到的” + “压入栈中。</p>
+<p>此时栈和输出情况如下：</p>
+<p><img src="http://img.my.csdn.net/uploads/201209/20/1348147044_5952.png" alt="img"></p>
+<p>7）下一个读到的为”(“，它优先级最高，所以直接放入到栈中。</p>
+<p>8）读到d，将其直接输出。</p>
+<p>此时栈和输出情况如下：</p>
+<p><img src="http://img.my.csdn.net/uploads/201209/20/1348147265_9645.png" alt="img"></p>
+<p>9）读到” * “，由于只有遇到” ) “的时候左括号”(“才会弹出，所以” * “直接压入栈中。</p>
+<p>10）读到e，直接输出。</p>
+<p>此时栈和输出情况如下：</p>
+<p><img src="http://img.my.csdn.net/uploads/201209/20/1348147424_4303.png" alt="img"></p>
+<p>11）读到” + “，弹出”* “并输出，然后将”+”压入栈中。</p>
+<p>12）读到f，直接输出。</p>
+<p>此时栈和输出情况：</p>
+<p> <img src="http://img.my.csdn.net/uploads/201209/20/1348147826_1174.png" alt="img"></p>
+<p>13）接下来读到“）”，则直接将栈中元素弹出并输出直到遇到”(“为止。这里右括号前只有一个操作符”+”被弹出并输出。</p>
+<p><img src="http://img.my.csdn.net/uploads/201209/20/1348147993_7462.png" alt="img"></p>
+<p>14）读到” * “，压入栈中。读到g，直接输出。</p>
+<p><img src="http://img.my.csdn.net/uploads/201209/20/1348148087_4361.png" alt="img"></p>
+<p>15）此时输入数据已经读到末尾，栈中还有两个操作符“*”和” + “，直接弹出并输出。</p>
+<p><img src="http://img.my.csdn.net/uploads/201209/20/1348148276_3639.png" alt="img"></p>
+<p>至此整个转换过程完成。程序实现代码后续再补充了。</p>
+<h3><span id="23转换的另一种方法">2.3）转换的另一种方法</span></h3><p>1)先按照运算符的优先级对中缀表达式加括号，变成( ( a+(b*c) ) + ( ((d*e)+f) *g ) )</p>
+<p>2)将运算符移到括号的后面，变成((a(bc)*)+(((de)*f)+g)*)+</p>
+<p>3)去掉括号，得到abc*+de*f+g*+</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/嵌入式/大疆嵌入式准备/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/05/嵌入式/大疆嵌入式准备/" itemprop="url">
+                  大疆嵌入式软件笔试题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-05 20:59:22" itemprop="dateCreated datePublished" datetime="2018-07-05T20:59:22+08:00">2018-07-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-19 22:53:42" itemprop="dateModified" datetime="2018-10-19T22:53:42+08:00">2018-10-19</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/05/嵌入式/大疆嵌入式准备/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/05/嵌入式/大疆嵌入式准备/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3><span id="一-编程题">一、编程题</span></h3><p><strong>1. 有如下CAT_s结构体定义，回答：</strong></p>
+<p>1) 在一台64位的机器上，使用32位编译，Garfield 变量占用多少内存空间？64位编译又是如何？（总分5分）</p>
+<p>2) 使用32位编译情况下，给出一种判断所使用机器大小端的方法。（总分5分） </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">CAT_s</span>&#123;</span></span><br><span class="line">  <span class="keyword">int</span> ld;</span><br><span class="line">  <span class="keyword">char</span> Color;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">short</span> Age;</span><br><span class="line">  <span class="keyword">char</span> *Name;</span><br><span class="line">  <span class="keyword">void</span>(*Jump)(<span class="keyword">void</span>);</span><br><span class="line">&#125;Garfield;</span><br></pre></td></tr></table></figure>
+<p><strong>2. 描述下面XXX 这个宏的作用。（总分10分）</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> offsetof(TYPE,MEMBER)((size_t)&amp;((TYPE*)0)-&gt;MEMBER)	<span class="comment">// 计算MEMBER在结构体中的偏移量</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> container_of(ptr, type, member) (&#123;\          </span></span><br><span class="line">        const typeof( ((type *)0)-&gt;member ) *__mptr = (ptr);\    </span><br><span class="line">        (type *)( (<span class="keyword">char</span> *)__mptr - offsetof(type,member) );&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>3. 简述C 函数：</strong></p>
+<p>1) 参数如何传递（__cdecl调用方式）；</p>
+<p>2) 返回值如何传递；</p>
+<p>3) 调用后如何 返回到调用前的下一条指令执行。（总分10分）</p>
+<p><strong>答：</strong></p>
+<p>1) __cdecl调用方式的三个特点：</p>
+<ul>
+<li>从右向左压入参数</li>
+<li>由调用方负责参数压栈和清除栈(栈帧回退)</li>
+<li>函数名会自动添加前导下划线</li>
+</ul>
+<blockquote>
+<p>__stdcall<br>是StandardCall的缩写，是C++的标准调用方式：所有参数从右到左依次入栈，由调用者负责把参数压入栈，最后由<strong>被调用者</strong>负责清除栈的内容</p>
+</blockquote>
+<p>2) 返回值</p>
+<ul>
+<li>返回值小于等于4个字节时，存储在eax中</li>
+<li>返回值5~8个字节时，eax和edx联合存储返回</li>
+<li>返回值大于8个字节时，创建临时栈，返回值存在临时栈中</li>
+</ul>
+<p>3) 如何返回</p>
+<p>完整介绍调用和返回的过程</p>
+<p>调用过程：</p>
+<ul>
+<li>函数调用方将参数从右向左依次压入栈中</li>
+<li>压入函数返回地址</li>
+<li>pushl %ebp; movl %esp %ebp;</li>
+<li>保存在函数调用过程中需要保持不变的寄存器，如ebx,esi,edi</li>
+<li>被调用函数保存临时变量</li>
+</ul>
+<p>返回过程：</p>
+<ul>
+<li>movl %ebp, %esp; popl %ebp</li>
+<li>弹出函数返回地址到程序计数器PC中</li>
+</ul>
+<h3><span id="二嵌入式基本知识">二．嵌入式基本知识</span></h3><p><strong>1. 简述处理器中断处理的过程（中断向量、中断保护现场、中断嵌套、中断返回等）。（总 分10分）</strong></p>
+<ul>
+<li>外设产生中断信号，经过中断控制器进行筛选，选出中断优先级比较高的中断信号，把中断号传给CPU</li>
+<li>CPU禁用中断</li>
+<li>CPU根据中断号，查找中断向量表，获得对应的中断服务程序的地址</li>
+<li>CPU将一些重要的寄存器的内容压入堆栈中，如CS,EIP,SS,ESP,EFLAG</li>
+<li>跳转到中断服务程序，CPU重新允许中断</li>
+<li>执行中断服务例程，如何此时又有其他中断信号产生，重复以上步骤</li>
+<li>中断返回时，需要先禁用中断</li>
+<li>将堆栈中的寄存器弹回，回到原来的程序中</li>
+<li>重新允许中断</li>
+</ul>
+<p><strong>2. 简述处理器在读内存的过程中，CPU 核、cache 、MMU 如何协同工作？画出CPU 核、 cache 、MMU 、内存之间的关系示意图加以说明（可以以你熟悉的处理器为例）。（总分10分）</strong></p>
+<h3><span id="三基本通信知识">三．基本通信知识</span></h3><p><strong>1. 请说明总线接口USRT 、I2C 、USB 的异同点（串/并、速度、全/半双工、总线拓扑等）。 （总分5分）</strong></p>
+<p>UART 通用异步串行口，速率不快，可全双工，结构上一般由波特率产生器、UART发送器、UART接收器组成，硬件上两线，一收一发。 </p>
+<p>SPI 高速同步串行口，高速，可全双工，收发独立，同步接口，可实现多个SPI设备互联，硬件3~4线。</p>
+<p>I2C 双向、两线、串行、多主控接口标准。速率不快，半双工，同步接口，具有总线仲裁机制，非常适合器件间近距离经常性数据通信，可实现设备组网。</p>
+<p>USB 通用串行总线，高速，半双工，由主机、hub、设备组成。设备可以与下级hub相连构成星型结构。</p>
+<p>以表格总结如下：</p>
+<p><img src="https://github.com/WeetCheng/image/raw/master/blogs/43563438.jpg" alt=""></p>
+<p><strong>2. 列举你所知道的linux 内核态和用户态之间的通信方式并给出你认为效率最高的方式， 说明理由。（总分5分）</strong></p>
+<h3><span id="四系统设计">四．系统设计</span></h3><p>有一个使用UART 进行通信的子系统X ，其中UART0进行数据包接收和回复，UART1进行数据包转发。子系统X 的通信模块职责是从UART0接收数据包，如果为本地数据包（receiver 为子系统X ），则解析数据包中的命令码（2字节）和数据域（0~128字节），根据命令码调用内部的处理程序，并将处理结果通过UART0回复给发送端，如果非本地数据包，则通过UART1转发。</p>
+<p>如果由你来设计子系统X 的通信模块：</p>
+<p>1) 请设计通信数据包格式，并说明各字段的定义；（总分5分）</p>
+<p>2) 在一个实时操作系统中，你会如何部署模块中的任务和缓存数据，画出任务间的数据流视图加以说明；（总分5分）</p>
+<p>3) 你会如何设置任务的优先级，说说优缺点；（总分5分）</p>
+<p>4) 如果将命令码对应的处理优先级分为高、低两个等级，你又会如何设计；（总分5分）</p>
+<h3><span id="参考文献">参考文献</span></h3><p>[1] <a href="http://www.voidcn.com/article/p-kznzcojw-gy.html" target="_blank" rel="noopener">2014年大疆创新笔试题目</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/C和C++/C语言/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/05/C和C++/C语言/" itemprop="url">
+                  C语言部分知识点
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-05 17:06:32" itemprop="dateCreated datePublished" datetime="2018-07-05T17:06:32+08:00">2018-07-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-18 12:52:41" itemprop="dateModified" datetime="2018-09-18T12:52:41+08:00">2018-09-18</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/05/C和C++/C语言/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/05/C和C++/C语言/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>C语言中带负数的除法</strong></p>
+<p>做除法的时候，商是令其与除数相乘的积的绝对值不超过被除数的绝对值且最接近的那个数。</p>
+<p>(-10)/3==-3;<br>10/(-3)==-3;<br>(-10)/(-3)==3;</p>
+<p>(-10)%3==-1;<br>10%(-3)==1;<br>(-10)%(-3)==-1;</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/数据结构与算法/data-structure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WeetCheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/04/数据结构与算法/data-structure/" itemprop="url">
+                  大话数据结构
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-04 14:56:12 / 修改时间：15:36:19" itemprop="dateCreated datePublished" datetime="2018-07-04T14:56:12+08:00">2018-07-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/04/数据结构与算法/data-structure/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/04/数据结构与算法/data-structure/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3><span id="逻辑结构与物理结构">逻辑结构与物理结构</span></h3><p>逻辑结构：</p>
+<ul>
+<li>线性表</li>
+<li>树</li>
+<li>图</li>
+</ul>
+<p>物理结构：</p>
+<ul>
+<li>顺序存储</li>
+<li>链式存储</li>
+<li>索引存储</li>
+<li>散列存储</li>
+</ul>
+<h3><span id="线性表">线性表</span></h3><p>线性表的抽象数据结构</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化线性表</span></span><br><span class="line">InitList(*L);</span><br><span class="line"><span class="comment">// 判断线性表是否为空</span></span><br><span class="line">IsEmptyList(L);</span><br><span class="line"><span class="comment">// 获取线性表的长度</span></span><br><span class="line">ListLength(L);</span><br><span class="line"><span class="comment">// 删除线性表</span></span><br><span class="line">ClearList(*L);</span><br><span class="line"><span class="comment">// 线性表中插入元素</span></span><br><span class="line">ListInsert(*L, i ,e);</span><br><span class="line"><span class="comment">// 线性表中删除元素</span></span><br><span class="line">ListDelete(*L, i, *e);</span><br><span class="line"><span class="comment">// 获取指定位置的元素</span></span><br><span class="line">GetElement(L, i, *e);</span><br><span class="line"><span class="comment">// 获取某个元素所在的位置</span></span><br><span class="line">LocateElement(L, e);</span><br></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -2336,7 +2307,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2379,7 +2350,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2398,7 +2369,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2451,7 +2428,21 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2996,6 +2987,35 @@
   
 
   
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+
 
   
   
